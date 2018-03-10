@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -30,6 +30,8 @@ theorems-ams-extended
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics pdftex
 \default_output_format default
 \output_sync 0
@@ -59,6 +61,12 @@ theorems-ams-extended
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
+\branch childonly2
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -67,7 +75,10 @@ theorems-ams-extended
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -203,7 +214,8 @@ Sparse representations are being widely used in multimedia processing, such
  classification tasks to fight issues with over-training
 \begin_inset CommandInset citation
 LatexCommand cite
-key "nonparabayes"
+key "Zhou2009"
+literal "true"
 
 \end_inset
 
@@ -213,6 +225,7 @@ key "nonparabayes"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Olshausen1998"
+literal "true"
 
 \end_inset
 
@@ -235,6 +248,7 @@ This chapter mostly rewriten/copied from wikipedia...
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MairalONDL"
+literal "true"
 
 \end_inset
 
@@ -333,6 +347,7 @@ norm
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MairalONDL"
+literal "true"
 
 \end_inset
 
@@ -350,6 +365,7 @@ It is known that using
 \begin_inset CommandInset citation
 LatexCommand cite
 key "sparsesolsl1"
+literal "true"
 
 \end_inset
 
@@ -557,12 +573,12 @@ examples for both cases as well?
 \end_layout
 
 \begin_layout Section
-Methods of sparse coding
+Methods of dictionary learning
 \end_layout
 
 \begin_layout Standard
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 shrnutí ano, nic dlouhého (jako v článku)
@@ -573,8 +589,28 @@ shrnutí ano, nic dlouhého (jako v článku)
 
 \end_layout
 
+\begin_layout Standard
+Many different methods are being used in practice based on the details of
+ the problem they are applied to.
+ For instance, some methods are more useful when used in image reconstruction,
+ while others are a better fit for classification tasks or factor analysis.
+ A short summary with advantages and disadvantages, if available, follows.
+\end_layout
+
+\begin_layout Description
+K-SVD Is basically a generalization of K-means clustering
+\begin_inset CommandInset citation
+LatexCommand cite
+key "J.MacQueen1967"
+literal "false"
+
+\end_inset
+
+, the dictionary is being found by the nearest neighbors algorithm.
+\end_layout
+
 \begin_layout Enumerate
-ksvd
+K-SVD
 \end_layout
 
 \begin_layout Enumerate
@@ -587,6 +623,54 @@ stichastic gradient descend
 
 \begin_layout Enumerate
 lagrange dual method...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch childonly2
+inverted 0
+status collapsed
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nemazat - je to potřeba abych viděl citace v \SpecialChar LyX
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "library"
+options "bibtotoc,plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+printbibliography
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

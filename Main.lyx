@@ -73,6 +73,16 @@ theorems-ams-extended
 \filename_suffix 0
 \color #faf0e6
 \end_branch
+\branch childonly2
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch child3
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000

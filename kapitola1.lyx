@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -30,6 +30,8 @@ theorems-ams-extended
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics pdftex
 \default_output_format default
 \output_sync 0
@@ -68,6 +70,7 @@ theorems-ams-extended
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \branch childonly
 \selected 1
 \filename_suffix 0
@@ -81,7 +84,10 @@ theorems-ams-extended
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -107,6 +113,7 @@ In this chapter, I summarize basics and preliminaries of Bayesian interpretation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jaynes2003"
+literal "true"
 
 \end_inset
 
@@ -215,6 +222,7 @@ P(E_{1}\cup E_{2}\cup...)=P(E_{1})+P(E_{2})+...
 \begin_inset CommandInset citation
 LatexCommand cite
 key "interpretations"
+literal "true"
 
 \end_inset
 
@@ -223,6 +231,7 @@ key "interpretations"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dupre2004"
+literal "true"
 
 \end_inset
 
@@ -230,6 +239,7 @@ key "Dupre2004"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jaynes2003"
+literal "true"
 
 \end_inset
 
@@ -274,6 +284,7 @@ It's hard to fully appreciate and understand main concepts and advantages
 \begin_inset CommandInset citation
 LatexCommand cite
 key "frequency_prob"
+literal "true"
 
 \end_inset
 
@@ -300,6 +311,7 @@ degree of belief
 \begin_inset CommandInset citation
 LatexCommand cite
 key "coxfreq,finettitheory,E.T.Jaynes1986"
+literal "true"
 
 \end_inset
 
@@ -372,16 +384,20 @@ reference "eq:bayes-theorem"
 
 \end_inset
 
-, which is easily obtained from definition of conditional probability.
-\end_layout
-
-\begin_layout Theorem
+, which is easily obtained from definition of conditional probability 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stuart1994"
+literal "true"
 
 \end_inset
 
+.
+\end_layout
+
+\begin_layout Theorem
+
+\emph on
 Let P be a probability measure, 
 \begin_inset Formula $\Var A$
 \end_inset
@@ -396,6 +412,8 @@ Let P be a probability measure,
 
 .
  Then
+\emph default
+
 \begin_inset Formula 
 \begin{equation}
 \probcond pAB=\prob pA\cdot\frac{\probcond pBA}{\prob pB}\label{eq:bayes-theorem}
@@ -407,6 +425,8 @@ Let P be a probability measure,
 \end_layout
 
 \begin_layout Theorem
+
+\emph on
 where: 
 \end_layout
 
@@ -566,6 +586,7 @@ is done.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kroese2014,McCullagh2002a"
+literal "true"
 
 \end_inset
 
@@ -573,6 +594,7 @@ key "Kroese2014,McCullagh2002a"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop2013"
+literal "true"
 
 \end_inset
 
@@ -740,6 +762,7 @@ Process of inferring properties of the data underlying distribution is called
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Upton2008"
+literal "true"
 
 \end_inset
 
@@ -759,6 +782,7 @@ Unfortunately, for many real world scenarios, the approach of directly inferring
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
+literal "true"
 
 \end_inset
 
@@ -782,6 +806,7 @@ Using a breakdown from
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
+literal "true"
 
 \end_inset
 
@@ -792,6 +817,7 @@ key "Bishop:2006:PRM:1162264"
 LatexCommand cite
 after "(Chap.11)"
 key "Bishop:2006:PRM:1162264"
+literal "true"
 
 \end_inset
 
@@ -862,8 +888,8 @@ name "sec:Variational-inference"
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Exp}[1]{e^{#1}}
-{e^{#1}}
+\newcommand{\Exp}[1]{\exp\{#1\}}
+{\exp\{#1\}}
 \end_inset
 
 
@@ -873,23 +899,6 @@ name "sec:Variational-inference"
 \begin_inset FormulaMacro
 \newcommand{\E}[2][]{\text{\mathbb{E}}_{#1}[#2]}
 {\text{\mathbb{E}}_{#1}[#2]}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-
-\emph on
-This is going to be mostly copy of page 463 from Bishop
-\end_layout
-
 \end_inset
 
 
@@ -909,6 +918,7 @@ is used, excellently described in
 LatexCommand cite
 after "(p. 463)"
 key "Bishop2013"
+literal "true"
 
 \end_inset
 
@@ -916,6 +926,7 @@ key "Bishop2013"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blei2017"
+literal "true"
 
 \end_inset
 
@@ -1194,7 +1205,7 @@ Since
 \begin_inset Formula $\lueb q$
 \end_inset
 
- is equivalent to minimizing 
+ is possible and it is equivalent to minimizing 
 \begin_inset Formula $\kl qp$
 \end_inset
 
@@ -1257,6 +1268,7 @@ mean field theory
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Parisi.1988"
+literal "true"
 
 \end_inset
 
@@ -1294,7 +1306,7 @@ Notice that we do not require any specific form of
 \end_inset
 
 .
- Also, this family it is worth noting that this is 
+ Also, it is worth noting that this is 
 \emph on
 not
 \emph default
@@ -1311,7 +1323,7 @@ Coordinate ascent mean-field variational (
 \emph on
 CAVI
 \emph default
-) is a commonly used algorithms for solving optimization problem 
+) is a commonly used algorithm for solving optimization problem 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:optim"
@@ -1322,6 +1334,7 @@ reference "eq:optim"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blei2017"
+literal "true"
 
 \end_inset
 
@@ -1329,10 +1342,12 @@ key "Blei2017"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
+literal "true"
 
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1407,9 +1422,9 @@ Similarly,
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}
-\]
+\begin{equation}
+\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}\label{eq:ascent-update}
+\end{equation}
 
 \end_inset
 
@@ -1417,7 +1432,7 @@ Similarly,
 \end_layout
 
 \begin_layout Standard
-where in the last term, we utilize the fact that 
+where in the last term, we use the fact that 
 \begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
 \end_inset
 
@@ -1429,7 +1444,7 @@ Obtaining KL
 \end_layout
 
 \begin_layout Standard
-Let us now rewrite
+Let us now rewrite 
 \begin_inset Formula $\lueb q$
 \end_inset
 
@@ -1490,6 +1505,7 @@ reference "eq:negkl"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blei2017"
+literal "true"
 
 \end_inset
 
@@ -1497,6 +1513,12 @@ key "Blei2017"
 \end_layout
 
 \begin_layout Algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:CAVI"
+
+\end_inset
+
 CAVI
 \end_layout
 
@@ -1679,8 +1701,41 @@ return
 
 \end_layout
 
+\begin_layout Standard
+It is guaranteed that this algorithm converge to a local minimum.
+\end_layout
+
 \begin_layout Section
 Conjugate distributions
+\end_layout
+
+\begin_layout Standard
+Consecutive updates of 
+\begin_inset Formula $\prob{q_{i}}{Z_{i}}$
+\end_inset
+
+ in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:CAVI"
+
+\end_inset
+
+ can be hard to work with and even may not be in the same famGily distribution.
+ The updates can be significantly easier if 
+\emph on
+conjugate distributions
+\emph default
+ are used instead.
+ 
+\end_layout
+
+\begin_layout Standard
+The most common family of conjugated distributions is 
+\emph on
+exponential family
+\emph default
+, which can be defined as follows:
 \end_layout
 
 \begin_layout Standard
@@ -1688,7 +1743,29 @@ Conjugate distributions
 status collapsed
 
 \begin_layout Plain Layout
-I could use it without defining it in the example above and here just continue.
+Borrow this part from Mr Dedecius article page 3 - source code and cite
+ it.
+ There is informal definition right before Definition 2 and then consecutive
+ much more detailed definitions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+Combination of all of the above in a single example.
+ Ideally with nice visualization.
+ 
 \end_layout
 
 \end_inset
@@ -1697,43 +1774,11 @@ I could use it without defining it in the example above and here just continue.
 \end_layout
 
 \begin_layout Standard
-A partial solution of a computational infeasibility, at least for some problems,
- are 
-\series bold
-conjugate distributions
-\series default
-.
- Using these allow updates with very little complexity.
- If the posterior and prior distributions are in the same distribution family,
- then they are called conjugated distributions and the prior is then called
- a conjugate prior 
+Let us demonstrate the above with an example from 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "applied_dec"
-
-\end_inset
-
-
-\begin_inset Flex TODO Note (Margin)
-status open
-
-\begin_layout Plain Layout
-Formal definition? From where?
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Notable representant of such families is an exponential family
-\begin_inset Flex TODO Note (Margin)
-status open
-
-\begin_layout Plain Layout
-Definition and more info?
-\end_layout
+key "Bishop:2006:PRM:1162264"
+literal "true"
 
 \end_inset
 
@@ -1741,13 +1786,85 @@ Definition and more info?
  
 \end_layout
 
-\begin_layout Itemize
-a simple example (without derivation)
+\begin_layout Paragraph
+The model
+\end_layout
+
+\begin_layout Standard
+Consider the i.i.d dataset 
+\begin_inset Formula $\mathbf{X}=\{x_{1},\cdots,x_{N}\}$
+\end_inset
+
+ generated by (unknown) Gaussian distribution
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\mathcal{\Var X\sim N}(\mu,\tau^{-1})$
+\end_inset
+
+.
+ The goal is to infer posterior 
+\begin_inset Formula $\probcond p{\mu,\tau}X$
+\end_inset
+
+ and the joint probability is
+\begin_inset Formula 
+\[
+\prob p{X,\mu,\tau}=\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Factorized distribution
+\end_layout
+
+\begin_layout Standard
+Let us now approximate 
+\begin_inset Formula $\probcond p{\mu,\tau}X$
+\end_inset
+
+ by 
+\begin_inset Formula $\probjoint q{\mu}{\tau}$
+\end_inset
+
+ with the assumption that 
+\begin_inset Formula $q$
+\end_inset
+
+ factorizes: 
+\begin_inset Formula $\probjoint q{\mu}{\tau}=\prob q{\mu}\prob q{\tau}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Conjugated priors
+\end_layout
+
+\begin_layout Standard
+The complete data likelihood is Gaussian distribution and hence in exponential
+ family.
+ We set a non-informative conjugated priors for the 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau$
+\end_inset
+
+ as follows
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
-Again, having some charts here (with step-by-step update) would be nice
+Is it correct? Is it likelihood to which we set conjugated priors?
 \end_layout
 
 \end_inset
@@ -1755,29 +1872,201 @@ Again, having some charts here (with step-by-step update) would be nice
 
 \end_layout
 
-\begin_layout Itemize
-advantages
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mu & \sim\mathcal{N}(\mu_{0},(\lambda_{0}\tau)^{-1})\\
+\tau & \sim\text{Gamma}(a_{0},b_{0})
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-variational message passing (<- 
+\begin_layout Standard
+where the hyperparameters 
+\begin_inset Formula $\mu_{0},\lambda_{0},a_{0},b_{0}$
+\end_inset
+
+ are initially set to some small positive number.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Form of 
+\begin_inset Formula $\prob q{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $\prob q{\tau}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is usually the hardest part of variational inference.
+ The derivation of the following terms is according to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ascent-update"
+
+\end_inset
+
+ and in detail can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop:2006:PRM:1162264"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The derivations yields following for 
+\begin_inset Formula $\prob{q_{\mu}^{*}}{\mu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\prob{q_{\mu}^{*}}{\mu} & \sim\mathcal{N}(\mu\mid\mu_{N},\lambda_{N}^{-1})\\
+\mu_{N}= & \frac{\lambda_{0}\mu_{0}+N\bar{x}}{\lambda_{0}+N}\\
+\lambda_{N} & =(\lambda_{0}+N)\E[\tau]{\tau}=(\lambda_{0}+N)\frac{a_{N}}{b_{N}}\\
+\bar{x}= & \frac{1}{N}\sum_{n=1}^{N}x_{n}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and for 
+\begin_inset Formula $\prob{q_{\tau}^{*}}{\tau}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\prob{q_{\tau}^{*}}{\tau} & \sim\text{Gamma(\tau\mid a_{N},b_{N})}\\
+a_{N} & =a_{0}+\frac{N+1}{2}\\
+b_{N} & =b_{0}+\frac{1}{2}\E[\mu]{\sum_{n=1}^{N}(x_{n}-\mu)^{2}+\lambda_{0}(\mu-\mu_{0})^{2}}=\\
+ & =b_{0}+\frac{1}{2}\left[(\lambda_{0}+N)\left(\lambda_{N}^{-1}+\mu_{N}^{2}\right)-2\left(\lambda_{0}\mu_{0}+\sum_{n=1}^{N}x_{n}\right)\mu_{N}+\left(\sum_{n=1}^{N}x_{n}^{2}\right)+\lambda_{0}\mu_{0}^{2}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Perform updates based on CAVI
+\end_layout
+
+\begin_layout Standard
+Initially, compute 
+\begin_inset Formula $N,\sum_{n=1}^{N}x_{n},\sum_{n=1}^{N}x_{n}^{2}$
+\end_inset
+
+ and set 
+\begin_inset Formula $\lambda_{N,t}$
+\end_inset
+
+ to some random value.
+ Then iterate these steps until convergence:
+\end_layout
+
+\begin_layout Enumerate
+plug in 
+\begin_inset Formula $\lambda_{N,t}$
+\end_inset
+
+ to obtain 
+\begin_inset Formula $b_{N,t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+compute new 
+\begin_inset Formula $\lambda_{N,t+1}$
+\end_inset
+
+ based on 
+\begin_inset Formula $b_{N,t}$
+\end_inset
+
+ and all other terms needed
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+Is it correct that 
+\begin_inset Formula $a_{N},\mu_{N}$
+\end_inset
+
+ doesn't update? The 
 \begin_inset Quotes eld
 \end_inset
 
-přičítání
+N
 \begin_inset Quotes erd
 \end_inset
 
-)
+ suffix here seems to be quite redundant.
 \end_layout
 
-\begin_layout Itemize
-joining all previous three chapters together - simple example with sigma
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Results 
+\end_layout
+
+\begin_layout Standard
+After 
+\begin_inset Formula $m$
+\end_inset
+
+ iterations, we are now having new values of all parameters including hyperparam
+eters.
+ Hence we are able to approximate the posterior distribution.
+ The joint probability is
+\begin_inset Formula 
+\begin{align*}
+\prob p{X,\mu,\tau} & =\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}=\\
+= & \prod_{n=1}^{N}\mathcal{N}(\vec{x_{n}}|\mu_{N},\tau_{N}^{-1})\mathcal{N}(\mu_{N},(\lambda_{N}\tau_{N})^{-1})\text{Gamma}(a_{N},b_{N})
+\end{align*}
+
+\end_inset
+
+
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
-Would be nice to add some charts and graphs
+Is it correct, or should it be 
+\begin_inset Formula $\mathcal{N}(X|\mu_{N},\tau_{N}^{-1})\cdot\mathcal{N}(\mu_{0},(\lambda_{0}\tau_{N})^{-1})\cdot\text{Gamma}(a_{0},b_{0})$
+\end_inset
+
+.
+ How the hell I get the posterior!?
 \end_layout
 
 \end_inset
@@ -1787,6 +2076,7 @@ Would be nice to add some charts and graphs
 
 \begin_layout Standard
 \begin_inset Branch childonly
+inverted 0
 status collapsed
 
 \begin_layout Standard

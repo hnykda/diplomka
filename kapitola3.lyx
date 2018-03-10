@@ -59,6 +59,11 @@ theorems-ams-extended
 \suppress_date false
 \justification true
 \use_refstyle 0
+\branch child3
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -103,6 +108,16 @@ what are advantages/disadvantages
 
 \begin_layout Itemize
 how it is done
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thibaux2007"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -190,6 +205,53 @@ idea: implement some of these inside scikit learn? There is nice dirichlet:
 
 \begin_layout Enumerate
 Dirichlet (https://www.slideshare.net/AlessandroPanella1/nonparametric-bayes)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch child3
+status open
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nemazat - je to potřeba abych viděl citace v \SpecialChar LyX
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "library"
+options "bibtotoc,plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+printbibliography
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
