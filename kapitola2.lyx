@@ -98,32 +98,6 @@ Sparse dictionary learning
 \begin_layout Standard
 This chapter serves as a preliminary introduction to sparse dictionary learning.
  
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Should this be a 
-\begin_inset Quotes eld
-\end_inset
-
-Sparce DL
-\begin_inset Quotes erd
-\end_inset
-
- or just 
-\begin_inset Quotes eld
-\end_inset
-
-Dictionary learning
-\begin_inset Quotes erd
-\end_inset
-
-? 
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -131,30 +105,6 @@ Introduction
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Introduction"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Surprisingly little literature on this topic (even less in Czech).
- Something is under 
-\begin_inset Quotes eld
-\end_inset
-
-Řídká reprezentace signálu
-\begin_inset Quotes erd
-\end_inset
-
- and almost always related to images (this is the case for English literature
- as well though).
- 
-\end_layout
 
 \end_inset
 
@@ -240,7 +190,7 @@ The problem
 Sparse dictionary learning can be also interpreted as the following optimization
  problem:
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 This chapter mostly rewriten/copied from wikipedia...
@@ -424,29 +374,12 @@ overcomplete
 \begin_inset Formula $n>d$
 \end_inset
 
- dictionary
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Case where 
+ dictionary.
+ Case where 
 \begin_inset Formula $d=n$
 \end_inset
 
- is not 
-\begin_inset Quotes eld
-\end_inset
-
-special
-\begin_inset Quotes erd
-\end_inset
-
- in any notable way for us.
-\end_layout
-
-\end_inset
-
-.
+ is not special in any notable way for us.
  
 \end_layout
 
@@ -464,21 +397,38 @@ Using fewer components than is the dimension of the original input data
 \begin_inset Formula $d\le n$
 \end_inset
 
-).
- Data is linearly mapped to lower dimension in a way that the variance of
- the data is maximized.
- Another examples are Kernel PCA (which is an non-linear extension of PCA),
- linear discriminant analysis and others.
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-should I cite here and refer the reader somewhere?
-\end_layout
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jolliffe2002"
+literal "false"
 
 \end_inset
 
+.
+ Data is linearly mapped to lower dimension in a way that the variance of
+ the data is maximized.
+ An example can be seen on figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pca-example"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
+ Another examples are Kernel PCA (which is an non-linear extension of PCA)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hoffmann2007"
+literal "false"
+
+\end_inset
+
+, linear discriminant analysis and others.
 \end_layout
 
 \begin_layout Standard
@@ -490,11 +440,52 @@ The disadvantages are obvious – by representing data in the subspace, one
  Some heuristics exists, but they are more rule-of-thumb rather then rigorous
  approach.
  
-\begin_inset Flex TODO Note (inline)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
-what about an example of PCA? again nice chart
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/dan/edu/uni/diplomka/nbs/pca-example.pdf
+	width 60page%
+	height 60page%
+	keepAspectRatio
+	groupId 60ts
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pca-example"
+
+\end_inset
+
+An example of applying PCA on a Boston house prices dataset and visualizing
+ an amount of explained variance ratio per component.
+ It can be seen, that in 
+\series bold
+a matter of the explained variance only
+\series default
+, one can get majority of the information just from the first 4 components.
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -524,27 +515,18 @@ Contrary to undercomplete dictionaries, overcomplete ones cannot be orthogonal
 \end_inset
 
  on a corresponding position, but we can imagine that this is representation
- does not bring us any advantages in real usage
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-We just added one more useless step – a lookup in a dictionary – before
- we want to do anything with data
-\end_layout
-
-\end_inset
-
-.
+ does not bring us any advantages in real usage.
+ We just added one more useless step, a lookup in a dictionary, before being
+ able to do anything with a data.
  
 \end_layout
 
 \begin_layout Standard
 Overcomplete dictionaries are usually the ones assumed when talking about
- sparse dictionary and it is a case of this work as well.
- Methods which are being used for this purpose is for example Fourier transform
+ sparse dictionaries and it is the case of this work as well.
+ A notable example of a widely used method is a Fourier transform
 \begin_inset Flex TODO Note (Margin)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Right? Theoretically infinite.
@@ -554,35 +536,28 @@ Right? Theoretically infinite.
 
 , respective its variant to obtain sparse solutions.
  A distinction must be made though, because Fourier transform is an example
- of method where one has a predefined dictionary, which is not the case
- of methods this work is mostly concerned with.
-\end_layout
-
-\begin_layout Itemize
-simple example? 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-examples for both cases as well?
-\end_layout
+ of an algorithm where one has a predefined dictionary.
+ That is not the case of dictionary learning, where the dictionary is being
+ constructed in an unsupervised fashion.
+ A brief description of these methods follows in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Methods-of-sparse"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
+.
+ 
 \end_layout
 
 \begin_layout Section
-Methods of dictionary learning
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-shrnutí ano, nic dlouhého (jako v článku)
-\end_layout
+Methods of sparse dictionary learning
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methods-of-sparse"
 
 \end_inset
 
@@ -595,34 +570,161 @@ Many different methods are being used in practice based on the details of
  For instance, some methods are more useful when used in image reconstruction,
  while others are a better fit for classification tasks or factor analysis.
  A short summary with advantages and disadvantages, if available, follows.
+ We refer the reader to a appropriate literature for a more detailed explanation.
+ 
 \end_layout
 
 \begin_layout Description
-K-SVD Is basically a generalization of K-means clustering
+Method
+\begin_inset space ~
+\end_inset
+
+of
+\begin_inset space ~
+\end_inset
+
+optimal
+\begin_inset space ~
+\end_inset
+
+directions
+\begin_inset space ~
+\end_inset
+
+(MOD) One of the first methods developed for dictionary learning 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "J.MacQueen1967"
+key "Engan1999"
 literal "false"
 
 \end_inset
 
-, the dictionary is being found by the nearest neighbors algorithm.
+.
+ It tries to solve the problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sparce-repre"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with a specific number of non-zero elements of the representation vector.
+ The computation requires computing Moore-Penrose pseudoinverse matrix,
+ which makes the method intractable for higher dimensions of the data.
+ Nevertheless, it does prove useful when considering low-dimensional data.
 \end_layout
 
-\begin_layout Enumerate
-K-SVD
+\begin_layout Description
+K-SVD Is basically a generalization of K-means clustering 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MacQueen1967"
+literal "false"
+
+\end_inset
+
+, the dictionary is created by the nearest neighbors algorithm.
+ First, the current dictionary is fixed, then the best sparse coding is
+ found and then the atoms are updated one by one.
+ Since choosing the dictionary is a non-convex problem and updates are iterative
+, it is not guaranteed that a global minimum is found.
+ Additionally, same as MOD, it does not scale very well in respect to the
+ dimensionality of a data.
+ This algorithm is considered to be a standard in dictionary learning.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aharon2006"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Enumerate
-mod
+\begin_layout Description
+Stochastic
+\begin_inset space ~
+\end_inset
+
+Gradient
+\begin_inset space ~
+\end_inset
+
+Descent This widely used algorithm in many areas of optimization theory
+ can be as well used for a dictionary learning problems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aharon2003"
+literal "false"
+
+\end_inset
+
+.
+ The dictionary is updated based on the first order stochastic gradient
+ descent and projected on a constraint set.
+ Similarly to K-SVD, there is no guarantee of reaching global minimum.
+ 
 \end_layout
 
-\begin_layout Enumerate
-stichastic gradient descend
+\begin_layout Description
+Lagrangian
+\begin_inset space ~
+\end_inset
+
+Dual
+\begin_inset space ~
+\end_inset
+
+Method The core of this method lies in solving a dual Lagrangian problem.
+ Instead of solving the primal problem, one constructs a dual Lagrangian
+ and minimize that by different minimization methods to get values of the
+ dual.
+ This is much easier, since the amount of dual variables is much smaller
+ than in the primal problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lee"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Enumerate
-lagrange dual method...
+\begin_layout Description
+LARS-Lasso Similarly to the previous methods, LARS-Lasso based algorithms
+ are not specific for dictionary learning problems, but can be used to solve
+ the problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sparce-repre"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ There are multiple proposed algorithms based on these methods such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liu2013"
+literal "false"
+
+\end_inset
+
+ or an efficient online dictionary learning algorithm described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mairal"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
