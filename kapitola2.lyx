@@ -124,17 +124,99 @@ literal "false"
 \end_inset
 
 .
- The filter is defined by a set of equations and allows for efficient online
- computation without having to know the whole history of data and it is
- the optimal linear filter (under several conditions described below).
-\end_layout
+ The filter is defined by a set of relatively simple equations and allows
+ for efficient online computation without having to know the whole history
+ of data and it is the optimal linear filter (under several conditions described
+ below).
+ It is one of the solution to one of the most fundamental problems in control
+ theory, the linear quadratic Gaussian control problem.
+ Over the years, numerous variants and extensions have been derived from
+ the original Kalman filter and this thesis is concerned with one such method.
+ See 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Methods"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Section
-Applications
+\end_inset
+
+ for a brief overview of used methods.
 \end_layout
 
 \begin_layout Standard
-K
+Kalman filter has been thoroughly studied over the years and also adopted
+ by multiple industries, having a vast amount of applications wherever an
+ estimation of the state of process is needed and noise in prediction or
+ observation is present.
+ Because of its nature, it is commonly used in navigation and control of
+ robots and vehicles
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lin1997"
+literal "false"
+
+\end_inset
+
+, including spacecrafts
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gaylor2003"
+literal "false"
+
+\end_inset
+
+.
+ It can be applied in time series analysis and hence is used in fields such
+ as econometrics
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pasricha2006"
+literal "false"
+
+\end_inset
+
+ and economics
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Strid2009"
+literal "false"
+
+\end_inset
+
+ or signal processing
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gannot2012"
+literal "false"
+
+\end_inset
+
+.
+ Various applications can be found in a medicine, such as neuroscience
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wolpert2000"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+If needed, I could add information about the application - where is that
+ predict-update part in each of them.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -142,7 +224,69 @@ Description
 \end_layout
 
 \begin_layout Standard
-high level definition
+Kalman filter is used to estimate the current state of a linear dynamic
+ system in case of noisy measurements.
+ The state can be described by various variables, such as position and velocity.
+ To use a Kalman Filter, one needs to specify system's:
+\end_layout
+
+\begin_layout Enumerate
+control inputs, if any, such as sending a signal to steer a wheel
+\end_layout
+
+\begin_layout Enumerate
+dynamic model, such as physical laws of motion
+\end_layout
+
+\begin_layout Enumerate
+measurements, such as readings from sensors
+\end_layout
+
+\begin_layout Standard
+The filter is useful in situations when dynamic model nor measurements cannot
+ be entirely trusted (otherwise it one would not need to use it at all).
+ It combines the information and while allowing for some noise – uncertainty
+ – during prediction and measurements.
+ The both pieces of information are weighted by so called Kalman's gain
+ and depending on its value favors prediction over measurements and vice
+ versa.
+ The whole process is performed recursively, remembering the last estimate
+ and covariance and hence does not need an entire history, which makes it
+ attractive where memory is expensive.
+ As a result a less noisy (hence a filter) and if used appropriately, better
+ estimates are generated in each step, lying in between measurements and
+ prediction.
+\end_layout
+
+\begin_layout Standard
+Observable parameters coming from measurements does not have to be necessarily
+ complete in a sense of describing the system in its entirety.
+ It is a common case in which one observes only a subset of state variables
+ and the filter can still estimate the entire state.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+obrázek: 
+\end_layout
+
+\begin_layout Plain Layout
+https://medium.com/@mithi/object-tracking-and-fusing-sensor-measurements-using-th
+e-extended-kalman-filter-algorithm-part-1-f2158ef1e4f0
+\end_layout
+
+\begin_layout Plain Layout
+https://www.google.cz/search?q=kalman+filter&safe=off&source=lnms&tbm=isch&sa=X&ve
+d=0ahUKEwi77azQxJfaAhUEKVAKHY5lAjAQ_AUICigB&biw=1742&bih=881#imgrc=YDuNrJiR_PmI_
+M:
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -153,12 +297,46 @@ Definition
 mathematical definition, updates, equations
 \end_layout
 
+\begin_layout Section
+Optimality
+\end_layout
+
 \begin_layout Standard
-few words about various extensions
+The Kalman filter is the optimal filter if and only if the following conditions
+ are fulfilled, which is rarely a case:
+\end_layout
+
+\begin_layout Enumerate
+the model is exactly reflecting the reality
+\end_layout
+
+\begin_layout Enumerate
+the noise is white
+\end_layout
+
+\begin_layout Enumerate
+the covariances of the noise are exactly known
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+why it's the problem, hence the next section -> 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Noise analysis
+\end_layout
+
+\begin_layout Standard
+Estimation of them
 \end_layout
 
 \begin_layout Standard
@@ -167,6 +345,13 @@ What is their purpose and what problems we have with them
 
 \begin_layout Section
 Methods
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methods"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
