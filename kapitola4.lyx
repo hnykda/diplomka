@@ -67,6 +67,11 @@ theorems-ams-extended
 \filename_suffix 0
 \color #faf0e6
 \end_branch
+\branch child4
+\selected 0
+\filename_suffix 0
+\color #002b36
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -92,61 +97,34 @@ theorems-ams-extended
 \begin_body
 
 \begin_layout Chapter
-Distributed Variational Bayes Adaptive Kalman Filtration
+Results
 \end_layout
 
 \begin_layout Section
-Problem formulation
+Implementation
+\end_layout
+
+\begin_layout Standard
+Description of implementation, used libraries, if presentable, then some
+ flow
 \end_layout
 
 \begin_layout Section
-Bayesian model
-\end_layout
-
-\begin_layout Subsection
-Choosing prior distribution
+Results
 \end_layout
 
 \begin_layout Standard
-IW et cetera...
-\end_layout
-
-\begin_layout Subsection
-Graphical model
+charts of comparisons, execution time, ...
 \end_layout
 
 \begin_layout Standard
-writing the equation for full posterior, picture of graphical model
-\end_layout
-
-\begin_layout Section
-Deriving update equations
-\end_layout
-
-\begin_layout Standard
-exponential family variant, writing the updates of hyperparameters
-\end_layout
-
-\begin_layout Section
-VBAKF algorithm
-\end_layout
-
-\begin_layout Section
-Distributed VBAKF algorithm
-\end_layout
-
-\begin_layout Standard
-our novel extension
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch child3
+\begin_inset Branch child4
 inverted 0
-status open
+status collapsed
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Nemazat - je to potřeba abych viděl citace v \SpecialChar LyX

@@ -1,0 +1,34 @@
+%% Make the multiline figure/table captions indent so that the second
+%% line "hangs" right below the first one.
+\usepackage[format=hang]{caption}
+
+%% Indent even the first paragraph in each section
+\usepackage{indentfirst}
+
+% completely avoid orphans (first lines of a new paragraph on the bottom of a page)
+\clubpenalty=9500
+
+% completely avoid widows (last lines of paragraph on a new page)
+\widowpenalty=9500
+
+% disable hyphenation of acronyms
+\hyphenation{CDFA HARDI HiPPIES IKEM InterTrack MEGIDDO MIMD MPFA DICOM ASCLEPIOS MedInria}
+
+%%---------------------------------------------------------------------
+
+%% Print out all vectors in bold type instead of printing an arrow above them
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\usepackage[sorting=none,style=numeric,backend=biber]{biblatex}
+\addbibresource{library.bib}
+\usepackage{csvsimple}
+\setcounter{tocdepth}{1}
+%\usepackage[pdftex,a4paper]{geometry}
+%\usepackage{placeins} % put this in your pre-amble
+\usepackage{datetime}
+
+%for todonotes
+%\usepackage{todonotes}
+%\setlength{\marginparwidth}{2.5cm}
+%\reversemarginpar
+

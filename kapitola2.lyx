@@ -92,16 +92,11 @@ theorems-ams-extended
 \begin_body
 
 \begin_layout Chapter
-Sparse dictionary learning
-\end_layout
-
-\begin_layout Standard
-This chapter serves as a preliminary introduction to sparse dictionary learning.
- 
+Kalman filter
 \end_layout
 
 \begin_layout Section
-Introduction
+Introduction and history
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Introduction"
@@ -112,619 +107,74 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Standard
-In many real world mathematical challenges, one wish to choose the best
- data representation which fits best to the problem.
- Sparse dictionary learning is a method, or rather, a family of methods
- and algorithms to find a specific kind of representation.
- As can be derived from the name, this representation is based on some 
+Kalman filter is widely used adaptive filtering method firstly described
+ in 
 \emph on
-dictionary
+A New Approach to Linear Filtering and Prediction Problems
 \emph default
-, whose elements (called 
-\emph on
-atoms
-\emph default
-) are used to compose the original data and the representation is supposed
- to be 
-\emph on
-sparse
-\emph default
-, which usually means having as few non-zero elements as possible (or at
- least 
-\emph on
-close enough
-\emph default
- to zero).
- Various definitions depending on the current task are possible of course.
-\end_layout
-
-\begin_layout Standard
-Sparse representations had been historically mostly used in signal processing
- where one wants to find a such representation with as few components as
- possible.
- Dictionaries were in these cases selected manually before observing the
- data (e.g.
- Fourier transforms).
- Contrary to that, dictionary 
-\emph on
-learning
-\emph default
- generates this dictionary based on the data, potentially leading to even
- more efficient representation tied closely to the data structure.
- 
-\end_layout
-
-\begin_layout Standard
-Sparse representations are being widely used in multimedia processing, such
- as denoising and classifying images or compression.
- Having an ability to store one external dictionary and then possibly represent
- every data point just by few coefficients can also dramatically reduce
- memory or storage usage in cases when this is a concern.
- Sparse representations also favor simple models, a useful property in e.g.
- classification tasks to fight issues with over-training
+ by R.E.
+ Kalman in 1960.
+ The filter is a recursive solution to the discrete-data linear filtering
+ problem 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Zhou2009"
-literal "true"
+key "Welch2006"
+literal "false"
 
 \end_inset
 
 .
- The sparse coefficients may also posses a physical meaning in case on is
- interested in model interpretation
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olshausen1998"
-literal "true"
-
-\end_inset
-
-.
+ The filter is defined by a set of equations and allows for efficient online
+ computation without having to know the whole history of data and it is
+ the optimal linear filter (under several conditions described below).
 \end_layout
 
 \begin_layout Section
-The problem
+Applications
 \end_layout
 
 \begin_layout Standard
-Sparse dictionary learning can be also interpreted as the following optimization
- problem:
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-This chapter mostly rewriten/copied from wikipedia...
- :-( But there is maybe a better variant in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MairalONDL"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-\begin_inset CommandInset label
-LatexCommand label
-name "prob:sparce-repre"
-
-\end_inset
-
-
-\begin_inset Formula $X=[x_{1},...,x_{K}],x_{i}\in\mathbb{R}^{d}$
-\end_inset
-
-, we want to find 
-\begin_inset Formula $\mathbf{D}\in\mathbb{R}^{d\times n}:D=[d_{1},...,d_{n}]$
-\end_inset
-
- and a representation 
-\begin_inset Formula $R=[r_{1},...,r_{K}],r_{i}\in\mathbb{R}^{n}$
-\end_inset
-
- such that both 
-\begin_inset Formula $\|X-\mathbf{D}R\|_{F}^{2}$
-\end_inset
-
- is minimized and the representations 
-\begin_inset Formula $r_{i}$
-\end_inset
-
- are sparse enough:
-\end_layout
-
-\begin_layout Problem
-\begin_inset Formula 
-\[
-\ensuremath{\underset{\mathbf{D}\in\mathcal{C},r_{i}\in\mathbb{R}^{n}}{\text{argmin}}\sum_{i=1}^{K}\|x_{i}-\mathbf{D}r_{i}\|_{2}^{2}+\lambda\|r_{i}\|_{0}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-where 
-\begin_inset Formula $\mathcal{C}\equiv\{\mathbb{D}\in\mathbb{R}^{d\times n}:\|d_{i}\|_{2}\leq1\forall i=1,...,n\}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Problem
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- is required to constrain 
-\begin_inset Formula $\mathbf{D}$
-\end_inset
-
- so that its atoms would not reach arbitrarily high values allowing for
- arbitrarily low (but non-zero) values of 
-\begin_inset Formula $r_{i}$
-\end_inset
-
-.
- Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:sparce-repre"
-
-\end_inset
-
- stated as above is unfortunately not convex (because of 
-\begin_inset Formula $p=0$
-\end_inset
-
- 
-\begin_inset Quotes eld
-\end_inset
-
-norm
-\begin_inset Quotes erd
-\end_inset
-
-) and solving this is NP-hard
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MairalONDL"
-literal "true"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Problem
-It is known that using 
-\begin_inset Formula $L^{1}$
-\end_inset
-
--norm can also lead to sparse solutions converting this problem to convex
- optimization
-\begin_inset CommandInset citation
-LatexCommand cite
-key "sparsesolsl1"
-literal "true"
-
-\end_inset
-
-.
- But that can be done only with respect to either 
-\begin_inset Formula $\mathbf{D}$
-\end_inset
-
- or 
-\begin_inset Formula $\mathbf{R}$
-\end_inset
-
- while the other one is fixed.
- 
+K
 \end_layout
 
 \begin_layout Section
-Sparse dictionaries
+Description
 \end_layout
 
 \begin_layout Standard
-As has been mentioned in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Introduction"
-
-\end_inset
-
-, sparse dictionary 
-\begin_inset Formula $\mathbf{D}$
-\end_inset
-
- described in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:sparce-repre"
-
-\end_inset
-
- can have various forms depending on the final goal because of which is
- the dictionary being created.
- Probably the top level difference is if one is searching for so called
- 
-\emph on
-undercomplete 
-\emph default
-– where 
-\begin_inset Formula $n<d$
-\end_inset
-
-, or 
-\emph on
-overcomplete
-\emph default
- 
-\begin_inset Formula $n>d$
-\end_inset
-
- dictionary.
- Case where 
-\begin_inset Formula $d=n$
-\end_inset
-
- is not special in any notable way for us.
- 
-\end_layout
-
-\begin_layout Subsection*
-Undercomplete dictionaries
-\end_layout
-
-\begin_layout Standard
-Using fewer components than is the dimension of the original input data
- is basically a dimensionality reduction problem and there have been numerous
- techniques developed over the years.
- Probably the most famous one is Principal component analysis (PCA), which
- poses additional requirement on dictionary atoms and that is their mutual
- orthogonality (which is possible, since 
-\begin_inset Formula $d\le n$
-\end_inset
-
-) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Jolliffe2002"
-literal "false"
-
-\end_inset
-
-.
- Data is linearly mapped to lower dimension in a way that the variance of
- the data is maximized.
- An example can be seen on figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:pca-example"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Another examples are Kernel PCA (which is an non-linear extension of PCA)
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Hoffmann2007"
-literal "false"
-
-\end_inset
-
-, linear discriminant analysis and others.
-\end_layout
-
-\begin_layout Standard
-The disadvantages are obvious – by representing data in the subspace, one
- can (and usually does) loose too much of information.
- In PCA, the choice of number of components is quite hard without being
- able to measure how much information is going to be lost while using less
- and less of them.
- Some heuristics exists, but they are more rule-of-thumb rather then rigorous
- approach.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/dan/edu/uni/diplomka/nbs/pca-example.pdf
-	width 60page%
-	height 60page%
-	keepAspectRatio
-	groupId 60ts
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:pca-example"
-
-\end_inset
-
-An example of applying PCA on a Boston house prices dataset and visualizing
- an amount of explained variance ratio per component.
- It can be seen, that in 
-\series bold
-a matter of the explained variance only
-\series default
-, one can get majority of the information just from the first 4 components.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection*
-Overcomplete dictionaries
-\end_layout
-
-\begin_layout Standard
-Contrary to undercomplete dictionaries, overcomplete ones cannot be orthogonal
- by definition, since 
-\begin_inset Formula $d>n$
-\end_inset
-
-.
- Because of this fact, overcomplete dictionary is more flexible and hence
- is able to better adapt to the data allowing to capture more subtle details.
- The trade off here is the size of the dictionary.
- One can imagine an extreme case in which he would create a dictionary from
- the all input data.
- This representation would surely allow extremely sparse representation
- of any input vector, using only a single non-zero coefficient:
-\begin_inset Formula $1$
-\end_inset
-
- on a corresponding position, but we can imagine that this is representation
- does not bring us any advantages in real usage.
- We just added one more useless step, a lookup in a dictionary, before being
- able to do anything with a data.
- 
-\end_layout
-
-\begin_layout Standard
-Overcomplete dictionaries are usually the ones assumed when talking about
- sparse dictionaries and it is the case of this work as well.
- A notable example of a widely used method is a Fourier transform
-\begin_inset Flex TODO Note (Margin)
-status collapsed
-
-\begin_layout Plain Layout
-Right? Theoretically infinite.
-\end_layout
-
-\end_inset
-
-, respective its variant to obtain sparse solutions.
- A distinction must be made though, because Fourier transform is an example
- of an algorithm where one has a predefined dictionary.
- That is not the case of dictionary learning, where the dictionary is being
- constructed in an unsupervised fashion.
- A brief description of these methods follows in chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Methods-of-sparse"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- 
+high level definition
 \end_layout
 
 \begin_layout Section
-Methods of sparse dictionary learning
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Methods-of-sparse"
-
-\end_inset
-
-
+Definition
 \end_layout
 
 \begin_layout Standard
-Many different methods are being used in practice based on the details of
- the problem they are applied to.
- For instance, some methods are more useful when used in image reconstruction,
- while others are a better fit for classification tasks or factor analysis.
- A short summary with advantages and disadvantages, if available, follows.
- We refer the reader to a appropriate literature for a more detailed explanation.
- 
+mathematical definition, updates, equations
 \end_layout
 
-\begin_layout Description
-Method
-\begin_inset space ~
-\end_inset
-
-of
-\begin_inset space ~
-\end_inset
-
-optimal
-\begin_inset space ~
-\end_inset
-
-directions
-\begin_inset space ~
-\end_inset
-
-(MOD) One of the first methods developed for dictionary learning 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Engan1999"
-literal "false"
-
-\end_inset
-
-.
- It tries to solve the problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:sparce-repre"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- with a specific number of non-zero elements of the representation vector.
- The computation requires computing Moore-Penrose pseudoinverse matrix,
- which makes the method intractable for higher dimensions of the data.
- Nevertheless, it does prove useful when considering low-dimensional data.
+\begin_layout Standard
+few words about various extensions
 \end_layout
 
-\begin_layout Description
-K-SVD Is basically a generalization of K-means clustering 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MacQueen1967"
-literal "false"
-
-\end_inset
-
-, the dictionary is created by the nearest neighbors algorithm.
- First, the current dictionary is fixed, then the best sparse coding is
- found and then the atoms are updated one by one.
- Since choosing the dictionary is a non-convex problem and updates are iterative
-, it is not guaranteed that a global minimum is found.
- Additionally, same as MOD, it does not scale very well in respect to the
- dimensionality of a data.
- This algorithm is considered to be a standard in dictionary learning.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Aharon2006"
-literal "false"
-
-\end_inset
-
-
+\begin_layout Section
+Noise analysis
 \end_layout
 
-\begin_layout Description
-Stochastic
-\begin_inset space ~
-\end_inset
-
-Gradient
-\begin_inset space ~
-\end_inset
-
-Descent This widely used algorithm in many areas of optimization theory
- can be as well used for a dictionary learning problems 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Aharon2003"
-literal "false"
-
-\end_inset
-
-.
- The dictionary is updated based on the first order stochastic gradient
- descent and projected on a constraint set.
- Similarly to K-SVD, there is no guarantee of reaching global minimum.
- 
+\begin_layout Standard
+What is their purpose and what problems we have with them
 \end_layout
 
-\begin_layout Description
-Lagrangian
-\begin_inset space ~
-\end_inset
-
-Dual
-\begin_inset space ~
-\end_inset
-
-Method The core of this method lies in solving a dual Lagrangian problem.
- Instead of solving the primal problem, one constructs a dual Lagrangian
- and minimize that by different minimization methods to get values of the
- dual.
- This is much easier, since the amount of dual variables is much smaller
- than in the primal problem 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Lee"
-literal "false"
-
-\end_inset
-
-.
+\begin_layout Section
+Methods
 \end_layout
 
-\begin_layout Description
-LARS-Lasso Similarly to the previous methods, LARS-Lasso based algorithms
- are not specific for dictionary learning problems, but can be used to solve
- the problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:sparce-repre"
-plural "false"
-caps "false"
-noprefix "false"
+\begin_layout Standard
+Survey of currently used methods to deal with unknown noise
+\end_layout
 
-\end_inset
-
-.
- There are multiple proposed algorithms based on these methods such as 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Liu2013"
-literal "false"
-
-\end_inset
-
- or an efficient online dictionary learning algorithm described in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Mairal"
-literal "false"
-
-\end_inset
-
-.
+\begin_layout Section
+Distributed methods
 \end_layout
 
 \begin_layout Standard

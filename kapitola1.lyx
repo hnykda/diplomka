@@ -477,7 +477,7 @@ Suppose that
 \begin_inset Formula $\Var B$
 \end_inset
 
- is an evidence for this hypthesis.
+ is an evidence for this hypothesis.
  
 \begin_inset Formula $\prob pA$
 \end_inset
@@ -564,6 +564,37 @@ A factor
 \end_inset
 
 .
+ 
+\end_layout
+
+\begin_layout Section
+Conjugate distributions and exponential family
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Borrow this part from Mr Dedecius article page 3 - source code and cite
+ it.
+ There is informal definition right before Definition 2 and then consecutive
+ much more detailed definitions.
+ Also use rationale from before definition 2.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The updates can be significantly easier if 
+\emph on
+conjugate distributions
+\emph default
+ are used instead.
  
 \end_layout
 
@@ -686,7 +717,7 @@ Parametric models
 \begin_inset Formula $M$
 \end_inset
 
- is parametrized by some parameter 
+ is parameterized by some parameter 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -1703,55 +1734,6 @@ return
 
 \begin_layout Standard
 It is guaranteed that this algorithm converge to a local minimum.
-\end_layout
-
-\begin_layout Section
-Conjugate distributions
-\end_layout
-
-\begin_layout Standard
-Consecutive updates of 
-\begin_inset Formula $\prob{q_{i}}{Z_{i}}$
-\end_inset
-
- in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:CAVI"
-
-\end_inset
-
- can be hard to work with and even may not be in the same famGily distribution.
- The updates can be significantly easier if 
-\emph on
-conjugate distributions
-\emph default
- are used instead.
- 
-\end_layout
-
-\begin_layout Standard
-The most common family of conjugated distributions is 
-\emph on
-exponential family
-\emph default
-, which can be defined as follows:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Borrow this part from Mr Dedecius article page 3 - source code and cite
- it.
- There is informal definition right before Definition 2 and then consecutive
- much more detailed definitions.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

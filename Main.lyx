@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -30,6 +30,8 @@ theorems-ams-extended
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format pdf2
 \output_sync 0
@@ -68,6 +70,7 @@ theorems-ams-extended
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \branch childonly
 \selected 0
 \filename_suffix 0
@@ -98,7 +101,10 @@ theorems-ams-extended
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -287,7 +293,7 @@ status collapsed
 \align center
 
 \size huge
-Sequential Dictionary Learning via Nonparametric Bayesian Methods 
+Distributed Kalman filtration under unknown spatially heterogeneous noise
 \end_layout
 
 \begin_layout Standard
@@ -321,17 +327,8 @@ Author: Bc.
 \begin_layout Labeling
 \paragraph_spacing single
 \labelwidthstring MMMMMMMMM
-Supervisor: Kamil Decius
-\begin_inset Flex TODO Note (Margin)
-status open
-
-\begin_layout Plain Layout
-tituly
-\end_layout
-
-\end_inset
-
-
+Supervisor: Ing.
+ Kamil Dedecius, Ph.D.
 \end_layout
 
 \begin_layout Labeling
@@ -501,7 +498,7 @@ Title:
 \emph default
  
 \series default
-Sequential Dictionary Learning via Nonparametric Bayesian Methods
+Distributed Kalman filtration under unknown spatially heterogeneous noise
 \end_layout
 
 \begin_layout Standard
@@ -570,7 +567,7 @@ add abstract
 \emph on
 Key words:
 \emph default
- Bayesian inference, dictionary learning
+ Bayesian inference, Kalman filter
 \end_layout
 
 \begin_layout Standard
@@ -633,9 +630,17 @@ addcontentsline{toc}{chapter}{Introduction}
 \end_layout
 
 \begin_layout Standard
-The main goal of this thesis is to explore applications of Bayesian inference
- for dictionary learning.
  
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Add introduction
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -662,6 +667,16 @@ filename "kapitola2.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "kapitola3.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "kapitola4.lyx"
 
 \end_inset
 
@@ -696,12 +711,21 @@ addcontentsline{toc}{chapter}{Conclusion}
 \end_layout
 
 \begin_layout Standard
-Conlusion here 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Conclusion here
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Nemazat - je to potřeba abych viděl citace v  \SpecialChar LyX
