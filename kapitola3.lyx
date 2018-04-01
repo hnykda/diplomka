@@ -95,6 +95,24 @@ theorems-ams-extended
 Distributed Variational Bayes Adaptive Kalman Filtration
 \end_layout
 
+\begin_layout Standard
+V zásadě 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+ + naše rozšíření na DKF
+\end_layout
+
+\begin_layout Standard
+Jde vlastně o spojení dvou věcí: vyřešení Noise estimation přes VB a použití
+ v DKF.
+ 
+\end_layout
+
 \begin_layout Section
 Problem formulation
 \end_layout
@@ -142,7 +160,7 @@ our novel extension
 \begin_layout Standard
 \begin_inset Branch child3
 inverted 0
-status open
+status collapsed
 
 \begin_layout Standard
 \begin_inset Note Note

@@ -39,7 +39,16 @@ theorems-ams-extended
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_package amsmath 2
@@ -92,11 +101,17 @@ theorems-ams-extended
 \begin_body
 
 \begin_layout Chapter
-Kalman filter
+Distributed Kalman filter
+\end_layout
+
+\begin_layout Standard
+This chapter firstly describes basic (non-distributed) version of Kalman
+ filter.
+ This is later extended to a distributed variant.
 \end_layout
 
 \begin_layout Section
-Introduction and history
+Introduction
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Introduction"
@@ -107,7 +122,20 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Standard
-Kalman filter is widely used adaptive filtering method firstly described
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+History, motivation, applications 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Kalman filter (KF) is widely used adaptive filtering method firstly described
  in 
 \emph on
 A New Approach to Linear Filtering and Prediction Problems
@@ -131,7 +159,8 @@ literal "false"
  It is one of the solution to one of the most fundamental problems in control
  theory, the linear quadratic Gaussian control problem.
  Over the years, numerous variants and extensions have been derived from
- the original Kalman filter and this thesis is concerned with one such method.
+ the original Kalman filter and this thesis is concerned with one such extension
+ – distributed Kalman filtering.
  See 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -206,6 +235,36 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+With respect to the current development of the so called Internet of Things
+ and development of cheap measurements sensors and microcomputers, Distributed
+ Kalman Filtering (KDF) is becoming even more relevant.
+ As one of the solution to 
+\emph on
+sensor fusion 
+\emph default
+problem, it has been under an intensive research as can be seen in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahmoud2013"
+literal "false"
+
+\end_inset
+
+.
+ A network consisting of multiple sensors has many advantages over a single
+ sensor scenario, such as robustness to noise, better field of view or,
+ if designed correctly, not having a single point of failure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Govaers2018"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex TODO Note (inline)
 status collapsed
 
@@ -224,8 +283,8 @@ Description
 \end_layout
 
 \begin_layout Standard
-Kalman filter is used to estimate the current state of a linear dynamic
- system in case of noisy measurements.
+The basic Kalman filter is used to estimate the current state of a linear
+ dynamic system in case of noisy measurements.
  The state can be described by various variables, such as position and velocity.
  To use a Kalman Filter, one needs to specify system's:
 \end_layout
@@ -263,6 +322,27 @@ Observable parameters coming from measurements does not have to be necessarily
  complete in a sense of describing the system in its entirety.
  It is a common case in which one observes only a subset of state variables
  and the filter can still estimate the entire state.
+\end_layout
+
+\begin_layout Standard
+The distributed extension is easy to describe – instead of having only a
+ single sensor, the system is measured by multiple of them and then somehow
+ combining these measurements together.
+ Despite its simple high level description, multisensor network of sensors
+ must deal with various non-trivial problems and the whole computation is
+ complicated based on the selected parameters of the network's behavior
+ and topology.
+ It also means getting into a distinctive research area of distributed data
+ fusion
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Campbell2016"
+literal "false"
+
+\end_inset
+
+ or consensus theory, which are out of the scope of this thesis.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -355,11 +435,23 @@ name "sec:Methods"
 \end_layout
 
 \begin_layout Standard
+This is what I want: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahmoud2013"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Survey of currently used methods to deal with unknown noise
 \end_layout
 
 \begin_layout Section
-Distributed methods
+Distributed Kalman Filter
 \end_layout
 
 \begin_layout Standard
