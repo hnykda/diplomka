@@ -374,16 +374,69 @@ Definition
 \end_layout
 
 \begin_layout Standard
-mathematical definition, updates, equations
+mathematical definition, updates, equations, use that wikipedia chart (and
+ maybe do it nicer if having more time)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+Start with basic KF, then extension to (distributed) Diffusion Kalman Filtering.
+ Nice intro with pictures in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Govaers2018"
+literal "false"
+
+\end_inset
+
+, simple def in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahmoud2013"
+literal "false"
+
+\end_inset
+
+ (eq.
+ 2.1) linking to https://link.springer.com/article/10.1007/s11424-012-0275-2,
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Additional definitions in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sayed2013"
+literal "false"
+
+\end_inset
+
+ or (more complex description) in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Optimality
+Note on optimality
 \end_layout
 
 \begin_layout Standard
 The Kalman filter is the optimal filter if and only if the following conditions
- are fulfilled, which is rarely a case:
+ are fulfilled, which is rarely the case:
 \end_layout
 
 \begin_layout Enumerate
@@ -396,6 +449,28 @@ the noise is white
 
 \begin_layout Enumerate
 the covariances of the noise are exactly known
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+Optimality for distributed case: Track-to-Track Fusion scheme, e.g.
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Govaers2018"
+literal "false"
+
+\end_inset
+
+ in Introduction page 3.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -416,11 +491,9 @@ Noise analysis
 \end_layout
 
 \begin_layout Standard
-Estimation of them
-\end_layout
-
-\begin_layout Standard
-What is their purpose and what problems we have with them
+What is their purpose and what problems we have with them, why it's necessary
+ to nicely estimate them otherwise everything breaks down (described in
+ the main VBAKF article on the beginning) + optimality issue.
 \end_layout
 
 \begin_layout Section

@@ -110,6 +110,10 @@ literal "false"
 \begin_layout Standard
 Jde vlastně o spojení dvou věcí: vyřešení Noise estimation přes VB a použití
  v DKF.
+ Nejdříve začít krátkým popisem jejich řešení, pak odvození mých updatů
+ přes exponenciální rovnice (možná rovnou, ať neopisuji to jejich), výměna
+ těch parametrů - tedy teorie.
+ Tady začíná můj vlastní přínos.
  
 \end_layout
 
@@ -137,7 +141,7 @@ Graphical model
 writing the equation for full posterior, picture of graphical model
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Deriving update equations
 \end_layout
 
