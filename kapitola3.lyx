@@ -96,7 +96,9 @@ Distributed Variational Bayes Adaptive Kalman Filtration
 \end_layout
 
 \begin_layout Standard
-V zásadě 
+This chapter describes main contributions of this work.
+ It is a derivation of an improvement of a Variation Bayes Adaptive Kalman
+ Filtration (VBAKF) described 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -104,33 +106,907 @@ literal "false"
 
 \end_inset
 
- + naše rozšíření na DKF
+ by partially sharing parameters in diffusion networks from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017"
+literal "false"
+
+\end_inset
+
+.
+ Up to the author knowledge, there has not been a similar attempt to combine
+ these two, although 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017"
+literal "false"
+
+\end_inset
+
+ mention these as a future possibility.
+ 
 \end_layout
 
 \begin_layout Standard
-Jde vlastně o spojení dvou věcí: vyřešení Noise estimation přes VB a použití
- v DKF.
- Nejdříve začít krátkým popisem jejich řešení, pak odvození mých updatů
- přes exponenciální rovnice (možná rovnou, ať neopisuji to jejich), výměna
- těch parametrů - tedy teorie.
- Tady začíná můj vlastní přínos.
- 
+We also propose a simplified version of the algorithm from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+ using exponential family form, as we believe that the resulting update
+ equations are more elegant, concise and understandable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\vec}[1]{\mathbf{\mathbf{#1}}}
+{\mathbf{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mat}[1]{\mathbf{\mathbf{#1}}}
+{\mathbf{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\E}[1]{\mathrm{E}[#1]}
+{\mathrm{E}[#1]}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dstype}[3]{\mathrm{#1}(#2;#3)}
+{\mathrm{#1}(#2;#3)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mexp}[1]{\exp\Bigl\{#1\Bigr\}}
+{\exp\Bigl\{#1\Bigr\}}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Problem formulation
 \end_layout
 
-\begin_layout Section
-Bayesian model
+\begin_layout Standard
+As has been described in 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+tady by měl být odkaz do teorie kde bude to co oni ají v Main Results.A +
+ problémy s estimation šumu a proč se to musí řešit elegantně.
 \end_layout
 
-\begin_layout Subsection
-Choosing prior distribution
+\end_inset
+
+, our aim is ti describe a model in which we will infer not only 
+\begin_inset Formula $\vec x_{k}$
+\end_inset
+
+, but also PNCM 
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+ and MCNM 
+\begin_inset Formula $\mat R_{k}$
+\end_inset
+
+ as opposed to traditional Kalman filter where these two are considered
+ static
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Popsat co ty zkratky znamenají
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
-IW et cetera...
+Based on explanation in 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Odkaz, jak se ty rovnice přeloží přes HMM do pravděpodobnosti: https://www.wikiwa
+nd.com/en/Kalman_filter#/Relationship_to_recursive_Bayesian_estimation
+\end_layout
+
+\end_inset
+
+, the predicted PDF for 
+\begin_inset Formula $\vec x_{k}$
+\end_inset
+
+ and likelihood PDF 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+what is PDF
+\end_layout
+
+\end_inset
+
+ follows Gaussian distribution:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+p(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}) & =\mathrm{N}(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1})\label{eq:predxkprob}\\
+p(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}) & =\mathrm{N}(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k})\label{eq:predzkprob}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\dstype N{\cdot}{\mu,\Sigma}$
+\end_inset
+
+ is Gaussian PDF with corresponding mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\vec{\hat{x}}_{k|k-1}$
+\end_inset
+
+ is the predicted state vector based on the model in 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+asi zase 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+ is the predicted PNCM based on the model in 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+asi zase 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We emphasize that 
+\begin_inset Formula $\vec{\hat{x}}_{k|k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+ are both inaccurate because precise 
+\begin_inset Formula $\mat Q_{k}$
+\end_inset
+
+ from the underlying update equation in 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+to samé co v předchozím todo
+\end_layout
+
+\end_inset
+
+ is unknown and we would not have to do the whole machinery if it was known.
+ 
+\end_layout
+
+\begin_layout Subsection
+Prior distributions for 
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mat R_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We are going to leverage the benefits of good choice of priors to make the
+ whole solution tractable outlined in 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+odkaz do jedničky?
+\end_layout
+
+\end_inset
+
+.
+ To ensure that the posterior belongs to the same distribution family as
+ the prior distribution, we choose Inverse-Wishart distribution which is
+ in a Bayesian statistic a common choice as a conjugate prior for the covariance
+ matrix of a multivariate normal distribution with known mean
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kendall2004"
+literal "false"
+
+\end_inset
+
+.
+ That is the case for 
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mat R_{k}$
+\end_inset
+
+, which are both the covariances matrices of Gaussian PDFs as is in equations
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:predxkprob"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:predzkprob"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Inverse-Wishart distribution is a probability distribution on real-value
+ positive-definite matrices.
+ We say that 
+\begin_inset Formula $\mat X$
+\end_inset
+
+ follows the Inverse-Wishart distribution with 
+\begin_inset Formula $\nu$
+\end_inset
+
+ degrees of freedom and scale matrix 
+\begin_inset Formula $\Psi$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\mat X\sim\mathrm{\mathrm{IW}(\Psi,\nu)}$
+\end_inset
+
+, if 
+\begin_inset Formula $\mat X^{-1}$
+\end_inset
+
+ has a Wishart distribution 
+\begin_inset Formula $\mat X\sim\mathrm{\mathrm{W}(\Psi^{-1},\nu)}$
+\end_inset
+
+.
+ The density is 
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{equation}
+\frac{\left|{\mathbf{\Psi}}\right|^{\frac{\nu}{2}}}{2^{\frac{\nu p}{2}}\Gamma_{p}(\frac{\nu}{2})}\left|\mathbf{X}\right|^{-\frac{\nu+p+1}{2}}e^{-\frac{1}{2}\text{tr}({\mathbf{\Psi}}\mathbf{X}^{-1})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+where 
+\begin_inset Formula $\mathbf{\Psi>0}\in\mathbb{R}^{p\times p}$
+\end_inset
+
+ is a positive-definite scale matrix, 
+\begin_inset Formula $\nu>p-1,\nu\in\mathbb{R}$
+\end_inset
+
+ are degrees of freedom, 
+\begin_inset Formula $\Gamma_{p}(\cdot)$
+\end_inset
+
+ is the multivariate gamma function and 
+\begin_inset Formula $\text{tr}$
+\end_inset
+
+ is the trace function.
+ The exponential family form we are going to take advantage of in the following
+ text is
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{equation}
+\mexp{\begin{bmatrix}\mathbf{X}^{-1}\\[5pt]
+\ln|\mathbf{X}|
+\end{bmatrix}\Bigl[\begin{array}{cc}
+-\frac{1}{2}\boldsymbol{\Psi} & -\dfrac{\nu+p+1}{2}\end{array}\Bigr]-\Bigl(\frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)+\ln\Gamma_{p}\left(\frac{\nu}{2}\right)\Bigr)}\label{eq:iweff}
+\end{equation}
+
+\end_inset
+
+and the corresponding parts of the form from 
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+tady odkaz na to kde definifuju to exponential family form
+\end_layout
+
+\end_inset
+
+ are
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+nejsem si jistý jestli je to takhle správně - nemá být 
+\backslash
+eta a 
+\backslash
+Xi prohozené?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\eta(\mat X)= & \begin{bmatrix}\mathbf{X}^{-1}\\[5pt]
+\ln|\mathbf{X}|
+\end{bmatrix}\\
+\Xi(\Psi,\nu,p)= & \Bigl[\begin{array}{cc}
+-\frac{1}{2}\boldsymbol{\Psi} & -\dfrac{\nu+p+1}{2}\end{array}\Bigr]\\
+A(\eta)= & \frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)-\ln\Gamma_{p}\left(\frac{\nu}{2}\right)
+\end{align*}
+
+\end_inset
+
+The expected value of the 
+\begin_inset Formula $\mathrm{IW}$
+\end_inset
+
+ distributed variable is
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{equation}
+\E{\mat X}=\frac{\Psi}{\nu-p-1}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Following from the above, the probabilities for 
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mat R_{k}$
+\end_inset
+
+ are hence
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{align}
+p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1})\label{eq:iwdistP}\\
+p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1})\label{eq:iwdistR}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Next, prior parameters for 
+\begin_inset Formula $\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1},\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}$
+\end_inset
+
+ to represent the initial knowledge as precisely as possible.
+ These parameters will be consumed later into prior's hyperparameters in
+ 
+\begin_inset Formula $\Xi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Hyperparameters for PNCM
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Hyperparameters-for-PNCM"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The model from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+ proposes the following initial parameter setting for the prior information
+ for 
+\begin_inset Formula $\mat P_{k|k-1}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\frac{\hat{\mathbf{T}}_{k|k-1}}{\hat{t}_{k|k-1}-n-1} & =\tilde{\mathbf{P}}_{k|k-1}=\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\tilde{\mathbf{Q}}_{k-1}\label{eq:initPNCM}\\
+\hat{\mathbf{T}}_{k|k-1} & =\tau\tilde{\mathbf{P}}_{k|k-1}\label{eq:updateT}\\
+\hat{t}_{k|k-1} & =n+\tau+1\label{eq:updatet}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\tilde{\mathbf{P}}_{k|k-1},\tilde{\mathbf{Q}}_{k-1}$
+\end_inset
+
+ are the 
+\emph on
+nominal 
+\emph default
+PECM and PNCM, respectively.
+ The latter, together with 
+\begin_inset Formula $\tau\ge0$
+\end_inset
+
+, are model's parameters and their choice is discussed later.
+ Substituting 
+\begin_inset Formula $\mat P_{k|k-1},\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:iweff"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and combining with 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:updateT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:updatet"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\eta(\mat P_{k|k-1})= & \begin{bmatrix}\mat P_{k|k-1}^{-1}\\[5pt]
+\ln|\mat P_{k|k-1}|
+\end{bmatrix}\label{eq:naturPk}\\
+\Xi^{P}(\hat{\mathbf{T}}_{k|k-1},\hat{t}_{k|k-1},n) & =\Bigl[\begin{array}{cc}
+-\frac{1}{2}\hat{\mathbf{T}}_{k|k-1} & -\dfrac{\hat{t}_{k|k-1}+n+1}{2}\end{array}\Bigr]=\\
+= & \Bigl[\begin{array}{cc}
+-\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1} & -\frac{1}{2}\tau-1-n\end{array}\Bigr]
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the dimension of 
+\begin_inset Formula $\hat{\mathbf{T}}_{k|k-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Hyperparameters for MCNM
+\end_layout
+
+\begin_layout Standard
+According to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bayes-theorem"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the prior for 
+\begin_inset Formula $p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})=\int p(\mathbf{R}_{k}|\mathbf{R}_{k-1})p(\mathbf{R}_{k-1}|\mathbf{z}_{1:k-1})d\mathbf{R}_{k-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To make sure that 
+\begin_inset Formula $p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})$
+\end_inset
+
+ is also Inverse-Wishart distributed, the 
+\begin_inset Formula $p(\mathbf{R}_{k}|\mathbf{R}_{k-1})$
+\end_inset
+
+ must have a suitable form so the Bayesian update results in the exponential
+ family.
+ Allowing slowly varying MNCM, as is the case in many real world applications,
+ a simple heuristic from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hartikainen2013"
+literal "false"
+
+\end_inset
+
+ is chosen to deal with this uncertainty.
+ That is spreading previous posteriors by a factor of 
+\begin_inset Formula $\rho$
+\end_inset
+
+, which is then a model parameter
+\begin_inset Formula 
+\begin{align}
+\hat{u}_{k|k-1}= & \rho(\hat{u}_{k-1|k-1}-m-1)+m+1\label{eq:updateu}\\
+\hat{\mathbf{U}}_{k|k-1}= & \rho\hat{\mathbf{U}}_{k-1|k-1}\label{eq:updateU}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is the size of matrix 
+\begin_inset Formula $\hat{\mathbf{U}}_{\cdot|\cdot}$
+\end_inset
+
+.
+ The initial MNCM 
+\begin_inset Formula $\mat R_{0}$
+\end_inset
+
+ is also considered to be Inverse-Wishart distributed 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p(\mat R_{0}=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly to the PNCM case in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:initPNCM"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the initial prior information for the mean value of 
+\begin_inset Formula $\mat R_{0}$
+\end_inset
+
+ is set as the initial nominal MNCM 
+\begin_inset Formula $\tilde{\mathbf{R}}_{0}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\frac{\hat{\mathbf{U}}_{0|0}}{\hat{u}_{0|0}-m-1}=\tilde{\mathbf{R}}_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\tilde{\mathbf{R}}_{0}$
+\end_inset
+
+ is then a model parameter.
+\end_layout
+
+\begin_layout Standard
+Substituting 
+\begin_inset Formula $\mathbf{R}_{k-1},\hat{u}_{k},\hat{\mathbf{U}}_{k}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:iweff"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and combining with 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:updateU"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:updateu"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\eta(\mathbf{R}_{k-1})= & \begin{bmatrix}\mathbf{R}_{k-1}^{-1}\\[5pt]
+\ln|\mathbf{R}_{k-1}|
+\end{bmatrix}\label{eq:naturRk}\\
+\Xi^{R}(\hat{\mathbf{U}}_{k},\hat{u}_{k},m) & =\Bigl[\begin{array}{cc}
+-\frac{1}{2}\hat{\mathbf{U}}_{k} & -\dfrac{\hat{u}_{k}+m+1}{2}\end{array}\Bigr]=\\
+= & \Bigl[\begin{array}{cc}
+-\frac{1}{2}\rho\hat{\mathbf{U}}_{k} & -\frac{1}{2}\rho(\hat{u}_{k}-m-1)-m-1\end{array}\Bigr]
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the dimension of 
+\begin_inset Formula $\hat{\mathbf{U}}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Choice of the nominal PNCM and MNCM
+\end_layout
+
+\begin_layout Standard
+In the detailed analysis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+ can be found that to guarantee model's convergence, the initial nominal
+ PNCM 
+\begin_inset Formula $\tilde{\mathbf{Q}}_{k}$
+\end_inset
+
+ needs to be near the initial true PNCM 
+\begin_inset Formula $\mat Q_{k}$
+\end_inset
+
+.
+ In the paper and as well in this work, we set 
+\begin_inset Formula $\mat Q_{k}=\text{diag}[α_{1,k},\text{…},α_{n,k}],\alpha_{i,k}>0$
+\end_inset
+
+ In reality, this is done based on the state-of-the-art engineering knowledge
+ in the domain.
+ The same is applied for the initial nominal MNCM 
+\begin_inset Formula $\tilde{\mathbf{R}}_{0}$
+\end_inset
+
+ and the choice is 
+\begin_inset Formula $\mat R_{k}=\text{diag}[\beta_{1},\text{…},\beta_{m}],\beta_{i}>0$
+\end_inset
+
+ and the reader is kindly redirected to the original study for more information.
+\end_layout
+
+\begin_layout Section
+Variational Bayes 
+\end_layout
+
+\begin_layout Standard
+In order to to infer all 
+\begin_inset Formula $\vec x_{k},\mat P_{k|k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mat R_{k}$
+\end_inset
+
+, a posterior PDF 
+\begin_inset Formula $p(\vec x_{k},\mat P_{k|k-1},\mat R_{k})$
+\end_inset
+
+ needs to be estimated.
+ As thoroughly described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Variational-inference"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the Variation Bayes in our case expets the following approximation 
+\begin_inset Formula 
+\begin{equation}
+p(\mathbf{x}_{k},\mathbf{P}_{k|k-1},\mathbf{R}_{k}|\mathbf{z}_{1:k})\approx q(\mathbf{x}_{k})q(\mathbf{P}_{k|k-1})q(\mathbf{R}_{k})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $q(\mathbf{x}_{k}),q(\mathbf{P}_{k|k-1}),q(\mathbf{R}_{k})$
+\end_inset
+
+ are factors of our factorized distribution 
+\begin_inset Formula $q(\cdot)$
+\end_inset
+
+ by which we approximate the 
+\begin_inset Formula $p(\cdot)$
+\end_inset
+
+.
+ These factors are obtained using Variational Bayes machinery including
+ minimizing the Kullback-Leibler divergence and using CAVI.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -138,7 +1014,100 @@ Graphical model
 \end_layout
 
 \begin_layout Standard
-writing the equation for full posterior, picture of graphical model
+Combining 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:predxkprob"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:predzkprob"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:iwdistP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:iwdistR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the join PDF can be factored as
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+je tady důvod proč oni raději použili p(
+\backslash
+Xi, z_1:k)?
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+p(\mathbf{\Xi},\mathbf{z}_{1:k}) & =p\big(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}\big)p\big(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}\big)p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1})p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})p(\mathbf{z}_{1:k-1})
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and substituting appropriate distribution for these PDFs:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+p\big(\mathbf{\Xi},\mathbf{z}_{1:k}\big)= & \mathrm{N}\big(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k}\big)\mathrm{N}\big(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1}\big)\\
+ & \times\mathrm{IW}\big(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}\big)\mathrm{IW}\big(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}\big)\\
+ & \times p\big(\mathbf{z}_{1:k-1}\big).
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+graphical model and exponential variant
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -146,7 +1115,174 @@ Deriving update equations
 \end_layout
 
 \begin_layout Standard
-exponential family variant, writing the updates of hyperparameters
+As opposed to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+, we are going to leverage advantages of exponential family forms to infer
+ the update equations.
+ Considering the exponential form of a Gaussian distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\expfamily}[5]{\exp\Bigl\{\begin{bmatrix}#1\\[5pt]
+#2
+\end{bmatrix}\Bigl[\begin{array}{cc}
+#3 & #4\end{array}\Bigr]#5\Bigr\}}
+{\exp\Bigl\{\begin{bmatrix}#1\\[5pt]
+#2
+\end{bmatrix}\Bigl[\begin{array}{cc}
+#3 & #4\end{array}\Bigr]#5\Bigr\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\effnorm}[4]{\dstype N{#1}{#2,#3}=\expfamily{#3^{-1}}{\ln|#3^{-1}|}{-\frac{1}{2}(#1-#2)(#1-#2)^{T}}{-\frac{1}{2}}{\ensuremath{#4}}}
+{\dstype N{#1}{#2,#3}=\expfamily{#3^{-1}}{\ln|#3^{-1}|}{-\frac{1}{2}(#1-#2)(#1-#2)^{T}}{-\frac{1}{2}}{\ensuremath{#4}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathrm{N}(\mathbf{x};\boldsymbol{\mu},\boldsymbol{\Sigma}\big)= & \expfamily{\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}}{-\frac{1}{2}\boldsymbol{\Sigma}^{-1}}{\vec x}{\vec x\vec x^{T}}{\ensuremath{-(\frac{1}{2}\boldsymbol{\mu}^{{\rm T}}\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}+\frac{1}{2}\ln|\boldsymbol{\Sigma}|)}}\\
+= & \expfamily{\boldsymbol{\Sigma}^{-1}}{\ln|\boldsymbol{\Sigma}^{-1}|}{-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T}}{-\frac{1}{2}}{+\text{ln(2\ensuremath{\pi)}}}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and substituting appropriate factors for both 
+\begin_inset Formula $\vec x_{k}$
+\end_inset
+
+ as well as 
+\begin_inset Formula $\vec z_{k}$
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+\effnorm{\mathbf{x}_{k}}{\hat{\mathbf{x}}_{k|k-1}}{\mathbf{P}_{k|k-1}}{-k_{1}}\label{eq:normalPk}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\effnorm{\mathbf{z}_{k}}{\vec x_{k}}{\mathbf{R}_{k}}{-k_{2}}\label{eq:normalRk}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Důležité: Tady mi nesedí ty updates!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As can be seen, the natural parameters matches for 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:normalPk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:naturPk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as well as for 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:normalRk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:naturRk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which is of course intentional and result of clever choice of conjugated
+ priors.
+ 
+\end_layout
+
+\begin_layout Standard
+With respect to 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+odkaz na mr.
+ Dedeciovo tvrzení s T+=1, ...
+\end_layout
+
+\end_inset
+
+, the single step Bayesian update of Inverse-Wishart hyperparamaters with
+ Multivariate Normal Distribution can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Xi_{i}\leftarrow & \underbrace{\begin{bmatrix}-\frac{1}{2}\boldsymbol{\Psi}\\[5pt]
+-\dfrac{\nu+p+1}{2}
+\end{bmatrix}}_{\Xi_{i-1}}+\underbrace{\begin{bmatrix}-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T}\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}}_{T(x,\mu)}
+\end{align}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
