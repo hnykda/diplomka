@@ -161,8 +161,8 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\E}[1]{\mathrm{E}[#1]}
-{\mathrm{E}[#1]}
+\renewcommand{\E}[2]{\mathrm{E}^{#2}[#1]}
+{\mathrm{\mathrm{E}^{#2}}[#1]}
 \end_inset
 
 
@@ -532,7 +532,26 @@ A(\eta)= & \frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)-\ln\Gamma_{p}\left(\frac{
 
 \end_inset
 
-The expected value of the 
+The first element 
+\begin_inset Formula $\Xi_{1}$
+\end_inset
+
+ of a 
+\emph on
+pseudovector 
+\begin_inset Formula $\Xi$
+\end_inset
+
+
+\emph default
+ is a matrix, why the second 
+\begin_inset Formula $\Xi_{2}$
+\end_inset
+
+ is a scalar.
+ The advantages of this notation will be clearer when an addition to natural
+ paramaters is carried over.
+ The expected value of the 
 \begin_inset Formula $\mathrm{IW}$
 \end_inset
 
@@ -541,9 +560,10 @@ The expected value of the
 
 \begin_layout Definition
 \begin_inset Formula 
-\begin{equation}
-\E{\mat X}=\frac{\Psi}{\nu-p-1}.
-\end{equation}
+\begin{align}
+\E{\mat X}{} & =\frac{\Psi}{\nu-p-1}\\
+= & \frac{2}{2\Xi_{2}+p+1}\Xi_{1}\label{eq:expValfromHyp}
+\end{align}
 
 \end_inset
 
@@ -685,10 +705,10 @@ noprefix "false"
 \eta(\mat P_{k|k-1})= & \begin{bmatrix}\mat P_{k|k-1}^{-1}\\[5pt]
 \ln|\mat P_{k|k-1}|
 \end{bmatrix}\label{eq:naturPk}\\
-\Xi^{P}(\hat{\mathbf{T}}_{k|k-1},\hat{t}_{k|k-1},n) & =\Bigl[\begin{array}{cc}
+\Xi(\hat{\mathbf{T}}_{k|k-1},\hat{t}_{k|k-1},n) & =\Bigl[\begin{array}{cc}
 -\frac{1}{2}\hat{\mathbf{T}}_{k|k-1} & -\dfrac{\hat{t}_{k|k-1}+n+1}{2}\end{array}\Bigr]=\\
 = & \Bigl[\begin{array}{cc}
--\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1} & -\frac{1}{2}\tau-1-n\end{array}\Bigr]
+-\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1} & -\frac{1}{2}\tau-1-n\end{array}\Bigr]\label{eq:xiInit}
 \end{align}
 
 \end_inset
@@ -706,6 +726,7 @@ where
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -888,10 +909,10 @@ noprefix "false"
 \eta(\mathbf{R}_{k-1})= & \begin{bmatrix}\mathbf{R}_{k-1}^{-1}\\[5pt]
 \ln|\mathbf{R}_{k-1}|
 \end{bmatrix}\label{eq:naturRk}\\
-\Xi^{R}(\hat{\mathbf{U}}_{k},\hat{u}_{k},m) & =\Bigl[\begin{array}{cc}
+\Omega(\hat{\mathbf{U}}_{k},\hat{u}_{k},m) & =\Bigl[\begin{array}{cc}
 -\frac{1}{2}\hat{\mathbf{U}}_{k} & -\dfrac{\hat{u}_{k}+m+1}{2}\end{array}\Bigr]=\\
 = & \Bigl[\begin{array}{cc}
--\frac{1}{2}\rho\hat{\mathbf{U}}_{k} & -\frac{1}{2}\rho(\hat{u}_{k}-m-1)-m-1\end{array}\Bigr]
+-\frac{1}{2}\rho\hat{\mathbf{U}}_{k} & -\frac{1}{2}\rho(\hat{u}_{k}-m-1)-m-1\end{array}\Bigr]\label{eq:omegaInit}
 \end{align}
 
 \end_inset
@@ -1010,7 +1031,7 @@ where
 \end_layout
 
 \begin_layout Subsection
-Graphical model
+Probabilistic model
 \end_layout
 
 \begin_layout Standard
@@ -1072,7 +1093,7 @@ Xi, z_1:k)?
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-p(\mathbf{\Xi},\mathbf{z}_{1:k}) & =p\big(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}\big)p\big(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}\big)p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1})p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})p(\mathbf{z}_{1:k-1})
+p(\mathbf{\Xi},\mathbf{z}_{1:k}) & =p\big(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}\big)p\big(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}\big)p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1})p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})p(\mathbf{z}_{1:k-1})\label{eq:modelProb}
 \end{align}
 
 \end_inset
@@ -1110,6 +1131,52 @@ graphical model and exponential variant
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/graphicalModel.png
+	lyxscale 30
+	width 90line%
+	height 90pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphical model of probabilistic model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:modelProb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Deriving update equations
 \end_layout
@@ -1126,6 +1193,15 @@ literal "false"
 , we are going to leverage advantages of exponential family forms to infer
  the update equations.
  Considering the exponential form of a Gaussian distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\errTerm}[2]{(#1-#2)(#1-#2)^{T}}
+{(#1-#2)(#1-#2)^{T}}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1165,7 +1241,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-and substituting appropriate factors for both 
+where 
+\begin_inset Formula $\vec x\vec{x^{T}}$
+\end_inset
+
+ is an outer product, hence resulting into a matrix from 
+\begin_inset Formula $\mathbb{R}^{n\times n}$
+\end_inset
+
+.
+ Substituting appropriate factors for both 
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
@@ -1266,7 +1351,7 @@ odkaz na mr.
 
 \end_inset
 
-, the single step Bayesian update of Inverse-Wishart hyperparamaters with
+, the single step Bayesian update of Inverse-Wishart hyperparameters with
  Multivariate Normal Distribution can be written as
 \end_layout
 
@@ -1275,7 +1360,7 @@ odkaz na mr.
 \begin{align}
 \Xi_{i}\leftarrow & \underbrace{\begin{bmatrix}-\frac{1}{2}\boldsymbol{\Psi}\\[5pt]
 -\dfrac{\nu+p+1}{2}
-\end{bmatrix}}_{\Xi_{i-1}}+\underbrace{\begin{bmatrix}-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T}\\[5pt]
+\end{bmatrix}}_{\Xi_{i-1}}+\underbrace{\begin{bmatrix}-\frac{1}{2}\errTerm{\vec x}{\boldsymbol{\mu}}\\[5pt]
 -\frac{1}{2}
 \end{bmatrix}}_{T(x,\mu)}
 \end{align}
@@ -1285,16 +1370,445 @@ odkaz na mr.
 
 \end_layout
 
-\begin_layout Section
-VBAKF algorithm
+\begin_layout Standard
+Utilizing the fact that 
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+TADY U TOHOHLE NEMŮŽU BÝT VĚTŠÍ ALIBISTA.
+ Nerozumím tomu, jak to dostali a ani proč je to vlastně potřeba.
+ Navíc nevím, jak tam dostat tu střední hodnotu.
+ Je mi jasné, že to nějak vyleze z VB kdy je tam E[log(p)], ale nevidím
+ zkrz to.
 \end_layout
 
-\begin_layout Section
-Distributed VBAKF algorithm
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\E{-\frac{1}{2}\errTerm{\vec x_{k}}{\hat{\vec x}_{k|k-1}}}i=\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-our novel extension
+\begin_inset Formula 
+\begin{equation}
+\E{-\frac{1}{2}\errTerm{\vec z_{k}}{\mat H_{k}\vec x_{k}}}i=\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+\errTerm{\vec z_{k}}{\mat H_{k}\vec{\hat{x}}_{k|k}^{i}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+the single step 
+\begin_inset Formula $i$
+\end_inset
+
+ of the variational updates are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Xi_{i+1}^{n}\leftarrow\Xi^{n-1}+\begin{bmatrix}-\frac{1}{2}(\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}})\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}\label{eq:updateHypXi}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Omega_{i+1}^{n}\leftarrow\Omega^{n-1}+\begin{bmatrix}\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+\errTerm{\vec z_{k}}{\mat H_{k}\vec{\hat{x}}_{k|k}^{i}}\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}\label{eq:updateHypOmega}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\Xi^{n-1},\Omega^{n-1}$
+\end_inset
+
+ are hyperparameters obtained from the results of Kalman filter of the previous
+ observation, derived using formulas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:xiInit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:omegaInit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Kalman correction
+\end_layout
+
+\begin_layout Standard
+The last bit of the single CAVI iteration is the Kalman correction, which
+ is the standard
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathbf{K}_{k}^{(i+1)}= & \hat{\mathbf{P}}_{k|k-1}^{(i+1)}\mathbf{H}_{k}^{T}\big(\mathbf{H}_{k}\hat{\mathbf{P}}_{k|k-1}^{(i+1)}\mathbf{H}_{k}^{T}+\hat{\mathbf{R}}_{k}^{(i+1)}\big)^{-1}\label{eq:kalmanCor-beg}\\
+\hat{\mathbf{x}}_{k|k}^{(i+1)}= & \hat{\mathbf{x}}_{k|k-1}+\mathbf{K}_{k}^{(i+1)}\big(\mathbf{z}_{k}-\mathbf{H}_{k}\hat{\mathbf{x}}_{k|k-1}\big)\\
+\mathbf{P}_{k|k}^{(i+1)}= & \hat{\mathbf{P}}_{k|k-1}^{(i+1)}-\mathbf{K}_{k}^{(i+1)}\mathbf{H}_{k}\hat{\mathbf{P}}_{k|k-1}^{(i+1)}\label{eq:kalmanCor-end}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parameter diffusion
+\end_layout
+
+\begin_layout Standard
+Thanks to using the exponentially family forms, parameter diffusion can
+ be easily incorporated into the final algorithm – the nodes only need to
+ exchange the hyperparameters 
+\begin_inset Formula $\Xi^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Omega^{n}$
+\end_inset
+
+.
+ While the previous chapters were mostly based on algorithm described in
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+, the parameter diffusion part is mostly based on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017"
+literal "false"
+
+\end_inset
+
+.
+ We just present here the result algorithm, but the reader is advised to
+ reach the paper for more details.
+\end_layout
+
+\begin_layout Standard
+Consider a network of connected nodes, each of them doing their own observation.
+ A single node 
+\begin_inset Formula $i$
+\end_inset
+
+ obtain a measurement in time 
+\begin_inset Formula $t$
+\end_inset
+
+ and proceed with Kalman filtration as above.
+ After obtaining final 
+\begin_inset Formula $\mat P_{k|k}^{i,t},\hat{\mathbf{x}}_{k|k}^{i,t}$
+\end_inset
+
+ and also result hyperparameters 
+\begin_inset Formula $\Xi^{i,t},\Omega^{i,t}$
+\end_inset
+
+.
+ The node then 
+\emph on
+contacts
+\emph default
+ its neighbor nodes 
+\begin_inset Formula $1,...,d$
+\end_inset
+
+ and attempts to gather all available hyperparameters 
+\begin_inset Formula $\Xi^{j,t},\Omega^{j,t},j\in\{1,...,d\}$
+\end_inset
+
+ based on the current conditions (e.g.
+ only a single hop distance, or more).
+ The node then performs a parameter fusion of these hyperparameters based
+ on a chosen strategy represented by some function 
+\begin_inset Formula $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$
+\end_inset
+
+.
+ An example of such function may be just a simple averaging over all hyperparame
+ters 
+\begin_inset Formula $g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})=\frac{\sum_{s=\{i,1,...,d\}}\Xi^{s,t}}{d+1}$
+\end_inset
+
+.
+ The situation is for the hyperparameter 
+\begin_inset Formula $\Omega^{i,t}$
+\end_inset
+
+ is analogical.
+ The node then sends this updated hyperparameters 
+\begin_inset Formula $\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
+\end_inset
+
+ back to the cooperating nodes, which incorporates this hyperparameter into
+ their knowledge.
+ 
+\end_layout
+
+\begin_layout Section
+Algorithm summary
+\end_layout
+
+\begin_layout Standard
+Here we summarize the previous pages into a single algorithm.
+ The single step of the proposed algorithm for a single node is then
+\end_layout
+
+\begin_layout Algorithm
+1.
+ Inputs: 
+\begin_inset Formula $\hat{\mathbf{x}}_{k-1|k-1},\mathbf{P}_{k-1|k-1},\hat{u}_{k-1|k-1},\hat{\mathbf{U}}_{k-1|k-1},\mathbf{F}_{k-1},\mathbf{H}_{k},\mathbf{z}_{k},\tilde{\mathbf{Q}}_{k-1},m,n,\tau,\rho,N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+2.
+ Time Update of the Kalman Filter
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+jen odkaz jako jinde
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Formula 
+\begin{align*}
+\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1}\\
+\tilde{\mathbf{P}}_{k|k-1}= & \mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\tilde{\mathbf{Q}}_{k-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+3.
+ Initialize 
+\begin_inset Formula $\Xi_{\text{init}}$
+\end_inset
+
+ by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:xiInit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\Omega_{\text{init}}$
+\end_inset
+
+ by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:omegaInit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\mathbf{x}}_{k|k}^{(0)}=\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k}^{(0)}=\tilde{\mathbf{P}}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+For 
+\begin_inset Formula $i$
+\end_inset
+
+ in 
+\begin_inset Formula $N$
+\end_inset
+
+ do:
+\end_layout
+
+\begin_layout Algorithm
+4.
+ Get new 
+\begin_inset Formula $\Omega^{i}$
+\end_inset
+
+ based on the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:updateHypOmega"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and compute the 
+\begin_inset Formula $\E{\mat R_{k}}i$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:expValfromHyp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+5.
+ Get new 
+\begin_inset Formula $\Xi^{i}$
+\end_inset
+
+ based on the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:updateHypXi"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and compute 
+\begin_inset Formula $\E{\mat P_{k|k-1}}i$
+\end_inset
+
+ using 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:expValfromHyp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+6.
+ Perform Kalman correction 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalmanCor-beg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalmanCor-end"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ using expected values to obtain corrected
+\begin_inset Formula $\hat{\vec x}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+end for
+\end_layout
+
+\begin_layout Algorithm
+7.
+ Perform parameter diffusion, i.e.
+ if hyperparameters from nodes 
+\begin_inset Formula $j\in\{1,...,d\}$
+\end_inset
+
+ are available, get
+\begin_inset Formula 
+\begin{align}
+\Xi_{\text{*}}^{i,t}= & g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})\\
+\Omega_{\text{*}}^{i,t}= & g(\Omega^{i,t},\Omega^{1,t},...,\Omega^{d,t})
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+8.
+ Returns: 
+\begin_inset Formula $\hat{\vec x}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1},\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
