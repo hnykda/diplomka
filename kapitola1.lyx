@@ -919,6 +919,15 @@ name "sec:Variational-inference"
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\vec}[1]{\mathbb{#1}}
+{\mathbb{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\Exp}[1]{\exp\{#1\}}
 {\exp\{#1\}}
 \end_inset

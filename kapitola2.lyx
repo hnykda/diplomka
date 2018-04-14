@@ -262,6 +262,32 @@ literal "false"
 \end_inset
 
 .
+ Applications ranges from wireless networks
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Akyildiz2010"
+literal "false"
+
+\end_inset
+
+, precision agriculture
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Adamchuk2011"
+literal "false"
+
+\end_inset
+
+, military and civil surveillance, medical applications, nuclear hazard
+ assessment and others
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -370,12 +396,186 @@ M:
 \end_layout
 
 \begin_layout Section
-Definition
+Mathematical definition
 \end_layout
 
 \begin_layout Standard
-mathematical definition, updates, equations, use that wikipedia chart (and
- maybe do it nicer if having more time)
+\begin_inset FormulaMacro
+\renewcommand{\vec}[1]{\mathbf{\mathbf{#1}}}
+{\mathbf{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $\vec x_{k},\vec x_{k-1},\vec u_{k}\in\mathbb{R}^{n}$
+\end_inset
+
+ be the true state vectors in times 
+\begin_inset Formula $k,k-1$
+\end_inset
+
+ and control vector, respectively.
+ 
+\begin_inset Formula $\vec z{}_{k}\in\mathbb{R}^{m}$
+\end_inset
+
+ is the measurement vector, 
+\begin_inset Formula $\mathbf{F}_{k},\mathbf{B}_{k}\in\mathbb{R}^{n\times m}$
+\end_inset
+
+ the state transition matrix and control matrix, respectively and 
+\begin_inset Formula $\mathbf{H}_{k}\in\mathbb{R}^{m\times n}$
+\end_inset
+
+ is the observation matrix.
+ 
+\begin_inset Formula $\vec w_{k}\in\mathbb{R}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec v_{k}\in\mathbb{R}^{m}$
+\end_inset
+
+ are process noise and observation noise, respectively.
+ The filter assumes that the state evolves from (discrete) time 
+\series bold
+
+\begin_inset Formula $k-1$
+\end_inset
+
+
+\series default
+ to a new state in time 
+\begin_inset Formula $k$
+\end_inset
+
+ according to:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}_{k}=\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{B}_{k}\mathbf{u}_{k}+\mathbf{w}_{k}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+and then an (imperfect) observation is made 
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{equation}
+\text{\mathbf{z}_{k}=\mathbf{H}_{k}\mathbf{x}_{k}+\mathbf{v}_{k}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this work, the 
+\begin_inset Formula $\mathbf{B}_{k}\mathbf{u}_{k}$
+\end_inset
+
+ part is omitted as is common in many scenarios, where control input does
+ not make sense (such as temperature sensors).
+ The process and observation noise 
+\begin_inset Formula $\vec w_{k},\vec v_{k}$
+\end_inset
+
+ are assumed to be zero mean (multivariate in case of 
+\begin_inset Formula $\vec w_{k}$
+\end_inset
+
+) Gaussian white noise with covariances 
+\begin_inset Formula $\mathbf{Q}_{k},\mathbf{R}_{k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\vec w_{k} & \sim & \mathcal{N}(0,\mathbf{Q}_{k})\\
+\vec v_{k} & \sim & \mathcal{N}(0,\mathbf{R}_{k})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The update is then performed according to:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/kalman-wiki.png
+	lyxscale 30
+	width 90line%
+	height 90pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The whole process of Kalman filter.
+ We start with an information from the previous step (
+\begin_inset Formula $k-1|k-1$
+\end_inset
+
+), then perform prediction to get expected values (
+\begin_inset Formula $k|k-1$
+\end_inset
+
+), after which we incorporate measurements information and perform an update
+ to get the corrected state (
+\begin_inset Formula $k|k$
+\end_inset
+
+).
+ Source: https://www.wikiwand.com/en/Kalman_filter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
