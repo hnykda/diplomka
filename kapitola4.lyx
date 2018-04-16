@@ -32,7 +32,7 @@ theorems-ams-extended
 \font_tt_scale 100 100
 \use_microtype false
 \use_dash_ligatures true
-\graphics pdftex
+\graphics default
 \default_output_format default
 \output_sync 0
 \bibtex_command default
@@ -101,7 +101,22 @@ Results
 \end_layout
 
 \begin_layout Standard
-simulace
+The following chapter offers an in-depth analysis of a performance of the
+ proposed algorithm.
+ To guarantee a reproducible research, implementation details are mentioned
+ to some degree and the code with the comparison is publicly available on
+ 
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+add link to the github page
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Section
@@ -109,16 +124,223 @@ Implementation
 \end_layout
 
 \begin_layout Standard
-Description of implementation, used libraries, if presentable, then some
- flow
+The implementation used in this work has been written in feature rich Python
+ language ecosystem.
+ Next to the CPython interpreter 3.6, following libraries (all licensed as
+ MIT) has been reused:
 \end_layout
 
-\begin_layout Section
-Results
+\begin_layout Itemize
+scipy 1.0.0 – generator of random numbers from various distributions
+\end_layout
+
+\begin_layout Itemize
+numpy 1.14.2 – arrays and mathematical operations, linear algebra
+\end_layout
+
+\begin_layout Itemize
+networkx 2.1 – to create a network topology of measurement nodes
+\end_layout
+
+\begin_layout Itemize
+jupyter 5.2.3 – 
+\begin_inset Quotes eld
+\end_inset
+
+notebook
+\begin_inset Quotes erd
+\end_inset
+
+ ecosystem for a rapid analysis
+\end_layout
+
+\begin_layout Itemize
+filterpy 1.2.1 - reference implementation of a classic Kalman Filter
+\end_layout
+
+\begin_layout Itemize
+matplotlib 2.2.2 – to create charts (including this thesis)
 \end_layout
 
 \begin_layout Standard
-charts of comparisons, execution time, ...
+All the code is available on GitHub page 
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+Add link to the github page
+\end_layout
+
+\end_inset
+
+ including the instruction how to replicate the analysis and testing environment.
+ Most of the functionality has been written from scratch by the author while
+ having a reference implementation by the supervisor (plus the model of
+ the testing trajectory).
+ The code is structured into several parts, notably objects 
+\family typewriter
+MeasurementNode
+\family default
+ and 
+\family typewriter
+IWPrior
+\family default
+ plus many of utility functions in the appropriate modules such as 
+\family typewriter
+exponential_family.py
+\family default
+ or 
+\family typewriter
+network.py
+\family default
+, which are self-explanatory.
+ 
+\end_layout
+
+\begin_layout Section
+Simulations 
+\end_layout
+
+\begin_layout Subsection
+Testing dataset
+\end_layout
+
+\begin_layout Standard
+Here we describe the dynamical system model in the standard notation suitable
+ for the Kalman Filter.
+ The state transition matrix was of the form
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\mat}[1]{\mathbf{\mathbf{#1}}}
+{\mathbf{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mat F=\begin{bmatrix}1 & 0 & t & 0\\
+0 & 1 & 0 & t\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix},\mat Q=2\cdot\begin{bmatrix}\nicefrac{t^{3}}{3} & 0 & \nicefrac{t^{2}}{2} & 0\\
+0 & \nicefrac{t^{3}}{3} & 0 & \nicefrac{t^{2}}{2}\\
+\nicefrac{t^{2}}{2} & 0 & t & 0\\
+0 & \nicefrac{t^{2}}{2} & 0 & t
+\end{bmatrix},t=0.1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mat H=\begin{bmatrix}1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0
+\end{bmatrix},\mat R=0.25\cdot\begin{bmatrix}1 & 0\\
+0 & 1
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A random trajectory was then simulated for all four components using this
+ model with multivariate Gaussian random noise added to the each 
+\begin_inset Quotes eld
+\end_inset
+
+true
+\begin_inset Quotes erd
+\end_inset
+
+ datapoint (with covariance 
+\begin_inset Formula $\mat Q$
+\end_inset
+
+) as well as to the observations (with covariance 
+\begin_inset Formula $\mat R$
+\end_inset
+
+).
+ A typical result testing trajectory is 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+přes RMSE, asi tak 250 délka trajektorie, načítat dynamicky z adresáře,
+ mít na to jeden notebook (pro single), seaborn
+\end_layout
+
+\begin_layout Subsection
+Single node VBAKF
+\end_layout
+
+\begin_layout Standard
+Comparison to the single node classic KF
+\end_layout
+
+\begin_layout Enumerate
+Static noise - variance was not changing - known exactly
+\end_layout
+
+\begin_layout Enumerate
+Static noise - unknown - case when it's to low and when it's to high (and
+ that VB can get there eventually, not so the klasic)
+\end_layout
+
+\begin_layout Enumerate
+Hill noise - s nastavením počátku
+\end_layout
+
+\begin_layout Enumerate
+sinus noise - s nastavením počátku
+\end_layout
+
+\begin_layout Standard
+Zmínit že ten bayes konvergoval skutečně rychle - úloha je jednoduchá, má
+ malou dimenzi, při vyšších rozměrech potřeba více, jinak nám stačilo 5
+ iterací?
+\end_layout
+
+\begin_layout Standard
+Ukázat při různých parametrech možná?
+\end_layout
+
+\begin_layout Standard
+zmínit kolik se muselo dělat tunningu
+\end_layout
+
+\begin_layout Standard
+Mention that it would behave the same in the diffusion mode
+\end_layout
+
+\begin_layout Subsection
+Distributed VBAKF
+\end_layout
+
+\begin_layout Enumerate
+variance is changing differently in each node (e.g.
+ that sinus?) - diffused vs.
+ non-diffused variant
+\end_layout
+
+\begin_layout Enumerate
+measure vzdálenost matice od té skutečné - jak se přibližuje, tak jak je
+ v článku
 \end_layout
 
 \begin_layout Standard

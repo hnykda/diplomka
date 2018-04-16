@@ -32,7 +32,7 @@ theorems-ams-extended
 \font_tt_scale 100 100
 \use_microtype false
 \use_dash_ligatures true
-\graphics pdftex
+\graphics default
 \default_output_format default
 \output_sync 0
 \bibtex_command default

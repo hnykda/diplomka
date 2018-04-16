@@ -32,7 +32,7 @@ theorems-ams-extended
 \font_tt_scale 100 100
 \use_microtype false
 \use_dash_ligatures true
-\graphics pdftex
+\graphics default
 \default_output_format default
 \output_sync 0
 \bibtex_command biber
@@ -995,11 +995,11 @@ Let
 
  be a fully Bayesian model, where all prior distributions are given.
  Let denote the set of all parameters and all latent 
-\begin_inset Formula $\Var Z=\{\vec{z}_{1},\ldots,\vec{z}_{N}\}$
+\begin_inset Formula $\Var Z=\{\vec z_{1},\ldots,\vec z_{N}\}$
 \end_inset
 
  and the set of all observed variables 
-\begin_inset Formula $\Var X=\{\vec{x_{1},\ldots,}\vec{x}_{N}\}$
+\begin_inset Formula $\Var X=\{\vec{x_{1},\ldots,}\vec x_{N}\}$
 \end_inset
 
 .

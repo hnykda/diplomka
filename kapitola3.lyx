@@ -32,7 +32,7 @@ theorems-ams-extended
 \font_tt_scale 100 100
 \use_microtype false
 \use_dash_ligatures true
-\graphics pdftex
+\graphics default
 \default_output_format default
 \output_sync 0
 \bibtex_command default
@@ -139,6 +139,7 @@ literal "false"
 
  using exponential family form, as we believe that the resulting update
  equations are more elegant, concise and understandable.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1207,9 +1208,9 @@ literal "false"
 \begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\expfamily}[5]{\exp\Bigl\{\begin{bmatrix}#1\\[5pt]
-#2
+ #2 
 \end{bmatrix}\Bigl[\begin{array}{cc}
-#3 & #4\end{array}\Bigr]#5\Bigr\}}
+ #3  &  #4\end{array}\Bigr]#5\Bigr\}}
 {\exp\Bigl\{\begin{bmatrix}#1\\[5pt]
 #2
 \end{bmatrix}\Bigl[\begin{array}{cc}
@@ -1282,7 +1283,7 @@ where
 
 \begin_layout Standard
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Důležité: Tady mi nesedí ty updates!
@@ -1342,7 +1343,7 @@ noprefix "false"
 \begin_layout Standard
 With respect to 
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 odkaz na mr.
@@ -1373,7 +1374,7 @@ odkaz na mr.
 \begin_layout Standard
 Utilizing the fact that 
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 TADY U TOHOHLE NEMŮŽU BÝT VĚTŠÍ ALIBISTA.
@@ -1601,7 +1602,11 @@ Here we summarize the previous pages into a single algorithm.
 
 \begin_layout Algorithm
 1.
- Inputs: 
+ 
+\series bold
+Inputs
+\series default
+: 
 \begin_inset Formula $\hat{\mathbf{x}}_{k-1|k-1},\mathbf{P}_{k-1|k-1},\hat{u}_{k-1|k-1},\hat{\mathbf{U}}_{k-1|k-1},\mathbf{F}_{k-1},\mathbf{H}_{k},\mathbf{z}_{k},\tilde{\mathbf{Q}}_{k-1},m,n,\tau,\rho,N$
 \end_inset
 
@@ -1612,7 +1617,7 @@ Here we summarize the previous pages into a single algorithm.
 2.
  Time Update of the Kalman Filter
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 jen odkaz jako jinde
@@ -1673,6 +1678,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Algorithm
+
+\series bold
 For 
 \begin_inset Formula $i$
 \end_inset
@@ -1780,6 +1787,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Algorithm
+
+\series bold
 end for
 \end_layout
 
@@ -1804,7 +1813,11 @@ end for
 
 \begin_layout Algorithm
 8.
- Returns: 
+ 
+\series bold
+Returns
+\series default
+: 
 \begin_inset Formula $\hat{\vec x}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1},\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
 \end_inset
 
