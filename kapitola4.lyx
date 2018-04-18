@@ -116,7 +116,9 @@ add link to the github page
 \end_inset
 
 .
- 
+ This thesis focused mostly on state prediction accuracy and less on the
+ noise analysis, although it is mentioned when it helps to understand the
+ mechanism behind the performance.
 \end_layout
 
 \begin_layout Section
@@ -126,8 +128,8 @@ Implementation
 \begin_layout Standard
 The implementation used in this work has been written in feature rich Python
  language ecosystem.
- Next to the CPython interpreter 3.6, following libraries (all licensed as
- MIT) has been reused:
+ Next to the CPython interpreter 3.6, following libraries (all licensed under
+ MIT license) has been reused:
 \end_layout
 
 \begin_layout Itemize
@@ -197,12 +199,35 @@ network.py
  
 \end_layout
 
+\begin_layout Subsubsection
+Comparison
+\end_layout
+
+\begin_layout Standard
+The notation for the components of the state vector is kept as 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ in the charts.
+ From the nature of the problem under study, it is clear that first two
+ components which are observable behave in the similar way and the same
+ is true for the latter two (which are not observable).
+ To keep the analysis clean and concise, only a representative component
+ is plotted if the behavior is significantly different.
+\end_layout
+
+\begin_layout Standard
+The main metric used for comparison is root mean square error.
+ Where appropriate, standard deviation of errors is listed.
+ 
+\end_layout
+
 \begin_layout Section
-Simulations 
+Simulations
 \end_layout
 
 \begin_layout Subsection
-Testing dataset
+Testing data
 \end_layout
 
 \begin_layout Standard
@@ -273,16 +298,256 @@ true
 \end_inset
 
 ).
- A typical result testing trajectory is 
+ It can be though about as a point moving on a 2D plane.
+ A typical result of the first two components of the test trajectory can
+ be seen on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:trajectoryExample"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ while the other two on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:trajectoryExample-3n4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We always generated 250 time steps.
+ 
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/trajectory.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:trajectoryExample"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-přes RMSE, asi tak 250 délka trajektorie, načítat dynamicky z adresáře,
- mít na to jeden notebook (pro single), seaborn
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/3and4th-state.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:trajectoryExample-3n4"
+
+\end_inset
+
+True third and fourth component of the state vector.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Noise
+\end_layout
+
+\begin_layout Standard
+Different type of noises were tested to thoroughly examine the behavior
+ of different filter under different circumstances.
+ Examples for a static noise and variable noise can be found on figures
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noiseStatic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noiseSinus"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Even though only a single line is plotted, in the simulation both observable
+ components distorted by the type of noise under study.
+ Henceforth, for the sake of simplicity, MNCM was the factor we considered
+ that can be slowly varying.
+ 
+\end_layout
+
+\begin_layout Standard
+It worth mentioning that because of the task's triviality, the CAVI algorithm
+ usually converges in few iterations – less then 5.
+ Therefore, number of iterations were set to conservative 10.
+ There is an exhaustive analysis of algorithm stability and parameters effect
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+, where the reader is kindly referred to if she wishes to know more.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/static-noise.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noiseStatic"
+
+\end_inset
+
+Multivariate Gaussian Random noise without variable variance.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/sinus-noise.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noiseSinus"
+
+\end_inset
+
+A variable variance in the noise is simulated in this example.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -290,42 +555,321 @@ Single node VBAKF
 \end_layout
 
 \begin_layout Standard
-Comparison to the single node classic KF
+In this section, we compare the VBAKF algorithm performance against the
+ classic Kalman Filter (CKF).
+ 
 \end_layout
 
-\begin_layout Enumerate
-Static noise - variance was not changing - known exactly
-\end_layout
-
-\begin_layout Enumerate
-Static noise - unknown - case when it's to low and when it's to high (and
- that VB can get there eventually, not so the klasic)
-\end_layout
-
-\begin_layout Enumerate
-Hill noise - s nastavením počátku
-\end_layout
-
-\begin_layout Enumerate
-sinus noise - s nastavením počátku
+\begin_layout Subsubsection
+Static noise
 \end_layout
 
 \begin_layout Standard
-Zmínit že ten bayes konvergoval skutečně rychle - úloha je jednoduchá, má
- malou dimenzi, při vyšších rozměrech potřeba více, jinak nám stačilo 5
- iterací?
+For this case, minimal or no improvement of VBAKF algorithm over CKF was
+ expected.
+ 
 \end_layout
 
 \begin_layout Standard
-Ukázat při různých parametrech možná?
+KNOWN
 \end_layout
 
 \begin_layout Standard
-zmínit kolik se muselo dělat tunningu
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/perf-static-known-x1.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-static-x1-perf"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Mention that it would behave the same in the diffusion mode
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/perf-static-known-x3.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-static-x3-perf"
+
+\end_inset
+
+True third and fourth component of the state vector.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+UNKNOWN
+\end_layout
+
+\begin_layout Standard
+Remarkable property: when is the initial covariance wrong, then it can still
+ converge.
+ IF setup close enough though, otherwise it can diverge...
+ Covariance is set to the trajectory default value
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/perf-static-unknown-x1.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-static-x1-unknown-1"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/perf-static-unknown-x3.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-static-x3-unknown"
+
+\end_inset
+
+True third and fourth component of the state vector.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Variable noise
+\end_layout
+
+\begin_layout Standard
+Only variable UNKNOWN
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/perf-static-sinus-x1.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-sinus-x1"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/perf-static-sinus-x3.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-sinus-x3"
+
+\end_inset
+
+True third and fourth component of the state vector.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Conclusion
+\end_layout
+
+\begin_layout Itemize
+no improvmenet - slightly worse, when known and of course computationally
+ more intensive (which is one of the reason why to choose KF)
+\end_layout
+
+\begin_layout Itemize
+It would behave the same in the diffusion mode
+\end_layout
+
+\begin_layout Itemize
+it can converge if close at the beginning
+\end_layout
+
+\begin_layout Itemize
+How much tunning had to be done
 \end_layout
 
 \begin_layout Subsection
