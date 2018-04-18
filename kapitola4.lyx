@@ -851,12 +851,57 @@ True third and fourth component of the state vector.
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/adaptation-of-r.pdf
+	lyxscale 70
+	width 80line%
+	height 80pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:adaptation-of-single"
+
+\end_inset
+
+True third and fourth component of the state vector.
+ SCALE DOESN'T MATTER, it's the trend what is important here! Ideally, the
+ blue would correspond to yellow.
+ It's interesting to compare this with the 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Conclusion
 \end_layout
 
 \begin_layout Itemize
-no improvmenet - slightly worse, when known and of course computationally
+no improvement - slightly worse, when known and of course computationally
  more intensive (which is one of the reason why to choose KF)
 \end_layout
 
@@ -872,6 +917,10 @@ it can converge if close at the beginning
 How much tunning had to be done
 \end_layout
 
+\begin_layout Itemize
+comment how it is adapting
+\end_layout
+
 \begin_layout Subsection
 Distributed VBAKF
 \end_layout
@@ -880,11 +929,6 @@ Distributed VBAKF
 variance is changing differently in each node (e.g.
  that sinus?) - diffused vs.
  non-diffused variant
-\end_layout
-
-\begin_layout Enumerate
-measure vzdálenost matice od té skutečné - jak se přibližuje, tak jak je
- v článku
 \end_layout
 
 \begin_layout Standard
