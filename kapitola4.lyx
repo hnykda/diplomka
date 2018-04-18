@@ -925,10 +925,12 @@ comment how it is adapting
 Distributed VBAKF
 \end_layout
 
-\begin_layout Enumerate
-variance is changing differently in each node (e.g.
- that sinus?) - diffused vs.
- non-diffused variant
+\begin_layout Itemize
+variance is changing differently in each node
+\end_layout
+
+\begin_layout Itemize
+
 \end_layout
 
 \begin_layout Standard
