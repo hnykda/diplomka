@@ -219,6 +219,19 @@ The notation for the components of the state vector is kept as
 \begin_layout Standard
 The main metric used for comparison is root mean square error.
  Where appropriate, standard deviation of errors is listed.
+ The result numbers discussed further are results of many iterations (more
+ than 20) with different initial noise assigned to different nodes.
+ It was although made sure that when comparing two different variants, same
+ noise has been attributed to the appropriate elements.
+ Finally, in situations when we are going to 
+\emph on
+visualize
+\emph default
+ matrices behavior, in our case matrices close to a matrix 
+\begin_inset Formula $c\mathrm{I},c>0$
+\end_inset
+
+, a Frobenius matrix norm is used.
  
 \end_layout
 
@@ -330,15 +343,15 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Images/charted/trajectory.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -374,15 +387,15 @@ First and second component in the first row are observable, while the third
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Images/charted/3and4th-state.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -469,15 +482,15 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Images/charted/static-noise.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -512,15 +525,15 @@ Multivariate Gaussian Random noise without variable variance.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename Images/charted/sinus-noise.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -557,7 +570,52 @@ Single node VBAKF
 \begin_layout Standard
 In this section, we compare the VBAKF algorithm performance against the
  classic Kalman Filter (CKF).
+ It is important to distinguish between the situation when the true noise
+ covariance is known and when it is not.
+ Another orthogonal property of the system is the variance of the noise
+ covariance over time.
+ Since the motivation of developing VBAKF is specially for the situations
+ when the covariance is unknown or there is a risk of choosing a wrong one,
+ it is clear where the VBAKF is expected to perform better.
+\end_layout
+
+\begin_layout Standard
+When the true covariance is known and static – an unlikely situation in
+ the real world systems – we do not expect any improvements in predictions
+ over VBAKF.
+ Actually, its performance may be degraded trying to adjust to the noise,
+ making the overall accuracy score worse than CKF.
+ In the case when the covariance is known and changing, then it depends
+ on how is one able to tune the algorithm parameters (such as 
+\begin_inset Formula $\rho$
+\end_inset
+
+ or 
+\begin_inset Formula $\tau$
+\end_inset
+
+), how big the changes are and how precise is the known value.
  
+\begin_inset Flex TODO Note (inline)
+status collapsed
+
+\begin_layout Plain Layout
+dát do conclusion, že VBAKF si ani tehdy nevedl moc špatně
+\end_layout
+
+\end_inset
+
+ Henceforth, the main advantage is in the case when one do not know the
+ true values or we do not know the initial estimate (or both), as is often
+ the case in reality.
+ It is the scenario where we expect VBAKF to surpass CKF, since if we are
+ at least somewhat close to the initial estimate, it should 
+\emph on
+correct 
+\emph default
+to more precise values over time.
+ Additionally, if the covariance is slowly changing, than VBAKF is able
+ to adjust it as well.
 \end_layout
 
 \begin_layout Subsubsection
@@ -565,17 +623,224 @@ Static noise
 \end_layout
 
 \begin_layout Standard
-For this case, minimal or no improvement of VBAKF algorithm over CKF was
- expected.
- 
-\end_layout
+As is clear from the table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:rmse-static-noise-comp"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-KNOWN
-\end_layout
+\end_inset
 
-\begin_layout Standard
+
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
 \align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VBAKF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.578
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ 1.045
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CKF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.601
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.555
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.937
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ 0.935
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:rmse-static-noise-comp"
+
+\end_inset
+
+Comparison of RMSE of a single node under static noise when the noise covariance
+ is known.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, the claim mentioned in the previous section is validated.
+ The CKF variant is slightly outperforming VBAKF, although both variants
+ are performing quite well.
+ Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-static-x1-perf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -586,8 +851,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/perf-static-known-x1.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -603,9 +868,11 @@ name "fig:noise-static-x1-perf"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
- 
+Performance of both filters for 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ together with measurements and the true trajectory.
 \end_layout
 
 \end_inset
@@ -615,11 +882,17 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-static-x3-perf"
+plural "false"
+caps "false"
+noprefix "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-\align center
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -630,8 +903,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/perf-static-known-x3.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -647,7 +920,13 @@ name "fig:noise-static-x3-perf"
 
 \end_inset
 
-True third and fourth component of the state vector.
+Performance of both filters for 
+\begin_inset Formula $x_{3}$
+\end_inset
+
+ together with the true trajectory.
+ This is predicted variable and not directly observed, hence the measurements
+ are missing.
 \end_layout
 
 \end_inset
@@ -657,22 +936,134 @@ True third and fourth component of the state vector.
 
 \end_inset
 
+ allows for some introspection to the observed behavior.
+ VBAKF algorithm seems to pay the price for being able more flexible than
+ CKF and it is following noise peaks too much.
+ This could be to some degree controlled by the 
+\begin_inset Formula $\tau$
+\end_inset
 
+ hyperparameter, but not much without degrading performance in some other
+ means, such as being to rigid, or coalesce with CKF.
+ 
 \end_layout
 
 \begin_layout Standard
-UNKNOWN
-\end_layout
+Let also demonstrate the situation when the true covariance is not known
+ and set to some reasonable estimate close to the true covariance.
+ The remarkable property of being able to adjust to the true covariance
+ has been confirmed, as can be seen in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rmse-static-unknown-comp"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-Remarkable property: when is the initial covariance wrong, then it can still
- converge.
- IF setup close enough though, otherwise it can diverge...
- Covariance is set to the trajectory default value
-\end_layout
+\end_inset
 
-\begin_layout Standard
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
 \align center
+\begin_inset Graphics
+	filename Images/charted/algs-mean-rmse.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rmse-static-unknown-comp"
+
+\end_inset
+
+RMSE comparison of both algorithms over components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, the performance is significantly better, specially in the predicted-only
+ components of the state vector.
+ This is even more interesting when considering that the standard deviation
+ of prediction error summarized in the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:std-static-both"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/algs-std.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:std-static-both"
+
+\end_inset
+
+Standard deviation of the prediction error across components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is significantly lower for VBAKF than in CKF.
+ This is the remarkable property of the proposed algorithm and figures for
+ the first component on figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-static-x1-unknown-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -683,8 +1074,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/perf-static-unknown-x1.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -712,11 +1103,17 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+ and third component on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-static-x3-unknown"
+plural "false"
+caps "false"
+noprefix "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-\align center
+ 
 \begin_inset Float figure
 wide false
 sideways false
@@ -727,8 +1124,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/perf-static-unknown-x3.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -744,7 +1141,12 @@ name "fig:noise-static-x3-unknown"
 
 \end_inset
 
-True third and fourth component of the state vector.
+Predicted values of 
+\begin_inset Formula $x_{3}$
+\end_inset
+
+ component by both algorithms and with true trajectory.
+ 
 \end_layout
 
 \end_inset
@@ -754,7 +1156,11 @@ True third and fourth component of the state vector.
 
 \end_inset
 
-
+ only supports that.
+ Both algorithms started with noise covariance estimate which was off, but
+ VBAKF variant could adjust for it, placing less emphasis on the measurements
+ and believing more to the prediction step.
+ CKF algorithm just stays on the same level of reliance with correction.
 \end_layout
 
 \begin_layout Subsubsection
@@ -762,11 +1168,30 @@ Variable noise
 \end_layout
 
 \begin_layout Standard
-Only variable UNKNOWN
-\end_layout
+In this scenario, it is again considered that the value for true covariance
+ is unknown and contrary to the previously discussed static case, it is
+ slowly changing as is visualized on the figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noiseSinus"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-\align center
+\end_inset
+
+.
+ As can be seen from trajectories on figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-sinus-x1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -777,8 +1202,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/perf-static-sinus-x1.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -794,9 +1219,10 @@ name "fig:noise-sinus-x1"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
- 
+First component estimates for both algorithms with observations, true values
+ and also the noise amplitude.
+ Notice how VBAKF is becoming more rigid during high noise peaks while still
+ being flexible to catch up to the trajectory change.
 \end_layout
 
 \end_inset
@@ -806,11 +1232,17 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-sinus-x3"
+plural "false"
+caps "false"
+noprefix "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-\align center
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -821,8 +1253,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/perf-static-sinus-x3.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -838,7 +1270,19 @@ name "fig:noise-sinus-x3"
 
 \end_inset
 
-True third and fourth component of the state vector.
+Third component estimates for both algorithms with observations, true values
+ and also the noise amplitude.
+ As in the case of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:noise-sinus-x1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the VBAKF can control during very noisy intervals.
 \end_layout
 
 \end_inset
@@ -848,11 +1292,27 @@ True third and fourth component of the state vector.
 
 \end_inset
 
-
+, VBAKF is again able to put less emphasis on the measurements during epochs
+ of high noise, contrary to CKF being to sensitive in during these.
+ 
 \end_layout
 
 \begin_layout Standard
-\align center
+Finally, a very nice visualization of VBAKF capabilities can be seen on
+ the graph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:adaptation-of-single"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The adaptation of the noise covariance matrix to the true unknown covariance
+ matrix is supporting the earlier findings of being able to account for
+ noisy epochs.
 \begin_inset Float figure
 wide false
 sideways false
@@ -863,8 +1323,8 @@ status collapsed
 \begin_inset Graphics
 	filename Images/charted/adaptation-of-r.pdf
 	lyxscale 70
-	width 80line%
-	height 80pheight%
+	width 70line%
+	height 70pheight%
 	keepAspectRatio
 	groupId basic
 
@@ -880,10 +1340,16 @@ name "fig:adaptation-of-single"
 
 \end_inset
 
-True third and fourth component of the state vector.
- SCALE DOESN'T MATTER, it's the trend what is important here! Ideally, the
- blue would correspond to yellow.
- It's interesting to compare this with the 
+Frobenius norms comparison of the VBAKF algorithm and covariance of moving
+ window (size 20 steps to the future) of the noise.
+ The diagonal values of 
+\begin_inset Formula $\mat R$
+\end_inset
+
+ are increasing during noise peaks, while going down during low noise epochs.
+ The scale in this chart is not important, it is the trend of the norms.
+ Those should be ideally as close as possible.
+ 
 \end_layout
 
 \end_inset
@@ -930,7 +1396,445 @@ variance is changing differently in each node
 \end_layout
 
 \begin_layout Itemize
+fig: noise in both dimensions for 5 nodes
+\end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/diffusion-noise.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-diffusion"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+pro 15 nodes, trajektorie třeba 250, udělat srovnání rmse - mean a std pro
+ no-diff a diff
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/network-top.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:network-top"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/difnodif-mean-rmse.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mean-rmse-diffnodiff"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/difnodif-std-rmse.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:std-rmse-diffnodiff"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+možná nějak zmínit že je diffusion se zdá jako dobrá obrana proti divergenci
+ (jak je tam ten jeden node úplně mimo, resp 2)
+\end_layout
+
+\begin_layout Itemize
+fig: RMSE ve dvou složkách v závislosti na počtu nodes pro obě varianty
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+tohle nepůjde - hází to různá čísla a bude to dle mého šumem - neřešit a
+ jet dál
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+divergující nodes
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/all-nodes-no-diff-x1.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:all-node-R-prepost-1"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+fig: srovnání R pre a R post u jednoho nodu, pak to brutální zeleno červené
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+nevykreslujeme sílu predikcí - to je podobné jako ve one-node variantě,
+ ale lepší, nicméně je zajímavé jak moc to průměrování pomáhá snížit varianci
+ R
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/compare-single-node-r-diff.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:single-node-R-prepost"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/compare-mult-nodes-r-diff.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:all-node-R-prepost"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/log-r-all-nodes-nodiff.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:all-node-logR-nodiff"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/log-r-all-nodes-diff.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:all-node-logR-diff"
+
+\end_inset
+
+First and second component in the first row are observable, while the third
+ and fourth is not.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ta zpětna vazba?
 \end_layout
 
 \begin_layout Standard
