@@ -121,6 +121,15 @@ add link to the github page
  mechanism behind the performance.
 \end_layout
 
+\begin_layout Standard
+Please note that some figures should be compared against each other as a
+ trend, rather then individual lines.
+ This is true especially in the case of the multi-node variants, when the
+ author's goal is to demonstrate that all the nodes are having some specific
+ property which would be hardly to demonstrate by plotting only a single
+ node.
+\end_layout
+
 \begin_layout Section
 Implementation
 \end_layout
@@ -343,7 +352,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -387,7 +396,7 @@ First and second component in the first row are observable, while the third
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -482,7 +491,7 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -525,7 +534,7 @@ Multivariate Gaussian Random noise without variable variance.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -565,6 +574,13 @@ A variable variance in the noise is simulated in this example.
 
 \begin_layout Subsection
 Single node VBAKF
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Single-node-VBAKF"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1366,90 +1382,80 @@ Frobenius norms comparison of the VBAKF algorithm and covariance of moving
 Conclusion
 \end_layout
 
-\begin_layout Itemize
-no improvement - slightly worse, when known and of course computationally
- more intensive (which is one of the reason why to choose KF)
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+nechat si do finálního conclusion?
 \end_layout
 
-\begin_layout Itemize
-It would behave the same in the diffusion mode
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-it can converge if close at the beginning
-\end_layout
+\begin_layout Standard
+The simulations shows that our single node VBAKF implementation is behaving
+ as the theory predicts and in concordance with the reference source 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
 
-\begin_layout Itemize
-How much tunning had to be done
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-comment how it is adapting
+ where more emphasis on noise analysis were done.
+ VBAKF does not perform better in case of a static noise when the covariance
+ is known, merely just adding more computational time and possibly worse
+ results trying to adjust to random fluctuations.
+ It outperforms CKF in situations when the covariance of the noise is either
+ unknown and, or, slowly changing.
+ The performance of VBAKF was consistently better than CKF in these over
+ many iterations and many variant of a noise.
+ It is also worth mentioning that a very little tuning had to be done to
+ get to these results.
+ How much close the initial estimate must be to guarantee divergence is
+ of course almost impossible to say in the real world cases, but in our
+ testing case, even extreme initialization lead to quickly correcting the
+ state (in less than 5 iterations).
+ Such an extreme initialization were for example over three orders of magnitudes
+ of the reality – a situation in which the CKF just does not provide any
+ useful information.
+ 
 \end_layout
 
 \begin_layout Subsection
 Distributed VBAKF
 \end_layout
 
-\begin_layout Itemize
-variance is changing differently in each node
-\end_layout
-
-\begin_layout Itemize
-fig: noise in both dimensions for 5 nodes
-\end_layout
-
 \begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/charted/diffusion-noise.pdf
-	lyxscale 70
-	width 70line%
-	height 70pheight%
-	keepAspectRatio
-	groupId basic
+Based on the results from the previous chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Single-node-VBAKF"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:noise-diffusion"
-
-\end_inset
-
-First and second component in the first row are observable, while the third
- and fourth is not.
+, only a slowly changing noise is going to be considered to not clutter
+ the analysis of VBAKF with diffusion versus VBAKF without diffusion.
+ As has been mentioned on the beginning of this whole chapter, the figures
+ when plotting information from multiple nodes should be read as a general
+ trend exhibited by the system.
+ It would be a mistake try to interpret them line by line.
  
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-pro 15 nodes, trajektorie třeba 250, udělat srovnání rmse - mean a std pro
- no-diff a diff
+\begin_layout Subsubsection
+Setting
 \end_layout
 
 \begin_layout Standard
-\align center
+Our network topology of nodes is for simplicity a 4-regular graph as is
+ in figure 
 \begin_inset Float figure
 wide false
 sideways false
@@ -1477,23 +1483,84 @@ name "fig:network-top"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
+A network representing connection of different measurement nodes connected
+ with the neighbors.
+ The topology is a 4-regular graph.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ A slowly changing, different noise is attributed to the each node in the
+ network (figure 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/diffusion-noise.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:noise-diffusion"
+
+\end_inset
+
+Values of first and second component with noise from different nodes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+).
+ When we compare diffused versus non-diffused variant, the noise attributed
+ in the both runs was the same in corresponding nodes to make the results
+ comparable and reproducible.
+ The results are averaged over at least 100 iterations.
  
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+\begin_layout Subsubsection
+Estimation performance
 \end_layout
 
 \begin_layout Standard
-\align center
+As expected, the estimation performance of the diffused variant is better
+ than non-diffused variant.
+ This is not only a result in the averaged results on the figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mean-rmse-diffnodiff"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1533,11 +1600,23 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+, but it was consistent across literally all runs.
+ To recapitulate – there was not a 
+\emph on
+single 
+\emph default
+run where would the non-diffused variant outperformed the diffused one in
+ matter of RMSE and standard deviation (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:std-rmse-diffnodiff"
+plural "false"
+caps "false"
+noprefix "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-\align center
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1577,88 +1656,34 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-možná nějak zmínit že je diffusion se zdá jako dobrá obrana proti divergenci
- (jak je tam ten jeden node úplně mimo, resp 2)
-\end_layout
-
-\begin_layout Itemize
-fig: RMSE ve dvou složkách v závislosti na počtu nodes pro obě varianty
+) of error.
+ There is a price in time execution, since the diffusion variant does an
+ additional step – diffusing parameters – in each iteration, but that was
+ negligible, taking only about 5% longer than non-diffused variant.
  
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-tohle nepůjde - hází to různá čísla a bude to dle mého šumem - neřešit a
- jet dál
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-divergující nodes
+\begin_layout Subsubsection
+Noise covariance analysis
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/charted/all-nodes-no-diff-x1.pdf
-	lyxscale 70
-	width 70line%
-	height 70pheight%
-	keepAspectRatio
-	groupId basic
+The idea behind diffusion optimization is that the 
+\emph on
+averaging 
+\emph default
+over several nodes will eliminate extremes and smooths the estimation.
+ This is clearly happening, as is clear from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:single-node-R-prepost"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:all-node-R-prepost-1"
-
-\end_inset
-
-First and second component in the first row are observable, while the third
- and fourth is not.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-fig: srovnání R pre a R post u jednoho nodu, pak to brutální zeleno červené
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-nevykreslujeme sílu predikcí - to je podobné jako ve one-node variantě,
- ale lepší, nicméně je zajímavé jak moc to průměrování pomáhá snížit varianci
- R
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -1686,8 +1711,9 @@ name "fig:single-node-R-prepost"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
+The diffusion algorithm smooths the trajectory for this single randomly
+ chosen single node from the network, ignoring significant peaks which would
+ otherwise led to inferior estimates.
  
 \end_layout
 
@@ -1698,11 +1724,20 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+, where we plot a Frobenius norm of the noise covariance matrix before and
+ after diffusion step.
+ Naturally, this phenomenon was exhibited on all nodes in the network, visualize
+d on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:all-node-R-prepost"
+plural "false"
+caps "false"
+noprefix "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-\align center
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1730,8 +1765,8 @@ name "fig:all-node-R-prepost"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
+All nodes exhibit the behavior of smoothing out the noise covariance estimates,
+ leading to the better results.
  
 \end_layout
 
@@ -1742,11 +1777,21 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-\align center
+Another view of this is presented on figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:all-node-logR-nodiff"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1774,9 +1819,10 @@ name "fig:all-node-logR-nodiff"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
- 
+Nodes in non-diffusion variant do not exhibit any common pattern.
+ There is also one of the nodes diverging quite significantly, considering
+ the logarithmic scale.
+ The diffusion variant do not exhibit such divergence.
 \end_layout
 
 \end_inset
@@ -1786,11 +1832,17 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:all-node-logR-diff"
+plural "false"
+caps "false"
+noprefix "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-\align center
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1818,8 +1870,17 @@ name "fig:all-node-logR-diff"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
+Nodes in the diffusion variant are able to pick up the general noise trend
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+agree
+\begin_inset Quotes erd
+\end_inset
+
+ on it to some degree, even though it may not be the best estimate for the
+ underlying nodes.
  
 \end_layout
 
@@ -1830,11 +1891,113 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
+.
+ While there is almost no or very little pattern in the non-diffused variant,
+ the diffusion variant got a general trend.
+ 
+\end_layout
+
+\begin_layout Standard
+It is also interesting to note that in our simulations, the diffused variance
+ exhibit much less divergence cases, which can be explained by the fact
+ that any extremes are much likely to be suppressed by neighbor nodes participat
+ing in diffusion.
+ An example can be seen on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:all-node-R-prepost-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/all-nodes-no-diff-x1.pdf
+	lyxscale 70
+	width 70line%
+	height 70pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:all-node-R-prepost-1"
+
+\end_inset
+
+An example of diverging node present in the non-diffused variant.
+ 
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
-\begin_layout Itemize
-ta zpětna vazba?
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+hodit obrázky do dvou sloupců aby to nebylo tak rozlezlý jako teď.
+ Určitě by tak mohli být udělány: příklady šumů, bar plot RMSE a STD.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+optional: fig: RMSE ve dvou složkách v závislosti na počtu nodes pro obě
+ varianty * tohle nepůjde - hází to různá čísla a bude to dle mého šumem
+ - neřešit a jet 
+\end_layout
+
+\begin_layout Plain Layout
+zpětná vazba
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Conclusion a nebo jen finální conclusion
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
