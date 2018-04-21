@@ -1199,7 +1199,7 @@ noprefix "false"
 .
  As can be seen from trajectories on figures 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-sinus-x1"
 plural "false"
 caps "false"
@@ -1250,7 +1250,7 @@ First component estimates for both algorithms with observations, true values
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-sinus-x3"
 plural "false"
 caps "false"
@@ -1317,7 +1317,7 @@ noprefix "false"
 Finally, a very nice visualization of VBAKF capabilities can be seen on
  the graph 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:adaptation-of-single"
 plural "false"
 caps "false"
@@ -1384,7 +1384,7 @@ Conclusion
 
 \begin_layout Standard
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 nechat si do finálního conclusion?
