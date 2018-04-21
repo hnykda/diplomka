@@ -324,7 +324,7 @@ true
  A typical result of the first two components of the test trajectory can
  be seen on 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:trajectoryExample"
 plural "false"
 caps "false"
@@ -334,7 +334,7 @@ noprefix "false"
 
  while the other two on 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:trajectoryExample-3n4"
 plural "false"
 caps "false"
@@ -443,7 +443,7 @@ Different type of noises were tested to thoroughly examine the behavior
  Examples for a static noise and variable noise can be found on figures
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noiseStatic"
 plural "false"
 caps "false"
@@ -453,7 +453,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noiseSinus"
 plural "false"
 caps "false"
@@ -641,7 +641,7 @@ Static noise
 \begin_layout Standard
 As is clear from the table 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "tab:rmse-static-noise-comp"
 plural "false"
 caps "false"
@@ -848,7 +848,7 @@ Comparison of RMSE of a single node under static noise when the noise covariance
  are performing quite well.
  Figures 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-static-x1-perf"
 plural "false"
 caps "false"
@@ -900,7 +900,7 @@ Performance of both filters for
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-static-x3-perf"
 plural "false"
 caps "false"
@@ -970,7 +970,7 @@ Let also demonstrate the situation when the true covariance is not known
  The remarkable property of being able to adjust to the true covariance
  has been confirmed, as can be seen in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:rmse-static-unknown-comp"
 plural "false"
 caps "false"
@@ -1021,7 +1021,7 @@ RMSE comparison of both algorithms over components.
  This is even more interesting when considering that the standard deviation
  of prediction error summarized in the 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:std-static-both"
 plural "false"
 caps "false"
@@ -1071,7 +1071,7 @@ Standard deviation of the prediction error across components.
  This is the remarkable property of the proposed algorithm and figures for
  the first component on figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-static-x1-unknown-1"
 plural "false"
 caps "false"
@@ -1121,7 +1121,7 @@ First and second component in the first row are observable, while the third
 
  and third component on 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-static-x3-unknown"
 plural "false"
 caps "false"
@@ -1188,7 +1188,7 @@ In this scenario, it is again considered that the value for true covariance
  is unknown and contrary to the previously discussed static case, it is
  slowly changing as is visualized on the figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noiseSinus"
 plural "false"
 caps "false"
@@ -1290,7 +1290,7 @@ Third component estimates for both algorithms with observations, true values
  and also the noise amplitude.
  As in the case of 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:noise-sinus-x1"
 plural "false"
 caps "false"
@@ -1432,7 +1432,7 @@ Distributed VBAKF
 \begin_layout Standard
 Based on the results from the previous chapter 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "subsec:Single-node-VBAKF"
 plural "false"
 caps "false"
@@ -1552,7 +1552,7 @@ As expected, the estimation performance of the diffused variant is better
  than non-diffused variant.
  This is not only a result in the averaged results on the figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:mean-rmse-diffnodiff"
 plural "false"
 caps "false"
@@ -1608,7 +1608,7 @@ single
 run where would the non-diffused variant outperformed the diffused one in
  matter of RMSE and standard deviation (figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:std-rmse-diffnodiff"
 plural "false"
 caps "false"
@@ -1675,7 +1675,7 @@ averaging
 over several nodes will eliminate extremes and smooths the estimation.
  This is clearly happening, as is clear from 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:single-node-R-prepost"
 plural "false"
 caps "false"
@@ -1729,7 +1729,7 @@ The diffusion algorithm smooths the trajectory for this single randomly
  Naturally, this phenomenon was exhibited on all nodes in the network, visualize
 d on 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:all-node-R-prepost"
 plural "false"
 caps "false"
@@ -1783,7 +1783,7 @@ All nodes exhibit the behavior of smoothing out the noise covariance estimates,
 \begin_layout Standard
 Another view of this is presented on figures 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:all-node-logR-nodiff"
 plural "false"
 caps "false"
@@ -1834,7 +1834,7 @@ Nodes in non-diffusion variant do not exhibit any common pattern.
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:all-node-logR-diff"
 plural "false"
 caps "false"
@@ -1904,7 +1904,7 @@ It is also interesting to note that in our simulations, the diffused variance
 ing in diffusion.
  An example can be seen on 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:all-node-R-prepost-1"
 plural "false"
 caps "false"

@@ -399,7 +399,7 @@ literal "false"
 , which are both the covariances matrices of Gaussian PDFs as is in equations
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:predxkprob"
 plural "false"
 caps "false"
@@ -409,7 +409,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:predzkprob"
 plural "false"
 caps "false"
@@ -669,7 +669,7 @@ PECM and PNCM, respectively.
 
  into 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:iweff"
 plural "false"
 caps "false"
@@ -679,7 +679,7 @@ noprefix "false"
 
  and combining with 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:updateT"
 plural "false"
 caps "false"
@@ -689,7 +689,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:updatet"
 plural "false"
 caps "false"
@@ -737,7 +737,7 @@ Hyperparameters for MCNM
 \begin_layout Standard
 According to 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:bayes-theorem"
 plural "false"
 caps "false"
@@ -831,7 +831,7 @@ p(\mat R_{0}=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}
 \begin_layout Standard
 Similarly to the PNCM case in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:initPNCM"
 plural "false"
 caps "false"
@@ -873,7 +873,7 @@ Substituting
 
  into 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:iweff"
 plural "false"
 caps "false"
@@ -883,7 +883,7 @@ noprefix "false"
 
  and combining with 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:updateU"
 plural "false"
 caps "false"
@@ -893,7 +893,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:updateu"
 plural "false"
 caps "false"
@@ -993,7 +993,7 @@ In order to to infer all
  needs to be estimated.
  As thoroughly described in chapter 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Variational-inference"
 plural "false"
 caps "false"
@@ -1038,7 +1038,7 @@ Probabilistic model
 \begin_layout Standard
 Combining 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:predxkprob"
 plural "false"
 caps "false"
@@ -1048,7 +1048,7 @@ noprefix "false"
 
 , 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:predzkprob"
 plural "false"
 caps "false"
@@ -1058,7 +1058,7 @@ noprefix "false"
 
 , 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:iwdistP"
 plural "false"
 caps "false"
@@ -1068,7 +1068,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:iwdistR"
 plural "false"
 caps "false"
@@ -1157,7 +1157,7 @@ status open
 \begin_layout Plain Layout
 Graphical model of probabilistic model 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:modelProb"
 plural "false"
 caps "false"
@@ -1297,7 +1297,7 @@ Důležité: Tady mi nesedí ty updates!
 \begin_layout Standard
 As can be seen, the natural parameters matches for 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:normalPk"
 plural "false"
 caps "false"
@@ -1307,7 +1307,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:naturPk"
 plural "false"
 caps "false"
@@ -1317,7 +1317,7 @@ noprefix "false"
 
  as well as for 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:normalRk"
 plural "false"
 caps "false"
@@ -1327,7 +1327,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:naturRk"
 plural "false"
 caps "false"
@@ -1450,7 +1450,7 @@ where
  are hyperparameters obtained from the results of Kalman filter of the previous
  observation, derived using formulas 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:xiInit"
 plural "false"
 caps "false"
@@ -1460,7 +1460,7 @@ noprefix "false"
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:omegaInit"
 plural "false"
 caps "false"
@@ -1648,7 +1648,7 @@ jen odkaz jako jinde
 
  by 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:xiInit"
 plural "false"
 caps "false"
@@ -1662,7 +1662,7 @@ noprefix "false"
 
  by 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:omegaInit"
 plural "false"
 caps "false"
@@ -1699,7 +1699,7 @@ For
 
  based on the 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:updateHypOmega"
 plural "false"
 caps "false"
@@ -1713,7 +1713,7 @@ noprefix "false"
 
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:expValfromHyp"
 plural "false"
 caps "false"
@@ -1732,7 +1732,7 @@ noprefix "false"
 
  based on the 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:updateHypXi"
 plural "false"
 caps "false"
@@ -1746,7 +1746,7 @@ noprefix "false"
 
  using 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:expValfromHyp"
 plural "false"
 caps "false"
@@ -1761,7 +1761,7 @@ noprefix "false"
 6.
  Perform Kalman correction 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:kalmanCor-beg"
 plural "false"
 caps "false"
@@ -1771,7 +1771,7 @@ noprefix "false"
 
 -
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:kalmanCor-end"
 plural "false"
 caps "false"

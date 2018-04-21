@@ -163,7 +163,7 @@ literal "false"
  – distributed Kalman filtering.
  See 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Methods"
 plural "false"
 caps "false"

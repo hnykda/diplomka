@@ -379,7 +379,7 @@ Principles of Bayesian probability
 \begin_layout Standard
 Core idea of Bayesian interpretation is surely a famous Bayes theorem 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:bayes-theorem"
 
 \end_inset
@@ -484,7 +484,7 @@ Suppose that
 
  in formula 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:bayes-theorem"
 
 \end_inset
@@ -856,7 +856,7 @@ literal "true"
  A representative approach of the latter is e.g.
  variational inference described in detail in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Variational-inference"
 
 \end_inset
@@ -976,7 +976,7 @@ literal "true"
  functional.
  As was described in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "subsec:Approximation-methods"
 
 \end_inset
@@ -1065,7 +1065,7 @@ variational parameters
 
 , Kullback-Leibler (KL) divergence 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:KL"
 
 \end_inset
@@ -1123,7 +1123,7 @@ In a case when
 \begin_layout Standard
 The optimization 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:optim"
 
 \end_inset
@@ -1206,14 +1206,14 @@ It can be shown that
 \begin_layout Standard
 Combining 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:elbo"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:KL"
 
 \end_inset
@@ -1274,7 +1274,7 @@ accurate enough
  This is the part from where approximation arise in variational Bayes as
  has been discussed in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "subsec:Approximation-methods"
 
 \end_inset
@@ -1291,7 +1291,7 @@ Factorized distributions
 A common choice for such a family of distributions described in the chapter
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Variational-inference"
 
 \end_inset
@@ -1365,7 +1365,7 @@ CAVI
 \emph default
 ) is a commonly used algorithm for solving optimization problem 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:optim"
 
 \end_inset
@@ -1490,7 +1490,7 @@ Let us now rewrite
 
  in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:elbo"
 
 \end_inset
@@ -1526,7 +1526,7 @@ where in the first term is just an iterated expectation and in the second
 \begin_layout Standard
 Now it's easy to see that 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:negkl"
 
 \end_inset
@@ -1900,7 +1900,7 @@ Form of
 This is usually the hardest part of variational inference.
  The derivation of the following terms is according to 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:ascent-update"
 
 \end_inset
