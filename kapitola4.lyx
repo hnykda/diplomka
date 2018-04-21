@@ -97,7 +97,7 @@ theorems-ams-extended
 \begin_body
 
 \begin_layout Chapter
-Results
+Results and simulations
 \end_layout
 
 \begin_layout Standard
@@ -106,15 +106,9 @@ The following chapter offers an in-depth analysis of a performance of the
  To guarantee a reproducible research, implementation details are mentioned
  to some degree and the code with the comparison is publicly available on
  
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-add link to the github page
-\end_layout
-
-\end_inset
-
+\family typewriter
+https://github.com/hnykda/kfsims
+\family default
 .
  This thesis focused mostly on state prediction accuracy and less on the
  noise analysis, although it is mentioned when it helps to understand the
@@ -126,8 +120,7 @@ Please note that some figures should be compared against each other as a
  trend, rather then individual lines.
  This is true especially in the case of the multi-node variants, when the
  author's goal is to demonstrate that all the nodes are having some specific
- property which would be hardly to demonstrate by plotting only a single
- node.
+ property which would be hard to demonstrate by plotting only a single node.
 \end_layout
 
 \begin_layout Section
@@ -166,7 +159,7 @@ notebook
 \end_layout
 
 \begin_layout Itemize
-filterpy 1.2.1 - reference implementation of a classic Kalman Filter
+filterpy 1.2.1 – reference implementation of a classic Kalman Filter
 \end_layout
 
 \begin_layout Itemize
@@ -175,15 +168,9 @@ matplotlib 2.2.2 – to create charts (including this thesis)
 
 \begin_layout Standard
 All the code is available on GitHub page 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Add link to the github page
-\end_layout
-
-\end_inset
-
+\family typewriter
+https://github.com/hnykda/kfsims
+\family default
  including the instruction how to replicate the analysis and testing environment.
  Most of the functionality has been written from scratch by the author while
  having a reference implementation by the supervisor (plus the model of
@@ -245,10 +232,6 @@ visualize
 \end_layout
 
 \begin_layout Section
-Simulations
-\end_layout
-
-\begin_layout Subsection
 Testing data
 \end_layout
 
@@ -360,8 +343,6 @@ status collapsed
 	filename Images/charted/trajectory.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -404,8 +385,6 @@ status collapsed
 	filename Images/charted/3and4th-state.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -433,15 +412,14 @@ True third and fourth component of the state vector.
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Noise
 \end_layout
 
 \begin_layout Standard
 Different type of noises were tested to thoroughly examine the behavior
  of different filter under different circumstances.
- Examples for a static noise and variable noise can be found on figures
- 
+ Examples for a static noise and variable noise can be found in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noiseStatic"
@@ -466,7 +444,13 @@ noprefix "false"
  components distorted by the type of noise under study.
  Henceforth, for the sake of simplicity, MNCM was the factor we considered
  that can be slowly varying.
- 
+ In cases when the true covariance is unknown, the initial covariance was
+ set to a base trajectory covariance 
+\begin_inset Formula $\mat R$
+\end_inset
+
+, simulating an estimate one could obtain in the real application by other
+ means.
 \end_layout
 
 \begin_layout Standard
@@ -499,8 +483,6 @@ status collapsed
 	filename Images/charted/static-noise.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -542,8 +524,6 @@ status collapsed
 	filename Images/charted/sinus-noise.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -572,7 +552,7 @@ A variable variance in the noise is simulated in this example.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Single node VBAKF
 \begin_inset CommandInset label
 LatexCommand label
@@ -598,7 +578,7 @@ In this section, we compare the VBAKF algorithm performance against the
 \begin_layout Standard
 When the true covariance is known and static – an unlikely situation in
  the real world systems – we do not expect any improvements in predictions
- over VBAKF.
+ over CKF.
  Actually, its performance may be degraded trying to adjust to the noise,
  making the overall accuracy score worse than CKF.
  In the case when the covariance is known and changing, then it depends
@@ -621,9 +601,9 @@ dát do conclusion, že VBAKF si ani tehdy nevedl moc špatně
 
 \end_inset
 
- Henceforth, the main advantage is in the case when one do not know the
- true values or we do not know the initial estimate (or both), as is often
- the case in reality.
+ Therefore, the main advantage is in the case when one do not know the true
+ values or we do not know the initial estimate (or both), as is often the
+ case in reality.
  It is the scenario where we expect VBAKF to surpass CKF, since if we are
  at least somewhat close to the initial estimate, it should 
 \emph on
@@ -634,15 +614,15 @@ to more precise values over time.
  to adjust it as well.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Static noise
 \end_layout
 
 \begin_layout Standard
-As is clear from the table 
+As is clear from the 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "tab:rmse-static-noise-comp"
+reference "fig:noise-static-x1-perf-1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -650,175 +630,18 @@ noprefix "false"
 \end_inset
 
 
-\begin_inset Float table
+\begin_inset Float figure
 wide false
 sideways false
 status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="5">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x_{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x_{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x_{3}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x_{4}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-VBAKF
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.65
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.578
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.96
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 1.045
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CKF
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.601
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.555
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.937
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.935
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
+\begin_inset Graphics
+	filename Images/charted/bars-known-static-noise.pdf
+	lyxscale 70
+	width 70line%
+	groupId basic
 
 \end_inset
 
@@ -828,12 +651,13 @@ CKF
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:rmse-static-noise-comp"
+name "fig:noise-static-x1-perf-1"
 
 \end_inset
 
-Comparison of RMSE of a single node under static noise when the noise covariance
- is known.
+As expected, there is no performance gain in prediction(right) nor standard
+ deviation (right) using VBAKF in the simplest possible situation of a known
+ static noise.
 \end_layout
 
 \end_inset
@@ -846,7 +670,7 @@ Comparison of RMSE of a single node under static noise when the noise covariance
 , the claim mentioned in the previous section is validated.
  The CKF variant is slightly outperforming VBAKF, although both variants
  are performing quite well.
- Figures 
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-static-x1-perf"
@@ -868,8 +692,6 @@ status collapsed
 	filename Images/charted/perf-static-known-x1.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -920,8 +742,6 @@ status collapsed
 	filename Images/charted/perf-static-known-x3.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -941,8 +761,8 @@ Performance of both filters for
 \end_inset
 
  together with the true trajectory.
- This is predicted variable and not directly observed, hence the measurements
- are missing.
+ This is purely estimated variable and not directly observed, hence the
+ measurements are missing.
 \end_layout
 
 \end_inset
@@ -968,7 +788,7 @@ Performance of both filters for
 Let also demonstrate the situation when the true covariance is not known
  and set to some reasonable estimate close to the true covariance.
  The remarkable property of being able to adjust to the true covariance
- has been confirmed, as can be seen in 
+ has been confirmed, as can be seen from RMSE comparison in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:rmse-static-unknown-comp"
@@ -987,11 +807,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Images/charted/algs-mean-rmse.pdf
+	filename Images/charted/bars-unknown-static-noise.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1006,7 +824,10 @@ name "fig:rmse-static-unknown-comp"
 
 \end_inset
 
-RMSE comparison of both algorithms over components.
+Although the performance gain in prediction errors of the observed components
+ is already high (~20%), the major difference is present in the unobserved
+ ones, VBAKF giving over 2 times better results in terms of RMSE and 3 times
+ better in terms of standard deviation.
 \end_layout
 
 \end_inset
@@ -1016,60 +837,22 @@ RMSE comparison of both algorithms over components.
 
 \end_inset
 
-, the performance is significantly better, specially in the predicted-only
- components of the state vector.
+, the performance is significantly better, specially in the unobserved component
+s of the state vector.
  This is even more interesting when considering that the standard deviation
- of prediction error summarized in the 
+ of prediction error in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "fig:std-static-both"
+reference "fig:rmse-static-unknown-comp"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/charted/algs-std.pdf
-	lyxscale 70
-	width 70line%
-	height 70pheight%
-	keepAspectRatio
-	groupId basic
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:std-static-both"
-
-\end_inset
-
-Standard deviation of the prediction error across components.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
  is significantly lower for VBAKF than in CKF.
  This is the remarkable property of the proposed algorithm and figures for
- the first component on figure 
+ the first component in  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-static-x1-unknown-1"
@@ -1091,8 +874,6 @@ status collapsed
 	filename Images/charted/perf-static-unknown-x1.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1119,7 +900,7 @@ First and second component in the first row are observable, while the third
 
 \end_inset
 
- and third component on 
+ and third component in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-static-x3-unknown"
@@ -1141,8 +922,6 @@ status collapsed
 	filename Images/charted/perf-static-unknown-x3.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1157,7 +936,7 @@ name "fig:noise-static-x3-unknown"
 
 \end_inset
 
-Predicted values of 
+Estimated values of 
 \begin_inset Formula $x_{3}$
 \end_inset
 
@@ -1179,14 +958,14 @@ Predicted values of
  CKF algorithm just stays on the same level of reliance with correction.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Variable noise
 \end_layout
 
 \begin_layout Standard
 In this scenario, it is again considered that the value for true covariance
  is unknown and contrary to the previously discussed static case, it is
- slowly changing as is visualized on the figure 
+ slowly changing as is visualized on the 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noiseSinus"
@@ -1197,7 +976,61 @@ noprefix "false"
 \end_inset
 
 .
- As can be seen from trajectories on figures 
+ From the performance evaluation perspective, the situation is analogous
+ to the previous case when the noise covariance is not known.
+ Based on the expectations from the theory and the previous results, there
+ is no surprise that VBAKF is performing significantly better over CKF with
+ details in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:rmse-static-unknown-comp-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/charted/bars-unknown-variable-noise.pdf
+	lyxscale 70
+	width 70line%
+	groupId basic
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rmse-static-unknown-comp-1"
+
+\end_inset
+
+Similarly to the unknown static noise case, VBAKF is clearly performing
+ significantly better in terms of RMSE (left) with much less variance in
+ the estimation error (right).
+ Furthermore, this is exhibited over all components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ As can be seen from trajectories on 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-sinus-x1"
@@ -1219,8 +1052,6 @@ status collapsed
 	filename Images/charted/perf-static-sinus-x1.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1270,8 +1101,6 @@ status collapsed
 	filename Images/charted/perf-static-sinus-x3.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1340,8 +1169,6 @@ status collapsed
 	filename Images/charted/adaptation-of-r.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1378,21 +1205,8 @@ Frobenius norms comparison of the VBAKF algorithm and covariance of moving
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Conclusion
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-nechat si do finálního conclusion?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1425,7 +1239,7 @@ literal "false"
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Distributed VBAKF
 \end_layout
 
@@ -1449,13 +1263,23 @@ noprefix "false"
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Setting
 \end_layout
 
 \begin_layout Standard
 Our network topology of nodes is for simplicity a 4-regular graph as is
- in figure 
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:network-top"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1467,8 +1291,6 @@ status collapsed
 	filename Images/charted/network-top.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1497,7 +1319,17 @@ A network representing connection of different measurement nodes connected
 
 .
  A slowly changing, different noise is attributed to the each node in the
- network (figure 
+ network (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:noise-diffusion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1509,8 +1341,6 @@ status collapsed
 	filename Images/charted/diffusion-noise.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1543,7 +1373,7 @@ Values of first and second component with noise from different nodes.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Estimation performance
 \end_layout
 
@@ -1569,11 +1399,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Images/charted/difnodif-mean-rmse.pdf
+	filename Images/charted/rmse-std-diffnodiff.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1588,9 +1416,9 @@ name "fig:mean-rmse-diffnodiff"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
- 
+Diffusion variant outperforms the non-diffused variant not just in Mean
+ RMSE (the left figure), but also in Mean Standard deviation over all runs
+ (the right figure).
 \end_layout
 
 \end_inset
@@ -1606,64 +1434,26 @@ First and second component in the first row are observable, while the third
 single 
 \emph default
 run where would the non-diffused variant outperformed the diffused one in
- matter of RMSE and standard deviation (figure 
+ matter of Mean RMSE and standard deviation in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "fig:std-rmse-diffnodiff"
+reference "fig:mean-rmse-diffnodiff"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/charted/difnodif-std-rmse.pdf
-	lyxscale 70
-	width 70line%
-	height 70pheight%
-	keepAspectRatio
-	groupId basic
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:std-rmse-diffnodiff"
-
-\end_inset
-
-First and second component in the first row are observable, while the third
- and fourth is not.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-) of error.
+.
  There is a price in time execution, since the diffusion variant does an
- additional step – diffusing parameters – in each iteration, but that was
- negligible, taking only about 5% longer than non-diffused variant.
+ additional step – diffusing parameters – in each iteration.
+ In our setting, this was almost negligible, taking only about 5% longer
+ than the non-diffused variant.
+ This time penalty would of course depend on the chosen diffusion strategy.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Noise covariance analysis
 \end_layout
 
@@ -1695,8 +1485,6 @@ status collapsed
 	filename Images/charted/compare-single-node-r-diff.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1727,7 +1515,7 @@ The diffusion algorithm smooths the trajectory for this single randomly
 , where we plot a Frobenius norm of the noise covariance matrix before and
  after diffusion step.
  Naturally, this phenomenon was exhibited on all nodes in the network, visualize
-d on 
+d in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-R-prepost"
@@ -1749,8 +1537,6 @@ status collapsed
 	filename Images/charted/compare-mult-nodes-r-diff.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1781,7 +1567,7 @@ All nodes exhibit the behavior of smoothing out the noise covariance estimates,
 \end_layout
 
 \begin_layout Standard
-Another view of this is presented on figures 
+Another view of this is presented in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-logR-nodiff"
@@ -1803,8 +1589,6 @@ status collapsed
 	filename Images/charted/log-r-all-nodes-nodiff.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1854,8 +1638,6 @@ status collapsed
 	filename Images/charted/log-r-all-nodes-diff.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1924,8 +1706,6 @@ status collapsed
 	filename Images/charted/all-nodes-no-diff-x1.pdf
 	lyxscale 70
 	width 70line%
-	height 70pheight%
-	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1954,50 +1734,100 @@ An example of diverging node present in the non-diffused variant.
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-hodit obrázky do dvou sloupců aby to nebylo tak rozlezlý jako teď.
- Určitě by tak mohli být udělány: příklady šumů, bar plot RMSE a STD.
-\end_layout
-
-\end_inset
-
-
+\begin_layout Subsection
+Conclusion
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-optional: fig: RMSE ve dvou složkách v závislosti na počtu nodes pro obě
- varianty * tohle nepůjde - hází to různá čísla a bude to dle mého šumem
- - neřešit a jet 
-\end_layout
-
-\begin_layout Plain Layout
-zpětná vazba
-\end_layout
+Indeed, the diffusion extension to the VBAKF algorithm clearly performs
+ better than variant without diffusion in place.
+ This is exhibited consistently over many iterations with different initializati
+on noise.
+ It is relatively robust to the parameter setting when sane defaults are
+ used (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
 
 \end_inset
 
-
+ for more information).
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Conclusion a nebo jen finální conclusion
+The disadvantages of the diffusion algorithm are mostly practical limitations
+ of real life applications.
+ 
 \end_layout
 
-\end_inset
+\begin_layout Standard
+First of all, a communication must be established between the communicating
+ nodes.
+ The implementation of this communication may not be possible, nodes can
+ be for example only connected to a master node or do not have ability to
+ receive any information from the outer world, only to send one.
+ Notwithstanding, this is not an intrinsic property of the method, but rather
+ a common requirements for many diffusion and consensus approach.
+ It is worth to mention that the algorithm does not rely on having all nodes
+ participating in all time steps.
+ As a matter of fact, the worst case scenario is a fallback to the default
+ non-diffused variant when no nodes are communicating.
+ This fact also facilitates the possible inclusion into an already existing
+ solutions, since it can be implemented gradually, proceeding with the diffusion
+ extension only when it is possible and a preliminary results shows effectivenes
+s.
+ 
+\end_layout
 
+\begin_layout Standard
+Secondly, there is additional implementation complexity, but as can be seen
+ from the implementation, it is very easy to add the diffusion step into
+ the existing algorithm.
+ The diffusion strategy may be of course much more complex than it is in
+ our case, but again, that is not an intrinsic property of the proposed
+ algorithm but rather specific to the implementation.
+ 
+\end_layout
 
+\begin_layout Standard
+In conclusion, when the node communication is not an issue, we believe that
+ the proposed algorithm can be implemented for a very little price, while
+ not performing worse than a traditional non-diffused variant.
+\end_layout
+
+\begin_layout Section
+Future work
+\end_layout
+
+\begin_layout Standard
+It is obvious that this work does not exhaust the topic in its entirety.
+ To the best of the author's knowledge, there has been a little done in
+ the field of combining parameter diffusion or consensus algorithms with
+ variational Bayes methods.
+ The key questions regarding the algorithm behavior, such as the numerical
+ stability or convergence criteria remains unanswered, unfortunately.
+ Additionally, we believe that it would be a beneficial contribution to
+ the field, if at least following were studied:
+\end_layout
+
+\begin_layout Itemize
+What role network's topology plays and how to design networks which are
+ cheap, but still effective.
+ 
+\end_layout
+
+\begin_layout Itemize
+Sensitiveness to different kind of noise or its evolution.
+\end_layout
+
+\begin_layout Itemize
+What are the most effective diffusion strategies in this setting.
+\end_layout
+
+\begin_layout Itemize
+Sensitiveness to different state models.
 \end_layout
 
 \begin_layout Standard

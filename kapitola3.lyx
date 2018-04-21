@@ -180,7 +180,7 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\mexp}[1]{\exp\Bigl\{#1\Bigr\}}
+\renewcommand{\mexp}[1]{\exp\Bigl\{#1\Bigr\}}
 {\exp\Bigl\{#1\Bigr\}}
 \end_inset
 
@@ -366,20 +366,20 @@ Prior distributions for
 \begin_layout Standard
 We are going to leverage the benefits of good choice of priors to make the
  whole solution tractable outlined in 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-odkaz do jedničky?
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Conjugate-distributions-and"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 .
- To ensure that the posterior belongs to the same distribution family as
- the prior distribution, we choose Inverse-Wishart distribution which is
- in a Bayesian statistic a common choice as a conjugate prior for the covariance
- matrix of a multivariate normal distribution with known mean
+ To ensure that the posterior belongs to the exponential family, we choose
+ Inverse-Wishart distribution which is in a Bayesian statistic a common
+ choice as a conjugate prior for the covariance matrix of a multivariate
+ normal distribution with known mean
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kendall2004"
@@ -497,30 +497,16 @@ where
 \end_inset
 
 and the corresponding parts of the form from 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-tady odkaz na to kde definifuju to exponential family form
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Conjugate-distributions-and"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
  are
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-nejsem si jistý jestli je to takhle správně - nemá být 
-\backslash
-eta a 
-\backslash
-Xi prohozené?
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{align*}
 \eta(\mat X)= & \begin{bmatrix}\mathbf{X}^{-1}\\[5pt]
@@ -551,7 +537,7 @@ pseudovector
 
  is a scalar.
  The advantages of this notation will be clearer when an addition to natural
- paramaters is carried over.
+ parameters is carried over.
  The expected value of the 
 \begin_inset Formula $\mathrm{IW}$
 \end_inset
@@ -974,7 +960,7 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-Variational Bayes 
+Variational Bayes derivation
 \end_layout
 
 \begin_layout Standard
@@ -1001,7 +987,7 @@ noprefix "false"
 
 \end_inset
 
-, the Variation Bayes in our case expets the following approximation 
+, the Variation Bayes in our case expects the following approximation 
 \begin_inset Formula 
 \begin{equation}
 p(\mathbf{x}_{k},\mathbf{P}_{k|k-1},\mathbf{R}_{k}|\mathbf{z}_{1:k})\approx q(\mathbf{x}_{k})q(\mathbf{P}_{k|k-1})q(\mathbf{R}_{k})
@@ -1076,19 +1062,7 @@ noprefix "false"
 
 \end_inset
 
-, the join PDF can be factored as
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-je tady důvod proč oni raději použili p(
-\backslash
-Xi, z_1:k)?
-\end_layout
-
-\end_inset
-
- 
+, the join PDF can be factored as 
 \end_layout
 
 \begin_layout Standard
@@ -1120,24 +1094,11 @@ p\big(\mathbf{\Xi},\mathbf{z}_{1:k}\big)= & \mathrm{N}\big(\mathbf{z}_{k};\mathb
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-graphical model and exponential variant
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1282,19 +1243,6 @@ where
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Důležité: Tady mi nesedí ty updates!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 As can be seen, the natural parameters matches for 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1342,13 +1290,12 @@ noprefix "false"
 
 \begin_layout Standard
 With respect to 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-odkaz na mr.
- Dedeciovo tvrzení s T+=1, ...
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:update-hyp-xi"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -1372,21 +1319,7 @@ odkaz na mr.
 \end_layout
 
 \begin_layout Standard
-Utilizing the fact that 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-TADY U TOHOHLE NEMŮŽU BÝT VĚTŠÍ ALIBISTA.
- Nerozumím tomu, jak to dostali a ani proč je to vlastně potřeba.
- Navíc nevím, jak tam dostat tu střední hodnotu.
- Je mi jasné, že to nějak vyleze z VB kdy je tam E[log(p)], ale nevidím
- zkrz to.
-\end_layout
-
-\end_inset
-
-
+Utilizing the fact that
 \begin_inset Formula 
 \begin{equation}
 \E{-\frac{1}{2}\errTerm{\vec x_{k}}{\hat{\vec x}_{k|k-1}}}i=\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}}
@@ -1493,7 +1426,7 @@ The last bit of the single CAVI iteration is the Kalman correction, which
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Parameter diffusion
 \end_layout
 
@@ -1617,7 +1550,7 @@ Inputs
 2.
  Time Update of the Kalman Filter
 \begin_inset Flex TODO Note (inline)
-status collapsed
+status open
 
 \begin_layout Plain Layout
 jen odkaz jako jinde

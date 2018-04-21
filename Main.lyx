@@ -334,7 +334,11 @@ Supervisor: Ing.
 \begin_layout Labeling
 \paragraph_spacing single
 \labelwidthstring MMMMMMMMM
-Academic year: 2017/2018
+Academic
+\begin_inset space ~
+\end_inset
+
+year: 2017/2018
 \end_layout
 
 \begin_layout Standard
@@ -541,7 +545,7 @@ Branch of study:
 \emph on
 Abstract: 
 \begin_inset Flex TODO Note (inline)
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -629,17 +633,97 @@ addcontentsline{toc}{chapter}{Introduction}
 \end_layout
 
 \begin_layout Standard
+A rapid development in information technology hardware over last two decades
+ boosted affordability of cheap, yet powerful devices capable of carrying
+ out complex computations.
+ Variety of available sensors, which these devices can be equipped with,
+ is overwhelming.
+ Omnipresent smartphones or cars contains hundreds of sensors constantly
+ collecting data and decide on life-saving or life-threatening actions.
+ Surveillance systems, composed of hundreds or even thousands of interconnected
+ measurement nodes keep nationwide security in place, always prepare to
+ act in seconds based on the latest data.
+ The so-called Internet of Things, many small computers connected to each
+ other is only an another example of this phenomenon.
+ At the same time, the environments where these devices operate often suffer
+ from the imperfections of their measurements or computations.
+ These may be caused by either misalignment of their models with a reality
+ or by noisy random fluctuations in their operations.
  
-\begin_inset Flex TODO Note (inline)
-status open
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Plain Layout
-Add introduction
+Historically, the mankind was limited by the data availability.
+ Not so today, in days of massive data collection, sometimes opening many
+ provocative questions regarding people privacy and rights.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+For the sake of getting valuable insights from the collected data of these
+ noisy data collection and evaluation networks, efficient processing algorithms
+ must be developed.
+ There is a long history of research in so called consensus algorithms as
+ well as in the noise filtering methods.
+ While the former try to solve fundamental problems connected to distributed
+ computing and multi-agent systems of agreeing on something, the latter
+ deals with the always-present noise in the received data.
+ What is worse, many methods are sensitive to the type of the noise, making
+ them irrelevant in some use cases.
+ 
+\end_layout
+
+\begin_layout Standard
+Not being able to effectively filter the noise from the estimates makes
+ the data less useful than it otherwise could be.
+ The same is true the estimate redundancy is not exploited.
+ One of notable approaches trying to solve this problem is Distributive
+ Kalman Filtering, an extension of a hugely popular filter, heavily used
+ since its formulation in 1960.
+ This work is concerned with one particular instance of the Distributive
+ Kalman Filtering, using state-of-the-art techniques and latest research
+ in probability theory.
+ It combines a specific probabilistic variant of the classic Kalman Filter
+ with a recently developed so-called parameter diffusion.
+ Both techniques leverage from the fact that can be fully expressed in Bayesian
+ probability terms and seems to be an excellent candidate as a solution
+ for the problem of combining information from multiple agents in noisy
+ environment.
+ The following pages are describing the development of such an algorithm
+ and explain why it may be a suitable solution and under what conditions.
+ Additionally, real implementation in Python language is used to run various
+ simulations.
+\end_layout
+
+\begin_layout Standard
+The work is divided into theoretical and practical part.
+ The former states all the necessary theoretical background for the latter.
+ In the first chapter, Bayesian probability is introduced as a building
+ block for Variational Bayes inference.
+ This is a general technique which serves as the crux for the proposed algorithm
+ internals.
+ The second chapter is concerned with Kalman filtering and its distributed
+ extension.
+ General introduction with brief applications overview is followed by mathematic
+al formulation and discussion of its key properties.
+ The third part is a connection of these components – Variational Bayes
+ and Distributed Kalman filtering.
+ The derivation of the mathematical formulation using exponential family
+ form is carried out and in the end, a general, step-by-step algorithm is
+ outlined.
+ The final chapter containing the results firstly comments on implementation
+ details including the ecosystem.
+ Subsequently, simulations and comparison of different variants are performed,
+ trying to evaluate the algorithm performance, explaining an observed behavior
+ and pinpointing its properties, features and disadvantages.
+ Each of the chapters contain an introductory text outlining what is going
+ to be presented and if necessary, establishes the minimal requirements.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -710,15 +794,38 @@ addcontentsline{toc}{chapter}{Conclusion}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Conclusion here
+The rise of cheap while powerful devices equipped with many sensors connected
+ in a communication network justifies the necessity of developing efficient
+ algorithms processing the network's information flow.
+ It is no longer problem of not having the data, but rather generating useful
+ insights based on them.
+ 
 \end_layout
 
-\end_inset
+\begin_layout Standard
+The algorithm studied in this work is an effective, cheap and elegant improvemen
+t of many real world scenarios where adaptive filtering is being used and
+ noise covariances are unknown and changing.
+ Using exponential family forms, it is relatively simple to understand and
+ implement even into existing environments, enabling gradual, step-by-step
+ adaptation.
+ It does not suffer from any obvious drawbacks.
+ Its only real disadvantage – having a communication protocol over nodes
+ available – is a common requirements for many distributive algorithms and
+ is not an intrinsic property of this one.
+ It is also quite robust to the initial parameters and different kinds of
+ noise, making it an excellent choice in many complex use cases.
+ The nature of algorithm also enables good introspection and interpretability
+ of the whole model, an important and often overlooked feature.
+ 
+\end_layout
 
+\begin_layout Standard
+The simulation results strongly supports these claims and hopefully offers
+ sufficient explanations for the observed behavior.
+ The author hopes that even though this thesis delivers rather limited view
+ of the method, it is still a valuable entry point for any further study
+ on this matter.
  
 \end_layout
 

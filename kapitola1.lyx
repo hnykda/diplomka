@@ -118,6 +118,7 @@ literal "true"
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Section
@@ -145,80 +146,7 @@ probability
 
 .
  For example, some of the leading interpretations fail to satisfy the most
- common Kolmogorov's axiomatization
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Axiom
-\begin_inset CommandInset label
-LatexCommand label
-name "axm:Kolmogorov-axioms"
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I spend two hours trying to format this down! For some reason, when a text
- of this part exceeds some length (now it is at its approximate maximum),
- it fails to compile with some stupid note! HATE YOU LATEX! Don't touch
- this, ever.
- Don't even try to add numbers or enumerate.
- It will hurt 
-\end_layout
-
-\end_inset
-
-Kolmogorov axioms
-\end_layout
-
-\begin_layout Axiom
-Probability is always positive
-\end_layout
-
-\begin_layout Axiom
-\begin_inset Formula 
-\[
-P(E)\in\mathbb{R},P(E)\geq0\qquad\forall E\in F
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Axiom
-Probability of all events equals one
-\begin_inset Formula 
-\[
-P(\Omega)=1
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Axiom
-\begin_inset Formula $\sigma$
-\end_inset
-
--additivity
-\begin_inset Formula 
-\[
-P(E_{1}\cup E_{2}\cup...)=P(E_{1})+P(E_{2})+...
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- and they still prove themselves useful
+ common Kolmogorov's axiomatization and they still prove themselves useful
 \begin_inset CommandInset citation
 LatexCommand cite
 key "interpretations"
@@ -243,37 +171,31 @@ literal "true"
 
 \end_inset
 
- don't even derive from 
+ do not even derive from
 \emph on
-axioms
+ 
 \emph default
-, but rather 
-\emph on
-desiderata
-\emph default
-
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-(I) representations of plausibility are to be given by real numbers; (II)
- plausibilities are to be in qualitative agreement with common sense; and
- (III) the plausibilities are to be “consistent”, in the sense that anyone
- with the same information would assign the same real numbers to the plausibilit
-ies
+mathematical axioms, but rather somewhat vague statements:
 \end_layout
 
-\end_inset
+\begin_layout Enumerate
+representations of plausibility are to be given by real numbers
+\end_layout
 
-.
- Interpretations don't differ only in the underlying set of axioms, but
- also in their practical usage or their epistemological status.
+\begin_layout Enumerate
+plausibilities are to be in qualitative agreement with common sense
+\end_layout
+
+\begin_layout Enumerate
+the plausibilities are to be “consistent”, in the sense that anyone with
+ the same information would assign the same real numbers to the plausibilities.
+\end_layout
+
+\begin_layout Standard
+Interpretations don't differ only in the underlying set of axioms, but also
+ in their practical usage or their epistemological status.
  Mathematicians as well as philosophers has been tackling these issues at
  least for over five centuries.
-\end_layout
-
-\begin_layout Section
-Why Bayesianism
 \end_layout
 
 \begin_layout Standard
@@ -398,7 +320,11 @@ literal "true"
 \begin_layout Theorem
 
 \emph on
-Let P be a probability measure, 
+Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a probability measure, 
 \begin_inset Formula $\Var A$
 \end_inset
 
@@ -568,37 +494,6 @@ A factor
 \end_layout
 
 \begin_layout Section
-Conjugate distributions and exponential family
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Borrow this part from Mr Dedecius article page 3 - source code and cite
- it.
- There is informal definition right before Definition 2 and then consecutive
- much more detailed definitions.
- Also use rationale from before definition 2.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The updates can be significantly easier if 
-\emph on
-conjugate distributions
-\emph default
- are used instead.
- 
-\end_layout
-
-\begin_layout Section
 Statistical model
 \end_layout
 
@@ -685,23 +580,8 @@ All models are wrong, but some of them are useful
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-, it is something like when humpty dumpty crasch his head towards a kings
- horse.
- Or a kings man.
- Or when the ants are marching two by two and the little one staps to sing
- humpty dumpty.
- 
-\end_layout
-
-\end_inset
-
-One of the main distinctions which can be made to separate families of statistic
-al models is how distributions in 
+ One of the main distinctions which can be made to separate families of
+ statistical models is how distributions in 
 \begin_inset Formula $M$
 \end_inset
 
@@ -880,6 +760,325 @@ to the posterior distribution and hence are generally not able to generate
 \end_layout
 
 \begin_layout Section
+Conjugate distributions and exponential family
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conjugate-distributions-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One of the remarkable properties of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:bayes-theorem"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is the fact that it can be used sequentially as an update based on new
+ piece of data.
+ If one performs the update and obtains 
+\begin_inset Formula $\probcond pAB$
+\end_inset
+
+, this posterior can be used in the next iteration as a prior and so on.
+ Using concept of conjugate priors exploits this remarkable property guaranteein
+g that one will get a tractable posterior after each iteration.
+ In the most of the real world applications, using Bayes Theorem computationally
+ means evaluating some integrals.
+ For instance, to obtain the posterior, one must compute an integral 
+\begin_inset Formula $\probcond{\prob px=\int p}x{\theta}\prob p{\theta}d\Var{\theta}$
+\end_inset
+
+.
+ To make use of the Bayes Theorem, one is then limited to problems where
+ these integrals are tractable.
+ 
+\end_layout
+
+\begin_layout Standard
+As already mentioned, this is done by using conjugate priors.
+ Given a likelihood 
+\begin_inset Formula $\probcond px{\theta}$
+\end_inset
+
+, a family of prior distributions is chosen so that the integral 
+\begin_inset Formula $\probcond{\int p}x{\theta}\prob p{\theta}d\Var{\theta}$
+\end_inset
+
+ is tractable and the result is in the same family as the prior.
+ It is worth mentioning that these goals are usually in conflict.
+ A tractable result would be obtained if we just used a constant as the
+ distribution family, but the update would no necessarily result in a constant.
+\end_layout
+
+\begin_layout Standard
+In practice, there is such a family, containing many of the most commonly
+ used distributions such as Gaussian or Beta distribution.
+ This family is called exponential family and guarantees that if the model
+ belongs to an exponential family and a conjugate prior distribution is
+ selected, the resulting posterior of the update is analytically tractable.
+\end_layout
+
+\begin_layout Subsection
+Formal definition
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mexp}[1]{\exp\Bigl\{#1\Bigr\}}
+{\exp\Bigl\{#1\Bigr\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A formal definition of the above can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017"
+literal "false"
+
+\end_inset
+
+ and is restated here since the forms from definitions are going to be used
+ further along.
+ 
+\end_layout
+
+\begin_layout Definition
+(Exponential family distribution).
+ An exponential family distribution of a random variable 
+\begin_inset Formula $y$
+\end_inset
+
+ conditioned on 
+\begin_inset Formula $x$
+\end_inset
+
+ and with parameter 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ is a distribution whose probability density function can be written in
+ the form
+\begin_inset Formula 
+\begin{equation}
+p(y|x,\Theta)=\mexp{\eta^{T}T-A(\eta)+k(x,y)}\label{eq:exp-family-form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+where 
+\begin_inset Formula $\eta=\eta(\Theta)$
+\end_inset
+
+ is the natural parameter of the exponential family distribution, 
+\begin_inset Formula $T:=T(x,y)$
+\end_inset
+
+ is a sufficient statistic encompassing all information provided by 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ about the parameter 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{equation}
+A(\eta)=\log\int\mexp{\eta^{T}T+k(x,y)}\text{d}x\text{d}y
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+where the integral is over the space of 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+and 
+\begin_inset Formula $A(\eta)$
+\end_inset
+
+ is a known log-partition function normalizing the density, and 
+\begin_inset Formula $k(x,y)$
+\end_inset
+
+ is a known function independent of the parameter.
+\end_layout
+
+\begin_layout Standard
+The form 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:exp-family-form"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is not unique since the product 
+\begin_inset Formula $\eta^{T}T$
+\end_inset
+
+ can result in same the same number when each multiplied by appropriate
+ constant.
+ 
+\end_layout
+
+\begin_layout Definition
+(Conjugate prior distribution for 
+\begin_inset Formula $\Theta$
+\end_inset
+
+).
+ Assume that a random variable 
+\begin_inset Formula $y$
+\end_inset
+
+ is conditioned by a variable 
+\begin_inset Formula $x$
+\end_inset
+
+ and obeys an exponential family distribution – model – with a parameter
+ 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
+ A prior distribution for 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ conjugate to the model is characterized by conjugate hyperparameters 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ and 
+\begin_inset Formula $\varUpsilon$
+\end_inset
+
+ and has the probability density of the form 
+\begin_inset Formula 
+\begin{equation}
+\pi(\Theta|\Xi,\varUpsilon)=\mexp{\eta^{T}\Xi+\varUpsilon A(\eta)+l(\Xi,\varUpsilon)}\label{eq:prior-exp-form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+where 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ has the same size as 
+\begin_inset Formula $T,\varUpsilon\in\mathbb{R_{+}}$
+\end_inset
+
+ and 
+\begin_inset Formula $l(\Xi,\varUpsilon)$
+\end_inset
+
+ is a known function.
+ The 
+\begin_inset Formula $\Xi,\varUpsilon$
+\end_inset
+
+ are called conjugate hyperparameters.
+ 
+\end_layout
+
+\begin_layout Standard
+Substituting 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:exp-family-form"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:prior-exp-form"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:bayes-theorem"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the Bayesian update results into a simple summation
+\end_layout
+
+\begin_layout Theorem
+(Bayesian update under conjugacy).
+ Assume that a random variable 
+\begin_inset Formula $y$
+\end_inset
+
+ conditioned by a variable 
+\begin_inset Formula $x$
+\end_inset
+
+ has an exponential family distribution with a parameter 
+\begin_inset Formula $\Theta$
+\end_inset
+
+, estimated by means of a conjugate prior distribution.
+ The Bayesian update is then equivalent to the update of conjugate hyperparamete
+rs
+\begin_inset Formula 
+\begin{align}
+\Xi_{t} & =\Xi_{t-1}+T_{t}\label{eq:update-hyp-xi}\\
+\varUpsilon_{t} & =\varUpsilon_{t-1}+1
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Variational Bayes inference
 \begin_inset CommandInset label
 LatexCommand label
@@ -1008,23 +1207,10 @@ Let
 \end_inset
 
  and the distribution of the model evidence 
-\begin_inset Formula $\prob pX$
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
 \begin_inset Formula $\prob pX=\int\probjoint pZX\D{\Var Z}$
 \end_inset
 
-, which is usually unavailable
-\end_layout
-
-\end_inset
-
-.
+, which is usually unavailable.
  Unfortunately, in many real world scenarios, 
 \begin_inset Formula $\probcond pZX$
 \end_inset
@@ -1421,11 +1607,26 @@ First, consider the complete conditional of
 \end_inset
 
  satisfies the following
-\begin_inset Foot
-status open
+\end_layout
 
-\begin_layout Plain Layout
-By 
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}\label{eq:ascent-update}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where in the last term, we use the fact that 
+\begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
+\end_inset
+
+.
+ By 
 \begin_inset Formula $\E[-i]{...}$
 \end_inset
 
@@ -1450,30 +1651,6 @@ Similarly,
 \emph on
 
 \begin_inset Formula $\Var{Z_{i}}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}\label{eq:ascent-update}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where in the last term, we use the fact that 
-\begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
 \end_inset
 
 .
@@ -1750,21 +1927,6 @@ Example
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Combination of all of the above in a single example.
- Ideally with nice visualization.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Let us demonstrate the above with an example from 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1851,16 +2013,6 @@ The complete data likelihood is Gaussian distribution and hence in exponential
 \end_inset
 
  as follows
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Is it correct? Is it likelihood to which we set conjugated priors?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2001,31 +2153,6 @@ compute new
  and all other terms needed
 \end_layout
 
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Is it correct that 
-\begin_inset Formula $a_{N},\mu_{N}$
-\end_inset
-
- doesn't update? The 
-\begin_inset Quotes eld
-\end_inset
-
-N
-\begin_inset Quotes erd
-\end_inset
-
- suffix here seems to be quite redundant.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Paragraph
 Results 
 \end_layout
@@ -2042,23 +2169,8 @@ eters.
 \begin_inset Formula 
 \begin{align*}
 \prob p{X,\mu,\tau} & =\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}=\\
-= & \prod_{n=1}^{N}\mathcal{N}(\vec{x_{n}}|\mu_{N},\tau_{N}^{-1})\mathcal{N}(\mu_{N},(\lambda_{N}\tau_{N})^{-1})\text{Gamma}(a_{N},b_{N})
+= & \prod_{n=1}^{N}\mathcal{N}(x|\mu_{N},\tau_{N}^{-1})\mathcal{N}(\mu_{N},(\lambda_{N}\tau_{N})^{-1})\text{Gamma}(a_{N},b_{N})
 \end{align*}
-
-\end_inset
-
-
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Is it correct, or should it be 
-\begin_inset Formula $\mathcal{N}(X|\mu_{N},\tau_{N}^{-1})\cdot\mathcal{N}(\mu_{0},(\lambda_{0}\tau_{N})^{-1})\cdot\text{Gamma}(a_{0},b_{0})$
-\end_inset
-
-.
- How the hell I get the posterior!?
-\end_layout
 
 \end_inset
 
@@ -2066,7 +2178,6 @@ Is it correct, or should it be
 \end_layout
 
 \begin_layout Standard
-g
 \begin_inset Branch childonly
 inverted 0
 status collapsed
