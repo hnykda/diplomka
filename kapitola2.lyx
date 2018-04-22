@@ -592,7 +592,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -631,7 +631,14 @@ The whole process of Kalman filter.
 \end_inset
 
 ).
- Source: https://www.wikiwand.com/en/Kalman_filter
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+\size footnotesize
+Source: https://www.wikiwand.com/en/Kalman_filter
 \end_layout
 
 \end_inset
@@ -696,58 +703,6 @@ noprefix "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Start with basic KF, then extension to (distributed) Diffusion Kalman Filtering.
- Nice intro with pictures in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Govaers2018"
-literal "false"
-
-\end_inset
-
-, simple def in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Mahmoud2013"
-literal "false"
-
-\end_inset
-
- (eq.
- 2.1) linking to https://link.springer.com/article/10.1007/s11424-012-0275-2,
- 
-\end_layout
-
-\begin_layout Plain Layout
-Additional definitions in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sayed2013"
-literal "false"
-
-\end_inset
-
- or (more complex description) in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olfati-Saber"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

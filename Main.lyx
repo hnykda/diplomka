@@ -407,16 +407,16 @@ year: 2017/2018
 \size larger
 \emph on
 Acknowledgment:
-\begin_inset Flex TODO Note (Margin)
-status open
-
-\begin_layout Plain Layout
-add ack
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
+I would like to thank my thesis supervisor Mr.
+ Dedecius for a constant support and leadership through the whole process.
+ It was not just his expertise and knowledge which I had a chance to experience.
+ But it is also an instant and high-quality feedback to my progress, always
+ provided in a respectful and helpful way.
+ I hope that it lead to a valuable contribution to science and it also made
+ working on this thesis enjoyable.
 \end_layout
 
 \begin_layout Standard
@@ -526,6 +526,11 @@ Author:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\noindent
+
 \emph on
 Branch of study:
 \emph default
@@ -544,20 +549,18 @@ Branch of study:
 
 \emph on
 Abstract: 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-
-\emph on
-add abstract
-\end_layout
-
-\end_inset
-
-
 \emph default
-
+Combination of adaptive filtering in time-varying noisy environment and
+ diffusion networks is not an easy task.
+ A generic algorithm synthesizing state-of-the-art Variational Bayes techniques,
+ Adaptive Kalman Filtration and diffusion networks is proposed and leveraging
+ exponential family form representation and conjugate priors, a concise
+ derivation is carried out.
+ Then the proposed algorithm is applied to the problem of estimation of
+ trajectory of a target.
+ Finally, a comparison of our simulation results with a baseline algorithm
+ and a theoretical prediction is made.
+ 
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -570,7 +573,8 @@ add abstract
 \emph on
 Key words:
 \emph default
- Bayesian inference, Kalman filter
+ Bayesian inference, Kalman filter, time-varying noise covariance matrices,
+ diffusion network, adaptation, state estimation
 \end_layout
 
 \begin_layout Standard
