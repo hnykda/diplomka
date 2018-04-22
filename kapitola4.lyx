@@ -591,16 +591,6 @@ When the true covariance is known and static – an unlikely situation in
 \end_inset
 
 ), how big the changes are and how precise is the known value.
- 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-dát do conclusion, že VBAKF si ani tehdy nevedl moc špatně
-\end_layout
-
-\end_inset
-
  Therefore, the main advantage is in the case when one do not know the true
  values or we do not know the initial estimate (or both), as is often the
  case in reality.
