@@ -115,7 +115,7 @@ literal "false"
 \end_inset
 
 .
- Up to the author knowledge, there has not been a similar attempt to combine
+ Up to the author's knowledge, there has not been a similar attempt to combine
  these two, although 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -139,6 +139,7 @@ literal "false"
 
  using exponential family form, as we believe that the resulting update
  equations are more elegant, concise and understandable.
+ Together with the combination, this is the novel contribution of this work.
  
 \end_layout
 
@@ -153,7 +154,7 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\mat}[1]{\mathbf{\mathbf{#1}}}
+\renewcommand{\mat}[1]{\mathbf{\mathbf{#1}}}
 {\mathbf{\mathbf{#1}}}
 \end_inset
 
@@ -193,13 +194,12 @@ Problem formulation
 
 \begin_layout Standard
 As has been described in 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-tady by měl být odkaz do teorie kde bude to co oni ají v Main Results.A +
- problémy s estimation šumu a proč se to musí řešit elegantně.
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Noise-analysis"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -207,38 +207,27 @@ tady by měl být odkaz do teorie kde bude to co oni ají v Main Results.A +
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
-, but also PNCM 
+, but also Process Noise Covariance Matrix (PNCM) 
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
- and MCNM 
+ and Measurement Noise Covariance Matrix (MCNM) 
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
  as opposed to traditional Kalman filter where these two are considered
- static
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Popsat co ty zkratky znamenají
-\end_layout
-
-\end_inset
-
-.
+ static.
  
 \end_layout
 
 \begin_layout Standard
-Based on explanation in 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-Odkaz, jak se ty rovnice přeloží přes HMM do pravděpodobnosti: https://www.wikiwa
-nd.com/en/Kalman_filter#/Relationship_to_recursive_Bayesian_estimation
-\end_layout
+Based on 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Formal-definition-KF"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -246,17 +235,8 @@ nd.com/en/Kalman_filter#/Relationship_to_recursive_Bayesian_estimation
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
- and likelihood PDF 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-what is PDF
-\end_layout
-
-\end_inset
-
- follows Gaussian distribution:
+ and likelihood Probabilistic Density Function (PDF) follows Gaussian distributi
+on:
 \end_layout
 
 \begin_layout Standard
@@ -294,30 +274,30 @@ where
 \begin_inset Formula $\vec{\hat{x}}_{k|k-1}$
 \end_inset
 
- is the predicted state vector based on the model in 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-asi zase 2
-\end_layout
+ is the predicted state vector based on the model as in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:kalman-beg-state-pred"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
- is the predicted PNCM based on the model in 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-asi zase 2
-\end_layout
+ is the predicted PNCM based on the model as in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:posterior-state-cov"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -337,17 +317,8 @@ We emphasize that
 \begin_inset Formula $\mat Q_{k}$
 \end_inset
 
- from the underlying update equation in 
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-to samé co v předchozím todo
-\end_layout
-
-\end_inset
-
- is unknown and we would not have to do the whole machinery if it was known.
+ from the underlying update equation in is unknown and we would not have
+ to do the whole machinery if it was known.
  
 \end_layout
 
@@ -1410,7 +1381,27 @@ Kalman correction
 
 \begin_layout Standard
 The last bit of the single CAVI iteration is the Kalman correction, which
- is the standard
+ is an iterative extension of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:kalman-gain"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:posterior-state-cov"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1427,7 +1418,7 @@ The last bit of the single CAVI iteration is the Kalman correction, which
 \end_layout
 
 \begin_layout Section
-Parameter diffusion
+Distribution and parameter diffusion
 \end_layout
 
 \begin_layout Standard
@@ -1465,7 +1456,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Consider a network of connected nodes, each of them doing their own observation.
+Consider a network of connected nodes, each of them obtaining their own
+ observation.
  A single node 
 \begin_inset Formula $i$
 \end_inset
@@ -1548,25 +1540,23 @@ Inputs
 
 \begin_layout Algorithm
 2.
- Time Update of the Kalman Filter
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-jen odkaz jako jinde
-\end_layout
+ Time Update of the Kalman Filter as in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:predict-state"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Algorithm
-\begin_inset Formula 
-\begin{align*}
-\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1}\\
-\tilde{\mathbf{P}}_{k|k-1}= & \mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\tilde{\mathbf{Q}}_{k-1}
-\end{align*}
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:predict-error"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 

@@ -104,12 +104,6 @@ theorems-ams-extended
 Distributed Kalman filter
 \end_layout
 
-\begin_layout Standard
-This chapter firstly describes basic (non-distributed) version of Kalman
- filter.
- This is later extended to a distributed variant.
-\end_layout
-
 \begin_layout Section
 Introduction
 \begin_inset CommandInset label
@@ -357,32 +351,15 @@ literal "false"
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-obrázek: 
-\end_layout
-
-\begin_layout Plain Layout
-https://medium.com/@mithi/object-tracking-and-fusing-sensor-measurements-using-th
-e-extended-kalman-filter-algorithm-part-1-f2158ef1e4f0
-\end_layout
-
-\begin_layout Plain Layout
-https://www.google.cz/search?q=kalman+filter&safe=off&source=lnms&tbm=isch&sa=X&ve
-d=0ahUKEwi77azQxJfaAhUEKVAKHY5lAjAQ_AUICigB&biw=1742&bih=881#imgrc=YDuNrJiR_PmI_
-M:
-\end_layout
+\begin_layout Section
+Formal definition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Formal-definition-KF"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Mathematical definition
 \end_layout
 
 \begin_layout Standard
@@ -392,6 +369,19 @@ Mathematical definition
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mat}[1]{\mathbf{\mathbf{#1}}}
+{\mathbf{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dynamical Model
 \end_layout
 
 \begin_layout Definition
@@ -426,7 +416,7 @@ Let
 \end_inset
 
  are process noise and observation noise, respectively.
- The filter assumes that the state evolves from (discrete) time 
+ The filter assumes that the state evolves from time 
 \series bold
 
 \begin_inset Formula $k-1$
@@ -444,7 +434,7 @@ Let
 \begin_layout Definition
 \begin_inset Formula 
 \begin{equation}
-\mathbf{x}_{k}=\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{B}_{k}\mathbf{u}_{k}+\mathbf{w}_{k}
+\mathbf{x}_{k}=\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{B}_{k}\mathbf{u}_{k}+\mathbf{w}_{k}\label{eq:kalman-beg-state-pred}
 \end{equation}
 
 \end_inset
@@ -453,7 +443,7 @@ Let
 \end_layout
 
 \begin_layout Definition
-and then an (imperfect) observation is made 
+and then an observation is made as
 \end_layout
 
 \begin_layout Definition
@@ -502,19 +492,107 @@ In this work, the
 \end_layout
 
 \begin_layout Standard
-The update is then performed according to:
+Hence, 
+\begin_inset Formula $\vec x_{k}$
+\end_inset
+
+ as well as 
+\begin_inset Formula $\vec z_{k}$
+\end_inset
+
+ are both not precise, degraded by noises 
+\begin_inset Formula $\vec w_{k},\vec v_{k}$
+\end_inset
+
+ and the likelihoods for a single measurement and state estimation, respectively
+, are
+\begin_inset Formula 
+\begin{align}
+p(\vec z_{k}|\vec x_{k}) & =\mathcal{N}(\vec z_{k};\mat H_{k}\vec x_{k},\mathbf{R}_{k})\\
+p(\vec x_{k}|\vec x_{k-1}) & =\mathcal{N}(\vec x_{k};F_{k|k-1}\vec x_{k-1},\mathbf{Q}_{k}).
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Filter definition
 \end_layout
 
 \begin_layout Standard
-\align center
+The Kalman Filter is so-called a recursive estimator, needing only state
+ estimation from the previous step to perform the next step.
+ The state of the estimator is described by two variables
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\hat{\vec x}_{k|k}$
+\end_inset
+
+ – the posteriori state estimate at time 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mat P_{k|k}$
+\end_inset
+
+ – the posteriori error covariance matrix 
+\end_layout
+
+\begin_layout Standard
+The filter then can be described as two consecutive steps: state prediction
+ based on the model and correction based on observation.
+ The prediction step is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1}\label{eq:predict-state}\\
+\mat P_{k|k-1} & =\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\mat Q_{k-1}\label{eq:predict-error}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The correction based on the observation is then performed according to
+\begin_inset Formula 
+\begin{align}
+\mat K_{k}= & \mat P_{k|k-1}\mat H_{k}^{T}(\mat H_{k}\mat P_{k|k-1}\mat H_{k}+\mat R_{k})^{-1}\label{eq:kalman-gain}\\
+\hat{\vec x}_{k|k}= & \hat{\vec x}_{k|k-1}+\mat K_{k}(\vec z_{k}-\mat H_{k}\hat{\vec x}_{k|k-1})\\
+\mat P_{k|k}= & \mat P_{k|k-1}-\mat K_{k}\mat H_{k}\mat P_{k|k-1}\label{eq:posterior-state-cov}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The whole flow of the filter is nicely visualized in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:kalman-filter-circle"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -532,6 +610,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:kalman-filter-circle"
+
+\end_inset
+
 The whole process of Kalman filter.
  We start with an information from the previous step (
 \begin_inset Formula $k-1|k-1$
@@ -555,13 +639,63 @@ The whole process of Kalman filter.
 
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
 
+.
 \end_layout
+
+\begin_layout Section
+Distributed Kalman Filter
+\end_layout
+
+\begin_layout Standard
+The distributed extension of the Kalman Filter is quite straightforward.
+ Instead of having only a single agent performing updates 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:kalman-beg-state-pred"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
+-
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:posterior-state-cov"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+, more of these agents – nodes – are independently carrying these out.
+ These nodes are usually connected according to some predefined topology,
+ enabling different kinds of communication and hence the algorithm's variants.
+ For example, the nodes may only be able to send their estimates to some
+ master node without getting any feedback (a scenario of directed graph
+ topology), but a more complex topology may be chosen, such as that the
+ nodes can be communicating with each other.
+ 
+\end_layout
+
+\begin_layout Standard
+Because of its generality, a formal definition of a Distributed Kalman Filter
+ is not very informative, simply stating that there is some function performed
+ in an arbitrary step with an arbitrary communication given the topology.
+ These are the parameters differentiating between DKF variants and a brief
+ overview is in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Methods"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -617,12 +751,22 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-Note on optimality
+Optimality
 \end_layout
 
 \begin_layout Standard
-The Kalman filter is the optimal filter if and only if the following conditions
- are fulfilled, which is rarely the case:
+The classic Kalman filter described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Formal-definition-KF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is the optimal linear filter in the Mean Squared Error if and only if all
+ the following conditions are fulfilled
 \end_layout
 
 \begin_layout Enumerate
@@ -630,56 +774,124 @@ the model is exactly reflecting the reality
 \end_layout
 
 \begin_layout Enumerate
-the noise is white
+the noise is Gaussian white
 \end_layout
 
 \begin_layout Enumerate
-the covariances of the noise are exactly known
+the covariances of the noise are exactly known and the noise is static
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Optimality for distributed case: Track-to-Track Fusion scheme, e.g.
- in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Govaers2018"
-literal "false"
-
-\end_inset
-
- in Introduction page 3.
-\end_layout
-
-\end_inset
-
-
+In reality, this is rarely the case and the consequences of not satisfying
+ these prerequisites must not be overlooked.
+ These are not just some theoretical perfection claims – not taking these
+ into account when applying the filter much often than not leads to rendering
+ the filter completely useless.
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-why it's the problem, hence the next section -> 
-\end_layout
-
-\end_inset
-
-
+Any of these can be unsatisfied and different methods are being proposed
+ and used to deal with the problem, such as extension being able to work
+ with different than Gaussian white noise.
+ This work is no exception and tries to deal with the third bullet point
+ – the case when the noise covariances are unknown and not static.
+ The proposed algorithm relax this requirement to some degree, extending
+ the possible use cases for the, otherwise exceptionally effective filter.
+ It is important to emphasize though that the scenario when the proposed
+ algorithm is used still needs to satisfy the rest of the two conditions
+ – the model must reflect the reality and the noise must be Gaussian white.
+ 
 \end_layout
 
 \begin_layout Section
 Noise analysis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Noise-analysis"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-What is their purpose and what problems we have with them, why it's necessary
- to nicely estimate them otherwise everything breaks down (described in
- the main VBAKF article on the beginning) + optimality issue.
+This subsection extends the previous one explaining why it is so crucial
+ to correctly estimate covariance matrices and what research has been done
+ to combat the problem when it is not feasible.
+ 
+\end_layout
+
+\begin_layout Standard
+As can be seen in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:kalman-gain"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:posterior-state-cov"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the noise covariance matrices 
+\begin_inset Formula $\mat R_{k},\mat Q_{k}$
+\end_inset
+
+ are not just some negligible factor of the update, but play a huge role
+ in the estimation.
+ Kalman filter depends on their a priori knowledge to a great extend and
+ a wrong choice leads to significantly degraded performance or even divergence
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mehra1972"
+literal "false"
+
+\end_inset
+
+.
+ It is not uncommon though, that it is almost impossible to estimate in
+ advance or that the noise covariance is changing based on some unknown
+ model.
+ For completeness sake, real-life applications suffering from this fact
+ are navigational systems and there has been an undergoing research in this
+ field 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hide,Yu2012"
+literal "false"
+
+\end_inset
+
+.
+ A so called 
+\emph on
+adaptive 
+\emph default
+Kalman filter has been proposed to solve this and plethora of its variants
+ have been carried out.
+ An algorithm based on variational Bayes method proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+, which we use in our diffused variant as an underlying KF computation,
+ seems to be a great candidate to solve difficulties one faces when trying
+ to apply KF in these noisy environments and it is the reason why it is
+ also our choice.
 \end_layout
 
 \begin_layout Section
@@ -694,7 +906,8 @@ name "sec:Methods"
 \end_layout
 
 \begin_layout Standard
-This is what I want: 
+There are bibliographic reviews covering dozens of methods such as an excellent
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahmoud2013"
@@ -702,15 +915,97 @@ literal "false"
 
 \end_inset
 
+ and the author sees a very little added value of restating everything.
+ Nevertheless, to give a reader at least a glimpse of what has been researched
+ in this area to get a research context, a brief introduction of selected
+ methods is provided bellow.
+ The selection is carefully crafted in a way that it relates to the problem
+ under study and the selected approach.
+ Let start with with Adaptive Kalman Filter, nicely summarized in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
 
+\end_inset
+
+.
+ A four distinguished categories of methods exists: correlation, maximum
+ likelihood, covariance matching, and Bayesian methods.
+ The Sage–Husa AKF is a covariance matching method, estimating the noise
+ on the maximum a posterior criterion 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SageA.P.;Husa1969"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gao2012"
+literal "false"
+
+\end_inset
+
+.
+ Convergence is not guaranteed for this algorithm though.
+ A maximum likelihood method Innovation-based AKF leverage the fact that
+ the innovation sequence of the KF is a white process.
+ The disadvantage is that it needs large amounts of data to work reliably,
+ rendering it inapplicable when this is not plausible 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karasalo2011"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
-Survey of currently used methods to deal with unknown noise
-\end_layout
+An interesting bridge between Adaptive Kalman Filter and its distributive
+ extension is an approximation of a Bayesian method, interactive multiple
+ model AKF 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li1994"
+literal "false"
 
-\begin_layout Section
-Distributed Kalman Filter
+\end_inset
+
+.
+ In this model, multiple nodes operates simultaneously and tries to estimate
+ noise statistic.
+ To some degree, this is close to what this work tries to achieve but without
+ Variational Bayes algorithm.
+ Additionally, the orientation of the algorithm is more focused on noise
+ statistics estimation, rather than on the state estimation accuracy as
+ is in this work.
+ From the perspective of diffusion based strategies, the most relevant piece
+ of work and a great inspiration can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cattivelli2010"
+literal "false"
+
+\end_inset
+
+, where different diffusion strategies are carried out in DKF.
+ An outstanding summary of research in diffusion based algorithm in the
+ world of DKF can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahmoud2013"
+literal "false"
+
+\end_inset
+
+ in Table 5 on page 13.
+ 
 \end_layout
 
 \begin_layout Standard

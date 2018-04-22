@@ -1819,7 +1819,8 @@ What role network's topology plays and how to design networks which are
 \end_layout
 
 \begin_layout Itemize
-Sensitiveness to different kind of noise or its evolution.
+Sensitiveness to different kinds of (still Gaussian white) noise or its
+ evolution.
 \end_layout
 
 \begin_layout Itemize
@@ -1828,6 +1829,13 @@ What are the most effective diffusion strategies in this setting.
 
 \begin_layout Itemize
 Sensitiveness to different state models.
+\end_layout
+
+\begin_layout Standard
+A higher level extension would be to consider different kinds of white noises,
+ when different priors would have to be developed and a new equations derived
+ accordingly.
+ 
 \end_layout
 
 \begin_layout Standard
