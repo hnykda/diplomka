@@ -101,26 +101,27 @@ Results and simulations
 \end_layout
 
 \begin_layout Standard
-The following chapter offers an in-depth analysis of a performance of the
- proposed algorithm.
- To guarantee a reproducible research, implementation details are mentioned
- to some degree and the code with the comparison is publicly available on
- 
+The following chapter offers an in-depth analysis of the performance of
+ the proposed algorithm.
+ To guarantee a reproducible research, implementation details are provided
+ and the code with the comparison is publicly available on 
 \family typewriter
 https://github.com/hnykda/kfsims
 \family default
 .
  This thesis focused mostly on state prediction accuracy and less on the
- noise analysis, although it is mentioned when it helps to understand the
- mechanism behind the performance.
+ noise analysis, although even the latter is mentioned when it helps to
+ understand mechanisms explaining the behavior.
 \end_layout
 
 \begin_layout Standard
-Please note that some figures should be compared against each other as a
- trend, rather then individual lines.
- This is true especially in the case of the multi-node variants, when the
+Please note that some figures should be compared to each other, rather than
+ being useful on its own.
+ Sometimes, it is the trend of all plotted lines what is interesting rather
+ then individual lines.
+ This is true especially in the case of the multi-node variants when the
  author's goal is to demonstrate that all the nodes are having some specific
- property which would be hard to demonstrate by plotting only a single node.
+ property which would be hard to demonstrate by plotting only a single line.
 \end_layout
 
 \begin_layout Section
@@ -128,22 +129,24 @@ Implementation
 \end_layout
 
 \begin_layout Standard
-The implementation used in this work has been written in feature rich Python
+The implementation used in this work has been written in feature-rich Python
  language ecosystem.
  Next to the CPython interpreter 3.6, following libraries (all licensed under
- MIT license) has been reused:
+ MIT license) has been utilized:
 \end_layout
 
 \begin_layout Itemize
-scipy 1.0.0 – generator of random numbers from various distributions
+scipy 1.0.0 – generator of pseudo-random numbers from various distributions
 \end_layout
 
 \begin_layout Itemize
-numpy 1.14.2 – arrays and mathematical operations, linear algebra
+numpy 1.14.2 – to store arrays and perform mathematical operations, especially
+ linear algebra ones
 \end_layout
 
 \begin_layout Itemize
-networkx 2.1 – to create a network topology of measurement nodes
+networkx 2.1 – to simulate various network topology types of the measurement
+ nodes
 \end_layout
 
 \begin_layout Itemize
@@ -155,15 +158,16 @@ notebook
 \begin_inset Quotes erd
 \end_inset
 
- ecosystem for a rapid analysis
+ ecosystem for a rapid analysis and environment to plot the charts
 \end_layout
 
 \begin_layout Itemize
-filterpy 1.2.1 – reference implementation of a classic Kalman Filter
+filterpy 1.2.1 – the reference implementation of a classic Kalman Filter used
+ in comparison
 \end_layout
 
 \begin_layout Itemize
-matplotlib 2.2.2 – to create charts (including this thesis)
+matplotlib 2.2.2 – plotting the charts
 \end_layout
 
 \begin_layout Standard
@@ -191,7 +195,7 @@ exponential_family.py
 \family typewriter
 network.py
 \family default
-, which are self-explanatory.
+, which should be self-explanatory.
  
 \end_layout
 
@@ -204,16 +208,16 @@ The notation for the components of the state vector is kept as
 \begin_inset Formula $x_{i}$
 \end_inset
 
- in the charts.
- From the nature of the problem under study, it is clear that first two
- components which are observable behave in the similar way and the same
+ in all the charts.
+ From the nature of the problem under study, it is clear that the first
+ two components which are observable behave in a similar way and the same
  is true for the latter two (which are not observable).
  To keep the analysis clean and concise, only a representative component
- is plotted if the behavior is significantly different.
+ is plotted if the behavior of the two is not significantly different.
 \end_layout
 
 \begin_layout Standard
-The main metric used for comparison is root mean square error.
+The main metric used for the comparison is the Root Mean Square Error (RMSE).
  Where appropriate, standard deviation of errors is listed.
  The result numbers discussed further are results of many iterations (more
  than 20) with different initial noise assigned to different nodes.
@@ -223,12 +227,12 @@ The main metric used for comparison is root mean square error.
 \emph on
 visualize
 \emph default
- matrices behavior, in our case matrices close to a matrix 
+ matrices behavior a Frobenius matrix norm is used.
+ The matrices are often close to a matrix 
 \begin_inset Formula $c\mathrm{I},c>0$
 \end_inset
 
-, a Frobenius matrix norm is used.
- 
+, which justifies this simplification.
 \end_layout
 
 \begin_layout Section
@@ -236,9 +240,18 @@ Testing data
 \end_layout
 
 \begin_layout Standard
-Here we describe the dynamical system model in the standard notation suitable
- for the Kalman Filter.
- The state transition matrix was of the form
+Here we describe the dynamical system model in the standard notation as
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Formal-definition-KF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ suitable for the Kalman Filter:
 \end_layout
 
 \begin_layout Standard
@@ -286,7 +299,11 @@ Here we describe the dynamical system model in the standard notation suitable
 
 \begin_layout Standard
 A random trajectory was then simulated for all four components using this
- model with multivariate Gaussian random noise added to the each 
+ model with multivariate Gaussian random noise with covariance 
+\begin_inset Formula $\mat Q$
+\end_inset
+
+ added to the each 
 \begin_inset Quotes eld
 \end_inset
 
@@ -294,16 +311,12 @@ true
 \begin_inset Quotes erd
 \end_inset
 
- datapoint (with covariance 
-\begin_inset Formula $\mat Q$
-\end_inset
-
-) as well as to the observations (with covariance 
+ data point as well as to the observations with covariance 
 \begin_inset Formula $\mat R$
 \end_inset
 
-).
- It can be though about as a point moving on a 2D plane.
+.
+ It can be thought about as a point moving on a 2D plane.
  A typical result of the first two components of the test trajectory can
  be seen on 
 \begin_inset CommandInset ref
@@ -335,7 +348,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -357,8 +370,8 @@ name "fig:trajectoryExample"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
+The first two components of the state vector plotted against each other.
+ The red crosses mark the noisy measurements of these observable components.
  
 \end_layout
 
@@ -377,7 +390,7 @@ First and second component in the first row are observable, while the third
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -400,6 +413,18 @@ name "fig:trajectoryExample-3n4"
 \end_inset
 
 True third and fourth component of the state vector.
+ There are no measurements as opposed to the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:trajectoryExample"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ since these two variables are not observable.
+ 
 \end_layout
 
 \end_inset
@@ -417,9 +442,9 @@ Noise
 \end_layout
 
 \begin_layout Standard
-Different type of noises were tested to thoroughly examine the behavior
- of different filter under different circumstances.
- Examples for a static noise and variable noise can be found in 
+Different types of noise were tested to thoroughly examine the behavior
+ of the filter under different circumstances.
+ Examples for a static noise and variable noise can be seen in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noiseStatic"
@@ -440,25 +465,25 @@ noprefix "false"
 \end_inset
 
 .
- Even though only a single line is plotted, in the simulation both observable
- components distorted by the type of noise under study.
- Henceforth, for the sake of simplicity, MNCM was the factor we considered
- that can be slowly varying.
+ In the simulations, both observable components were distorted by the type
+ of the noise under study.
+ Also, for the sake of simplicity, MNCM was the factor we considered that
+ can be slowly varying.
  In cases when the true covariance is unknown, the initial covariance was
  set to a base trajectory covariance 
 \begin_inset Formula $\mat R$
 \end_inset
 
 , simulating an estimate one could obtain in the real application by other
- means.
+ means (for instance, by historical estimates or from the previous research).
 \end_layout
 
 \begin_layout Standard
-It worth mentioning that because of the task's triviality, the CAVI algorithm
- usually converges in few iterations – less then 5.
- Therefore, number of iterations were set to conservative 10.
- There is an exhaustive analysis of algorithm stability and parameters effect
- in 
+It is worth mentioning that because of the task's triviality, the CAVI algorithm
+ usually converged in few iterations – less than 5.
+ Therefore, the number of iterations is set to the conservative 10.
+ There is an exhaustive analysis of the algorithm stability and parameters
+ effect in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -497,7 +522,7 @@ name "fig:noiseStatic"
 
 \end_inset
 
-Multivariate Gaussian Random noise without variable variance.
+Static Multivariate Gaussian Random noise.
  
 \end_layout
 
@@ -568,9 +593,9 @@ In this section, we compare the VBAKF algorithm performance against the
  classic Kalman Filter (CKF).
  It is important to distinguish between the situation when the true noise
  covariance is known and when it is not.
- Another orthogonal property of the system is the variance of the noise
- covariance over time.
- Since the motivation of developing VBAKF is specially for the situations
+ Another property of the system is the variance of the noise covariance
+ over time.
+ Since the motivation of developing VBAKF is especially for the situations
  when the covariance is unknown or there is a risk of choosing a wrong one,
  it is clear where the VBAKF is expected to perform better.
 \end_layout
@@ -578,11 +603,11 @@ In this section, we compare the VBAKF algorithm performance against the
 \begin_layout Standard
 When the true covariance is known and static – an unlikely situation in
  the real world systems – we do not expect any improvements in predictions
- over CKF.
- Actually, its performance may be degraded trying to adjust to the noise,
- making the overall accuracy score worse than CKF.
- In the case when the covariance is known and changing, then it depends
- on how is one able to tune the algorithm parameters (such as 
+ of VBAKF over CKF.
+ Actually, the performance may be degraded by VBAKF trying to adjust to
+ the noise, making the overall accuracy score worse than CKF.
+ In the case when the covariance is known and changing depends on how is
+ one able to tune the algorithm parameters (such as 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -590,16 +615,15 @@ When the true covariance is known and static – an unlikely situation in
 \begin_inset Formula $\tau$
 \end_inset
 
-), how big the changes are and how precise is the known value.
- Therefore, the main advantage is in the case when one do not know the true
- values or we do not know the initial estimate (or both), as is often the
- case in reality.
+), how big the changes are and how imprecise is the a priori value.
+ Therefore, the main advantage is in the situations when one does not know
+ the true value a priori or it is varying.
  It is the scenario where we expect VBAKF to surpass CKF, since if we are
- at least somewhat close to the initial estimate, it should 
+ at least somewhat close to the initial estimate, it should correct itself
 \emph on
-correct 
+ 
 \emph default
-to more precise values over time.
+to the more precise values over time.
  Additionally, if the covariance is slowly changing, than VBAKF is able
  to adjust it as well.
 \end_layout
@@ -645,9 +669,9 @@ name "fig:noise-static-x1-perf-1"
 
 \end_inset
 
-As expected, there is no performance gain in prediction(right) nor standard
- deviation (right) using VBAKF in the simplest possible situation of a known
- static noise.
+As expected, there is no performance gain in prediction(left) nor standard
+ deviation (right) using VBAKF in the simplest possible situation of the
+ known static noise.
 \end_layout
 
 \end_inset
@@ -696,11 +720,11 @@ name "fig:noise-static-x1-perf"
 
 \end_inset
 
-Performance of both filters for 
+The performance of both filters for 
 \begin_inset Formula $x_{1}$
 \end_inset
 
- together with measurements and the true trajectory.
+ together with the measurements and the true trajectory.
 \end_layout
 
 \end_inset
@@ -746,7 +770,7 @@ name "fig:noise-static-x3-perf"
 
 \end_inset
 
-Performance of both filters for 
+The performance of both filters for 
 \begin_inset Formula $x_{3}$
 \end_inset
 
@@ -763,19 +787,19 @@ Performance of both filters for
 \end_inset
 
  allows for some introspection to the observed behavior.
- VBAKF algorithm seems to pay the price for being able more flexible than
- CKF and it is following noise peaks too much.
+ VBAKF algorithm seems to pay the price for being more flexible than CKF
+ and it is following the noise peaks too much.
  This could be to some degree controlled by the 
 \begin_inset Formula $\tau$
 \end_inset
 
  hyperparameter, but not much without degrading performance in some other
- means, such as being to rigid, or coalesce with CKF.
+ means, such as becoming too rigid, or coalesce with CKF.
  
 \end_layout
 
 \begin_layout Standard
-Let also demonstrate the situation when the true covariance is not known
+Let us also demonstrate the situation when the true covariance is not known
  and set to some reasonable estimate close to the true covariance.
  The remarkable property of being able to adjust to the true covariance
  has been confirmed, as can be seen from RMSE comparison in 
@@ -814,10 +838,10 @@ name "fig:rmse-static-unknown-comp"
 
 \end_inset
 
-Although the performance gain in prediction errors of the observed components
- is already high (~20%), the major difference is present in the unobserved
- ones, VBAKF giving over 2 times better results in terms of RMSE and 3 times
- better in terms of standard deviation.
+Although the performance gain in RMSE of the observed components is already
+ better (~20%), the major difference is present in the unobserved ones.
+ VBAKF is performing over 2 times better in terms of RMSE (left) and 3 times
+ better in terms of standard deviation of RMSE (right).
 \end_layout
 
 \end_inset
@@ -827,8 +851,8 @@ Although the performance gain in prediction errors of the observed components
 
 \end_inset
 
-, the performance is significantly better, specially in the unobserved component
-s of the state vector.
+, the performance is significantly better, especially in the unobserved
+ components of the state vector.
  This is even more interesting when considering that the standard deviation
  of prediction error in 
 \begin_inset CommandInset ref
@@ -878,8 +902,16 @@ name "fig:noise-static-x1-unknown-1"
 
 \end_inset
 
-First and second component in the first row are observable, while the third
- and fourth is not.
+The comparison of both filters for the first state component with the measuremen
+ts and the true trajectory clearly shows that the VBAKF variant can 
+\begin_inset Quotes eld
+\end_inset
+
+correct
+\begin_inset Quotes erd
+\end_inset
+
+ the imprecise a priori estimation to a more suitable value.
  
 \end_layout
 
@@ -930,8 +962,19 @@ Estimated values of
 \begin_inset Formula $x_{3}$
 \end_inset
 
- component by both algorithms and with true trajectory.
- 
+ component by both algorithms and with the true trajectory and the measurements.
+ As the initial estimate of the covariance was imprecise, VBAKF adjusted
+ for it while CKF did not.
+ First 5 points has been omitted from this plot for a clarity, where both
+ algorithms have quite high peaks before they 
+\begin_inset Quotes eld
+\end_inset
+
+catch up
+\begin_inset Quotes erd
+\end_inset
+
+ to the trend.
 \end_layout
 
 \end_inset
@@ -942,10 +985,11 @@ Estimated values of
 \end_inset
 
  only supports that.
- Both algorithms started with noise covariance estimate which was off, but
- VBAKF variant could adjust for it, placing less emphasis on the measurements
- and believing more to the prediction step.
- CKF algorithm just stays on the same level of reliance with correction.
+ Both algorithms started with the noise covariance estimate which was a
+ bit off the true value, but VBAKF variant could adjust for it, placing
+ less emphasis on the measurements and believing more to the prediction
+ step.
+ CKF algorithm just stays on the same level of reliance without correction.
 \end_layout
 
 \begin_layout Subsection
@@ -953,7 +997,7 @@ Variable noise
 \end_layout
 
 \begin_layout Standard
-In this scenario, it is again considered that the value for true covariance
+In this scenario, it is again considered that the value for the true covariance
  is unknown and contrary to the previously discussed static case, it is
  slowly changing as is visualized on the 
 \begin_inset CommandInset ref
@@ -1133,8 +1177,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Finally, a very nice visualization of VBAKF capabilities can be seen on
- the graph 
+Finally, a visualization of VBAKF capabilities can be seen on the graph
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:adaptation-of-single"
@@ -1173,13 +1217,14 @@ name "fig:adaptation-of-single"
 
 \end_inset
 
-Frobenius norms comparison of the VBAKF algorithm and covariance of moving
+Frobenius norms comparison of the VBAKF algorithm and covariance of a moving
  window (size 20 steps to the future) of the noise.
  The diagonal values of 
 \begin_inset Formula $\mat R$
 \end_inset
 
- are increasing during noise peaks, while going down during low noise epochs.
+ are increasing during the noise peaks, while going down during low noise
+ epochs.
  The scale in this chart is not important, it is the trend of the norms.
  Those should be ideally as close as possible.
  
@@ -1200,7 +1245,7 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-The simulations shows that our single node VBAKF implementation is behaving
+The simulations show that our single node VBAKF implementation is behaving
  as the theory predicts and in concordance with the reference source 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1209,21 +1254,21 @@ literal "false"
 
 \end_inset
 
- where more emphasis on noise analysis were done.
+ where the more emphasis on noise analysis was carried out.
  VBAKF does not perform better in case of a static noise when the covariance
  is known, merely just adding more computational time and possibly worse
- results trying to adjust to random fluctuations.
+ results trying to adjust to the random fluctuations.
  It outperforms CKF in situations when the covariance of the noise is either
- unknown and, or, slowly changing.
- The performance of VBAKF was consistently better than CKF in these over
- many iterations and many variant of a noise.
+ unknown or slowly changing.
+ The performance of VBAKF was consistently better than CKF in these cases
+ over many iterations and many variants of a noise.
  It is also worth mentioning that a very little tuning had to be done to
  get to these results.
- How much close the initial estimate must be to guarantee divergence is
- of course almost impossible to say in the real world cases, but in our
- testing case, even extreme initialization lead to quickly correcting the
- state (in less than 5 iterations).
- Such an extreme initialization were for example over three orders of magnitudes
+ How close the initial estimate must be to guarantee divergence is of course
+ almost impossible to say in the real world cases, but in our testing case,
+ even extreme initialization lead to a quick correction of the state (in
+ less than 5 observations).
+ Such an extreme initialization was for example over three orders of magnitudes
  of the reality – a situation in which the CKF just does not provide any
  useful information.
  
@@ -1246,10 +1291,10 @@ noprefix "false"
 
 , only a slowly changing noise is going to be considered to not clutter
  the analysis of VBAKF with diffusion versus VBAKF without diffusion.
- As has been mentioned on the beginning of this whole chapter, the figures
+ As has been mentioned at the beginning of this whole chapter, the figures
  when plotting information from multiple nodes should be read as a general
  trend exhibited by the system.
- It would be a mistake try to interpret them line by line.
+ It would be a mistake trying to interpret them line by line.
  
 \end_layout
 
@@ -1295,7 +1340,7 @@ name "fig:network-top"
 
 \end_inset
 
-A network representing connection of different measurement nodes connected
+A network representing the connection of different measurement nodes connected
  with the neighbors.
  The topology is a 4-regular graph.
 \end_layout
@@ -1308,8 +1353,8 @@ A network representing connection of different measurement nodes connected
 \end_inset
 
 .
- A slowly changing, different noise is attributed to the each node in the
- network (
+ A slowly changing, different noise is attributed to each node in the network
+ (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-diffusion"
@@ -1345,7 +1390,7 @@ name "fig:noise-diffusion"
 
 \end_inset
 
-Values of first and second component with noise from different nodes.
+Values of the first and second component with noise for different nodes.
 \end_layout
 
 \end_inset
@@ -1356,10 +1401,10 @@ Values of first and second component with noise from different nodes.
 \end_inset
 
 ).
- When we compare diffused versus non-diffused variant, the noise attributed
+ When we compare diffused versus non-diffused variant, the attributed noise
  in the both runs was the same in corresponding nodes to make the results
  comparable and reproducible.
- The results are averaged over at least 100 iterations.
+ The results are averaged over at least 10 iterations.
  
 \end_layout
 
@@ -1407,8 +1452,7 @@ name "fig:mean-rmse-diffnodiff"
 \end_inset
 
 Diffusion variant outperforms the non-diffused variant not just in Mean
- RMSE (the left figure), but also in Mean Standard deviation over all runs
- (the right figure).
+ RMSE (left), but also in Mean Standard deviation over all runs (right).
 \end_layout
 
 \end_inset
@@ -1419,12 +1463,12 @@ Diffusion variant outperforms the non-diffused variant not just in Mean
 \end_inset
 
 , but it was consistent across literally all runs.
- To recapitulate – there was not a 
+ In other words, there was not a 
 \emph on
 single 
 \emph default
-run where would the non-diffused variant outperformed the diffused one in
- matter of Mean RMSE and standard deviation in 
+run where the non-diffused variant outperforms the diffused one in the matter
+ of Mean RMSE and standard deviation in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:mean-rmse-diffnodiff"
@@ -1435,11 +1479,11 @@ noprefix "false"
 \end_inset
 
 .
- There is a price in time execution, since the diffusion variant does an
- additional step – diffusing parameters – in each iteration.
+ The price is the higher run time, since the diffusion variant does an additiona
+l step – diffusing parameters – in each iteration.
  In our setting, this was almost negligible, taking only about 5% longer
  than the non-diffused variant.
- This time penalty would of course depend on the chosen diffusion strategy.
+ This time penalty would, of course, depend on the chosen diffusion strategy.
  
 \end_layout
 
@@ -1453,7 +1497,7 @@ The idea behind diffusion optimization is that the
 averaging 
 \emph default
 over several nodes will eliminate extremes and smooths the estimation.
- This is clearly happening, as is clear from 
+ This is clearly happening, as can be seen in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:single-node-R-prepost"
@@ -1491,7 +1535,7 @@ name "fig:single-node-R-prepost"
 
 The diffusion algorithm smooths the trajectory for this single randomly
  chosen single node from the network, ignoring significant peaks which would
- otherwise led to inferior estimates.
+ otherwise lead to inferior estimates.
  
 \end_layout
 
@@ -1557,7 +1601,7 @@ All nodes exhibit the behavior of smoothing out the noise covariance estimates,
 \end_layout
 
 \begin_layout Standard
-Another view of this is presented in 
+Another view of this phenomenon is presented in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-logR-nodiff"
@@ -1593,7 +1637,7 @@ name "fig:all-node-logR-nodiff"
 
 \end_inset
 
-Nodes in non-diffusion variant do not exhibit any common pattern.
+Nodes in non-diffusion variant does not exhibit any common pattern.
  There is also one of the nodes diverging quite significantly, considering
  the logarithmic scale.
  The diffusion variant do not exhibit such divergence.
@@ -1652,7 +1696,7 @@ agree
 \end_inset
 
  on it to some degree, even though it may not be the best estimate for the
- underlying nodes.
+ independent nodes.
  
 \end_layout
 
@@ -1670,10 +1714,10 @@ agree
 \end_layout
 
 \begin_layout Standard
-It is also interesting to note that in our simulations, the diffused variance
- exhibit much less divergence cases, which can be explained by the fact
- that any extremes are much likely to be suppressed by neighbor nodes participat
-ing in diffusion.
+It is also interesting that in our simulations, the diffused variance exhibit
+ much fewer divergence cases, which can be explained by the fact that any
+ extremes are much likely to be suppressed by neighbor nodes participating
+ in the diffusion.
  An example can be seen on 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1748,43 +1792,43 @@ literal "false"
 
 \begin_layout Standard
 The disadvantages of the diffusion algorithm are mostly practical limitations
- of real life applications.
+ of real-life applications.
  
 \end_layout
 
 \begin_layout Standard
-First of all, a communication must be established between the communicating
- nodes.
+First of all, a communication must be established between the nodes.
  The implementation of this communication may not be possible, nodes can
- be for example only connected to a master node or do not have ability to
- receive any information from the outer world, only to send one.
+ be for example only connected to a master node or do not have an ability
+ to receive any information from the outer world, only to send one.
  Notwithstanding, this is not an intrinsic property of the method, but rather
- a common requirements for many diffusion and consensus approach.
+ a common requirement for many diffusion and consensus approaches.
  It is worth to mention that the algorithm does not rely on having all nodes
  participating in all time steps.
  As a matter of fact, the worst case scenario is a fallback to the default
  non-diffused variant when no nodes are communicating.
- This fact also facilitates the possible inclusion into an already existing
+ This fact also facilitates the possible implementation in already existing
  solutions, since it can be implemented gradually, proceeding with the diffusion
- extension only when it is possible and a preliminary results shows effectivenes
-s.
+ extension only when it is possible and a preliminary results show its effective
+ness.
  
 \end_layout
 
 \begin_layout Standard
 Secondly, there is additional implementation complexity, but as can be seen
- from the implementation, it is very easy to add the diffusion step into
- the existing algorithm.
+ from our code, it is very easy to add the diffusion step into the existing
+ KF algorithm.
  The diffusion strategy may be of course much more complex than it is in
  our case, but again, that is not an intrinsic property of the proposed
- algorithm but rather specific to the implementation.
- 
+ algorithm but rather specific to the use case.
 \end_layout
 
 \begin_layout Standard
 In conclusion, when the node communication is not an issue, we believe that
  the proposed algorithm can be implemented for a very little price, while
  not performing worse than a traditional non-diffused variant.
+ Its flexibility allows usage in various scenarios, being able to incorporate
+ arbitrarily complex diffusion strategy.
 \end_layout
 
 \begin_layout Section
@@ -1799,13 +1843,16 @@ It is obvious that this work does not exhaust the topic in its entirety.
  The key questions regarding the algorithm behavior, such as the numerical
  stability or convergence criteria remains unanswered, unfortunately.
  Additionally, we believe that it would be a beneficial contribution to
- the field, if at least following were studied:
+ the field if at least following were studied:
 \end_layout
 
 \begin_layout Itemize
 What role network's topology plays and how to design networks which are
- cheap, but still effective.
- 
+ cheap, but still effective?
+\end_layout
+
+\begin_layout Itemize
+What are the most effective diffusion strategies in this setting?
 \end_layout
 
 \begin_layout Itemize
@@ -1814,16 +1861,12 @@ Sensitiveness to different kinds of (still Gaussian white) noise or its
 \end_layout
 
 \begin_layout Itemize
-What are the most effective diffusion strategies in this setting.
-\end_layout
-
-\begin_layout Itemize
 Sensitiveness to different state models.
 \end_layout
 
 \begin_layout Standard
-A higher level extension would be to consider different kinds of white noises,
- when different priors would have to be developed and a new equations derived
+A higher level extension would be to consider different kinds of white noises
+ when different priors would have to be developed and new equations derived
  accordingly.
  
 \end_layout

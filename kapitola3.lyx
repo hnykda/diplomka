@@ -96,7 +96,7 @@ Distributed Variational Bayes Adaptive Kalman Filtration
 \end_layout
 
 \begin_layout Standard
-This chapter describes main contributions of this work.
+This chapter describes the main contributions of this work.
  It is a derivation of an improvement of a Variation Bayes Adaptive Kalman
  Filtration (VBAKF) described 
 \begin_inset CommandInset citation
@@ -139,7 +139,7 @@ literal "false"
 
  using exponential family form, as we believe that the resulting update
  equations are more elegant, concise and understandable.
- Together with the combination, this is the novel contribution of this work.
+ This is another novel contribution of this work.
  
 \end_layout
 
@@ -203,20 +203,20 @@ noprefix "false"
 
 \end_inset
 
-, our aim is ti describe a model in which we will infer not only 
+, our aim is to describe a model in which we will infer not only 
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
-, but also Process Noise Covariance Matrix (PNCM) 
+, but also Process Error Covariance Matrix (PECM) 
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
- and Measurement Noise Covariance Matrix (MCNM) 
+ and Measurement Noise Covariance Matrix (MNCM) 
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
  as opposed to traditional Kalman filter where these two are considered
- static.
+ static (or changing according to some deterministic model).
  
 \end_layout
 
@@ -231,12 +231,11 @@ noprefix "false"
 
 \end_inset
 
-, the predicted PDF for 
+, the Probabilistic Density Function (PDF) of predictions for 
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
- and likelihood Probabilistic Density Function (PDF) follows Gaussian distributi
-on:
+ and the likelihood follows Gaussian distribution:
 \end_layout
 
 \begin_layout Standard
@@ -291,7 +290,7 @@ noprefix "false"
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
- is the predicted PNCM based on the model as in 
+ is the PECM based on the model as in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:posterior-state-cov"
@@ -317,8 +316,8 @@ We emphasize that
 \begin_inset Formula $\mat Q_{k}$
 \end_inset
 
- from the underlying update equation in is unknown and we would not have
- to do the whole machinery if it was known.
+ from the underlying update equations is unknown.
+ One would not have to use the whole machinery if it was known.
  
 \end_layout
 
@@ -336,7 +335,7 @@ Prior distributions for
 
 \begin_layout Standard
 We are going to leverage the benefits of good choice of priors to make the
- whole solution tractable outlined in 
+ whole solution tractable as outlined in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Conjugate-distributions-and"
@@ -350,7 +349,7 @@ noprefix "false"
  To ensure that the posterior belongs to the exponential family, we choose
  Inverse-Wishart distribution which is in a Bayesian statistic a common
  choice as a conjugate prior for the covariance matrix of a multivariate
- normal distribution with known mean
+ normal distribution with a known mean
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kendall2004"
@@ -367,7 +366,7 @@ literal "false"
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
-, which are both the covariances matrices of Gaussian PDFs as is in equations
+, which are both the covariance matrices of Gaussian PDFs as is in equations
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -452,8 +451,12 @@ where
 \end_inset
 
  is the trace function.
- The exponential family form we are going to take advantage of in the following
- text is
+ The exponential family form of PDF of Inverse-Wishart distributed matrix
+ 
+\begin_inset Formula $\mat X$
+\end_inset
+
+ is
 \end_layout
 
 \begin_layout Definition
@@ -467,7 +470,7 @@ where
 
 \end_inset
 
-and the corresponding parts of the form from 
+and the corresponding factors of the form from 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Conjugate-distributions-and"
@@ -508,7 +511,7 @@ pseudovector
 
  is a scalar.
  The advantages of this notation will be clearer when an addition to natural
- parameters is carried over.
+ parameters is performed.
  The expected value of the 
 \begin_inset Formula $\mathrm{IW}$
 \end_inset
@@ -537,10 +540,7 @@ Following from the above, the probabilities for
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
- are hence
-\end_layout
-
-\begin_layout Definition
+ are
 \begin_inset Formula 
 \begin{align}
 p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1})\label{eq:iwdistP}\\
@@ -553,13 +553,13 @@ p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{R}_{k};\hat{u}_{k|k-
 \end_layout
 
 \begin_layout Definition
-Next, prior parameters for 
+Prior parameters (hyperparameters) 
 \begin_inset Formula $\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1},\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}$
 \end_inset
 
- to represent the initial knowledge as precisely as possible.
+ need to represent the initial knowledge as precisely as possible.
  These parameters will be consumed later into prior's hyperparameters in
- 
+ form of 
 \begin_inset Formula $\Xi$
 \end_inset
 
@@ -619,7 +619,7 @@ PECM and PNCM, respectively.
 \begin_inset Formula $\tau\ge0$
 \end_inset
 
-, are model's parameters and their choice is discussed later.
+, are model's parameters and the choice is discussed later.
  Substituting 
 \begin_inset Formula $\mat P_{k|k-1},\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}$
 \end_inset
@@ -680,7 +680,7 @@ where
 \end_inset
 
  is the dimension of 
-\begin_inset Formula $\hat{\mathbf{T}}_{k|k-1}$
+\begin_inset Formula $\hat{\mathbf{T}}_{\cdot|\cdot}$
 \end_inset
 
 .
@@ -688,7 +688,7 @@ where
 \end_layout
 
 \begin_layout Subsubsection
-Hyperparameters for MCNM
+Hyperparameters for MNCM
 \end_layout
 
 \begin_layout Standard
@@ -731,7 +731,7 @@ To make sure that
 
  must have a suitable form so the Bayesian update results in the exponential
  family.
- Allowing slowly varying MNCM, as is the case in many real world applications,
+ Allowing slowly varying MNCM, as is the case in many real-world applications,
  a simple heuristic from 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -741,11 +741,11 @@ literal "false"
 \end_inset
 
  is chosen to deal with this uncertainty.
- That is spreading previous posteriors by a factor of 
+ That is spreading previous posterior by a factor of 
 \begin_inset Formula $\rho$
 \end_inset
 
-, which is then a model parameter
+, which is then an additional model parameter
 \begin_inset Formula 
 \begin{align}
 \hat{u}_{k|k-1}= & \rho(\hat{u}_{k-1|k-1}-m-1)+m+1\label{eq:updateu}\\
@@ -777,7 +777,7 @@ where
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p(\mat R_{0}=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}
+p(\mat R_{0})=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}
 \end{equation}
 
 \end_inset
@@ -816,11 +816,10 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-where 
 \begin_inset Formula $\tilde{\mathbf{R}}_{0}$
 \end_inset
 
- is then a model parameter.
+ then becoming as an additional model parameter.
 \end_layout
 
 \begin_layout Standard
@@ -895,7 +894,7 @@ Choice of the nominal PNCM and MNCM
 \end_layout
 
 \begin_layout Standard
-In the detailed analysis 
+In can be found in the detailed analysis 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -903,8 +902,7 @@ literal "false"
 
 \end_inset
 
- can be found that to guarantee model's convergence, the initial nominal
- PNCM 
+ that to guarantee model's convergence, the initial nominal PNCM 
 \begin_inset Formula $\tilde{\mathbf{Q}}_{k}$
 \end_inset
 
@@ -917,6 +915,7 @@ literal "false"
 \begin_inset Formula $\mat Q_{k}=\text{diag}[α_{1,k},\text{…},α_{n,k}],\alpha_{i,k}>0$
 \end_inset
 
+ .
  In reality, this is done based on the state-of-the-art engineering knowledge
  in the domain.
  The same is applied for the initial nominal MNCM 
@@ -927,7 +926,8 @@ literal "false"
 \begin_inset Formula $\mat R_{k}=\text{diag}[\beta_{1},\text{…},\beta_{m}],\beta_{i}>0$
 \end_inset
 
- and the reader is kindly redirected to the original study for more information.
+.
+ The reader is kindly redirected to the original paper for more information.
 \end_layout
 
 \begin_layout Section
@@ -935,7 +935,7 @@ Variational Bayes derivation
 \end_layout
 
 \begin_layout Standard
-In order to to infer all 
+In order to infer all 
 \begin_inset Formula $\vec x_{k},\mat P_{k|k-1}$
 \end_inset
 
@@ -958,7 +958,7 @@ noprefix "false"
 
 \end_inset
 
-, the Variation Bayes in our case expects the following approximation 
+, the Variational Bayes expects the following approximation 
 \begin_inset Formula 
 \begin{equation}
 p(\mathbf{x}_{k},\mathbf{P}_{k|k-1},\mathbf{R}_{k}|\mathbf{z}_{1:k})\approx q(\mathbf{x}_{k})q(\mathbf{P}_{k|k-1})q(\mathbf{R}_{k})
@@ -1033,7 +1033,7 @@ noprefix "false"
 
 \end_inset
 
-, the join PDF can be factored as 
+, the joint PDF can be factored as 
 \end_layout
 
 \begin_layout Standard
@@ -1123,8 +1123,7 @@ literal "false"
 
 \end_inset
 
-, we are going to leverage advantages of exponential family forms to infer
- the update equations.
+, we are going to leverage exponential family form to infer the update equations.
  Considering the exponential form of a Gaussian distribution
 \end_layout
 
@@ -1178,7 +1177,7 @@ where
 \begin_inset Formula $\vec x\vec{x^{T}}$
 \end_inset
 
- is an outer product, hence resulting into a matrix from 
+ is an outer product, hence resulting into a matrix of 
 \begin_inset Formula $\mathbb{R}^{n\times n}$
 \end_inset
 
@@ -1254,7 +1253,7 @@ noprefix "false"
 
 \end_inset
 
-, which is of course intentional and result of clever choice of conjugated
+, which is of course intentional and result of a clever choice of the conjugate
  priors.
  
 \end_layout
@@ -1290,7 +1289,15 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Utilizing the fact that
+Utilizing the fact that (as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2018"
+literal "false"
+
+\end_inset
+
+) 
 \begin_inset Formula 
 \begin{equation}
 \E{-\frac{1}{2}\errTerm{\vec x_{k}}{\hat{\vec x}_{k|k-1}}}i=\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}}
@@ -1422,9 +1429,9 @@ Distribution and parameter diffusion
 \end_layout
 
 \begin_layout Standard
-Thanks to using the exponentially family forms, parameter diffusion can
- be easily incorporated into the final algorithm – the nodes only need to
- exchange the hyperparameters 
+Thanks to the usage of exponential family form, parameter diffusion can
+ be easily incorporated into the final algorithm.
+ The nodes only need to exchange the hyperparameters 
 \begin_inset Formula $\Xi^{n}$
 \end_inset
 
@@ -1433,8 +1440,8 @@ Thanks to using the exponentially family forms, parameter diffusion can
 \end_inset
 
 .
- While the previous chapters were mostly based on algorithm described in
- 
+ While the previous chapters were mostly based on the algorithm described
+ in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1442,7 +1449,7 @@ literal "false"
 
 \end_inset
 
-, the parameter diffusion part is mostly based on 
+, the parameter diffusion part is based on 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dedecius2017"
@@ -1451,8 +1458,8 @@ literal "false"
 \end_inset
 
 .
- We just present here the result algorithm, but the reader is advised to
- reach the paper for more details.
+ The result algorithm is presented here, but the reader is advised to reach
+ to the latter paper for more details on the diffusion.
 \end_layout
 
 \begin_layout Standard
@@ -1466,8 +1473,12 @@ Consider a network of connected nodes, each of them obtaining their own
 \begin_inset Formula $t$
 \end_inset
 
- and proceed with Kalman filtration as above.
- After obtaining final 
+ and proceed with Kalman filtration described as above.
+ The node then 
+\emph on
+posses
+\emph default
+ 
 \begin_inset Formula $\mat P_{k|k}^{i,t},\hat{\mathbf{x}}_{k|k}^{i,t}$
 \end_inset
 
@@ -1476,7 +1487,7 @@ Consider a network of connected nodes, each of them obtaining their own
 \end_inset
 
 .
- The node then 
+ It then 
 \emph on
 contacts
 \emph default
@@ -1488,21 +1499,25 @@ contacts
 \begin_inset Formula $\Xi^{j,t},\Omega^{j,t},j\in\{1,...,d\}$
 \end_inset
 
- based on the current conditions (e.g.
- only a single hop distance, or more).
+ based on the current conditions (for instance, only a single hop distance
+ may be available).
  The node then performs a parameter fusion of these hyperparameters based
  on a chosen strategy represented by some function 
-\begin_inset Formula $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$
+\begin_inset Formula $g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$
+\end_inset
+
+ to obtain a new merged 
+\begin_inset Formula $\Xi_{\text{*}}^{i,t}$
 \end_inset
 
 .
  An example of such function may be just a simple averaging over all hyperparame
 ters 
-\begin_inset Formula $g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})=\frac{\sum_{s=\{i,1,...,d\}}\Xi^{s,t}}{d+1}$
+\begin_inset Formula $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})=\frac{\sum_{s=\{i,1,...,d\}}\Xi^{s,t}}{d+1}$
 \end_inset
 
 .
- The situation is for the hyperparameter 
+ The situation for the hyperparameter 
 \begin_inset Formula $\Omega^{i,t}$
 \end_inset
 
@@ -1511,8 +1526,8 @@ ters
 \begin_inset Formula $\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
 \end_inset
 
- back to the cooperating nodes, which incorporates this hyperparameter into
- their knowledge.
+ back to the cooperating nodes, which incorporate this hyperparameter into
+ their filter state.
  
 \end_layout
 
@@ -1522,7 +1537,7 @@ Algorithm summary
 
 \begin_layout Standard
 Here we summarize the previous pages into a single algorithm.
- The single step of the proposed algorithm for a single node is then
+ A single step of the proposed algorithm for a single node is then
 \end_layout
 
 \begin_layout Algorithm

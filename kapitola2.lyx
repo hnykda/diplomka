@@ -116,10 +116,6 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 Kalman filter (KF) is widely used adaptive filtering method firstly described
  in 
 \emph on
@@ -136,16 +132,11 @@ literal "false"
 
 \end_inset
 
-.
- The filter is defined by a set of relatively simple equations and allows
- for efficient online computation without having to know the whole history
- of data and it is the optimal linear filter (under several conditions described
- below).
- It is one of the solution to one of the most fundamental problems in control
- theory, the linear quadratic Gaussian control problem.
+ and it is one of the solutions to one of the most fundamental problems
+ in control theory, the linear quadratic Gaussian control problem.
  Over the years, numerous variants and extensions have been derived from
- the original Kalman filter and this thesis is concerned with one such extension
- – distributed Kalman filtering.
+ the original Kalman filter and this thesis is concerned with one of such
+ extensions – Distributed Kalman Filtering.
  See 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -157,13 +148,14 @@ noprefix "false"
 \end_inset
 
  for a brief overview of used methods.
+ 
 \end_layout
 
 \begin_layout Standard
 Kalman filter has been thoroughly studied over the years and also adopted
  by multiple industries, having a vast amount of applications wherever an
- estimation of the state of process is needed and noise in prediction or
- observation is present.
+ estimation of the state of the process is needed and noise in prediction
+ or observation is present.
  Because of its nature, it is commonly used in navigation and control of
  robots and vehicles
 \begin_inset CommandInset citation
@@ -191,7 +183,7 @@ literal "false"
 
 \end_inset
 
- and economics
+, economics
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Strid2009"
@@ -220,10 +212,10 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-With respect to the current development of the so called Internet of Things
+With respect to the current development of the so-called Internet of Things
  and development of cheap measurements sensors and microcomputers, Distributed
  Kalman Filtering (DKF) is becoming even more relevant.
- As one of the solution to 
+ As one of the solutions to 
 \emph on
 sensor fusion 
 \emph default
@@ -238,7 +230,7 @@ literal "false"
 .
  A network consisting of multiple sensors has many advantages over a single
  sensor scenario, such as robustness to noise, better field of view or,
- if designed correctly, not having a single point of failure 
+ if designed appropriately, not having a single point of failure 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Govaers2018"
@@ -275,6 +267,25 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+The filter is defined by a set of relatively simple equations and allows
+ for efficient online computation without having to know the whole history
+ of data.
+ It is the optimal linear filter under specific conditions, in detail described
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Optimality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
 \begin_layout Section
 Description
 \end_layout
@@ -283,7 +294,7 @@ Description
 The basic Kalman filter is used to estimate the current state of a linear
  dynamic system in case of noisy measurements.
  The state can be described by various variables, such as position and velocity.
- To use a Kalman Filter, one needs to specify system's:
+ To use a Kalman Filter, one needs to specify system
 \end_layout
 
 \begin_layout Enumerate
@@ -300,37 +311,39 @@ measurements, such as readings from sensors
 
 \begin_layout Standard
 The filter is useful in situations when dynamic model nor measurements cannot
- be entirely trusted (otherwise it one would not need to use it at all).
- It combines the information and while allowing for some noise – uncertainty
+ be entirely trusted (otherwise one would not need to use it at all).
+ It combines the information while allowing for some noise – uncertainty
  – during prediction and measurements.
- The both pieces of information are weighted by so called Kalman's gain
- and depending on its value favors prediction over measurements and vice
- versa.
+ Both pieces of information are weighted by so called Kalman's gain and
+ depending on its value the filter favors prediction over measurements and
+ vice versa.
  The whole process is performed recursively, remembering the last estimate
- and covariance and hence does not need an entire history, which makes it
- attractive where memory is expensive.
- As a result a less noisy (hence a filter) and if used appropriately, better
- estimates are generated in each step, lying in between measurements and
- prediction.
+ and covariance.
+ Hence, it does not need an entire history, which makes it attractive where
+ memory capacity is expensive.
+ As a result of a less noisy estimates (hence a filter), better estimates
+ are generated in each step.
+ 
 \end_layout
 
 \begin_layout Standard
 Observable parameters coming from measurements does not have to be necessarily
  complete in a sense of describing the system in its entirety.
- It is a common case in which one observes only a subset of state variables
- and the filter can still estimate the entire state.
+ It is a common case in which one observes only a subset of state variables,
+ while the filter can still estimate the entire state.
 \end_layout
 
 \begin_layout Standard
-The distributed extension is easy to describe – instead of having only a
- single sensor, the system is measured by multiple of them and then somehow
- combining these measurements together.
- Despite its simple high level description, multisensor network of sensors
- must deal with various non-trivial problems and the whole computation is
- complicated based on the selected parameters of the network's behavior
- and topology.
- It also means getting into a distinctive research area of distributed data
- fusion
+The distributed extension is easy to describe.
+ Instead of having only a single sensor, the system is measured by multiple
+ of them and then somehow combine these measurements together.
+ Despite its relatively simple high-level description, a multisensor network
+ of sensors must deal with various non-trivial problems and the whole computatio
+n may be much more complicated than the non-distributed version.
+ The complexity is based on degrees of freedom and selection of parameters
+ of the network's behavior and topology.
+ It also often means getting into a distinct research area of distributed
+ data fusion
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Campbell2016"
@@ -384,7 +397,7 @@ Let
 \begin_inset Formula $k,k-1$
 \end_inset
 
- and control vector, respectively.
+ and the control vector, respectively.
  
 \begin_inset Formula $\vec z{}_{k}\in\mathbb{R}^{m}$
 \end_inset
@@ -393,7 +406,7 @@ Let
 \begin_inset Formula $\mathbf{F}_{k},\mathbf{B}_{k}\in\mathbb{R}^{n\times m}$
 \end_inset
 
- the state transition matrix and control matrix, respectively and 
+ the state transition matrix and control matrix, and 
 \begin_inset Formula $\mathbf{H}_{k}\in\mathbb{R}^{m\times n}$
 \end_inset
 
@@ -419,7 +432,7 @@ Let
 \begin_inset Formula $k$
 \end_inset
 
- according to:
+ according to
 \end_layout
 
 \begin_layout Definition
@@ -453,21 +466,18 @@ In this work, the
 \begin_inset Formula $\mathbf{B}_{k}\mathbf{u}_{k}$
 \end_inset
 
- part is omitted as is common in many scenarios, where control input does
+ part is omitted as is common in many scenarios where control input does
  not make sense (such as temperature sensors).
  The process and observation noise 
 \begin_inset Formula $\vec w_{k},\vec v_{k}$
 \end_inset
 
- are assumed to be zero mean (multivariate in case of 
-\begin_inset Formula $\vec w_{k}$
-\end_inset
-
-) Gaussian white noise with covariances 
+ are assumed to be zero mean (multivariate) Gaussian white noise with covariance
+ matrices 
 \begin_inset Formula $\mathbf{Q}_{k},\mathbf{R}_{k}$
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
@@ -495,8 +505,7 @@ Hence,
 \begin_inset Formula $\vec w_{k},\vec v_{k}$
 \end_inset
 
- and the likelihoods for a single measurement and state estimation, respectively
-, are
+ and the likelihoods for a single measurement and state estimation are
 \begin_inset Formula 
 \begin{align}
 p(\vec z_{k}|\vec x_{k}) & =\mathcal{N}(\vec z_{k};\mat H_{k}\vec x_{k},\mathbf{R}_{k})\\
@@ -513,8 +522,8 @@ Filter definition
 \end_layout
 
 \begin_layout Standard
-The Kalman Filter is so-called a recursive estimator, needing only state
- estimation from the previous step to perform the next step.
+The Kalman Filter is a so-called recursive estimator, needing only state
+ estimation from the previous step to proceed with the next step.
  The state of the estimator is described by two variables
 \end_layout
 
@@ -533,12 +542,16 @@ The Kalman Filter is so-called a recursive estimator, needing only state
 \begin_inset Formula $\mat P_{k|k}$
 \end_inset
 
- – the posteriori error covariance matrix 
+ – the posteriori error covariance matrix at time 
+\begin_inset Formula $k$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The filter then can be described as two consecutive steps: state prediction
- based on the model and correction based on observation.
+The filter can be then described as two consecutive steps: state prediction
+ based on the model and correction based on the observation.
  The prediction step is defined as
 \end_layout
 
@@ -583,7 +596,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -669,10 +682,10 @@ noprefix "false"
 \end_inset
 
 , more of these agents – nodes – are independently carrying these out.
- These nodes are usually connected according to some predefined topology,
- enabling different kinds of communication and hence the algorithm's variants.
+ These nodes are usually connected to some predefined topology, enabling
+ different kinds of communication and hence the algorithm's variants.
  For example, the nodes may only be able to send their estimates to some
- master node without getting any feedback (a scenario of directed graph
+ master node without getting any feedback (a scenario of a directed graph
  topology), but a more complex topology may be chosen, such as that the
  nodes can be communicating with each other.
  
@@ -682,8 +695,8 @@ noprefix "false"
 Because of its generality, a formal definition of a Distributed Kalman Filter
  is not very informative, simply stating that there is some function performed
  in an arbitrary step with an arbitrary communication given the topology.
- These are the parameters differentiating between DKF variants and a brief
- overview is in 
+ These are the parameters differentiating between DKF variants more studied
+ in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Methods"
@@ -698,6 +711,13 @@ noprefix "false"
 
 \begin_layout Section
 Optimality
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Optimality"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -737,16 +757,17 @@ In reality, this is rarely the case and the consequences of not satisfying
 \end_layout
 
 \begin_layout Standard
-Any of these can be unsatisfied and different methods are being proposed
- and used to deal with the problem, such as extension being able to work
- with different than Gaussian white noise.
- This work is no exception and tries to deal with the third bullet point
+Any of these requirements can be unsatisfied in a given application and
+ different methods have been proposed and used to deal with the problem,
+ such as extensions being able to work with different than Gaussian white
+ noise.
+ This work is no exception and tries to deal with the third requirement
  – the case when the noise covariances are unknown and not static.
  The proposed algorithm relax this requirement to some degree, extending
- the possible use cases for the, otherwise exceptionally effective filter.
+ the possible use cases for the, otherwise exceptionally effective, filter.
  It is important to emphasize though that the scenario when the proposed
- algorithm is used still needs to satisfy the rest of the two conditions
- – the model must reflect the reality and the noise must be Gaussian white.
+ algorithm is used still needs to satisfy the rest of the requirements –
+ the model must reflect the reality and the noise must be Gaussian white.
  
 \end_layout
 
@@ -793,9 +814,9 @@ noprefix "false"
 \begin_inset Formula $\mat R_{k},\mat Q_{k}$
 \end_inset
 
- are not just some negligible factor of the update, but play a huge role
+ are not just some negligible factor of the update but play a major role
  in the estimation.
- Kalman filter depends on their a priori knowledge to a great extend and
+ Kalman filter depends on this a priori knowledge to a great extent and
  a wrong choice leads to significantly degraded performance or even divergence
  
 \begin_inset CommandInset citation
@@ -806,12 +827,11 @@ literal "false"
 \end_inset
 
 .
- It is not uncommon though, that it is almost impossible to estimate in
- advance or that the noise covariance is changing based on some unknown
- model.
- For completeness sake, real-life applications suffering from this fact
- are navigational systems and there has been an undergoing research in this
- field 
+ It is not uncommon though, that it is almost impossible to estimate the
+ covariance in advance or that the noise covariance is changing based on
+ some unknown model.
+ For instance, real-life applications suffering from this fact are navigational
+ systems and there has been an undergoing research in this area 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hide,Yu2012"
@@ -820,12 +840,12 @@ literal "false"
 \end_inset
 
 .
- A so called 
+ A so-called 
 \emph on
 adaptive 
 \emph default
-Kalman filter has been proposed to solve this and plethora of its variants
- have been carried out.
+Kalman filter has been proposed to solve this issue and plethora of its
+ variants have been carried out.
  An algorithm based on variational Bayes method proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -836,8 +856,8 @@ literal "false"
 
 , which we use in our diffused variant as an underlying KF computation,
  seems to be a great candidate to solve difficulties one faces when trying
- to apply KF in these noisy environments and it is the reason why it is
- also our choice.
+ to apply KF in noisy environments and it is the reason why it became our
+ choice.
 \end_layout
 
 \begin_layout Section
@@ -863,11 +883,15 @@ literal "false"
 
  and the author sees a very little added value of restating everything.
  Nevertheless, to give a reader at least a glimpse of what has been researched
- in this area to get a research context, a brief introduction of selected
- methods is provided bellow.
+ in this area to get the context, a brief discussion of selected methods
+ follows.
  The selection is carefully crafted in a way that it relates to the problem
- under study and the selected approach.
- Let start with with Adaptive Kalman Filter, nicely summarized in 
+ under study and the selected approach of this thesis.
+ 
+\end_layout
+
+\begin_layout Standard
+Let start with Adaptive Kalman Filter, nicely summarized in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -876,7 +900,7 @@ literal "false"
 \end_inset
 
 .
- A four distinguished categories of methods exists: correlation, maximum
+ A four distinguished categories of methods exist: correlation, maximum
  likelihood, covariance matching, and Bayesian methods.
  The Sage–Husa AKF is a covariance matching method, estimating the noise
  on the maximum a posterior criterion 
@@ -897,8 +921,8 @@ literal "false"
 
 .
  Convergence is not guaranteed for this algorithm though.
- A maximum likelihood method Innovation-based AKF leverage the fact that
- the innovation sequence of the KF is a white process.
+ A different, maximum likelihood method Innovation-based AKF leverage the
+ fact that the innovation sequence of the KF is a white process.
  The disadvantage is that it needs large amounts of data to work reliably,
  rendering it inapplicable when this is not plausible 
 \begin_inset CommandInset citation
@@ -924,14 +948,14 @@ literal "false"
 \end_inset
 
 .
- In this model, multiple nodes operates simultaneously and tries to estimate
+ In this model, multiple nodes operate simultaneously and tries to estimate
  noise statistic.
  To some degree, this is close to what this work tries to achieve but without
  Variational Bayes algorithm.
  Additionally, the orientation of the algorithm is more focused on noise
  statistics estimation, rather than on the state estimation accuracy as
  is in this work.
- From the perspective of diffusion based strategies, the most relevant piece
+ From the perspective of diffusion-based strategies, the most relevant piece
  of work and a great inspiration can be found in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -941,7 +965,7 @@ literal "false"
 \end_inset
 
 , where different diffusion strategies are carried out in DKF.
- An outstanding summary of research in diffusion based algorithm in the
+ An outstanding summary of research in diffusion-based algorithm in the
  world of DKF can be found in 
 \begin_inset CommandInset citation
 LatexCommand cite
