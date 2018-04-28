@@ -96,9 +96,36 @@ Distributed Variational Bayes Adaptive Kalman Filtration
 \end_layout
 
 \begin_layout Standard
-This chapter describes the main contributions of this work.
- It is a derivation of an improvement of a Variation Bayes Adaptive Kalman
- Filtration (VBAKF) described 
+This chapter describes the
+\begin_inset space ~
+\end_inset
+
+main contributions of
+\begin_inset space ~
+\end_inset
+
+this work.
+ It is a
+\begin_inset space ~
+\end_inset
+
+derivation of
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+improvement of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+Variation Bayes Adaptive Kalman Filtration (VBAKF) described 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -106,7 +133,11 @@ literal "false"
 
 \end_inset
 
- by partially sharing parameters in diffusion networks from 
+ by partially sharing parameters in
+\begin_inset space ~
+\end_inset
+
+diffusion networks from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dedecius2017"
@@ -115,8 +146,19 @@ literal "false"
 \end_inset
 
 .
- Up to the author's knowledge, there has not been a similar attempt to combine
- these two, although 
+ Up to
+\begin_inset space ~
+\end_inset
+
+the author's knowledge, there has not been a
+\begin_inset space ~
+\end_inset
+
+similar attempt to
+\begin_inset space ~
+\end_inset
+
+combine these two, although 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dedecius2017"
@@ -124,12 +166,32 @@ literal "false"
 
 \end_inset
 
- mention these as a future possibility.
+ mention these as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+future possibility.
  
 \end_layout
 
 \begin_layout Standard
-We also propose a simplified version of the algorithm from 
+We also propose a
+\begin_inset space ~
+\end_inset
+
+simplified version of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+algorithm from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -137,9 +199,20 @@ literal "false"
 
 \end_inset
 
- using exponential family form, as we believe that the resulting update
- equations are more elegant, concise and understandable.
- This is another novel contribution of this work.
+ using exponential family form, as
+\begin_inset space ~
+\end_inset
+
+we believe that the
+\begin_inset space ~
+\end_inset
+
+resulting update equations are more elegant, concise and understandable.
+ This is another novel contribution of
+\begin_inset space ~
+\end_inset
+
+this work.
  
 \end_layout
 
@@ -193,7 +266,11 @@ Problem formulation
 \end_layout
 
 \begin_layout Standard
-As has been described in 
+As has been described in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Noise-analysis"
@@ -203,7 +280,19 @@ noprefix "false"
 
 \end_inset
 
-, our aim is to describe a model in which we will infer not only 
+, our aim is to
+\begin_inset space ~
+\end_inset
+
+describe a
+\begin_inset space ~
+\end_inset
+
+model in
+\begin_inset space ~
+\end_inset
+
+which we will infer not only 
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
@@ -215,13 +304,29 @@ noprefix "false"
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
- as opposed to traditional Kalman filter where these two are considered
- static (or changing according to some deterministic model).
+ as
+\begin_inset space ~
+\end_inset
+
+opposed to
+\begin_inset space ~
+\end_inset
+
+traditional Kalman filter where these two are considered static (or changing
+ according to
+\begin_inset space ~
+\end_inset
+
+some deterministic model).
  
 \end_layout
 
 \begin_layout Standard
-Based on 
+Based on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Formal-definition-KF"
@@ -231,11 +336,23 @@ noprefix "false"
 
 \end_inset
 
-, the Probabilistic Density Function (PDF) of predictions for 
+, the
+\begin_inset space ~
+\end_inset
+
+Probabilistic Density Function (PDF) of
+\begin_inset space ~
+\end_inset
+
+predictions for 
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
- and the likelihood follows Gaussian distribution:
+ and the
+\begin_inset space ~
+\end_inset
+
+likelihood follows Gaussian distribution:
 \end_layout
 
 \begin_layout Standard
@@ -273,7 +390,27 @@ where
 \begin_inset Formula $\vec{\hat{x}}_{k|k-1}$
 \end_inset
 
- is the predicted state vector based on the model as in 
+ is the
+\begin_inset space ~
+\end_inset
+
+predicted state vector based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+model as
+\begin_inset space ~
+\end_inset
+
+in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:kalman-beg-state-pred"
@@ -290,7 +427,27 @@ noprefix "false"
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
- is the PECM based on the model as in 
+ is the
+\begin_inset space ~
+\end_inset
+
+PECM based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+model as
+\begin_inset space ~
+\end_inset
+
+in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:posterior-state-cov"
@@ -316,8 +473,20 @@ We emphasize that
 \begin_inset Formula $\mat Q_{k}$
 \end_inset
 
- from the underlying update equations is unknown.
- One would not have to use the whole machinery if it was known.
+ from the
+\begin_inset space ~
+\end_inset
+
+underlying update equations is unknown.
+ One would not have to
+\begin_inset space ~
+\end_inset
+
+use the
+\begin_inset space ~
+\end_inset
+
+whole machinery if it was known.
  
 \end_layout
 
@@ -334,8 +503,39 @@ Prior distributions for
 \end_layout
 
 \begin_layout Standard
-We are going to leverage the benefits of good choice of priors to make the
- whole solution tractable as outlined in 
+We are going to
+\begin_inset space ~
+\end_inset
+
+leverage the
+\begin_inset space ~
+\end_inset
+
+benefits of
+\begin_inset space ~
+\end_inset
+
+good choice of
+\begin_inset space ~
+\end_inset
+
+priors to
+\begin_inset space ~
+\end_inset
+
+make the
+\begin_inset space ~
+\end_inset
+
+whole solution tractable as
+\begin_inset space ~
+\end_inset
+
+outlined in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Conjugate-distributions-and"
@@ -346,10 +546,52 @@ noprefix "false"
 \end_inset
 
 .
- To ensure that the posterior belongs to the exponential family, we choose
- Inverse-Wishart distribution which is in a Bayesian statistic a common
- choice as a conjugate prior for the covariance matrix of a multivariate
- normal distribution with a known mean
+ To ensure that the
+\begin_inset space ~
+\end_inset
+
+posterior belongs to
+\begin_inset space ~
+\end_inset
+
+the exponential family, we choose Inverse-Wishart distribution which is
+ in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+Bayesian statistic a
+\begin_inset space ~
+\end_inset
+
+common choice as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+conjugate prior for the
+\begin_inset space ~
+\end_inset
+
+covariance matrix of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+multivariate normal distribution with a
+\begin_inset space ~
+\end_inset
+
+known mean
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kendall2004"
@@ -358,7 +600,11 @@ literal "false"
 \end_inset
 
 .
- That is the case for 
+ That is the
+\begin_inset space ~
+\end_inset
+
+case for 
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
@@ -366,8 +612,23 @@ literal "false"
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
-, which are both the covariance matrices of Gaussian PDFs as is in equations
- 
+, which are both the
+\begin_inset space ~
+\end_inset
+
+covariance matrices of
+\begin_inset space ~
+\end_inset
+
+Gaussian PDFs as
+\begin_inset space ~
+\end_inset
+
+is in
+\begin_inset space ~
+\end_inset
+
+equations 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:predxkprob"
@@ -391,17 +652,32 @@ noprefix "false"
 \end_layout
 
 \begin_layout Definition
-Inverse-Wishart distribution is a probability distribution on real-value
- positive-definite matrices.
+Inverse-Wishart distribution is a
+\begin_inset space ~
+\end_inset
+
+probability distribution on
+\begin_inset space ~
+\end_inset
+
+real-value positive-definite matrices.
  We say that 
 \begin_inset Formula $\mat X$
 \end_inset
 
- follows the Inverse-Wishart distribution with 
+ follows the
+\begin_inset space ~
+\end_inset
+
+Inverse-Wishart distribution with 
 \begin_inset Formula $\nu$
 \end_inset
 
- degrees of freedom and scale matrix 
+ degrees of
+\begin_inset space ~
+\end_inset
+
+freedom and scale matrix 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -414,12 +690,20 @@ Inverse-Wishart distribution is a probability distribution on real-value
 \begin_inset Formula $\mat X^{-1}$
 \end_inset
 
- has a Wishart distribution 
+ has a
+\begin_inset space ~
+\end_inset
+
+Wishart distribution 
 \begin_inset Formula $\mat X\sim\mathrm{\mathrm{W}(\Psi^{-1},\nu)}$
 \end_inset
 
 .
- The density is 
+ The
+\begin_inset space ~
+\end_inset
+
+density is 
 \end_layout
 
 \begin_layout Definition
@@ -438,21 +722,48 @@ where
 \begin_inset Formula $\mathbf{\Psi>0}\in\mathbb{R}^{p\times p}$
 \end_inset
 
- is a positive-definite scale matrix, 
+ is a
+\begin_inset space ~
+\end_inset
+
+positive-definite scale matrix, 
 \begin_inset Formula $\nu>p-1,\nu\in\mathbb{R}$
 \end_inset
 
- are degrees of freedom, 
+ are degrees of
+\begin_inset space ~
+\end_inset
+
+freedom, 
 \begin_inset Formula $\Gamma_{p}(\cdot)$
 \end_inset
 
- is the multivariate gamma function and 
+ is the
+\begin_inset space ~
+\end_inset
+
+multivariate gamma function and 
 \begin_inset Formula $\text{tr}$
 \end_inset
 
- is the trace function.
- The exponential family form of PDF of Inverse-Wishart distributed matrix
- 
+ is the
+\begin_inset space ~
+\end_inset
+
+trace function.
+ The
+\begin_inset space ~
+\end_inset
+
+exponential family form of
+\begin_inset space ~
+\end_inset
+
+PDF of
+\begin_inset space ~
+\end_inset
+
+Inverse-Wishart distributed matrix 
 \begin_inset Formula $\mat X$
 \end_inset
 
@@ -470,7 +781,19 @@ where
 
 \end_inset
 
-and the corresponding factors of the form from 
+and the
+\begin_inset space ~
+\end_inset
+
+corresponding factors of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+form from 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Conjugate-distributions-and"
@@ -497,7 +820,15 @@ The first element
 \begin_inset Formula $\Xi_{1}$
 \end_inset
 
- of a 
+ of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 pseudovector 
 \begin_inset Formula $\Xi$
@@ -505,14 +836,53 @@ pseudovector
 
 
 \emph default
- is a matrix, why the second 
+ is a
+\begin_inset space ~
+\end_inset
+
+matrix, why the
+\begin_inset space ~
+\end_inset
+
+second 
 \begin_inset Formula $\Xi_{2}$
 \end_inset
 
- is a scalar.
- The advantages of this notation will be clearer when an addition to natural
- parameters is performed.
- The expected value of the 
+ is a
+\begin_inset space ~
+\end_inset
+
+scalar.
+ The
+\begin_inset space ~
+\end_inset
+
+advantages of
+\begin_inset space ~
+\end_inset
+
+this notation will be clearer when an
+\begin_inset space ~
+\end_inset
+
+addition to
+\begin_inset space ~
+\end_inset
+
+natural parameters is performed.
+ The
+\begin_inset space ~
+\end_inset
+
+expected value of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\mathrm{IW}$
 \end_inset
 
@@ -532,7 +902,15 @@ pseudovector
 \end_layout
 
 \begin_layout Definition
-Following from the above, the probabilities for 
+Following from the
+\begin_inset space ~
+\end_inset
+
+above, the
+\begin_inset space ~
+\end_inset
+
+probabilities for 
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
@@ -557,9 +935,32 @@ Prior parameters (hyperparameters)
 \begin_inset Formula $\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1},\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}$
 \end_inset
 
- need to represent the initial knowledge as precisely as possible.
+ need to
+\begin_inset space ~
+\end_inset
+
+represent the
+\begin_inset space ~
+\end_inset
+
+initial knowledge as
+\begin_inset space ~
+\end_inset
+
+precisely as
+\begin_inset space ~
+\end_inset
+
+possible.
  These parameters will be consumed later into prior's hyperparameters in
- form of 
+\begin_inset space ~
+\end_inset
+
+form of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Xi$
 \end_inset
 
@@ -587,8 +988,15 @@ literal "false"
 
 \end_inset
 
- proposes the following initial parameter setting for the prior information
- for 
+ proposes the
+\begin_inset space ~
+\end_inset
+
+following initial parameter setting for the
+\begin_inset space ~
+\end_inset
+
+prior information for 
 \begin_inset Formula $\mat P_{k|k-1}$
 \end_inset
 
@@ -610,16 +1018,28 @@ where
 \begin_inset Formula $\tilde{\mathbf{P}}_{k|k-1},\tilde{\mathbf{Q}}_{k-1}$
 \end_inset
 
- are the 
+ are the
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 nominal 
 \emph default
 PECM and PNCM, respectively.
- The latter, together with 
+ The
+\begin_inset space ~
+\end_inset
+
+latter, together with 
 \begin_inset Formula $\tau\ge0$
 \end_inset
 
-, are model's parameters and the choice is discussed later.
+, are model's parameters and the
+\begin_inset space ~
+\end_inset
+
+choice is discussed later.
  Substituting 
 \begin_inset Formula $\mat P_{k|k-1},\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}$
 \end_inset
@@ -679,7 +1099,15 @@ where
 \begin_inset Formula $n$
 \end_inset
 
- is the dimension of 
+ is the
+\begin_inset space ~
+\end_inset
+
+dimension of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\hat{\mathbf{T}}_{\cdot|\cdot}$
 \end_inset
 
@@ -692,7 +1120,11 @@ Hyperparameters for MNCM
 \end_layout
 
 \begin_layout Standard
-According to 
+According to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:bayes-theorem"
@@ -702,7 +1134,11 @@ noprefix "false"
 
 \end_inset
 
-, the prior for 
+, the
+\begin_inset space ~
+\end_inset
+
+prior for 
 \begin_inset Formula $p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})$
 \end_inset
 
@@ -725,14 +1161,44 @@ To make sure that
 \begin_inset Formula $p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})$
 \end_inset
 
- is also Inverse-Wishart distributed, the 
+ is also Inverse-Wishart distributed, the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $p(\mathbf{R}_{k}|\mathbf{R}_{k-1})$
 \end_inset
 
- must have a suitable form so the Bayesian update results in the exponential
- family.
- Allowing slowly varying MNCM, as is the case in many real-world applications,
- a simple heuristic from 
+ must have a
+\begin_inset space ~
+\end_inset
+
+suitable form so the
+\begin_inset space ~
+\end_inset
+
+Bayesian update results in
+\begin_inset space ~
+\end_inset
+
+the exponential family.
+ Allowing slowly varying MNCM, as
+\begin_inset space ~
+\end_inset
+
+is the
+\begin_inset space ~
+\end_inset
+
+case in
+\begin_inset space ~
+\end_inset
+
+many real-world applications, a
+\begin_inset space ~
+\end_inset
+
+simple heuristic from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hartikainen2013"
@@ -740,12 +1206,28 @@ literal "false"
 
 \end_inset
 
- is chosen to deal with this uncertainty.
- That is spreading previous posterior by a factor of 
+ is chosen to
+\begin_inset space ~
+\end_inset
+
+deal with this uncertainty.
+ That is spreading previous posterior by a
+\begin_inset space ~
+\end_inset
+
+factor of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\rho$
 \end_inset
 
-, which is then an additional model parameter
+, which is then an
+\begin_inset space ~
+\end_inset
+
+additional model parameter
 \begin_inset Formula 
 \begin{align}
 \hat{u}_{k|k-1}= & \rho(\hat{u}_{k-1|k-1}-m-1)+m+1\label{eq:updateu}\\
@@ -762,16 +1244,32 @@ where
 \begin_inset Formula $m$
 \end_inset
 
- is the size of matrix 
+ is the
+\begin_inset space ~
+\end_inset
+
+size of
+\begin_inset space ~
+\end_inset
+
+matrix 
 \begin_inset Formula $\hat{\mathbf{U}}_{\cdot|\cdot}$
 \end_inset
 
 .
- The initial MNCM 
+ The
+\begin_inset space ~
+\end_inset
+
+initial MNCM 
 \begin_inset Formula $\mat R_{0}$
 \end_inset
 
- is also considered to be Inverse-Wishart distributed 
+ is also considered to
+\begin_inset space ~
+\end_inset
+
+be Inverse-Wishart distributed 
 \end_layout
 
 \begin_layout Standard
@@ -786,7 +1284,15 @@ p(\mat R_{0})=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}
 \end_layout
 
 \begin_layout Standard
-Similarly to the PNCM case in 
+Similarly to
+\begin_inset space ~
+\end_inset
+
+the PNCM case in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:initPNCM"
@@ -796,11 +1302,31 @@ noprefix "false"
 
 \end_inset
 
-, the initial prior information for the mean value of 
+, the
+\begin_inset space ~
+\end_inset
+
+initial prior information for the
+\begin_inset space ~
+\end_inset
+
+mean value of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\mat R_{0}$
 \end_inset
 
- is set as the initial nominal MNCM 
+ is set as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+initial nominal MNCM 
 \begin_inset Formula $\tilde{\mathbf{R}}_{0}$
 \end_inset
 
@@ -819,7 +1345,15 @@ noprefix "false"
 \begin_inset Formula $\tilde{\mathbf{R}}_{0}$
 \end_inset
 
- then becoming as an additional model parameter.
+ then becoming as
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+additional model parameter.
 \end_layout
 
 \begin_layout Standard
@@ -882,7 +1416,15 @@ where
 \begin_inset Formula $n$
 \end_inset
 
- is the dimension of 
+ is the
+\begin_inset space ~
+\end_inset
+
+dimension of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\hat{\mathbf{U}}_{k}$
 \end_inset
 
@@ -890,11 +1432,23 @@ where
 \end_layout
 
 \begin_layout Subsubsection
-Choice of the nominal PNCM and MNCM
+Choice of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+nominal PNCM and MNCM
 \end_layout
 
 \begin_layout Standard
-In can be found in the detailed analysis 
+In can be found in
+\begin_inset space ~
+\end_inset
+
+the detailed analysis 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -902,32 +1456,91 @@ literal "false"
 
 \end_inset
 
- that to guarantee model's convergence, the initial nominal PNCM 
+ that to
+\begin_inset space ~
+\end_inset
+
+guarantee model's convergence, the
+\begin_inset space ~
+\end_inset
+
+initial nominal PNCM 
 \begin_inset Formula $\tilde{\mathbf{Q}}_{k}$
 \end_inset
 
- needs to be near the initial true PNCM 
+ needs to
+\begin_inset space ~
+\end_inset
+
+be near the
+\begin_inset space ~
+\end_inset
+
+initial true PNCM 
 \begin_inset Formula $\mat Q_{k}$
 \end_inset
 
 .
- In the paper and as well in this work, we set 
+ In the
+\begin_inset space ~
+\end_inset
+
+paper and as
+\begin_inset space ~
+\end_inset
+
+well in
+\begin_inset space ~
+\end_inset
+
+this work, we set 
 \begin_inset Formula $\mat Q_{k}=\text{diag}[α_{1,k},\text{…},α_{n,k}],\alpha_{i,k}>0$
 \end_inset
 
  .
- In reality, this is done based on the state-of-the-art engineering knowledge
- in the domain.
- The same is applied for the initial nominal MNCM 
+ In reality, this is done based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state-of-the-art engineering knowledge in
+\begin_inset space ~
+\end_inset
+
+the domain.
+ The
+\begin_inset space ~
+\end_inset
+
+same is applied for the
+\begin_inset space ~
+\end_inset
+
+initial nominal MNCM 
 \begin_inset Formula $\tilde{\mathbf{R}}_{0}$
 \end_inset
 
- and the choice is 
+ and the
+\begin_inset space ~
+\end_inset
+
+choice is 
 \begin_inset Formula $\mat R_{k}=\text{diag}[\beta_{1},\text{…},\beta_{m}],\beta_{i}>0$
 \end_inset
 
 .
- The reader is kindly redirected to the original paper for more information.
+ The
+\begin_inset space ~
+\end_inset
+
+reader is kindly redirected to
+\begin_inset space ~
+\end_inset
+
+the original paper for more information.
 \end_layout
 
 \begin_layout Section
@@ -935,7 +1548,11 @@ Variational Bayes derivation
 \end_layout
 
 \begin_layout Standard
-In order to infer all 
+In order to
+\begin_inset space ~
+\end_inset
+
+infer all 
 \begin_inset Formula $\vec x_{k},\mat P_{k|k-1}$
 \end_inset
 
@@ -943,12 +1560,24 @@ In order to infer all
 \begin_inset Formula $\mat R_{k}$
 \end_inset
 
-, a posterior PDF 
+, a
+\begin_inset space ~
+\end_inset
+
+posterior PDF 
 \begin_inset Formula $p(\vec x_{k},\mat P_{k|k-1},\mat R_{k})$
 \end_inset
 
- needs to be estimated.
- As thoroughly described in chapter 
+ needs to
+\begin_inset space ~
+\end_inset
+
+be estimated.
+ As thoroughly described in
+\begin_inset space ~
+\end_inset
+
+chapter 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Variational-inference"
@@ -958,7 +1587,15 @@ noprefix "false"
 
 \end_inset
 
-, the Variational Bayes expects the following approximation 
+, the
+\begin_inset space ~
+\end_inset
+
+Variational Bayes expects the
+\begin_inset space ~
+\end_inset
+
+following approximation 
 \begin_inset Formula 
 \begin{equation}
 p(\mathbf{x}_{k},\mathbf{P}_{k|k-1},\mathbf{R}_{k}|\mathbf{z}_{1:k})\approx q(\mathbf{x}_{k})q(\mathbf{P}_{k|k-1})q(\mathbf{R}_{k})
@@ -974,17 +1611,29 @@ where
 \begin_inset Formula $q(\mathbf{x}_{k}),q(\mathbf{P}_{k|k-1}),q(\mathbf{R}_{k})$
 \end_inset
 
- are factors of our factorized distribution 
+ are factors of
+\begin_inset space ~
+\end_inset
+
+our factorized distribution 
 \begin_inset Formula $q(\cdot)$
 \end_inset
 
- by which we approximate the 
+ by which we approximate the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $p(\cdot)$
 \end_inset
 
 .
  These factors are obtained using Variational Bayes machinery including
- minimizing the Kullback-Leibler divergence and using CAVI.
+ minimizing the
+\begin_inset space ~
+\end_inset
+
+Kullback-Leibler divergence and using CAVI.
  
 \end_layout
 
@@ -1033,7 +1682,15 @@ noprefix "false"
 
 \end_inset
 
-, the joint PDF can be factored as 
+, the
+\begin_inset space ~
+\end_inset
+
+joint PDF can be factored as
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1087,7 +1744,11 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graphical model of probabilistic model 
+Graphical model of
+\begin_inset space ~
+\end_inset
+
+probabilistic model 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:modelProb"
@@ -1115,7 +1776,11 @@ Deriving update equations
 \end_layout
 
 \begin_layout Standard
-As opposed to 
+As opposed to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1123,8 +1788,32 @@ literal "false"
 
 \end_inset
 
-, we are going to leverage exponential family form to infer the update equations.
- Considering the exponential form of a Gaussian distribution
+, we are going to
+\begin_inset space ~
+\end_inset
+
+leverage exponential family form to
+\begin_inset space ~
+\end_inset
+
+infer the
+\begin_inset space ~
+\end_inset
+
+update equations.
+ Considering the
+\begin_inset space ~
+\end_inset
+
+exponential form of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+Gaussian distribution
 \end_layout
 
 \begin_layout Standard
@@ -1177,7 +1866,19 @@ where
 \begin_inset Formula $\vec x\vec{x^{T}}$
 \end_inset
 
- is an outer product, hence resulting into a matrix of 
+ is an
+\begin_inset space ~
+\end_inset
+
+outer product, hence resulting into a
+\begin_inset space ~
+\end_inset
+
+matrix of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\mathbb{R}^{n\times n}$
 \end_inset
 
@@ -1186,7 +1887,15 @@ where
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
- as well as 
+ as
+\begin_inset space ~
+\end_inset
+
+well as
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\vec z_{k}$
 \end_inset
 
@@ -1213,7 +1922,11 @@ where
 \end_layout
 
 \begin_layout Standard
-As can be seen, the natural parameters matches for 
+As can be seen, the
+\begin_inset space ~
+\end_inset
+
+natural parameters matches for 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:normalPk"
@@ -1233,7 +1946,15 @@ noprefix "false"
 
 \end_inset
 
- as well as for 
+ as
+\begin_inset space ~
+\end_inset
+
+well as
+\begin_inset space ~
+\end_inset
+
+for 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:normalRk"
@@ -1253,13 +1974,36 @@ noprefix "false"
 
 \end_inset
 
-, which is of course intentional and result of a clever choice of the conjugate
- priors.
+, which is of
+\begin_inset space ~
+\end_inset
+
+course intentional and result of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+clever choice of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+conjugate priors.
  
 \end_layout
 
 \begin_layout Standard
-With respect to 
+With respect to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:update-hyp-xi"
@@ -1269,8 +2013,16 @@ noprefix "false"
 
 \end_inset
 
-, the single step Bayesian update of Inverse-Wishart hyperparameters with
- Multivariate Normal Distribution can be written as
+, the
+\begin_inset space ~
+\end_inset
+
+single step Bayesian update of
+\begin_inset space ~
+\end_inset
+
+Inverse-Wishart hyperparameters with Multivariate Normal Distribution can
+ be written as
 \end_layout
 
 \begin_layout Standard
@@ -1289,7 +2041,15 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Utilizing the fact that (as in 
+Utilizing the
+\begin_inset space ~
+\end_inset
+
+fact that (as in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1324,7 +2084,15 @@ the single step
 \begin_inset Formula $i$
 \end_inset
 
- of the variational updates are
+ of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+variational updates are
 \end_layout
 
 \begin_layout Standard
@@ -1358,8 +2126,23 @@ where
 \begin_inset Formula $\Xi^{n-1},\Omega^{n-1}$
 \end_inset
 
- are hyperparameters obtained from the results of Kalman filter of the previous
- observation, derived using formulas 
+ are hyperparameters obtained from the
+\begin_inset space ~
+\end_inset
+
+results of
+\begin_inset space ~
+\end_inset
+
+Kalman filter of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+previous observation, derived using formulas 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:xiInit"
@@ -1387,8 +2170,27 @@ Kalman correction
 \end_layout
 
 \begin_layout Standard
-The last bit of the single CAVI iteration is the Kalman correction, which
- is an iterative extension of 
+The last bit of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+single CAVI iteration is the
+\begin_inset space ~
+\end_inset
+
+Kalman correction, which is an
+\begin_inset space ~
+\end_inset
+
+iterative extension of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:kalman-gain"
@@ -1429,9 +2231,33 @@ Distribution and parameter diffusion
 \end_layout
 
 \begin_layout Standard
-Thanks to the usage of exponential family form, parameter diffusion can
- be easily incorporated into the final algorithm.
- The nodes only need to exchange the hyperparameters 
+Thanks to
+\begin_inset space ~
+\end_inset
+
+the usage of
+\begin_inset space ~
+\end_inset
+
+exponential family form, parameter diffusion can be easily incorporated
+ into the
+\begin_inset space ~
+\end_inset
+
+final algorithm.
+ The
+\begin_inset space ~
+\end_inset
+
+nodes only need to
+\begin_inset space ~
+\end_inset
+
+exchange the
+\begin_inset space ~
+\end_inset
+
+hyperparameters 
 \begin_inset Formula $\Xi^{n}$
 \end_inset
 
@@ -1440,8 +2266,23 @@ Thanks to the usage of exponential family form, parameter diffusion can
 \end_inset
 
 .
- While the previous chapters were mostly based on the algorithm described
- in 
+ While the
+\begin_inset space ~
+\end_inset
+
+previous chapters were mostly based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+algorithm described in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1449,7 +2290,15 @@ literal "false"
 
 \end_inset
 
-, the parameter diffusion part is based on 
+, the
+\begin_inset space ~
+\end_inset
+
+parameter diffusion part is based on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dedecius2017"
@@ -1458,23 +2307,77 @@ literal "false"
 \end_inset
 
 .
- The result algorithm is presented here, but the reader is advised to reach
- to the latter paper for more details on the diffusion.
+ The
+\begin_inset space ~
+\end_inset
+
+result algorithm is presented here, but the
+\begin_inset space ~
+\end_inset
+
+reader is advised to
+\begin_inset space ~
+\end_inset
+
+reach to
+\begin_inset space ~
+\end_inset
+
+the latter paper for more details on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+diffusion.
 \end_layout
 
 \begin_layout Standard
-Consider a network of connected nodes, each of them obtaining their own
- observation.
- A single node 
+Consider a
+\begin_inset space ~
+\end_inset
+
+network of
+\begin_inset space ~
+\end_inset
+
+connected nodes, each of
+\begin_inset space ~
+\end_inset
+
+them obtaining their own observation.
+ A
+\begin_inset space ~
+\end_inset
+
+single node 
 \begin_inset Formula $i$
 \end_inset
 
- obtain a measurement in time 
+ obtain a
+\begin_inset space ~
+\end_inset
+
+measurement in
+\begin_inset space ~
+\end_inset
+
+time 
 \begin_inset Formula $t$
 \end_inset
 
- and proceed with Kalman filtration described as above.
- The node then 
+ and proceed with Kalman filtration described as
+\begin_inset space ~
+\end_inset
+
+above.
+ The
+\begin_inset space ~
+\end_inset
+
+node then 
 \emph on
 posses
 \emph default
@@ -1495,39 +2398,108 @@ contacts
 \begin_inset Formula $1,...,d$
 \end_inset
 
- and attempts to gather all available hyperparameters 
+ and attempts to
+\begin_inset space ~
+\end_inset
+
+gather all available hyperparameters 
 \begin_inset Formula $\Xi^{j,t},\Omega^{j,t},j\in\{1,...,d\}$
 \end_inset
 
- based on the current conditions (for instance, only a single hop distance
- may be available).
- The node then performs a parameter fusion of these hyperparameters based
- on a chosen strategy represented by some function 
+ based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+current conditions (for instance, only a
+\begin_inset space ~
+\end_inset
+
+single hop distance may be available).
+ The
+\begin_inset space ~
+\end_inset
+
+node then performs a
+\begin_inset space ~
+\end_inset
+
+parameter fusion of
+\begin_inset space ~
+\end_inset
+
+these hyperparameters based on
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+chosen strategy represented by some function 
 \begin_inset Formula $g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$
 \end_inset
 
- to obtain a new merged 
+ to
+\begin_inset space ~
+\end_inset
+
+obtain a
+\begin_inset space ~
+\end_inset
+
+new merged 
 \begin_inset Formula $\Xi_{\text{*}}^{i,t}$
 \end_inset
 
 .
- An example of such function may be just a simple averaging over all hyperparame
-ters 
+ An
+\begin_inset space ~
+\end_inset
+
+example of
+\begin_inset space ~
+\end_inset
+
+such function may be just a
+\begin_inset space ~
+\end_inset
+
+simple averaging over all hyperparameters 
 \begin_inset Formula $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})=\frac{\sum_{s=\{i,1,...,d\}}\Xi^{s,t}}{d+1}$
 \end_inset
 
 .
- The situation for the hyperparameter 
+ The
+\begin_inset space ~
+\end_inset
+
+situation for the
+\begin_inset space ~
+\end_inset
+
+hyperparameter 
 \begin_inset Formula $\Omega^{i,t}$
 \end_inset
 
  is analogical.
- The node then sends this updated hyperparameters 
+ The
+\begin_inset space ~
+\end_inset
+
+node then sends this updated hyperparameters 
 \begin_inset Formula $\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
 \end_inset
 
- back to the cooperating nodes, which incorporate this hyperparameter into
- their filter state.
+ back to
+\begin_inset space ~
+\end_inset
+
+the cooperating nodes, which incorporate this hyperparameter into their
+ filter state.
  
 \end_layout
 
@@ -1536,8 +2508,32 @@ Algorithm summary
 \end_layout
 
 \begin_layout Standard
-Here we summarize the previous pages into a single algorithm.
- A single step of the proposed algorithm for a single node is then
+Here we summarize the
+\begin_inset space ~
+\end_inset
+
+previous pages into a
+\begin_inset space ~
+\end_inset
+
+single algorithm.
+ A
+\begin_inset space ~
+\end_inset
+
+single step of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm for a
+\begin_inset space ~
+\end_inset
+
+single node is then
 \end_layout
 
 \begin_layout Algorithm
@@ -1555,7 +2551,23 @@ Inputs
 
 \begin_layout Algorithm
 2.
- Time Update of the Kalman Filter as in 
+ Time Update of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+Kalman Filter as
+\begin_inset space ~
+\end_inset
+
+in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:predict-state"
@@ -1622,7 +2634,15 @@ For
 \begin_inset Formula $i$
 \end_inset
 
- in 
+
+\series default
+ in
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+
 \begin_inset Formula $N$
 \end_inset
 
@@ -1635,7 +2655,15 @@ For
 \begin_inset Formula $\Omega^{i}$
 \end_inset
 
- based on the 
+ based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:updateHypOmega"
@@ -1645,7 +2673,11 @@ noprefix "false"
 
 \end_inset
 
- and compute the 
+ and compute the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\E{\mat R_{k}}i$
 \end_inset
 
@@ -1668,7 +2700,15 @@ noprefix "false"
 \begin_inset Formula $\Xi^{i}$
 \end_inset
 
- based on the 
+ based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:updateHypXi"
@@ -1717,7 +2757,11 @@ noprefix "false"
 
 \end_inset
 
- using expected values to obtain corrected
+ using expected values to
+\begin_inset space ~
+\end_inset
+
+obtain corrected
 \begin_inset Formula $\hat{\vec x}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1}$
 \end_inset
 

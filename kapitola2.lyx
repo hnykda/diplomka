@@ -117,14 +117,45 @@ name "sec:Introduction"
 
 \begin_layout Standard
 Kalman filter (KF) is widely used adaptive filtering method firstly described
- in 
+ in
+\begin_inset space ~
+\end_inset
+
+A
+\begin_inset space ~
+\end_inset
+
+
 \emph on
-A New Approach to Linear Filtering and Prediction Problems
+New Approach
+\emph default
+ to
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+Linear Filtering and Prediction Problems
 \emph default
  by R.E.
- Kalman in 1960.
- The filter is a recursive solution to the discrete-data linear filtering
- problem 
+ Kalman in
+\begin_inset space ~
+\end_inset
+
+1960.
+ The
+\begin_inset space ~
+\end_inset
+
+filter is a
+\begin_inset space ~
+\end_inset
+
+recursive solution to
+\begin_inset space ~
+\end_inset
+
+the discrete-data linear filtering problem 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Welch2006"
@@ -132,11 +163,48 @@ literal "false"
 
 \end_inset
 
- and it is one of the solutions to one of the most fundamental problems
- in control theory, the linear quadratic Gaussian control problem.
- Over the years, numerous variants and extensions have been derived from
- the original Kalman filter and this thesis is concerned with one of such
- extensions – Distributed Kalman Filtering.
+ and it is one of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+solutions to
+\begin_inset space ~
+\end_inset
+
+one of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+most fundamental problems in
+\begin_inset space ~
+\end_inset
+
+control theory, the
+\begin_inset space ~
+\end_inset
+
+linear quadratic Gaussian control problem.
+ Over the
+\begin_inset space ~
+\end_inset
+
+years, numerous variants and extensions have been derived from the
+\begin_inset space ~
+\end_inset
+
+original Kalman filter and this thesis is concerned with one of
+\begin_inset space ~
+\end_inset
+
+such extensions – Distributed Kalman Filtering.
  See 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -147,17 +215,69 @@ noprefix "false"
 
 \end_inset
 
- for a brief overview of used methods.
+ for a
+\begin_inset space ~
+\end_inset
+
+brief overview of
+\begin_inset space ~
+\end_inset
+
+used methods.
  
 \end_layout
 
 \begin_layout Standard
-Kalman filter has been thoroughly studied over the years and also adopted
- by multiple industries, having a vast amount of applications wherever an
- estimation of the state of the process is needed and noise in prediction
- or observation is present.
- Because of its nature, it is commonly used in navigation and control of
- robots and vehicles
+Kalman filter has been thoroughly studied over the
+\begin_inset space ~
+\end_inset
+
+years and also adopted by multiple industries, having a
+\begin_inset space ~
+\end_inset
+
+vast amount of
+\begin_inset space ~
+\end_inset
+
+applications wherever an
+\begin_inset space ~
+\end_inset
+
+estimation of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+process is needed and noise in
+\begin_inset space ~
+\end_inset
+
+prediction or observation is present.
+ Because of
+\begin_inset space ~
+\end_inset
+
+its nature, it is commonly used in
+\begin_inset space ~
+\end_inset
+
+navigation and control of
+\begin_inset space ~
+\end_inset
+
+robots and vehicles
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lin1997"
@@ -174,8 +294,19 @@ literal "false"
 \end_inset
 
 .
- It can be applied in time series analysis and hence is used in fields such
- as econometrics
+ It can be applied in
+\begin_inset space ~
+\end_inset
+
+time series analysis and hence is used in
+\begin_inset space ~
+\end_inset
+
+fields such as
+\begin_inset space ~
+\end_inset
+
+econometrics
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Pasricha2006"
@@ -200,7 +331,19 @@ literal "false"
 \end_inset
 
 .
- Various applications can be found in a medicine, such as neuroscience
+ Various applications can be found in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+medicine, such as
+\begin_inset space ~
+\end_inset
+
+neuroscience
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wolpert2000"
@@ -212,14 +355,57 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-With respect to the current development of the so-called Internet of Things
- and development of cheap measurements sensors and microcomputers, Distributed
- Kalman Filtering (DKF) is becoming even more relevant.
- As one of the solutions to 
+With respect to
+\begin_inset space ~
+\end_inset
+
+the current development of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+so-called Internet of
+\begin_inset space ~
+\end_inset
+
+Things and development of
+\begin_inset space ~
+\end_inset
+
+cheap measurements sensors and microcomputers, Distributed Kalman Filtering
+ (DKF) is becoming even more relevant.
+ As one of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+solutions to
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 sensor fusion 
 \emph default
-problem, it has been under an intensive research as can be seen in 
+problem, it has been under an
+\begin_inset space ~
+\end_inset
+
+intensive research as
+\begin_inset space ~
+\end_inset
+
+can be seen in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahmoud2013"
@@ -228,9 +414,39 @@ literal "false"
 \end_inset
 
 .
- A network consisting of multiple sensors has many advantages over a single
- sensor scenario, such as robustness to noise, better field of view or,
- if designed appropriately, not having a single point of failure 
+ A
+\begin_inset space ~
+\end_inset
+
+network consisting of
+\begin_inset space ~
+\end_inset
+
+multiple sensors has many advantages over a
+\begin_inset space ~
+\end_inset
+
+single sensor scenario, such as
+\begin_inset space ~
+\end_inset
+
+robustness to
+\begin_inset space ~
+\end_inset
+
+noise, better field of
+\begin_inset space ~
+\end_inset
+
+view or, if designed appropriately, not having a
+\begin_inset space ~
+\end_inset
+
+single point of
+\begin_inset space ~
+\end_inset
+
+failure 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Govaers2018"
@@ -268,11 +484,41 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The filter is defined by a set of relatively simple equations and allows
- for efficient online computation without having to know the whole history
- of data.
- It is the optimal linear filter under specific conditions, in detail described
- in 
+The filter is defined by a
+\begin_inset space ~
+\end_inset
+
+set of
+\begin_inset space ~
+\end_inset
+
+relatively simple equations and allows for efficient online computation
+ without having to
+\begin_inset space ~
+\end_inset
+
+know the
+\begin_inset space ~
+\end_inset
+
+whole history of
+\begin_inset space ~
+\end_inset
+
+data.
+ It is the
+\begin_inset space ~
+\end_inset
+
+optimal linear filter under specific conditions, in
+\begin_inset space ~
+\end_inset
+
+detail described in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Optimality"
@@ -291,59 +537,286 @@ Description
 \end_layout
 
 \begin_layout Standard
-The basic Kalman filter is used to estimate the current state of a linear
- dynamic system in case of noisy measurements.
- The state can be described by various variables, such as position and velocity.
- To use a Kalman Filter, one needs to specify system
+The basic Kalman filter is used to
+\begin_inset space ~
+\end_inset
+
+estimate the
+\begin_inset space ~
+\end_inset
+
+current state of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+linear dynamic system in
+\begin_inset space ~
+\end_inset
+
+case of
+\begin_inset space ~
+\end_inset
+
+noisy measurements.
+ The
+\begin_inset space ~
+\end_inset
+
+state can be described by various variables, such as
+\begin_inset space ~
+\end_inset
+
+position and velocity.
+ To use a
+\begin_inset space ~
+\end_inset
+
+Kalman Filter, one needs to
+\begin_inset space ~
+\end_inset
+
+specify system
 \end_layout
 
 \begin_layout Enumerate
-control inputs, if any, such as sending a signal to steer a wheel
+control inputs, if any, such as
+\begin_inset space ~
+\end_inset
+
+sending a
+\begin_inset space ~
+\end_inset
+
+signal to
+\begin_inset space ~
+\end_inset
+
+steer a
+\begin_inset space ~
+\end_inset
+
+wheel
 \end_layout
 
 \begin_layout Enumerate
-dynamic model, such as physical laws of motion
+dynamic model, such as
+\begin_inset space ~
+\end_inset
+
+physical laws of
+\begin_inset space ~
+\end_inset
+
+motion
 \end_layout
 
 \begin_layout Enumerate
-measurements, such as readings from sensors
+measurements, such as
+\begin_inset space ~
+\end_inset
+
+readings from sensors
 \end_layout
 
 \begin_layout Standard
-The filter is useful in situations when dynamic model nor measurements cannot
- be entirely trusted (otherwise one would not need to use it at all).
- It combines the information while allowing for some noise – uncertainty
- – during prediction and measurements.
- Both pieces of information are weighted by so called Kalman's gain and
- depending on its value the filter favors prediction over measurements and
- vice versa.
- The whole process is performed recursively, remembering the last estimate
- and covariance.
- Hence, it does not need an entire history, which makes it attractive where
- memory capacity is expensive.
- As a result of a less noisy estimates (hence a filter), better estimates
- are generated in each step.
+The filter is useful in
+\begin_inset space ~
+\end_inset
+
+situations when dynamic model nor measurements cannot be entirely trusted
+ (otherwise one would not need to
+\begin_inset space ~
+\end_inset
+
+use it at all).
+ It combines the
+\begin_inset space ~
+\end_inset
+
+information while allowing for some noise – uncertainty – during prediction
+ and measurements.
+ Both pieces of
+\begin_inset space ~
+\end_inset
+
+information are weighted by so called Kalman's gain and depending on
+\begin_inset space ~
+\end_inset
+
+its value the
+\begin_inset space ~
+\end_inset
+
+filter favors prediction over measurements and vice versa.
+ The
+\begin_inset space ~
+\end_inset
+
+whole process is performed recursively, remembering the
+\begin_inset space ~
+\end_inset
+
+last estimate and covariance.
+ Hence, it does not need an
+\begin_inset space ~
+\end_inset
+
+entire history, which makes it attractive where memory capacity is expensive.
+ As a
+\begin_inset space ~
+\end_inset
+
+result of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+less noisy estimates (hence a
+\begin_inset space ~
+\end_inset
+
+filter), better estimates are generated in
+\begin_inset space ~
+\end_inset
+
+each step.
  
 \end_layout
 
 \begin_layout Standard
-Observable parameters coming from measurements does not have to be necessarily
- complete in a sense of describing the system in its entirety.
- It is a common case in which one observes only a subset of state variables,
- while the filter can still estimate the entire state.
+Observable parameters coming from measurements does not have to
+\begin_inset space ~
+\end_inset
+
+be necessarily complete in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+sense of
+\begin_inset space ~
+\end_inset
+
+describing the
+\begin_inset space ~
+\end_inset
+
+system in
+\begin_inset space ~
+\end_inset
+
+its entirety.
+ It is a
+\begin_inset space ~
+\end_inset
+
+common case in
+\begin_inset space ~
+\end_inset
+
+which one observes only a
+\begin_inset space ~
+\end_inset
+
+subset of
+\begin_inset space ~
+\end_inset
+
+state variables, while the
+\begin_inset space ~
+\end_inset
+
+filter can still estimate the
+\begin_inset space ~
+\end_inset
+
+entire state.
 \end_layout
 
 \begin_layout Standard
-The distributed extension is easy to describe.
- Instead of having only a single sensor, the system is measured by multiple
- of them and then somehow combine these measurements together.
- Despite its relatively simple high-level description, a multisensor network
- of sensors must deal with various non-trivial problems and the whole computatio
-n may be much more complicated than the non-distributed version.
- The complexity is based on degrees of freedom and selection of parameters
- of the network's behavior and topology.
- It also often means getting into a distinct research area of distributed
- data fusion
+The distributed extension is easy to
+\begin_inset space ~
+\end_inset
+
+describe.
+ Instead of
+\begin_inset space ~
+\end_inset
+
+having only a
+\begin_inset space ~
+\end_inset
+
+single sensor, the
+\begin_inset space ~
+\end_inset
+
+system is measured by multiple of
+\begin_inset space ~
+\end_inset
+
+them and then somehow combine these measurements together.
+ Despite its relatively simple high-level description, a
+\begin_inset space ~
+\end_inset
+
+multisensor network of
+\begin_inset space ~
+\end_inset
+
+sensors must deal with various non-trivial problems and the
+\begin_inset space ~
+\end_inset
+
+whole computation may be much more complicated than the
+\begin_inset space ~
+\end_inset
+
+non-distributed version.
+ The
+\begin_inset space ~
+\end_inset
+
+complexity is based on
+\begin_inset space ~
+\end_inset
+
+degrees of
+\begin_inset space ~
+\end_inset
+
+freedom and selection of
+\begin_inset space ~
+\end_inset
+
+parameters of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+network's behavior and topology.
+ It also often means getting into a
+\begin_inset space ~
+\end_inset
+
+distinct research area of
+\begin_inset space ~
+\end_inset
+
+distributed data fusion
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Campbell2016"
@@ -351,7 +824,19 @@ literal "false"
 
 \end_inset
 
- or consensus theory, which are out of the scope of this thesis.
+ or consensus theory, which are out of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+scope of
+\begin_inset space ~
+\end_inset
+
+this thesis.
  
 \end_layout
 
@@ -393,24 +878,48 @@ Let
 \begin_inset Formula $\vec x_{k},\vec x_{k-1},\vec u_{k}\in\mathbb{R}^{n}$
 \end_inset
 
- be the true state vectors in times 
+ be the
+\begin_inset space ~
+\end_inset
+
+true state vectors in
+\begin_inset space ~
+\end_inset
+
+times 
 \begin_inset Formula $k,k-1$
 \end_inset
 
- and the control vector, respectively.
+ and the
+\begin_inset space ~
+\end_inset
+
+control vector, respectively.
  
 \begin_inset Formula $\vec z{}_{k}\in\mathbb{R}^{m}$
 \end_inset
 
- is the measurement vector, 
+ is the
+\begin_inset space ~
+\end_inset
+
+measurement vector, 
 \begin_inset Formula $\mathbf{F}_{k},\mathbf{B}_{k}\in\mathbb{R}^{n\times m}$
 \end_inset
 
- the state transition matrix and control matrix, and 
+ the
+\begin_inset space ~
+\end_inset
+
+state transition matrix and control matrix, and 
 \begin_inset Formula $\mathbf{H}_{k}\in\mathbb{R}^{m\times n}$
 \end_inset
 
- is the observation matrix.
+ is the
+\begin_inset space ~
+\end_inset
+
+observation matrix.
  
 \begin_inset Formula $\vec w_{k}\in\mathbb{R}^{n}$
 \end_inset
@@ -420,7 +929,15 @@ Let
 \end_inset
 
  are process noise and observation noise, respectively.
- The filter assumes that the state evolves from time 
+ The
+\begin_inset space ~
+\end_inset
+
+filter assumes that the
+\begin_inset space ~
+\end_inset
+
+state evolves from time 
 \series bold
 
 \begin_inset Formula $k-1$
@@ -428,7 +945,19 @@ Let
 
 
 \series default
- to a new state in time 
+ to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+new state in
+\begin_inset space ~
+\end_inset
+
+time 
 \begin_inset Formula $k$
 \end_inset
 
@@ -447,7 +976,11 @@ Let
 \end_layout
 
 \begin_layout Definition
-and then an observation is made as
+and then an
+\begin_inset space ~
+\end_inset
+
+observation is made as
 \end_layout
 
 \begin_layout Definition
@@ -462,18 +995,41 @@ and then an observation is made as
 \end_layout
 
 \begin_layout Standard
-In this work, the 
+In this work, the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\mathbf{B}_{k}\mathbf{u}_{k}$
 \end_inset
 
- part is omitted as is common in many scenarios where control input does
- not make sense (such as temperature sensors).
- The process and observation noise 
+ part is omitted as
+\begin_inset space ~
+\end_inset
+
+is common in
+\begin_inset space ~
+\end_inset
+
+many scenarios where control input does not make sense (such as
+\begin_inset space ~
+\end_inset
+
+temperature sensors).
+ The
+\begin_inset space ~
+\end_inset
+
+process and observation noise 
 \begin_inset Formula $\vec w_{k},\vec v_{k}$
 \end_inset
 
- are assumed to be zero mean (multivariate) Gaussian white noise with covariance
- matrices 
+ are assumed to
+\begin_inset space ~
+\end_inset
+
+be zero mean (multivariate) Gaussian white noise with covariance matrices
+ 
 \begin_inset Formula $\mathbf{Q}_{k},\mathbf{R}_{k}$
 \end_inset
 
@@ -497,7 +1053,15 @@ Hence,
 \begin_inset Formula $\vec x_{k}$
 \end_inset
 
- as well as 
+ as
+\begin_inset space ~
+\end_inset
+
+well as
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\vec z_{k}$
 \end_inset
 
@@ -505,7 +1069,15 @@ Hence,
 \begin_inset Formula $\vec w_{k},\vec v_{k}$
 \end_inset
 
- and the likelihoods for a single measurement and state estimation are
+ and the
+\begin_inset space ~
+\end_inset
+
+likelihoods for a
+\begin_inset space ~
+\end_inset
+
+single measurement and state estimation are
 \begin_inset Formula 
 \begin{align}
 p(\vec z_{k}|\vec x_{k}) & =\mathcal{N}(\vec z_{k};\mat H_{k}\vec x_{k},\mathbf{R}_{k})\\
@@ -522,16 +1094,47 @@ Filter definition
 \end_layout
 
 \begin_layout Standard
-The Kalman Filter is a so-called recursive estimator, needing only state
- estimation from the previous step to proceed with the next step.
- The state of the estimator is described by two variables
+The Kalman Filter is a
+\begin_inset space ~
+\end_inset
+
+so-called recursive estimator, needing only state estimation from the
+\begin_inset space ~
+\end_inset
+
+previous step to
+\begin_inset space ~
+\end_inset
+
+proceed with the
+\begin_inset space ~
+\end_inset
+
+next step.
+ The
+\begin_inset space ~
+\end_inset
+
+state of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+estimator is described by two variables
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $\hat{\vec x}_{k|k}$
 \end_inset
 
- – the posteriori state estimate at time 
+ – the
+\begin_inset space ~
+\end_inset
+
+posteriori state estimate at time 
 \begin_inset Formula $k$
 \end_inset
 
@@ -542,7 +1145,11 @@ The Kalman Filter is a so-called recursive estimator, needing only state
 \begin_inset Formula $\mat P_{k|k}$
 \end_inset
 
- – the posteriori error covariance matrix at time 
+ – the
+\begin_inset space ~
+\end_inset
+
+posteriori error covariance matrix at time 
 \begin_inset Formula $k$
 \end_inset
 
@@ -550,9 +1157,32 @@ The Kalman Filter is a so-called recursive estimator, needing only state
 \end_layout
 
 \begin_layout Standard
-The filter can be then described as two consecutive steps: state prediction
- based on the model and correction based on the observation.
- The prediction step is defined as
+The filter can be then described as
+\begin_inset space ~
+\end_inset
+
+two consecutive steps: state prediction based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+model and correction based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+observation.
+ The
+\begin_inset space ~
+\end_inset
+
+prediction step is defined as
 \end_layout
 
 \begin_layout Standard
@@ -568,7 +1198,15 @@ The filter can be then described as two consecutive steps: state prediction
 \end_layout
 
 \begin_layout Standard
-The correction based on the observation is then performed according to
+The correction based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+observation is then performed according to
 \begin_inset Formula 
 \begin{align}
 \mat K_{k}= & \mat P_{k|k-1}\mat H_{k}^{T}(\mat H_{k}\mat P_{k|k-1}\mat H_{k}+\mat R_{k})^{-1}\label{eq:kalman-gain}\\
@@ -582,7 +1220,19 @@ The correction based on the observation is then performed according to
 \end_layout
 
 \begin_layout Standard
-The whole flow of the filter is nicely visualized in 
+The whole flow of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+filter is nicely visualized in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:kalman-filter-circle"
@@ -620,17 +1270,44 @@ name "fig:kalman-filter-circle"
 
 \end_inset
 
-The whole process of Kalman filter.
- We start with an information from the previous step (
+The whole process of
+\begin_inset space ~
+\end_inset
+
+Kalman filter.
+ We start with an
+\begin_inset space ~
+\end_inset
+
+information from the
+\begin_inset space ~
+\end_inset
+
+previous step (
 \begin_inset Formula $k-1|k-1$
 \end_inset
 
-), then perform prediction to get expected values (
+), then perform prediction to
+\begin_inset space ~
+\end_inset
+
+get expected values (
 \begin_inset Formula $k|k-1$
 \end_inset
 
-), after which we incorporate measurements information and perform an update
- to get the corrected state (
+), after which we incorporate measurements information and perform an
+\begin_inset space ~
+\end_inset
+
+update to
+\begin_inset space ~
+\end_inset
+
+get the
+\begin_inset space ~
+\end_inset
+
+corrected state (
 \begin_inset Formula $k|k$
 \end_inset
 
@@ -660,8 +1337,24 @@ Distributed Kalman Filter
 \end_layout
 
 \begin_layout Standard
-The distributed extension of the Kalman Filter is quite straightforward.
- Instead of having only a single agent performing updates 
+The distributed extension of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+Kalman Filter is quite straightforward.
+ Instead of
+\begin_inset space ~
+\end_inset
+
+having only a
+\begin_inset space ~
+\end_inset
+
+single agent performing updates 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:kalman-beg-state-pred"
@@ -681,22 +1374,104 @@ noprefix "false"
 
 \end_inset
 
-, more of these agents – nodes – are independently carrying these out.
- These nodes are usually connected to some predefined topology, enabling
- different kinds of communication and hence the algorithm's variants.
- For example, the nodes may only be able to send their estimates to some
- master node without getting any feedback (a scenario of a directed graph
- topology), but a more complex topology may be chosen, such as that the
- nodes can be communicating with each other.
+, more of
+\begin_inset space ~
+\end_inset
+
+these agents – nodes – are independently carrying these out.
+ These nodes are usually connected to
+\begin_inset space ~
+\end_inset
+
+some predefined topology, enabling different kinds of
+\begin_inset space ~
+\end_inset
+
+communication and hence the
+\begin_inset space ~
+\end_inset
+
+algorithm's variants.
+ For example, the
+\begin_inset space ~
+\end_inset
+
+nodes may only be able to
+\begin_inset space ~
+\end_inset
+
+send their estimates to
+\begin_inset space ~
+\end_inset
+
+some master node without getting any feedback (a scenario of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+directed graph topology), but a
+\begin_inset space ~
+\end_inset
+
+more complex topology may be chosen, such as
+\begin_inset space ~
+\end_inset
+
+that the
+\begin_inset space ~
+\end_inset
+
+nodes can be communicating with each other.
  
 \end_layout
 
 \begin_layout Standard
-Because of its generality, a formal definition of a Distributed Kalman Filter
- is not very informative, simply stating that there is some function performed
- in an arbitrary step with an arbitrary communication given the topology.
- These are the parameters differentiating between DKF variants more studied
- in 
+Because of
+\begin_inset space ~
+\end_inset
+
+its generality, a
+\begin_inset space ~
+\end_inset
+
+formal definition of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+Distributed Kalman Filter is not very informative, simply stating that there
+ is some function performed in
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+arbitrary step with an
+\begin_inset space ~
+\end_inset
+
+arbitrary communication given the
+\begin_inset space ~
+\end_inset
+
+topology.
+ These are the
+\begin_inset space ~
+\end_inset
+
+parameters differentiating between DKF variants more studied in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Methods"
@@ -721,7 +1496,11 @@ name "sec:Optimality"
 \end_layout
 
 \begin_layout Standard
-The classic Kalman filter described in 
+The classic Kalman filter described in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Formal-definition-KF"
@@ -731,12 +1510,27 @@ noprefix "false"
 
 \end_inset
 
- is the optimal linear filter in the Mean Squared Error if and only if all
- the following conditions are fulfilled
+ is the
+\begin_inset space ~
+\end_inset
+
+optimal linear filter in
+\begin_inset space ~
+\end_inset
+
+the Mean Squared Error if and only if all the
+\begin_inset space ~
+\end_inset
+
+following conditions are fulfilled
 \end_layout
 
 \begin_layout Enumerate
-the model is exactly reflecting the reality
+the model is exactly reflecting the
+\begin_inset space ~
+\end_inset
+
+reality
 \end_layout
 
 \begin_layout Enumerate
@@ -744,30 +1538,153 @@ the noise is Gaussian white
 \end_layout
 
 \begin_layout Enumerate
-the covariances of the noise are exactly known and the noise is static
+the covariances of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise are exactly known and the
+\begin_inset space ~
+\end_inset
+
+noise is static
 \end_layout
 
 \begin_layout Standard
-In reality, this is rarely the case and the consequences of not satisfying
- these prerequisites must not be overlooked.
+In reality, this is rarely the
+\begin_inset space ~
+\end_inset
+
+case and the
+\begin_inset space ~
+\end_inset
+
+consequences of
+\begin_inset space ~
+\end_inset
+
+not satisfying these prerequisites must not be overlooked.
  These are not just some theoretical perfection claims – not taking these
- into account when applying the filter much often than not leads to rendering
- the filter completely useless.
+ into account when applying the
+\begin_inset space ~
+\end_inset
+
+filter much often than not leads to
+\begin_inset space ~
+\end_inset
+
+rendering the
+\begin_inset space ~
+\end_inset
+
+filter completely useless.
  
 \end_layout
 
 \begin_layout Standard
-Any of these requirements can be unsatisfied in a given application and
- different methods have been proposed and used to deal with the problem,
- such as extensions being able to work with different than Gaussian white
- noise.
- This work is no exception and tries to deal with the third requirement
- – the case when the noise covariances are unknown and not static.
- The proposed algorithm relax this requirement to some degree, extending
- the possible use cases for the, otherwise exceptionally effective, filter.
- It is important to emphasize though that the scenario when the proposed
- algorithm is used still needs to satisfy the rest of the requirements –
- the model must reflect the reality and the noise must be Gaussian white.
+Any of
+\begin_inset space ~
+\end_inset
+
+these requirements can be unsatisfied in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+given application and different methods have been proposed and used to
+\begin_inset space ~
+\end_inset
+
+deal with the
+\begin_inset space ~
+\end_inset
+
+problem, such as
+\begin_inset space ~
+\end_inset
+
+extensions being able to
+\begin_inset space ~
+\end_inset
+
+work with different than Gaussian white noise.
+ This work is no exception and tries to
+\begin_inset space ~
+\end_inset
+
+deal with the
+\begin_inset space ~
+\end_inset
+
+third requirement – the
+\begin_inset space ~
+\end_inset
+
+case when the
+\begin_inset space ~
+\end_inset
+
+noise covariances are unknown and not static.
+ The
+\begin_inset space ~
+\end_inset
+
+proposed algorithm relax this requirement to
+\begin_inset space ~
+\end_inset
+
+some degree, extending the
+\begin_inset space ~
+\end_inset
+
+possible use cases for the, otherwise exceptionally effective, filter.
+ It is important to
+\begin_inset space ~
+\end_inset
+
+emphasize though that the
+\begin_inset space ~
+\end_inset
+
+scenario when the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm is used still needs to
+\begin_inset space ~
+\end_inset
+
+satisfy the
+\begin_inset space ~
+\end_inset
+
+rest of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+requirements – the
+\begin_inset space ~
+\end_inset
+
+model must reflect the
+\begin_inset space ~
+\end_inset
+
+reality and the
+\begin_inset space ~
+\end_inset
+
+noise must be Gaussian white.
  
 \end_layout
 
@@ -783,14 +1700,32 @@ name "sec:Noise-analysis"
 \end_layout
 
 \begin_layout Standard
-This subsection extends the previous one explaining why it is so crucial
- to correctly estimate covariance matrices and what research has been done
- to combat the problem when it is not feasible.
+This subsection extends the
+\begin_inset space ~
+\end_inset
+
+previous one explaining why it is so crucial to
+\begin_inset space ~
+\end_inset
+
+correctly estimate covariance matrices and what research has been done to
+\begin_inset space ~
+\end_inset
+
+combat the
+\begin_inset space ~
+\end_inset
+
+problem when it is not feasible.
  
 \end_layout
 
 \begin_layout Standard
-As can be seen in 
+As can be seen in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:kalman-gain"
@@ -810,15 +1745,56 @@ noprefix "false"
 
 \end_inset
 
-, the noise covariance matrices 
+, the
+\begin_inset space ~
+\end_inset
+
+noise covariance matrices 
 \begin_inset Formula $\mat R_{k},\mat Q_{k}$
 \end_inset
 
- are not just some negligible factor of the update but play a major role
- in the estimation.
- Kalman filter depends on this a priori knowledge to a great extent and
- a wrong choice leads to significantly degraded performance or even divergence
- 
+ are not just some negligible factor of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+update but play a
+\begin_inset space ~
+\end_inset
+
+major role in
+\begin_inset space ~
+\end_inset
+
+the estimation.
+ Kalman filter depends on
+\begin_inset space ~
+\end_inset
+
+this a
+\begin_inset space ~
+\end_inset
+
+priori knowledge to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+great extent and a
+\begin_inset space ~
+\end_inset
+
+wrong choice leads to
+\begin_inset space ~
+\end_inset
+
+significantly degraded performance or even divergence 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mehra1972"
@@ -827,11 +1803,37 @@ literal "false"
 \end_inset
 
 .
- It is not uncommon though, that it is almost impossible to estimate the
- covariance in advance or that the noise covariance is changing based on
- some unknown model.
+ It is not uncommon though, that it is almost impossible to
+\begin_inset space ~
+\end_inset
+
+estimate the
+\begin_inset space ~
+\end_inset
+
+covariance in
+\begin_inset space ~
+\end_inset
+
+advance or that the
+\begin_inset space ~
+\end_inset
+
+noise covariance is changing based on
+\begin_inset space ~
+\end_inset
+
+some unknown model.
  For instance, real-life applications suffering from this fact are navigational
- systems and there has been an undergoing research in this area 
+ systems and there has been an
+\begin_inset space ~
+\end_inset
+
+undergoing research in
+\begin_inset space ~
+\end_inset
+
+this area 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hide,Yu2012"
@@ -840,13 +1842,36 @@ literal "false"
 \end_inset
 
 .
- A so-called 
+ A
+\begin_inset space ~
+\end_inset
+
+so-called 
 \emph on
 adaptive 
 \emph default
-Kalman filter has been proposed to solve this issue and plethora of its
- variants have been carried out.
- An algorithm based on variational Bayes method proposed in 
+Kalman filter has been proposed to
+\begin_inset space ~
+\end_inset
+
+solve this issue and plethora of
+\begin_inset space ~
+\end_inset
+
+its variants have been carried out.
+ An
+\begin_inset space ~
+\end_inset
+
+algorithm based on
+\begin_inset space ~
+\end_inset
+
+variational Bayes method proposed in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -854,10 +1879,43 @@ literal "false"
 
 \end_inset
 
-, which we use in our diffused variant as an underlying KF computation,
- seems to be a great candidate to solve difficulties one faces when trying
- to apply KF in noisy environments and it is the reason why it became our
- choice.
+, which we use in
+\begin_inset space ~
+\end_inset
+
+our diffused variant as
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+underlying KF computation, seems to
+\begin_inset space ~
+\end_inset
+
+be a
+\begin_inset space ~
+\end_inset
+
+great candidate to
+\begin_inset space ~
+\end_inset
+
+solve difficulties one faces when trying to
+\begin_inset space ~
+\end_inset
+
+apply KF in
+\begin_inset space ~
+\end_inset
+
+noisy environments and it is the
+\begin_inset space ~
+\end_inset
+
+reason why it became our choice.
 \end_layout
 
 \begin_layout Section
@@ -872,8 +1930,19 @@ name "sec:Methods"
 \end_layout
 
 \begin_layout Standard
-There are bibliographic reviews covering dozens of methods such as an excellent
- 
+There are bibliographic reviews covering dozens of
+\begin_inset space ~
+\end_inset
+
+methods such as
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+excellent 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahmoud2013"
@@ -881,17 +1950,90 @@ literal "false"
 
 \end_inset
 
- and the author sees a very little added value of restating everything.
- Nevertheless, to give a reader at least a glimpse of what has been researched
- in this area to get the context, a brief discussion of selected methods
- follows.
- The selection is carefully crafted in a way that it relates to the problem
- under study and the selected approach of this thesis.
+ and the
+\begin_inset space ~
+\end_inset
+
+author sees a
+\begin_inset space ~
+\end_inset
+
+very little added value of
+\begin_inset space ~
+\end_inset
+
+restating everything.
+ Nevertheless, to
+\begin_inset space ~
+\end_inset
+
+give a
+\begin_inset space ~
+\end_inset
+
+reader at least a
+\begin_inset space ~
+\end_inset
+
+glimpse of
+\begin_inset space ~
+\end_inset
+
+what has been researched in
+\begin_inset space ~
+\end_inset
+
+this area to
+\begin_inset space ~
+\end_inset
+
+get the
+\begin_inset space ~
+\end_inset
+
+context, a
+\begin_inset space ~
+\end_inset
+
+brief discussion of
+\begin_inset space ~
+\end_inset
+
+selected methods follows.
+ The
+\begin_inset space ~
+\end_inset
+
+selection is carefully crafted in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+way that it relates to
+\begin_inset space ~
+\end_inset
+
+the problem under study and the
+\begin_inset space ~
+\end_inset
+
+selected approach of
+\begin_inset space ~
+\end_inset
+
+this thesis.
  
 \end_layout
 
 \begin_layout Standard
-Let start with Adaptive Kalman Filter, nicely summarized in 
+Let start with Adaptive Kalman Filter, nicely summarized in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -900,10 +2042,41 @@ literal "false"
 \end_inset
 
 .
- A four distinguished categories of methods exist: correlation, maximum
- likelihood, covariance matching, and Bayesian methods.
- The Sage–Husa AKF is a covariance matching method, estimating the noise
- on the maximum a posterior criterion 
+ A
+\begin_inset space ~
+\end_inset
+
+four distinguished categories of
+\begin_inset space ~
+\end_inset
+
+methods exist: correlation, maximum likelihood, covariance matching, and
+ Bayesian methods.
+ The
+\begin_inset space ~
+\end_inset
+
+Sage–Husa AKF is a
+\begin_inset space ~
+\end_inset
+
+covariance matching method, estimating the
+\begin_inset space ~
+\end_inset
+
+noise on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+maximum a
+\begin_inset space ~
+\end_inset
+
+posterior criterion 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SageA.P.;Husa1969"
@@ -921,10 +2094,44 @@ literal "false"
 
 .
  Convergence is not guaranteed for this algorithm though.
- A different, maximum likelihood method Innovation-based AKF leverage the
- fact that the innovation sequence of the KF is a white process.
- The disadvantage is that it needs large amounts of data to work reliably,
- rendering it inapplicable when this is not plausible 
+ A
+\begin_inset space ~
+\end_inset
+
+different, maximum likelihood method Innovation-based AKF leverage the
+\begin_inset space ~
+\end_inset
+
+fact that the
+\begin_inset space ~
+\end_inset
+
+innovation sequence of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+KF is a
+\begin_inset space ~
+\end_inset
+
+white process.
+ The
+\begin_inset space ~
+\end_inset
+
+disadvantage is that it needs large amounts of
+\begin_inset space ~
+\end_inset
+
+data to
+\begin_inset space ~
+\end_inset
+
+work reliably, rendering it inapplicable when this is not plausible 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karasalo2011"
@@ -938,8 +2145,19 @@ literal "false"
 
 \begin_layout Standard
 An interesting bridge between Adaptive Kalman Filter and its distributive
- extension is an approximation of a Bayesian method, interactive multiple
- model AKF 
+ extension is an
+\begin_inset space ~
+\end_inset
+
+approximation of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+Bayesian method, interactive multiple model AKF 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Li1994"
@@ -948,15 +2166,78 @@ literal "false"
 \end_inset
 
 .
- In this model, multiple nodes operate simultaneously and tries to estimate
- noise statistic.
- To some degree, this is close to what this work tries to achieve but without
- Variational Bayes algorithm.
- Additionally, the orientation of the algorithm is more focused on noise
- statistics estimation, rather than on the state estimation accuracy as
- is in this work.
- From the perspective of diffusion-based strategies, the most relevant piece
- of work and a great inspiration can be found in 
+ In this model, multiple nodes operate simultaneously and tries to
+\begin_inset space ~
+\end_inset
+
+estimate noise statistic.
+ To some degree, this is close to
+\begin_inset space ~
+\end_inset
+
+what this work tries to
+\begin_inset space ~
+\end_inset
+
+achieve but without Variational Bayes algorithm.
+ Additionally, the
+\begin_inset space ~
+\end_inset
+
+orientation of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+algorithm is more focused on
+\begin_inset space ~
+\end_inset
+
+noise statistics estimation, rather than on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state estimation accuracy as
+\begin_inset space ~
+\end_inset
+
+is in
+\begin_inset space ~
+\end_inset
+
+this work.
+ From the
+\begin_inset space ~
+\end_inset
+
+perspective of
+\begin_inset space ~
+\end_inset
+
+diffusion-based strategies, the
+\begin_inset space ~
+\end_inset
+
+most relevant piece of
+\begin_inset space ~
+\end_inset
+
+work and a
+\begin_inset space ~
+\end_inset
+
+great inspiration can be found in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Cattivelli2010"
@@ -964,9 +2245,36 @@ literal "false"
 
 \end_inset
 
-, where different diffusion strategies are carried out in DKF.
- An outstanding summary of research in diffusion-based algorithm in the
- world of DKF can be found in 
+, where different diffusion strategies are carried out in
+\begin_inset space ~
+\end_inset
+
+DKF.
+ An
+\begin_inset space ~
+\end_inset
+
+outstanding summary of
+\begin_inset space ~
+\end_inset
+
+research in
+\begin_inset space ~
+\end_inset
+
+diffusion-based algorithm in
+\begin_inset space ~
+\end_inset
+
+the world of
+\begin_inset space ~
+\end_inset
+
+DKF can be found in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahmoud2013"
@@ -974,7 +2282,15 @@ literal "false"
 
 \end_inset
 
- in Table 5 on page 13.
+ in
+\begin_inset space ~
+\end_inset
+
+Table 5 on
+\begin_inset space ~
+\end_inset
+
+page 13.
  
 \end_layout
 

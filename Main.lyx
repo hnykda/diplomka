@@ -63,7 +63,7 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
-\biblio_style plain
+\biblio_style apa
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -234,11 +234,31 @@ status open
 
 \series bold
 \size large
-Czech Technical University in Prague
+Czech Technical University
+\series default
+\size default
+ in
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+\size large
+Prague
 \begin_inset Newline newline
 \end_inset
 
-Faculty of Nuclear Sciences and Physical Engineering
+Faculty
+\series default
+\size default
+ of
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+\size large
+Nuclear Sciences and Physical Engineering
 \end_layout
 
 \end_inset
@@ -307,7 +327,7 @@ Distributed Kalman filtration under unknown spatially heterogeneous noise
 \align center
 
 \size huge
-Master Thesis
+Master's Thesis 
 \end_layout
 
 \begin_layout Standard
@@ -410,13 +430,63 @@ Acknowledgment:
 \end_layout
 
 \begin_layout Standard
-I would like to thank my thesis supervisor Mr.
- Dedecius for a constant support and leadership through the whole process.
- It was not just his expertise and knowledge which I had a chance to experience.
- But it is also an instant and high-quality feedback on my progress, always
- provided in a respectful and helpful way.
- I hope that it led to a valuable contribution to science and it also made
- working on this thesis enjoyable.
+I would like to
+\begin_inset space ~
+\end_inset
+
+thank my thesis supervisor Mr.
+ Dedecius for a
+\begin_inset space ~
+\end_inset
+
+constant support and leadership through the
+\begin_inset space ~
+\end_inset
+
+whole process.
+ It was not just his expertise and knowledge which I had a
+\begin_inset space ~
+\end_inset
+
+chance to
+\begin_inset space ~
+\end_inset
+
+experience.
+ But it is also an
+\begin_inset space ~
+\end_inset
+
+instant and high-quality feedback on
+\begin_inset space ~
+\end_inset
+
+my progress, always provided in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+respectful and helpful way.
+ I hope that it led to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+valuable contribution to
+\begin_inset space ~
+\end_inset
+
+science and it also made working on
+\begin_inset space ~
+\end_inset
+
+this thesis enjoyable.
 \end_layout
 
 \begin_layout Standard
@@ -445,7 +515,11 @@ Declaration:
 
 \begin_layout Standard
 I hereby certify that this text represents my own work and that all used
- sources and materials are listed in the bibliography.
+ sources and materials are listed in
+\begin_inset space ~
+\end_inset
+
+the bibliography.
 \end_layout
 
 \begin_layout Standard
@@ -532,7 +606,15 @@ Author:
 \noindent
 
 \emph on
-Branch of study:
+Branch
+\emph default
+ of
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+study:
 \emph default
  Mathematical Informatics
 \end_layout
@@ -550,16 +632,76 @@ Branch of study:
 \emph on
 Abstract: 
 \emph default
-Combination of adaptive filtering in time-varying noisy environment and
- diffusion networks is not an easy task.
- A generic algorithm synthesizing state-of-the-art Variational Bayes techniques,
+Combination of
+\begin_inset space ~
+\end_inset
+
+adaptive filtering in
+\begin_inset space ~
+\end_inset
+
+time-varying noisy environment and diffusion networks is not an
+\begin_inset space ~
+\end_inset
+
+easy task.
+ A
+\begin_inset space ~
+\end_inset
+
+generic algorithm synthesizing state-of-the-art Variational Bayes techniques,
  Adaptive Kalman Filtration and diffusion networks is proposed and leveraging
- exponential family form representation and conjugate priors, a concise
- derivation is carried out.
- Then the proposed algorithm is applied to the problem of estimation of
- a trajectory of a target.
- Finally, a comparison of our simulation results with a baseline algorithm
- and a theoretical prediction is made.
+ exponential family form representation and conjugate priors, a
+\begin_inset space ~
+\end_inset
+
+concise derivation is carried out.
+ Then the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm is applied to
+\begin_inset space ~
+\end_inset
+
+the problem of
+\begin_inset space ~
+\end_inset
+
+estimation of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+trajectory of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+target.
+ Finally, a
+\begin_inset space ~
+\end_inset
+
+comparison of
+\begin_inset space ~
+\end_inset
+
+our simulation results with a
+\begin_inset space ~
+\end_inset
+
+baseline algorithm and a
+\begin_inset space ~
+\end_inset
+
+theoretical prediction is made.
  
 \begin_inset VSpace bigskip
 \end_inset
@@ -637,85 +779,539 @@ addcontentsline{toc}{chapter}{Introduction}
 \end_layout
 
 \begin_layout Standard
-A rapid development in the information technology field over the last two
- decades boosted affordability of cheap, yet powerful devices capable of
- carrying out complex computations.
- Variety of available sensors, which these devices can be equipped with,
- is overwhelming.
- Omnipresent smartphones or cars contain hundreds of sensors constantly
- collecting data and deciding on life-saving or life-threatening actions.
- Surveillance systems, composed of hundreds or even thousands of interconnected
- sensors keep national security in place, always prepare to act in seconds
- based on the latest data.
- The so-called Internet of Things, many small computers connected to each
- other is only another demonstration of this phenomenon.
- At the same time, the environments where these devices operate often suffer
- from the imperfections of their measurements or computations.
- These may be caused by either misalignment of their models with the reality
- or by noisy random fluctuations in their operations.
+A rapid development in
+\begin_inset space ~
+\end_inset
+
+the information technology field over the
+\begin_inset space ~
+\end_inset
+
+last two decades boosted affordability of
+\begin_inset space ~
+\end_inset
+
+cheap, yet powerful devices capable of
+\begin_inset space ~
+\end_inset
+
+carrying out complex computations.
+ Variety of
+\begin_inset space ~
+\end_inset
+
+available sensors, which these devices can be equipped with, is overwhelming.
+ Omnipresent smartphones or cars contain hundreds of
+\begin_inset space ~
+\end_inset
+
+sensors constantly collecting data and deciding on
+\begin_inset space ~
+\end_inset
+
+life-saving or life-threatening actions.
+ Surveillance systems, composed of
+\begin_inset space ~
+\end_inset
+
+hundreds or even thousands of
+\begin_inset space ~
+\end_inset
+
+interconnected sensors keep national security in
+\begin_inset space ~
+\end_inset
+
+place, always prepare to
+\begin_inset space ~
+\end_inset
+
+act in
+\begin_inset space ~
+\end_inset
+
+seconds based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+latest data.
+ The
+\begin_inset space ~
+\end_inset
+
+so-called Internet of
+\begin_inset space ~
+\end_inset
+
+Things, many small computers connected to
+\begin_inset space ~
+\end_inset
+
+each other is only another demonstration of
+\begin_inset space ~
+\end_inset
+
+this phenomenon.
+ At the
+\begin_inset space ~
+\end_inset
+
+same time, the
+\begin_inset space ~
+\end_inset
+
+environments where these devices operate often suffer from the
+\begin_inset space ~
+\end_inset
+
+imperfections of
+\begin_inset space ~
+\end_inset
+
+their measurements or computations.
+ These may be caused by either misalignment of
+\begin_inset space ~
+\end_inset
+
+their models with the
+\begin_inset space ~
+\end_inset
+
+reality or by noisy random fluctuations in
+\begin_inset space ~
+\end_inset
+
+their operations.
  
 \end_layout
 
 \begin_layout Standard
-For the sake of getting valuable insights from the collected data of these
- noisy data collections and evaluation networks, efficient processing algorithms
- must be developed.
- There is a long history of research in so-called consensus algorithms as
- well as in the noise filtering methods.
- While the former try to solve fundamental problems in the area of distributed
- computing and multi-agent systems of agreeing on something, the latter
- deals with the always-present noise in the received data.
- What is worse, many methods are sensitive to the type of the noise, making
- them inappropriate in some use cases.
+For the
+\begin_inset space ~
+\end_inset
+
+sake of
+\begin_inset space ~
+\end_inset
+
+getting valuable insights from the
+\begin_inset space ~
+\end_inset
+
+collected data of
+\begin_inset space ~
+\end_inset
+
+these noisy data collections and evaluation networks, efficient processing
+ algorithms must be developed.
+ There is a
+\begin_inset space ~
+\end_inset
+
+long history of
+\begin_inset space ~
+\end_inset
+
+research in
+\begin_inset space ~
+\end_inset
+
+so-called consensus algorithms as
+\begin_inset space ~
+\end_inset
+
+well as
+\begin_inset space ~
+\end_inset
+
+in
+\begin_inset space ~
+\end_inset
+
+the noise filtering methods.
+ While the
+\begin_inset space ~
+\end_inset
+
+former try to
+\begin_inset space ~
+\end_inset
+
+solve fundamental problems in
+\begin_inset space ~
+\end_inset
+
+the area of
+\begin_inset space ~
+\end_inset
+
+distributed computing and multi-agent systems of
+\begin_inset space ~
+\end_inset
+
+agreeing on
+\begin_inset space ~
+\end_inset
+
+something, the
+\begin_inset space ~
+\end_inset
+
+latter deals with the
+\begin_inset space ~
+\end_inset
+
+always-present noise in
+\begin_inset space ~
+\end_inset
+
+the received data.
+ What is worse, many methods are sensitive to
+\begin_inset space ~
+\end_inset
+
+the type of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise, making them inappropriate in
+\begin_inset space ~
+\end_inset
+
+some use cases.
  
 \end_layout
 
 \begin_layout Standard
-Not being able to effectively filter noise from the data makes it less useful
- than it otherwise could be.
- The same is true in the cases when the estimation redundancy is not exploited
- (for instance, averaging over data from multiple sensors).
- One of the notable approaches trying to solve this problem is Distributive
- Kalman Filtering, an extension of a massively popular and heavily used
- filter since its formulation in 1960.
- This work is concerned with one particular instance of the Distributive
- Kalman Filtering, using state-of-the-art techniques and the latest research
- in probability theory.
- It combines a specific probabilistic variant of the classic Kalman Filter
- with a recently developed so-called parameter diffusion.
- Both techniques leverage from the fact that they can be fully expressed
- in Bayesian probability terms and it seems to that they can be an excellent
- candidate as a solution for the problem of combining information from multiple
- agents in the noisy environment.
- The following pages are describing the development of such algorithm and
- explain under what conditions it may be a suitable solution.
- Additionally, real implementation in Python language is used to run various
- simulations to validate the theoretical predictions.
+Not being able to
+\begin_inset space ~
+\end_inset
+
+effectively filter noise from the
+\begin_inset space ~
+\end_inset
+
+data makes it less useful than it otherwise could be.
+ The
+\begin_inset space ~
+\end_inset
+
+same is true in
+\begin_inset space ~
+\end_inset
+
+the cases when the
+\begin_inset space ~
+\end_inset
+
+estimation redundancy is not exploited (for instance, averaging over data
+ from multiple sensors).
+ One of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+notable approaches trying to
+\begin_inset space ~
+\end_inset
+
+solve this problem is Distributive Kalman Filtering, an
+\begin_inset space ~
+\end_inset
+
+extension of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+massively popular and heavily used filter since its formulation in
+\begin_inset space ~
+\end_inset
+
+1960.
+ This work is concerned with one particular instance of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+Distributive Kalman Filtering, using state-of-the-art techniques and the
+\begin_inset space ~
+\end_inset
+
+latest research in
+\begin_inset space ~
+\end_inset
+
+probability theory.
+ It combines a
+\begin_inset space ~
+\end_inset
+
+specific probabilistic variant of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+classic Kalman Filter with a
+\begin_inset space ~
+\end_inset
+
+recently developed so-called parameter diffusion.
+ Both techniques leverage from the
+\begin_inset space ~
+\end_inset
+
+fact that they can be fully expressed in
+\begin_inset space ~
+\end_inset
+
+Bayesian probability terms and it seems to
+\begin_inset space ~
+\end_inset
+
+that they can be an
+\begin_inset space ~
+\end_inset
+
+excellent candidate as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+solution for the
+\begin_inset space ~
+\end_inset
+
+problem of
+\begin_inset space ~
+\end_inset
+
+combining information from multiple agents in
+\begin_inset space ~
+\end_inset
+
+the noisy environment.
+ The
+\begin_inset space ~
+\end_inset
+
+following pages are describing the
+\begin_inset space ~
+\end_inset
+
+development of
+\begin_inset space ~
+\end_inset
+
+such algorithm and explain under what conditions it may be a
+\begin_inset space ~
+\end_inset
+
+suitable solution.
+ Additionally, real implementation in
+\begin_inset space ~
+\end_inset
+
+Python language is used to
+\begin_inset space ~
+\end_inset
+
+run various simulations to
+\begin_inset space ~
+\end_inset
+
+validate the
+\begin_inset space ~
+\end_inset
+
+theoretical predictions.
 \end_layout
 
 \begin_layout Standard
-The work is divided into a theoretical and a practical part.
- The former states all the necessary theoretical background for the latter.
- In the first chapter, the Bayesian probability is introduced as a building
- block for Variational Bayes inference.
- This is a general technique which serves as the crux for the proposed algorithm
- internals.
- The second chapter is concerned with Kalman filtering and its distributed
- extension.
- A general introduction with brief applications overview is followed by
- mathematical formulation and discussion of its key properties.
- The third part is a connection of these components – Variational Bayes
- and Distributed Kalman filtering.
- The derivation of the mathematical formulation using exponential family
- form is carried out and in the end, a general, step-by-step algorithm is
- outlined.
- The final chapter containing the results firstly comments on implementation
- details including the development ecosystem.
- Subsequently, simulations and comparison of different variants are carried
- out, trying to evaluate the algorithm performance, explaining the observed
- behavior and pinpointing its properties, features, and disadvantages.
- Each of the chapters contains an introductory text outlining what is going
- to be presented and if necessary, establishes the minimum requirements.
+The work is divided into a
+\begin_inset space ~
+\end_inset
+
+theoretical and a
+\begin_inset space ~
+\end_inset
+
+practical part.
+ The
+\begin_inset space ~
+\end_inset
+
+former states all the
+\begin_inset space ~
+\end_inset
+
+necessary theoretical background for the
+\begin_inset space ~
+\end_inset
+
+latter.
+ In the
+\begin_inset space ~
+\end_inset
+
+first chapter, the
+\begin_inset space ~
+\end_inset
+
+Bayesian probability is introduced as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+building block for Variational Bayes inference.
+ This is a
+\begin_inset space ~
+\end_inset
+
+general technique which serves as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+crux for the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm internals.
+ The
+\begin_inset space ~
+\end_inset
+
+second chapter is concerned with Kalman filtering and its distributed extension.
+ A
+\begin_inset space ~
+\end_inset
+
+general introduction with brief applications overview is followed by mathematica
+l formulation and discussion of
+\begin_inset space ~
+\end_inset
+
+its key properties.
+ The
+\begin_inset space ~
+\end_inset
+
+third part is a
+\begin_inset space ~
+\end_inset
+
+connection of
+\begin_inset space ~
+\end_inset
+
+these components – Variational Bayes and Distributed Kalman filtering.
+ The
+\begin_inset space ~
+\end_inset
+
+derivation of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+mathematical formulation using exponential family form is carried out and
+ in
+\begin_inset space ~
+\end_inset
+
+the end, a
+\begin_inset space ~
+\end_inset
+
+general, step-by-step algorithm is outlined.
+ The
+\begin_inset space ~
+\end_inset
+
+final chapter containing the
+\begin_inset space ~
+\end_inset
+
+results firstly comments on
+\begin_inset space ~
+\end_inset
+
+implementation details including the
+\begin_inset space ~
+\end_inset
+
+development ecosystem.
+ Subsequently, simulations and comparison of
+\begin_inset space ~
+\end_inset
+
+different variants are carried out, trying to
+\begin_inset space ~
+\end_inset
+
+evaluate the
+\begin_inset space ~
+\end_inset
+
+algorithm performance, explaining the
+\begin_inset space ~
+\end_inset
+
+observed behavior and pinpointing its properties, features, and disadvantages.
+ Each of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+chapters contains an
+\begin_inset space ~
+\end_inset
+
+introductory text outlining what is going to
+\begin_inset space ~
+\end_inset
+
+be presented and if necessary, establishes the
+\begin_inset space ~
+\end_inset
+
+minimum requirements.
  
 \end_layout
 
@@ -787,38 +1383,170 @@ addcontentsline{toc}{chapter}{Conclusion}
 \end_layout
 
 \begin_layout Standard
-The rise of cheap yet powerful devices equipped with many sensors connected
- in a communication network justifies the necessity of developing efficient
- algorithms processing the network's information flow.
- It is no longer problem of not having the data, but rather generating useful
- insights based on them.
+The rise of
+\begin_inset space ~
+\end_inset
+
+cheap yet powerful devices equipped with many sensors connected in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+communication network justifies the
+\begin_inset space ~
+\end_inset
+
+necessity of
+\begin_inset space ~
+\end_inset
+
+developing efficient algorithms processing the
+\begin_inset space ~
+\end_inset
+
+network's information flow.
+ It is no longer problem of
+\begin_inset space ~
+\end_inset
+
+not having the
+\begin_inset space ~
+\end_inset
+
+data, but rather generating useful insights based on
+\begin_inset space ~
+\end_inset
+
+them.
  
 \end_layout
 
 \begin_layout Standard
-The algorithm studied in this work is an effective, cheap and elegant improvemen
-t of many real-world scenarios where adaptive filtering is being used and
- noise covariances are unknown and changing.
- Using exponential family forms, the algorithm is relatively simple to understan
-d and implement even in existing environments, enabling gradual, step-by-step
- adaptation.
+The algorithm studied in
+\begin_inset space ~
+\end_inset
+
+this work is an
+\begin_inset space ~
+\end_inset
+
+effective, cheap and elegant improvement of
+\begin_inset space ~
+\end_inset
+
+many real-world scenarios where adaptive filtering is being used and noise
+ covariances are unknown and changing.
+ Using exponential family forms, the
+\begin_inset space ~
+\end_inset
+
+algorithm is relatively simple to
+\begin_inset space ~
+\end_inset
+
+understand and implement even in
+\begin_inset space ~
+\end_inset
+
+existing environments, enabling gradual, step-by-step adaptation.
  It does not suffer from any obvious drawbacks.
- Its only real disadvantage – having a communication protocol over nodes
- available – is a common requirement for many distributive algorithms and
- is not an intrinsic property of this one.
- It is also quite robust to the initial parameters and different types of
- noise, making it an excellent choice in many complex and noisy environments.
- The nature of the algorithm also enables good introspection and interpretabilit
-y of the whole model, an important and often overlooked property.
+ Its only real disadvantage – having a
+\begin_inset space ~
+\end_inset
+
+communication protocol over nodes available – is a
+\begin_inset space ~
+\end_inset
+
+common requirement for many distributive algorithms and is not an
+\begin_inset space ~
+\end_inset
+
+intrinsic property of
+\begin_inset space ~
+\end_inset
+
+this one.
+ It is also quite robust to
+\begin_inset space ~
+\end_inset
+
+the initial parameters and different types of
+\begin_inset space ~
+\end_inset
+
+noise, making it an
+\begin_inset space ~
+\end_inset
+
+excellent choice in
+\begin_inset space ~
+\end_inset
+
+many complex and noisy environments.
+ The
+\begin_inset space ~
+\end_inset
+
+nature of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+algorithm also enables good introspection and interpretability of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+whole model, an
+\begin_inset space ~
+\end_inset
+
+important and often overlooked property.
  
 \end_layout
 
 \begin_layout Standard
 The simulation results strongly support these claims and hopefully offers
- sufficient explanations for the observed behavior.
- The author hopes that even though this thesis delivers a rather limited
- view of the method, it is still a valuable entry point for further research
- on this matter.
+ sufficient explanations for the
+\begin_inset space ~
+\end_inset
+
+observed behavior.
+ The
+\begin_inset space ~
+\end_inset
+
+author hopes that even though this thesis delivers a
+\begin_inset space ~
+\end_inset
+
+rather limited view of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+method, it is still a
+\begin_inset space ~
+\end_inset
+
+valuable entry point for further research on
+\begin_inset space ~
+\end_inset
+
+this matter.
  
 \end_layout
 
@@ -827,7 +1555,11 @@ The simulation results strongly support these claims and hopefully offers
 status collapsed
 
 \begin_layout Plain Layout
-Nemazat - je to potřeba abych viděl citace v  \SpecialChar LyX
+Nemazat - je to
+\begin_inset space ~
+\end_inset
+
+potřeba abych viděl citace v  \SpecialChar LyX
 
 \begin_inset CommandInset bibtex
 LatexCommand bibtex

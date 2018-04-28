@@ -105,12 +105,46 @@ Bayesian probability
 \end_layout
 
 \begin_layout Standard
-In this chapter, I summarize basics and preliminaries of Bayesian interpretation
- of probability and shortly compare it to the frequentist approach.
- The reader is expected to know basic concepts from probability such as
- a probability event, space, measure, product and sum rule, conditional
- and joint probability.
- Sufficient description for all of these concepts can be found in 
+In this chapter, I summarize basics and preliminaries of
+\begin_inset space ~
+\end_inset
+
+Bayesian interpretation of
+\begin_inset space ~
+\end_inset
+
+probability and shortly compare it to
+\begin_inset space ~
+\end_inset
+
+the frequentist approach.
+ The
+\begin_inset space ~
+\end_inset
+
+reader is expected to
+\begin_inset space ~
+\end_inset
+
+know basic concepts from probability such as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+probability event, space, measure, product and sum rule, conditional and
+ joint probability.
+ Sufficient description for all of
+\begin_inset space ~
+\end_inset
+
+these concepts can be found in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jaynes2003"
@@ -127,9 +161,29 @@ Probability interpretations
 \end_layout
 
 \begin_layout Standard
-As it is the case with some other branches of mathematics, probability theory
- has multiple interpretations with their own strengths and weaknesses.
- In this particular case, it is a subject of dispute if the term 
+As it is the
+\begin_inset space ~
+\end_inset
+
+case with some other branches of
+\begin_inset space ~
+\end_inset
+
+mathematics, probability theory has multiple interpretations with their
+ own strengths and weaknesses.
+ In this particular case, it is a
+\begin_inset space ~
+\end_inset
+
+subject of
+\begin_inset space ~
+\end_inset
+
+dispute if the
+\begin_inset space ~
+\end_inset
+
+term 
 \begin_inset Quotes eld
 \end_inset
 
@@ -146,8 +200,24 @@ probability
 \end_inset
 
 .
- For example, some of the leading interpretations fail to satisfy the most
- common Kolmogorov's axiomatization and they still prove themselves useful
+ For example, some of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+leading interpretations fail to
+\begin_inset space ~
+\end_inset
+
+satisfy the
+\begin_inset space ~
+\end_inset
+
+most common Kolmogorov's axiomatization and they still prove themselves
+ useful
 \begin_inset CommandInset citation
 LatexCommand cite
 key "interpretations"
@@ -165,7 +235,19 @@ literal "true"
 
 \end_inset
 
- and some of the leading interpretations such as 
+ and some of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+leading interpretations such as
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jaynes2003"
@@ -181,30 +263,102 @@ mathematical axioms, but rather somewhat vague statements such as:
 \end_layout
 
 \begin_layout Enumerate
-representations of plausibility are to be given by real numbers
+representations of
+\begin_inset space ~
+\end_inset
+
+plausibility are to
+\begin_inset space ~
+\end_inset
+
+be given by real numbers
 \end_layout
 
 \begin_layout Enumerate
-plausibilities are to be in qualitative agreement with common sense
+plausibilities are to
+\begin_inset space ~
+\end_inset
+
+be in
+\begin_inset space ~
+\end_inset
+
+qualitative agreement with common sense
 \end_layout
 
 \begin_layout Enumerate
-the plausibilities are to be “consistent”, in the sense that anyone with
- the same information would assign the same real numbers to the plausibilities.
+the plausibilities are to
+\begin_inset space ~
+\end_inset
+
+be “consistent”, in
+\begin_inset space ~
+\end_inset
+
+the sense that anyone with the
+\begin_inset space ~
+\end_inset
+
+same information would assign the
+\begin_inset space ~
+\end_inset
+
+same real numbers to
+\begin_inset space ~
+\end_inset
+
+the plausibilities.
 \end_layout
 
 \begin_layout Standard
-Interpretations do not differ only in the underlying set of axioms, but
- also in their practical usage or their epistemological status.
- Mathematicians, as well as philosophers, have been tackling these issues
- at least for over five centuries.
+Interpretations do not differ only in
+\begin_inset space ~
+\end_inset
+
+the underlying set of
+\begin_inset space ~
+\end_inset
+
+axioms, but also in
+\begin_inset space ~
+\end_inset
+
+their practical usage or their epistemological status.
+ Mathematicians, as
+\begin_inset space ~
+\end_inset
+
+well as
+\begin_inset space ~
+\end_inset
+
+philosophers, have been tackling these issues at least for over five centuries.
 \end_layout
 
 \begin_layout Standard
-It is hard to fully appreciate and understand main concepts and advantages
- of Bayesian reasoning if one is not familiar with other interpretations,
- such as the frequentist one.
- Its full derivation can be found in 
+It is hard to
+\begin_inset space ~
+\end_inset
+
+fully appreciate and understand main concepts and advantages of
+\begin_inset space ~
+\end_inset
+
+Bayesian reasoning if one is not familiar with other interpretations, such
+ as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+frequentist one.
+ Its full derivation can be found in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "frequency_prob"
@@ -212,25 +366,76 @@ literal "true"
 
 \end_inset
 
- and here we cover just the basics arising from the comparison and parts
- relevant for the following pages.
+ and here we cover just the
+\begin_inset space ~
+\end_inset
+
+basics arising from the
+\begin_inset space ~
+\end_inset
+
+comparison and parts relevant for the
+\begin_inset space ~
+\end_inset
+
+following pages.
  
 \end_layout
 
 \begin_layout Standard
-The main idea of Bayesian interpretation is its subjective nature, where
- there is no such thing as 
+The main idea of
+\begin_inset space ~
+\end_inset
+
+Bayesian interpretation is its subjective nature, where there is no such
+ thing as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+
 \emph on
-the real
+real
 \emph default
- probability in the world, but the probabilities are in the actor's mind.
+ probability in
+\begin_inset space ~
+\end_inset
+
+the world, but the
+\begin_inset space ~
+\end_inset
+
+probabilities are in
+\begin_inset space ~
+\end_inset
+
+the actor's mind.
  Probability then represents agent's 
 \emph on
-state of knowledge
+state
+\emph default
+ of
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+knowledge
 \emph default
  or 
 \emph on
-degree of belief
+degree
+\emph default
+ of
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+belief
 \emph default
 
 \begin_inset CommandInset citation
@@ -241,28 +446,80 @@ literal "true"
 \end_inset
 
 .
- This is not a negligible formal difference – it has important consequences,
- such as the fact that all agents with different state of knowledge can
- assign different probabilities to the same event.
- In Bayesian framework, one explicitly convey uncertainty in his models
- and objects (such as random variables).
+ This is not a
+\begin_inset space ~
+\end_inset
+
+negligible formal difference – it has important consequences, such as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+fact that all agents with different state of
+\begin_inset space ~
+\end_inset
+
+knowledge can assign different probabilities to
+\begin_inset space ~
+\end_inset
+
+the same event.
+ In Bayesian framework, one explicitly convey uncertainty in
+\begin_inset space ~
+\end_inset
+
+his models and objects (such as
+\begin_inset space ~
+\end_inset
+
+random variables).
  
 \end_layout
 
 \begin_layout Standard
-Another important aspect worth mentioning is also the fact that Bayes interpreta
-tion allows doing predictions for events which have not occurred yet, where
- frequentists are (formaly) unable to do anything.
- This property is also connected to a fact that one can do partial (
+Another important aspect worth mentioning is also the
+\begin_inset space ~
+\end_inset
+
+fact that Bayes interpretation allows doing predictions for events which
+ have not occurred yet, where frequentists are (formaly) unable to
+\begin_inset space ~
+\end_inset
+
+do anything.
+ This property is also connected to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+fact that one can do partial (
 \emph on
 online
 \emph default
-) updates based on the new evidence.
+) updates based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+new evidence.
  
 \end_layout
 
 \begin_layout Section
-Principles of Bayesian probability
+Principles of
+\begin_inset space ~
+\end_inset
+
+Bayesian probability
 \end_layout
 
 \begin_layout Standard
@@ -302,16 +559,30 @@ Principles of Bayesian probability
 \end_layout
 
 \begin_layout Standard
-The core idea of Bayesian interpretation is surely a famous Bayes theorem
- 
+The core idea of
+\begin_inset space ~
+\end_inset
+
+Bayesian interpretation is surely a
+\begin_inset space ~
+\end_inset
+
+famous Bayes theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:bayes-theorem"
 
 \end_inset
 
-, which is easily obtained from the definition of conditional probability
- 
+, which is easily obtained from the
+\begin_inset space ~
+\end_inset
+
+definition of
+\begin_inset space ~
+\end_inset
+
+conditional probability 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stuart1994"
@@ -329,7 +600,15 @@ Let
 \begin_inset Formula $p$
 \end_inset
 
- be a probability measure, 
+ be
+\emph default
+ a
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+probability measure, 
 \begin_inset Formula $\Var A$
 \end_inset
 
@@ -369,21 +648,57 @@ where:
 \begin_inset Formula $\prob pB$
 \end_inset
 
- are the probabilities of observing A and B independently.
+ are the
+\begin_inset space ~
+\end_inset
+
+probabilities of
+\begin_inset space ~
+\end_inset
+
+observing A
+\begin_inset space ~
+\end_inset
+
+and B independently.
 \end_layout
 
 \begin_layout Enumerate
 \begin_inset Formula $\probcond pAB$
 \end_inset
 
- is the probability of observing event A given that B is true.
+ is the
+\begin_inset space ~
+\end_inset
+
+probability of
+\begin_inset space ~
+\end_inset
+
+observing event A
+\begin_inset space ~
+\end_inset
+
+given that B is true.
 \end_layout
 
 \begin_layout Enumerate
 \begin_inset Formula $\probcond pBA$
 \end_inset
 
- is the probability of observing event B given that A is true.
+ is the
+\begin_inset space ~
+\end_inset
+
+probability of
+\begin_inset space ~
+\end_inset
+
+observing event B given that A
+\begin_inset space ~
+\end_inset
+
+is true.
  This factor is called 
 \series bold
 likelihood
@@ -393,8 +708,19 @@ likelihood
 \end_layout
 
 \begin_layout Standard
-To relate this simple formula to the previous section, consider a scenario
- where one wants to use Bayesian framework for 
+To relate this simple formula to
+\begin_inset space ~
+\end_inset
+
+the previous section, consider a
+\begin_inset space ~
+\end_inset
+
+scenario where one wants to
+\begin_inset space ~
+\end_inset
+
+use Bayesian framework for 
 \emph on
 inference.
  
@@ -403,28 +729,64 @@ Suppose that
 \begin_inset Formula $\Var A$
 \end_inset
 
- is a hypothesis of which the probability can be affected by some evidence.
+ is a
+\begin_inset space ~
+\end_inset
+
+hypothesis of
+\begin_inset space ~
+\end_inset
+
+which the
+\begin_inset space ~
+\end_inset
+
+probability can be affected by some evidence.
  Let 
 \begin_inset Formula $\Var B$
 \end_inset
 
- be the evidence for this hypothesis.
+ be the
+\begin_inset space ~
+\end_inset
+
+evidence for this hypothesis.
  
 \begin_inset Formula $\prob pA$
 \end_inset
 
- in formula 
+ in
+\begin_inset space ~
+\end_inset
+
+formula 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:bayes-theorem"
 
 \end_inset
 
- can then be seen as a 
+ can then be seen as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+
 \series bold
 prior probability
 \series default
- – a probability one would assign to 
+ – a
+\begin_inset space ~
+\end_inset
+
+probability one would assign to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Var A$
 \end_inset
 
@@ -432,16 +794,28 @@ prior probability
 \emph on
 before
 \emph default
- observing the evidence.
+ observing the
+\begin_inset space ~
+\end_inset
+
+evidence.
  Factor 
 \begin_inset Formula $\probcond pBA$
 \end_inset
 
-, the 
+, the
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 likelihood
 \emph default
-, represents how likely we expect to observe 
+, represents how likely we expect to
+\begin_inset space ~
+\end_inset
+
+observe 
 \begin_inset Formula $\Var B$
 \end_inset
 
@@ -458,19 +832,58 @@ that
 \begin_inset Formula $\prob pB$
 \end_inset
 
- is the same for all possible hypothesis and serves as a normalizing factor.
- That is the reason why it is often left out in many computations where
- only relative comparison is needed.
+ is the
+\begin_inset space ~
+\end_inset
+
+same for all possible hypothesis and serves as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+normalizing factor.
+ That is the
+\begin_inset space ~
+\end_inset
+
+reason why it is often left out in
+\begin_inset space ~
+\end_inset
+
+many computations where only relative comparison is needed.
  And finally, 
 \begin_inset Formula $\probcond pAB$
 \end_inset
 
- is the final 
+ is the
+\begin_inset space ~
+\end_inset
+
+final 
 \series bold
 posterior probability
 \series default
- which is the factor one usually cares about the most.
- It is the probability of 
+ which is the
+\begin_inset space ~
+\end_inset
+
+factor one usually cares about the
+\begin_inset space ~
+\end_inset
+
+most.
+ It is the
+\begin_inset space ~
+\end_inset
+
+probability of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Var A$
 \end_inset
 
@@ -484,15 +897,34 @@ posterior probability
 
 \begin_layout Standard
 A factor 
-\begin_inset Formula $\frac{\probcond pBA}{\prob pB}$
+\begin_inset Formula $\nicefrac{\probcond pBA}{\prob pB}$
 \end_inset
 
- has also quite useful interpretation and that is the overall impact of
- evidence 
+ has also quite useful interpretation and that is the
+\begin_inset space ~
+\end_inset
+
+overall impact of
+\begin_inset space ~
+\end_inset
+
+evidence 
 \begin_inset Formula $\Var B$
 \end_inset
 
- on the probability of 
+ on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+probability of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Var A$
 \end_inset
 
@@ -505,17 +937,40 @@ Statistical model
 \end_layout
 
 \begin_layout Standard
-Chosen interpretation has a nontrivial influence on what such concept as
- a 
+Chosen interpretation has a
+\begin_inset space ~
+\end_inset
+
+nontrivial influence on
+\begin_inset space ~
+\end_inset
+
+what such concept as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 statistical model
 \emph default
- is and how a 
+ is and how a
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 statistical inference 
 \emph default
 is performed.
- We will follow traditional approach taken in 
+ We will follow traditional approach taken in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kroese2014,McCullagh2002a"
@@ -526,7 +981,7 @@ literal "true"
  and extend it by some necessary concepts from 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Bishop2013"
+key "Bishop:2006:PRM:1162264"
 literal "true"
 
 \end_inset
@@ -535,7 +990,15 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-A statistical model is a pair of 
+A statistical model is a
+\begin_inset space ~
+\end_inset
+
+pair of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $(S,M),$
 \end_inset
 
@@ -543,7 +1006,15 @@ A statistical model is a pair of
 \begin_inset Formula $S$
 \end_inset
 
- is a set of possible observations (
+ is a
+\begin_inset space ~
+\end_inset
+
+set of
+\begin_inset space ~
+\end_inset
+
+possible observations (
 \emph on
 sample space
 \emph default
@@ -551,29 +1022,73 @@ sample space
 \begin_inset Formula $M$
 \end_inset
 
- is a set of probability distributions on 
+ is a
+\begin_inset space ~
+\end_inset
+
+set of
+\begin_inset space ~
+\end_inset
+
+probability distributions on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $S$
 \end_inset
 
 .
- The distributions in 
+ The
+\begin_inset space ~
+\end_inset
+
+distributions in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $M$
 \end_inset
 
- are expected to be approximately close to the 
+ are expected to
+\begin_inset space ~
+\end_inset
+
+be approximately close to
+\begin_inset space ~
+\end_inset
+
+the 
 \emph on
 true
 \emph default
- distribution which generates the data
+ distribution which generates the
+\begin_inset space ~
+\end_inset
+
+data
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-There is a saying: 
+A
+\begin_inset space ~
+\end_inset
+
+common aphorism in
+\begin_inset space ~
+\end_inset
+
+statistics, generally attributed to George Box, says: 
 \begin_inset Quotes eld
 \end_inset
 
-All models are wrong, but some of them are useful
+All models are wrong, but some of
+\begin_inset space ~
+\end_inset
+
+them are useful
 \begin_inset Quotes erd
 \end_inset
 
@@ -583,8 +1098,27 @@ All models are wrong, but some of them are useful
 \end_inset
 
 .
- One of the distinctions which can be made to separate families of statistical
- models is how distributions in 
+ One of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+distinctions which can be made to
+\begin_inset space ~
+\end_inset
+
+separate families of
+\begin_inset space ~
+\end_inset
+
+statistical models is how distributions in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $M$
 \end_inset
 
@@ -596,7 +1130,15 @@ All models are wrong, but some of them are useful
 \series bold
 Parametric models
 \series default
-: in this case, the set 
+: in
+\begin_inset space ~
+\end_inset
+
+this case, the
+\begin_inset space ~
+\end_inset
+
+set 
 \begin_inset Formula $M$
 \end_inset
 
@@ -625,9 +1167,25 @@ finite
 \series bold
 Nonparametric models
 \series default
-: this family is an unfortunate misnomer.
+: this family is an
+\begin_inset space ~
+\end_inset
+
+unfortunate misnomer.
  Nonparametric models also have parameters, but they differ from parametric
- models in a way that the parameter space 
+ models in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+way that the
+\begin_inset space ~
+\end_inset
+
+parameter space 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -636,37 +1194,109 @@ Nonparametric models
 infinite.
  
 \emph default
-It is not fixed and can grow with the amount of data.
+It is not fixed and can grow with the
+\begin_inset space ~
+\end_inset
+
+amount of
+\begin_inset space ~
+\end_inset
+
+data.
  
 \end_layout
 
 \begin_layout Standard
-In Bayesian setting, parameters of the model have some prior distributions
- assigned.
- These distributions capture prior knowledge one posses before the application
- of the model.
- For instance, this can be based on a previous research or reliable enough
- observations obtained before hand.
- If there is no prior knowledge available, so-called 
+In Bayesian setting, parameters of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+model have some prior distributions assigned.
+ These distributions capture prior knowledge one posses before the
+\begin_inset space ~
+\end_inset
+
+application of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+model.
+ For instance, this can be based on
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+previous research or reliable enough observations obtained before hand.
+ If there is no prior knowledge available, so-called non-informative
 \emph on
-uninformative 
+ 
 \emph default
 priors are used instead.
  Uninformative
 \emph on
  
 \emph default
-is again a misnomer.
- What is meant by the name is the fact that they are not subjectively elicited.
- Fully Bayesian model is then a model in which 
+is again a
+\begin_inset space ~
+\end_inset
+
+misnomer.
+ What is meant by the
+\begin_inset space ~
+\end_inset
+
+name is the
+\begin_inset space ~
+\end_inset
+
+fact that they are not subjectively elicited.
+ Fully Bayesian model is then a
+\begin_inset space ~
+\end_inset
+
+model in
+\begin_inset space ~
+\end_inset
+
+which 
 \emph on
-all 
+all
 \emph default
-the parameters have some prior assigned.
- An interesting property of Bayesian approach arise – random variables,
- including latent variables, and parameters are treated in the exactly same
- way.
- That is again a major distinction from frequentist approach.
+ the
+\begin_inset space ~
+\end_inset
+
+parameters have some prior assigned.
+ An
+\begin_inset space ~
+\end_inset
+
+interesting property of
+\begin_inset space ~
+\end_inset
+
+Bayesian approach arise – random variables, including latent variables,
+ and parameters are treated in
+\begin_inset space ~
+\end_inset
+
+the exactly same way.
+ That is again a
+\begin_inset space ~
+\end_inset
+
+major distinction from frequentist approach.
  
 \end_layout
 
@@ -675,8 +1305,19 @@ Statistical inference
 \end_layout
 
 \begin_layout Standard
-The process of inferring properties of the data underlying distribution
- is called 
+The process of
+\begin_inset space ~
+\end_inset
+
+inferring properties of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+data underlying distribution is called 
 \emph on
 statistical inference
 \emph default
@@ -689,18 +1330,86 @@ literal "true"
 \end_inset
 
 .
- Formally, it is justification of restricting parameter space based on the
- data.
- An example is choosing a point estimate for a given parameter.
+ Formally, it is justification of
+\begin_inset space ~
+\end_inset
+
+restricting parameter space based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+data.
+ An
+\begin_inset space ~
+\end_inset
+
+example is choosing a
+\begin_inset space ~
+\end_inset
+
+point estimate for a
+\begin_inset space ~
+\end_inset
+
+given parameter.
  
 \end_layout
 
 \begin_layout Standard
-Unfortunately, for many real-world scenarios, the approach of directly inferring
- the properties is not possible.
- One of many reasons can be too high dimensionality of the space or the
- form of the posterior distribution may be too complex, let alone the fact
- that it does not even have to have the analytical solution
+Unfortunately, for many real-world scenarios, the
+\begin_inset space ~
+\end_inset
+
+approach of
+\begin_inset space ~
+\end_inset
+
+directly inferring the
+\begin_inset space ~
+\end_inset
+
+properties is not possible.
+ One of
+\begin_inset space ~
+\end_inset
+
+many reasons can be too high dimensionality of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+space or the
+\begin_inset space ~
+\end_inset
+
+form of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+posterior distribution may be too complex, let alone the
+\begin_inset space ~
+\end_inset
+
+fact that it does not even have to
+\begin_inset space ~
+\end_inset
+
+have the
+\begin_inset space ~
+\end_inset
+
+analytical solution
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
@@ -709,7 +1418,11 @@ literal "true"
 \end_inset
 
 .
- In these cases, approximation methods have to be used instead.
+ In these cases, approximation methods have to
+\begin_inset space ~
+\end_inset
+
+be used instead.
 \end_layout
 
 \begin_layout Subsection
@@ -724,7 +1437,11 @@ name "subsec:Approximation-methods"
 \end_layout
 
 \begin_layout Standard
-Using a breakdown from 
+Using a
+\begin_inset space ~
+\end_inset
+
+breakdown from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
@@ -732,9 +1449,28 @@ literal "true"
 
 \end_inset
 
-, approximation methods can be divided to two groups based on their stochastic
- or deterministic behavior.
- A notable example of the former is Markov chain Monte Carlo
+, approximation methods can be divided to
+\begin_inset space ~
+\end_inset
+
+two groups based on
+\begin_inset space ~
+\end_inset
+
+their stochastic or deterministic behavior.
+ A
+\begin_inset space ~
+\end_inset
+
+notable example of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+former is Markov chain Monte Carlo
 \begin_inset CommandInset citation
 LatexCommand cite
 after "(Chap.11)"
@@ -744,8 +1480,27 @@ literal "true"
 \end_inset
 
 .
- A representative approach of the latter is for instance variational inference
- described in detail in section 
+ A
+\begin_inset space ~
+\end_inset
+
+representative approach of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+latter is, for instance, variational inference described in
+\begin_inset space ~
+\end_inset
+
+detail in
+\begin_inset space ~
+\end_inset
+
+section 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Variational-inference"
@@ -753,21 +1508,70 @@ reference "sec:Variational-inference"
 \end_inset
 
 .
- The main difference is the fact that stochastic schemes, 
+ The
+\begin_inset space ~
+\end_inset
+
+main difference is the
+\begin_inset space ~
+\end_inset
+
+fact that stochastic schemes, 
 \emph on
 given infinite resources
 \emph default
-, are guaranteed to get to the exact results and the approximation arise
- from the finite amount of those resources.
- On contrary, deterministic approximation schemes are based on 
+, are guaranteed to
+\begin_inset space ~
+\end_inset
+
+get to
+\begin_inset space ~
+\end_inset
+
+the exact results and the
+\begin_inset space ~
+\end_inset
+
+approximation arise from the
+\begin_inset space ~
+\end_inset
+
+finite amount of
+\begin_inset space ~
+\end_inset
+
+those resources.
+ On contrary, deterministic approximation schemes are based on
+\begin_inset space ~
+\end_inset
+
+
 \emph on
-analytical approximations 
+analytical approximations
 \emph default
-to the posterior distribution.
- Hence, they are generally not able to generate exact results but may have
- different advantages such as tractability.
- Both approaches are then complementary to each other, one being useful
- for situation where the second is inapplicable and vice versa.
+ to
+\begin_inset space ~
+\end_inset
+
+the posterior distribution.
+ Hence, they are generally not able to
+\begin_inset space ~
+\end_inset
+
+generate exact results but may have different advantages such as
+\begin_inset space ~
+\end_inset
+
+tractability.
+ Both approaches are then complementary to
+\begin_inset space ~
+\end_inset
+
+each other, one being useful for situation where the
+\begin_inset space ~
+\end_inset
+
+second is inapplicable and vice versa.
  
 \end_layout
 
@@ -783,7 +1587,19 @@ name "sec:Conjugate-distributions-and"
 \end_layout
 
 \begin_layout Standard
-One of the remarkable properties of 
+One of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+remarkable properties of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:bayes-theorem"
@@ -793,59 +1609,260 @@ noprefix "false"
 
 \end_inset
 
- is the fact that it can be used sequentially as an update based on the
- new piece of data.
- If one performs the update and obtains 
+ is the
+\begin_inset space ~
+\end_inset
+
+fact that it can be used sequentially as
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+update based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+new piece of
+\begin_inset space ~
+\end_inset
+
+data.
+ If one performs the
+\begin_inset space ~
+\end_inset
+
+update and obtains 
 \begin_inset Formula $\probcond pAB$
 \end_inset
 
-, this posterior can be used in the next iteration as a prior and repeatedly.
- Using the concept of conjugate priors exploits this remarkable property
- guaranteeing that one will get a tractable posterior after the each iteration.
+, this posterior can be used in
+\begin_inset space ~
+\end_inset
+
+the next iteration as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+prior and repeatedly.
+ Using the
+\begin_inset space ~
+\end_inset
+
+concept of
+\begin_inset space ~
+\end_inset
+
+conjugate priors exploits this remarkable property guaranteeing that one
+ will get a
+\begin_inset space ~
+\end_inset
+
+tractable posterior after the
+\begin_inset space ~
+\end_inset
+
+each iteration.
  
 \end_layout
 
 \begin_layout Standard
-In the most of the real-world applications, using Bayes Theorem computationally
- means evaluating some integrals.
- For instance, to obtain the posterior, one must compute an integral 
+In the
+\begin_inset space ~
+\end_inset
+
+most of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+real-world applications, using Bayes Theorem computationally means evaluating
+ some integrals.
+ For instance, to
+\begin_inset space ~
+\end_inset
+
+obtain the
+\begin_inset space ~
+\end_inset
+
+posterior, one must compute an
+\begin_inset space ~
+\end_inset
+
+integral 
 \begin_inset Formula $\probcond{\prob px=\int p}x{\theta}\prob p{\theta}d\Var{\theta}$
 \end_inset
 
+, where the integral is over the parameter space 
+\begin_inset Formula $\Theta$
+\end_inset
+
 .
- To make use of the theorem, one is then limited to problems where these
- integrals are tractable.
+ To make use of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+theorem, one is then limited to
+\begin_inset space ~
+\end_inset
+
+problems where these integrals are tractable.
  
 \end_layout
 
 \begin_layout Standard
 As already mentioned, this is done by using conjugate priors.
- Given the likelihood 
+ Given the
+\begin_inset space ~
+\end_inset
+
+likelihood 
 \begin_inset Formula $\probcond px{\theta}$
 \end_inset
 
-, a family of prior distributions is chosen so that the integral 
+, a
+\begin_inset space ~
+\end_inset
+
+family of
+\begin_inset space ~
+\end_inset
+
+prior distributions is chosen so that the
+\begin_inset space ~
+\end_inset
+
+integral 
 \begin_inset Formula $\probcond{\int p}x{\theta}\prob p{\theta}d\Var{\theta}$
 \end_inset
 
- is tractable and the result is in the same family as the prior.
- It is worth mentioning that these goals are usually in conflict.
- A tractable result is obtained if we just use some constant as the distribution
- family, but the update would not necessarily result in a constant.
- On the other hand, allowing all possible distributions leads to non-tractable
- solutions.
+ is tractable and the
+\begin_inset space ~
+\end_inset
+
+result is in
+\begin_inset space ~
+\end_inset
+
+the same family as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+prior.
+ It is worth mentioning that these goals are usually in
+\begin_inset space ~
+\end_inset
+
+conflict.
+ A
+\begin_inset space ~
+\end_inset
+
+tractable result is obtained if we just use some constant as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+distribution family, but the
+\begin_inset space ~
+\end_inset
+
+update would not necessarily result in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+constant.
+ On the
+\begin_inset space ~
+\end_inset
+
+other hand, allowing all possible distributions leads to
+\begin_inset space ~
+\end_inset
+
+non-tractable solutions.
 \end_layout
 
 \begin_layout Standard
-In practice, there is such a family containing many of the most commonly
- used distributions such as Gaussian or Beta distribution.
+In practice, there is such a
+\begin_inset space ~
+\end_inset
+
+family containing many of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+most commonly used distributions such as
+\begin_inset space ~
+\end_inset
+
+Gaussian or Beta distribution.
  This family is called 
 \emph on
 exponential family
 \emph default
- and guarantees that if the model belongs to an exponential family and a
- conjugate prior distribution is selected, the resulting posterior of the
- update is analytically tractable.
+ and guarantees that if the
+\begin_inset space ~
+\end_inset
+
+model belongs to
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+exponential family and a
+\begin_inset space ~
+\end_inset
+
+conjugate prior distribution is selected, the
+\begin_inset space ~
+\end_inset
+
+resulting posterior of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+update is analytically tractable.
 \end_layout
 
 \begin_layout Subsection
@@ -862,7 +1879,19 @@ Formal definition
 \end_layout
 
 \begin_layout Standard
-A formal definition of the above can be found in 
+A formal definition of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+above can be found in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dedecius2017"
@@ -870,18 +1899,45 @@ literal "false"
 
 \end_inset
 
- and is restated here because the forms are going to be used further along
- in this work.
+ and is restated here because the
+\begin_inset space ~
+\end_inset
+
+forms are going to
+\begin_inset space ~
+\end_inset
+
+be used further along in
+\begin_inset space ~
+\end_inset
+
+this work.
  
 \end_layout
 
 \begin_layout Definition
 (Exponential family distribution).
- An exponential family distribution of a random variable 
+ An
+\begin_inset space ~
+\end_inset
+
+exponential family distribution of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+random variable 
 \begin_inset Formula $y$
 \end_inset
 
- conditioned on 
+ conditioned on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $x$
 \end_inset
 
@@ -889,8 +1945,23 @@ literal "false"
 \begin_inset Formula $\Theta$
 \end_inset
 
- is a distribution of which the probability density function can be written
- in the form
+ is a
+\begin_inset space ~
+\end_inset
+
+distribution of
+\begin_inset space ~
+\end_inset
+
+which the
+\begin_inset space ~
+\end_inset
+
+probability density function can be written in
+\begin_inset space ~
+\end_inset
+
+the form
 \begin_inset Formula 
 \begin{equation}
 p(y|x,\Theta)=\mexp{\eta^{T}T-A(\eta)+k(x,y)}\label{eq:exp-family-form}
@@ -906,12 +1977,31 @@ where
 \begin_inset Formula $\eta=\eta(\Theta)$
 \end_inset
 
- is the natural parameter of the exponential family distribution, 
+ is the
+\begin_inset space ~
+\end_inset
+
+natural parameter of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+exponential family distribution, 
 \begin_inset Formula $T:=T(x,y)$
 \end_inset
 
- is a sufficient statistic encompassing all the information provided by
- 
+ is a
+\begin_inset space ~
+\end_inset
+
+sufficient statistic encompassing all the
+\begin_inset space ~
+\end_inset
+
+information provided by 
 \begin_inset Formula $x$
 \end_inset
 
@@ -919,7 +2009,11 @@ where
 \begin_inset Formula $y$
 \end_inset
 
- about the parameter 
+ about the
+\begin_inset space ~
+\end_inset
+
+parameter 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -935,7 +2029,19 @@ A(\eta)=\log\int\mexp{\eta^{T}T+k(x,y)}\text{d}x\text{d}y
 \end_layout
 
 \begin_layout Definition
-where the integral is over the space of 
+where the
+\begin_inset space ~
+\end_inset
+
+integral is over the
+\begin_inset space ~
+\end_inset
+
+space of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $x$
 \end_inset
 
@@ -947,11 +2053,31 @@ where the integral is over the space of
 \begin_inset Formula $A(\eta)$
 \end_inset
 
- is a known log-partition function normalizing the density, and 
+ is a
+\begin_inset space ~
+\end_inset
+
+known log-partition function normalizing the
+\begin_inset space ~
+\end_inset
+
+density, and 
 \begin_inset Formula $k(x,y)$
 \end_inset
 
- is a known function independent of the parameter.
+ is a
+\begin_inset space ~
+\end_inset
+
+known function independent of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+parameter.
 \end_layout
 
 \begin_layout Standard
@@ -965,12 +2091,27 @@ noprefix "false"
 
 \end_inset
 
- is not unique since the product 
+ is not unique since the
+\begin_inset space ~
+\end_inset
+
+product 
 \begin_inset Formula $\eta^{T}T$
 \end_inset
 
- can result in the same number when is the each factor multiplied by an
- appropriate constant.
+ can result in
+\begin_inset space ~
+\end_inset
+
+the same number when is the
+\begin_inset space ~
+\end_inset
+
+each factor multiplied by an
+\begin_inset space ~
+\end_inset
+
+appropriate constant.
  
 \end_layout
 
@@ -980,25 +2121,48 @@ noprefix "false"
 \end_inset
 
 ).
- Assume that a random variable 
+ Assume that a
+\begin_inset space ~
+\end_inset
+
+random variable 
 \begin_inset Formula $y$
 \end_inset
 
- is conditioned by a variable 
+ is conditioned by a
+\begin_inset space ~
+\end_inset
+
+variable 
 \begin_inset Formula $x$
 \end_inset
 
- and obeys an exponential family distribution – model – with a parameter
- 
+ and obeys an
+\begin_inset space ~
+\end_inset
+
+exponential family distribution – model – with a
+\begin_inset space ~
+\end_inset
+
+parameter 
 \begin_inset Formula $\Theta$
 \end_inset
 
 .
- A prior distribution for 
+ A
+\begin_inset space ~
+\end_inset
+
+prior distribution for 
 \begin_inset Formula $\Theta$
 \end_inset
 
- conjugate to the model is characterized by conjugate hyperparameters 
+ conjugate to
+\begin_inset space ~
+\end_inset
+
+the model is characterized by conjugate hyperparameters 
 \begin_inset Formula $\Xi$
 \end_inset
 
@@ -1006,7 +2170,19 @@ noprefix "false"
 \begin_inset Formula $\varUpsilon$
 \end_inset
 
- and has the probability density of the form 
+ and has the
+\begin_inset space ~
+\end_inset
+
+probability density of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+form 
 \begin_inset Formula 
 \begin{equation}
 \pi(\Theta|\Xi,\varUpsilon)=\mexp{\eta^{T}\Xi+\varUpsilon A(\eta)+l(\Xi,\varUpsilon)}\label{eq:prior-exp-form}
@@ -1022,7 +2198,15 @@ where
 \begin_inset Formula $\Xi$
 \end_inset
 
- has the same size as 
+ has the
+\begin_inset space ~
+\end_inset
+
+same size as
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $T,\varUpsilon\in\mathbb{R_{+}}$
 \end_inset
 
@@ -1030,8 +2214,16 @@ where
 \begin_inset Formula $l(\Xi,\varUpsilon)$
 \end_inset
 
- is a known function.
- The 
+ is a
+\begin_inset space ~
+\end_inset
+
+known function.
+ The
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Xi,\varUpsilon$
 \end_inset
 
@@ -1070,26 +2262,69 @@ noprefix "false"
 
 \end_inset
 
-, the Bayesian update results into a simple summation
+, the
+\begin_inset space ~
+\end_inset
+
+Bayesian update results into a
+\begin_inset space ~
+\end_inset
+
+simple summation
 \end_layout
 
 \begin_layout Theorem
 (Bayesian update under conjugacy).
- Assume that a random variable 
+ Assume that a
+\begin_inset space ~
+\end_inset
+
+random variable 
 \begin_inset Formula $y$
 \end_inset
 
- conditioned by a variable 
+ conditioned by a
+\begin_inset space ~
+\end_inset
+
+variable 
 \begin_inset Formula $x$
 \end_inset
 
- has an exponential family distribution with a parameter 
+ has an
+\begin_inset space ~
+\end_inset
+
+exponential family distribution with a
+\begin_inset space ~
+\end_inset
+
+parameter 
 \begin_inset Formula $\Theta$
 \end_inset
 
-, estimated by means of a conjugate prior distribution.
- The Bayesian update is then equivalent to the update of conjugate hyperparamete
-rs
+, estimated by means of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+conjugate prior distribution.
+ The
+\begin_inset space ~
+\end_inset
+
+Bayesian update is then equivalent to
+\begin_inset space ~
+\end_inset
+
+the update of
+\begin_inset space ~
+\end_inset
+
+conjugate hyperparameters
 \begin_inset Formula 
 \begin{align}
 \Xi_{t} & =\Xi_{t-1}+T_{t}\label{eq:update-hyp-xi}\\
@@ -1167,7 +2402,15 @@ name "sec:Variational-inference"
 \end_layout
 
 \begin_layout Standard
-In this work, a family of deterministic approximation methods 
+In this work, a
+\begin_inset space ~
+\end_inset
+
+family of
+\begin_inset space ~
+\end_inset
+
+deterministic approximation methods 
 \emph on
 variational inference (
 \emph default
@@ -1175,11 +2418,15 @@ or
 \emph on
 variational Bayes) 
 \emph default
-is used, excellently described in 
+is used, excellently described in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 after "(p. 463)"
-key "Bishop2013"
+key "Bishop:2006:PRM:1162264"
 literal "true"
 
 \end_inset
@@ -1193,14 +2440,79 @@ literal "true"
 \end_inset
 
 .
- This technique is based on using the solution of an optimization problem
- to statistical inference.
- More specifically, finding an input which minimizes a specific functional.
- This method is guaranteed to get an exact result given some family of possible
- input functions over which one minimizes.
- The approximation arises from limiting the possible inputs, for instance
- by considering only quadratic functions or, as is widely used and is also
- the case of this work, functions which factorizes in a specific way.
+ This technique is based on
+\begin_inset space ~
+\end_inset
+
+using the
+\begin_inset space ~
+\end_inset
+
+solution of
+\begin_inset space ~
+\end_inset
+
+an
+\begin_inset space ~
+\end_inset
+
+optimization problem to
+\begin_inset space ~
+\end_inset
+
+statistical inference.
+ More specifically, finding an
+\begin_inset space ~
+\end_inset
+
+input which minimizes a
+\begin_inset space ~
+\end_inset
+
+specific functional.
+ This method is guaranteed to
+\begin_inset space ~
+\end_inset
+
+get an
+\begin_inset space ~
+\end_inset
+
+exact result given some family of
+\begin_inset space ~
+\end_inset
+
+possible input functions over which one minimizes.
+ The
+\begin_inset space ~
+\end_inset
+
+approximation arises from limiting the
+\begin_inset space ~
+\end_inset
+
+possible inputs, for instance, by considering only quadratic functions or,
+ as
+\begin_inset space ~
+\end_inset
+
+is widely used and is also the
+\begin_inset space ~
+\end_inset
+
+case of
+\begin_inset space ~
+\end_inset
+
+this work, functions which factorizes in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+specific way.
 \end_layout
 
 \begin_layout Standard
@@ -1208,38 +2520,113 @@ Let
 \begin_inset Formula $\probjoint pXZ$
 \end_inset
 
- be a fully Bayesian model, where all prior distributions are given.
- Let denote the set of all parameters and all latent variables 
+ be a
+\begin_inset space ~
+\end_inset
+
+fully Bayesian model, where all prior distributions are given.
+ Let denote the
+\begin_inset space ~
+\end_inset
+
+set of
+\begin_inset space ~
+\end_inset
+
+all parameters and all latent variables 
 \begin_inset Formula $\Var Z=\{\vec z_{1},\ldots,\vec z_{N}\}$
 \end_inset
 
- and the set of all observed variables 
+ and the
+\begin_inset space ~
+\end_inset
+
+set of
+\begin_inset space ~
+\end_inset
+
+all observed variables 
 \begin_inset Formula $\Var X=\{\vec x_{1},...,\vec x_{N}\}$
 \end_inset
 
 .
- The goal of the inference is to find the posterior distribution 
+ The
+\begin_inset space ~
+\end_inset
+
+goal of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+inference is to
+\begin_inset space ~
+\end_inset
+
+find the
+\begin_inset space ~
+\end_inset
+
+posterior distribution 
 \begin_inset Formula $\probcond pZX$
 \end_inset
 
- and the distribution of the model evidence 
+ and the
+\begin_inset space ~
+\end_inset
+
+distribution of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+model evidence 
 \begin_inset Formula $\prob pX=\int\probjoint pZX\D{\Var Z}$
 \end_inset
 
 , which is usually unavailable.
- Unfortunately, in many real-world scenarios, 
+ Unfortunately, in
+\begin_inset space ~
+\end_inset
+
+many real-world scenarios, 
 \begin_inset Formula $\probcond pZX$
 \end_inset
 
  is almost always intractable.
- One for example often cannot integrate all configurations of the hidden
- variables in the denominator (potentially infinite).
+ For example, one often cannot integrate all configurations of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+hidden variables in
+\begin_inset space ~
+\end_inset
+
+the denominator (potentially infinite).
  That is where 
 \emph on
 variational lower bound
 \emph default
  comes in.
- Instead of trying to compute 
+ Instead of
+\begin_inset space ~
+\end_inset
+
+trying to
+\begin_inset space ~
+\end_inset
+
+compute 
 \begin_inset Formula $\probcond pZX$
 \end_inset
 
@@ -1247,18 +2634,57 @@ variational lower bound
 \begin_inset Formula $\prob qZ$
 \end_inset
 
- which is the as close approximation as possible to the former and has a
- convenient and tractable form – its expectations are computable.
+ which is the
+\begin_inset space ~
+\end_inset
+
+as close approximation as
+\begin_inset space ~
+\end_inset
+
+possible to
+\begin_inset space ~
+\end_inset
+
+the former and has a
+\begin_inset space ~
+\end_inset
+
+convenient and tractable form – its expectations are computable.
  Furthermore, these approximate distributions can also have their own 
 \emph on
 variational parameters
 \emph default
- which are considered to be in 
+ which are considered to
+\begin_inset space ~
+\end_inset
+
+be in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Var Z$
 \end_inset
 
- as well.
- As a measure of closeness between the approximate 
+ as
+\begin_inset space ~
+\end_inset
+
+well.
+ As a
+\begin_inset space ~
+\end_inset
+
+measure of
+\begin_inset space ~
+\end_inset
+
+closeness between the
+\begin_inset space ~
+\end_inset
+
+approximate 
 \begin_inset Formula $\prob qZ$
 \end_inset
 
@@ -1274,7 +2700,19 @@ reference "eq:KL"
 \end_inset
 
  is used.
- For the sake of readability, we omit arguments of distributions where possible.
+ For the
+\begin_inset space ~
+\end_inset
+
+sake of
+\begin_inset space ~
+\end_inset
+
+readability, we omit arguments of
+\begin_inset space ~
+\end_inset
+
+distributions where possible.
  Most often it means 
 \begin_inset Formula $q:=\prob qZ$
 \end_inset
@@ -1298,12 +2736,28 @@ reference "eq:KL"
 \end_layout
 
 \begin_layout Standard
-Please note that in the case 
+Please note that in
+\begin_inset space ~
+\end_inset
+
+the case 
 \begin_inset Formula $\probcond pXZ=\prob qZ$
 \end_inset
 
 , Kullback-Leibler divergence is effectively zero.
- The goal is to solve the following optimization problem:
+ The
+\begin_inset space ~
+\end_inset
+
+goal is to
+\begin_inset space ~
+\end_inset
+
+solve the
+\begin_inset space ~
+\end_inset
+
+following optimization problem:
 \begin_inset Formula 
 \begin{equation}
 \prob qZ=\arg\min_{\prob qZ}\kl{\prob qZ}{\probcond pZX}.\label{eq:optim}
@@ -1327,11 +2781,23 @@ reference "eq:optim"
 \begin_inset Formula $\kl qp$
 \end_inset
 
-, the unknown evidence 
+, the
+\begin_inset space ~
+\end_inset
+
+unknown evidence 
 \begin_inset Formula $\prob pX$
 \end_inset
 
- is needed, as can be seen from the following derivation
+ is needed, as
+\begin_inset space ~
+\end_inset
+
+can be seen from the
+\begin_inset space ~
+\end_inset
+
+following derivation
 \begin_inset Formula 
 \[
 \kl q{\probcond pZX}=\E{\ln q}-\E{\ln\probcond pZX}=\E{\ln q}-\E{\ln\probjoint pZX}+\ln\prob pX
@@ -1343,16 +2809,43 @@ reference "eq:optim"
 \end_layout
 
 \begin_layout Standard
-Instead of trying to compute 
+Instead of
+\begin_inset space ~
+\end_inset
+
+trying to
+\begin_inset space ~
+\end_inset
+
+compute 
 \begin_inset Formula $\kl qp$
 \end_inset
 
-, we are going to optimize an alternative objective that is equivalent to
- 
+, we are going to
+\begin_inset space ~
+\end_inset
+
+optimize an
+\begin_inset space ~
+\end_inset
+
+alternative objective that is equivalent to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\kl qp$
 \end_inset
 
- up to a constant.
+ up to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+constant.
  Let us then define 
 \emph on
 variational lower bound 
@@ -1361,7 +2854,11 @@ variational lower bound
 \emph on
 ELBO
 \emph default
-) as follows:
+) as
+\begin_inset space ~
+\end_inset
+
+follows:
 \end_layout
 
 \begin_layout Standard
@@ -1380,12 +2877,32 @@ It can be shown that
 \begin_inset Formula $\lueb q$
 \end_inset
 
- has an important property being a lower bound of the log probability 
+ has an
+\begin_inset space ~
+\end_inset
+
+important property being a
+\begin_inset space ~
+\end_inset
+
+lower bound of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+log probability 
 \begin_inset Formula $\prob{\ln p}X\ge\lueb q$
 \end_inset
 
 .
- Hence, when one wishes to maximize marginal 
+ Hence, when one wishes to
+\begin_inset space ~
+\end_inset
+
+maximize marginal 
 \begin_inset Formula $\prob pX$
 \end_inset
 
@@ -1412,7 +2929,11 @@ reference "eq:KL"
 
 \end_inset
 
-, the following relationship can be derived:
+, the
+\begin_inset space ~
+\end_inset
+
+following relationship can be derived:
 \end_layout
 
 \begin_layout Standard
@@ -1431,7 +2952,11 @@ Since
 \begin_inset Formula $\prob pX$
 \end_inset
 
- does not depend on 
+ does not depend on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $q$
 \end_inset
 
@@ -1439,7 +2964,11 @@ Since
 \begin_inset Formula $\lueb q$
 \end_inset
 
- is possible and it is equivalent to minimizing 
+ is possible and it is equivalent to
+\begin_inset space ~
+\end_inset
+
+minimizing 
 \begin_inset Formula $\kl qp$
 \end_inset
 
@@ -1448,8 +2977,15 @@ Since
 \end_layout
 
 \begin_layout Standard
-In summary, because we do not know the true posterior distribution, we work
- with some family of distributions 
+In summary, because we do not know the
+\begin_inset space ~
+\end_inset
+
+true posterior distribution, we work with some family of
+\begin_inset space ~
+\end_inset
+
+distributions 
 \begin_inset Formula $\prob qZ$
 \end_inset
 
@@ -1457,7 +2993,11 @@ In summary, because we do not know the true posterior distribution, we work
 \begin_inset Formula $\lueb q$
 \end_inset
 
- becomes tractable and search for the candidate which maximizes 
+ becomes tractable and search for the
+\begin_inset space ~
+\end_inset
+
+candidate which maximizes 
 \begin_inset Formula $\lueb q$
 \end_inset
 
@@ -1465,16 +3005,70 @@ In summary, because we do not know the true posterior distribution, we work
 \begin_inset Formula $KL$
 \end_inset
 
- relates this candidate to the posterior.
- Obviously, the choice of the distribution family is critical here.
- While it needs to be tractable, it still needs to be flexible enough (as
- much as possible) to provide 
+ relates this candidate to
+\begin_inset space ~
+\end_inset
+
+the posterior.
+ Obviously, the
+\begin_inset space ~
+\end_inset
+
+choice of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+distribution family is critical here.
+ While it needs to
+\begin_inset space ~
+\end_inset
+
+be tractable, it still needs to
+\begin_inset space ~
+\end_inset
+
+be flexible enough (as much as
+\begin_inset space ~
+\end_inset
+
+possible) to
+\begin_inset space ~
+\end_inset
+
+provide 
 \emph on
 accurate enough
 \emph default
- approximation, goals usually being in conflict.
- This is the part where the approximation arises in variational Bayes as
- has been discussed in 
+ approximation, goals usually being in
+\begin_inset space ~
+\end_inset
+
+conflict.
+ This is the
+\begin_inset space ~
+\end_inset
+
+part where the
+\begin_inset space ~
+\end_inset
+
+approximation arises in
+\begin_inset space ~
+\end_inset
+
+variational Bayes as
+\begin_inset space ~
+\end_inset
+
+has been discussed in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "subsec:Approximation-methods"
@@ -1490,8 +3084,19 @@ Factorized distributions
 \end_layout
 
 \begin_layout Standard
-A common choice for such a family of distributions described in the chapter
- 
+A common choice for such a
+\begin_inset space ~
+\end_inset
+
+family of
+\begin_inset space ~
+\end_inset
+
+distributions described in
+\begin_inset space ~
+\end_inset
+
+the chapter 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Variational-inference"
@@ -1502,7 +3107,11 @@ reference "sec:Variational-inference"
 \emph on
 factorized distributions
 \emph default
- formalized in physics theory called 
+ formalized in
+\begin_inset space ~
+\end_inset
+
+physics theory called 
 \emph on
 mean field theory
 \emph default
@@ -1515,12 +3124,40 @@ literal "true"
 \end_inset
 
 .
- The assumption on the family is quite simple.
- We treat each variable in 
+ The
+\begin_inset space ~
+\end_inset
+
+assumption on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+family is quite simple.
+ We treat each variable in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Var Z$
 \end_inset
 
- as independent, in other words, the family 
+ as
+\begin_inset space ~
+\end_inset
+
+independent, in
+\begin_inset space ~
+\end_inset
+
+other words, the
+\begin_inset space ~
+\end_inset
+
+family 
 \series bold
 factorizes
 \series default
@@ -1536,14 +3173,37 @@ factorizes
 \end_layout
 
 \begin_layout Standard
-It is clear that the assumption is often not met.
- Variables are dependent in the real world – it is often the reason why
- it is so hard to obtain the posterior distribution directly.
+It is clear that the
+\begin_inset space ~
+\end_inset
+
+assumption is often not met.
+ Variables are dependent in
+\begin_inset space ~
+\end_inset
+
+the real world – it is often the
+\begin_inset space ~
+\end_inset
+
+reason why it is so hard to
+\begin_inset space ~
+\end_inset
+
+obtain the
+\begin_inset space ~
+\end_inset
+
+posterior distribution directly.
  
 \end_layout
 
 \begin_layout Standard
-Notice that we do not require any specific form of 
+Notice that we do not require any specific form of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\prob{q_{i}}{Z_{i}}$
 \end_inset
 
@@ -1552,8 +3212,27 @@ Notice that we do not require any specific form of
 \emph on
 not
 \emph default
- a model of the observed data – it is the ELBO and KL minimization problem,
- which connects this to the model and data.
+ a
+\begin_inset space ~
+\end_inset
+
+model of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+observed data – it is the
+\begin_inset space ~
+\end_inset
+
+ELBO and KL minimization problem, which connects this to
+\begin_inset space ~
+\end_inset
+
+the model and data.
 \end_layout
 
 \begin_layout Section
@@ -1565,7 +3244,11 @@ Coordinate ascent mean-field variational (
 \emph on
 CAVI
 \emph default
-) is a commonly used algorithm for solving optimization problem 
+) is a
+\begin_inset space ~
+\end_inset
+
+commonly used algorithm for solving optimization problem 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:optim"
@@ -1605,7 +3288,15 @@ Optimal
 \end_layout
 
 \begin_layout Standard
-First, consider the complete conditional of 
+First, consider the
+\begin_inset space ~
+\end_inset
+
+complete conditional of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\Var{Z_{i}}$
 \end_inset
 
@@ -1618,11 +3309,19 @@ First, consider the complete conditional of
 \begin_inset Formula $\prob{q_{l}}{Z_{l}},l\ne i$
 \end_inset
 
-, the optimal 
+, the
+\begin_inset space ~
+\end_inset
+
+optimal 
 \begin_inset Formula $\prob{q_{i}}{Z_{i}}$
 \end_inset
 
- satisfies the following
+ satisfies the
+\begin_inset space ~
+\end_inset
+
+following
 \end_layout
 
 \begin_layout Standard
@@ -1637,7 +3336,15 @@ First, consider the complete conditional of
 \end_layout
 
 \begin_layout Standard
-wherein the last term, we use the fact that 
+wherein the
+\begin_inset space ~
+\end_inset
+
+last term, we use the
+\begin_inset space ~
+\end_inset
+
+fact that 
 \begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
 \end_inset
 
@@ -1681,14 +3388,30 @@ Let us now rewrite
 \begin_inset Formula $\lueb q$
 \end_inset
 
- in 
+ in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:elbo"
 
 \end_inset
 
- as a function of 
+ as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+function of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\prob{q_{i}}{Z_{i}}$
 \end_inset
 
@@ -1704,27 +3427,62 @@ reference "eq:elbo"
 \end_layout
 
 \begin_layout Standard
-wherein the first term is just an iterated expectation and in the second
- we retain only product term containing 
+wherein the
+\begin_inset space ~
+\end_inset
+
+first term is just an
+\begin_inset space ~
+\end_inset
+
+iterated expectation and in
+\begin_inset space ~
+\end_inset
+
+the second we retain only product term containing 
 \begin_inset Formula $\prob{q_{i}}{Z_{i}},$
 \end_inset
 
- while other parts can be moved to a constant 
+ while other parts can be moved to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+constant 
 \begin_inset Formula $C$
 \end_inset
 
- thanks to using a factorized distribution.
+ thanks to
+\begin_inset space ~
+\end_inset
+
+using a
+\begin_inset space ~
+\end_inset
+
+factorized distribution.
 \end_layout
 
 \begin_layout Standard
-Now it is easy to see that 
+Now it is easy to
+\begin_inset space ~
+\end_inset
+
+see that 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:negkl"
 
 \end_inset
 
- is a negative KL divergence between 
+ is a
+\begin_inset space ~
+\end_inset
+
+negative KL divergence between 
 \begin_inset Formula $\prob{q_{i}}{Z_{i}}$
 \end_inset
 
@@ -1733,8 +3491,23 @@ reference "eq:negkl"
 \end_inset
 
 .
- That gives as all necessary part for the CAVI algorithm as described in
- 
+ That gives as
+\begin_inset space ~
+\end_inset
+
+all necessary part for the
+\begin_inset space ~
+\end_inset
+
+CAVI algorithm as
+\begin_inset space ~
+\end_inset
+
+described in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blei2017"
@@ -1758,13 +3531,21 @@ CAVI
 \begin_layout Algorithm
 
 \series bold
-Input: 
+Input:
 \series default
-A model 
+ A
+\begin_inset space ~
+\end_inset
+
+model 
 \begin_inset Formula $\probjoint pXZ$
 \end_inset
 
-, a dataset 
+, a
+\begin_inset space ~
+\end_inset
+
+dataset 
 \begin_inset Formula $\Var X$
 \end_inset
 
@@ -1774,9 +3555,13 @@ A model
 \begin_layout Algorithm
 
 \series bold
-Output: 
+Output:
 \series default
-A variational density 
+ A
+\begin_inset space ~
+\end_inset
+
+variational density 
 \begin_inset Formula $\prob qZ=\prod_{i=1}^{m}\prob{q_{i}}{Z_{i}}$
 \end_inset
 
@@ -1798,9 +3583,13 @@ Initialize:
 \begin_layout Algorithm
 
 \series bold
-while 
+while
 \series default
-the 
+ the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\lueb q$
 \end_inset
 
@@ -1935,7 +3724,15 @@ return
 \end_layout
 
 \begin_layout Standard
-It is guaranteed that this algorithm converges to a local minimum.
+It is guaranteed that this algorithm converges to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+local minimum.
 \end_layout
 
 \begin_layout Section
@@ -1943,7 +3740,15 @@ Example
 \end_layout
 
 \begin_layout Standard
-Let us demonstrate the above with an example from 
+Let us demonstrate the
+\begin_inset space ~
+\end_inset
+
+above with an
+\begin_inset space ~
+\end_inset
+
+example from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
@@ -1960,7 +3765,11 @@ The model
 \end_layout
 
 \begin_layout Standard
-Consider the i.i.d dataset 
+Consider the
+\begin_inset space ~
+\end_inset
+
+i.i.d dataset 
 \begin_inset Formula $\mathbf{X}=\{x_{1},\cdots,x_{N}\}$
 \end_inset
 
@@ -1973,11 +3782,23 @@ Consider the i.i.d dataset
 \end_inset
 
 .
- The goal is to infer posterior 
+ The
+\begin_inset space ~
+\end_inset
+
+goal is to
+\begin_inset space ~
+\end_inset
+
+infer posterior 
 \begin_inset Formula $\probcond p{\mu,\tau}X$
 \end_inset
 
- and the joint probability is
+ and the
+\begin_inset space ~
+\end_inset
+
+joint probability is
 \begin_inset Formula 
 \[
 \prob p{X,\mu,\tau}=\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}
@@ -2001,7 +3822,11 @@ Let us now approximate
 \begin_inset Formula $\probjoint q{\mu}{\tau}$
 \end_inset
 
- with the assumption that 
+ with the
+\begin_inset space ~
+\end_inset
+
+assumption that 
 \begin_inset Formula $q$
 \end_inset
 
@@ -2018,9 +3843,20 @@ Conjugated priors
 \end_layout
 
 \begin_layout Standard
-The complete data likelihood is Gaussian distribution and hence in exponential
- family.
- We set a non-informative conjugated priors for the 
+The complete data likelihood is Gaussian distribution and hence in
+\begin_inset space ~
+\end_inset
+
+exponential family.
+ We set a
+\begin_inset space ~
+\end_inset
+
+non-informative conjugate priors for the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -2028,7 +3864,11 @@ The complete data likelihood is Gaussian distribution and hence in exponential
 \begin_inset Formula $\tau$
 \end_inset
 
- as follows
+ as
+\begin_inset space ~
+\end_inset
+
+follows
 \end_layout
 
 \begin_layout Standard
@@ -2044,16 +3884,28 @@ The complete data likelihood is Gaussian distribution and hence in exponential
 \end_layout
 
 \begin_layout Standard
-where the hyperparameters 
+where the
+\begin_inset space ~
+\end_inset
+
+hyperparameters 
 \begin_inset Formula $\mu_{0},\lambda_{0},a_{0},b_{0}$
 \end_inset
 
- are initially set to some small positive number.
+ are initially set to
+\begin_inset space ~
+\end_inset
+
+some small positive number.
  
 \end_layout
 
 \begin_layout Paragraph
-The form of 
+The form of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\prob q{\mu}$
 \end_inset
 
@@ -2065,15 +3917,47 @@ The form of
 \end_layout
 
 \begin_layout Standard
-This is usually the hardest part of variational inference.
- The derivation of the following terms is according to 
+This is usually the
+\begin_inset space ~
+\end_inset
+
+hardest part of
+\begin_inset space ~
+\end_inset
+
+variational inference.
+ The
+\begin_inset space ~
+\end_inset
+
+derivation of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+following terms is according to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:ascent-update"
 
 \end_inset
 
- and in detail can be found in 
+ and in
+\begin_inset space ~
+\end_inset
+
+detail can be found in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
@@ -2129,7 +4013,11 @@ b_{N} & =b_{0}+\frac{1}{2}\E[\mu]{\sum_{n=1}^{N}(x_{n}-\mu)^{2}+\lambda_{0}(\mu-
 \end_layout
 
 \begin_layout Paragraph
-Perform updates based on CAVI
+Perform updates based on
+\begin_inset space ~
+\end_inset
+
+CAVI
 \end_layout
 
 \begin_layout Standard
@@ -2141,16 +4029,28 @@ Initially, compute
 \begin_inset Formula $\lambda_{N,t}$
 \end_inset
 
- to some random value.
+ to
+\begin_inset space ~
+\end_inset
+
+some random value.
  Then iterate these steps until convergence:
 \end_layout
 
 \begin_layout Enumerate
-plug in 
+plug in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\lambda_{N,t}$
 \end_inset
 
- to obtain 
+ to
+\begin_inset space ~
+\end_inset
+
+obtain 
 \begin_inset Formula $b_{N,t}$
 \end_inset
 
@@ -2162,7 +4062,11 @@ compute new
 \begin_inset Formula $\lambda_{N,t+1}$
 \end_inset
 
- based on 
+ based on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $b_{N,t}$
 \end_inset
 
@@ -2178,10 +4082,25 @@ After
 \begin_inset Formula $m$
 \end_inset
 
- iterations, we are now having new values of all parameters including hyperparam
-eters.
- Hence we are able to approximate the posterior distribution.
- The joint probability is
+ iterations, we are now having new values of
+\begin_inset space ~
+\end_inset
+
+all parameters including hyperparameters.
+ Hence we are able to
+\begin_inset space ~
+\end_inset
+
+approximate the
+\begin_inset space ~
+\end_inset
+
+posterior distribution.
+ The
+\begin_inset space ~
+\end_inset
+
+joint probability is
 \begin_inset Formula 
 \begin{align*}
 \prob p{X,\mu,\tau} & =\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}=\\

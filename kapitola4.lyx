@@ -101,27 +101,127 @@ Results and simulations
 \end_layout
 
 \begin_layout Standard
-The following chapter offers an in-depth analysis of the performance of
- the proposed algorithm.
- To guarantee a reproducible research, implementation details are provided
- and the code with the comparison is publicly available on 
+The following chapter offers an
+\begin_inset space ~
+\end_inset
+
+in-depth analysis of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+performance of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm.
+ To guarantee a
+\begin_inset space ~
+\end_inset
+
+reproducible research, implementation details are provided and the
+\begin_inset space ~
+\end_inset
+
+code with the
+\begin_inset space ~
+\end_inset
+
+comparison is publicly available on
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
 https://github.com/hnykda/kfsims
 \family default
 .
- This thesis focused mostly on state prediction accuracy and less on the
- noise analysis, although even the latter is mentioned when it helps to
- understand mechanisms explaining the behavior.
+ This thesis focused mostly on
+\begin_inset space ~
+\end_inset
+
+state prediction accuracy and less on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise analysis, although even the
+\begin_inset space ~
+\end_inset
+
+latter is mentioned when it helps to
+\begin_inset space ~
+\end_inset
+
+understand mechanisms explaining the
+\begin_inset space ~
+\end_inset
+
+behavior.
 \end_layout
 
 \begin_layout Standard
-Please note that some figures should be compared to each other, rather than
- being useful on its own.
- Sometimes, it is the trend of all plotted lines what is interesting rather
- then individual lines.
- This is true especially in the case of the multi-node variants when the
- author's goal is to demonstrate that all the nodes are having some specific
- property which would be hard to demonstrate by plotting only a single line.
+Please note that some figures should be compared to
+\begin_inset space ~
+\end_inset
+
+each other, rather than being useful on
+\begin_inset space ~
+\end_inset
+
+its own.
+ Sometimes, it is the
+\begin_inset space ~
+\end_inset
+
+trend of
+\begin_inset space ~
+\end_inset
+
+all plotted lines what is interesting rather then individual lines.
+ This is true especially in
+\begin_inset space ~
+\end_inset
+
+the case of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+multi-node variants when the
+\begin_inset space ~
+\end_inset
+
+author's goal is to
+\begin_inset space ~
+\end_inset
+
+demonstrate that all the
+\begin_inset space ~
+\end_inset
+
+nodes are having some specific property which would be hard to
+\begin_inset space ~
+\end_inset
+
+demonstrate by plotting only a
+\begin_inset space ~
+\end_inset
+
+single line.
 \end_layout
 
 \begin_layout Section
@@ -129,24 +229,54 @@ Implementation
 \end_layout
 
 \begin_layout Standard
-The implementation used in this work has been written in feature-rich Python
- language ecosystem.
- Next to the CPython interpreter 3.6, following libraries (all licensed under
- MIT license) has been utilized:
+The implementation used in
+\begin_inset space ~
+\end_inset
+
+this work has been written in
+\begin_inset space ~
+\end_inset
+
+feature-rich Python language ecosystem.
+ Next to
+\begin_inset space ~
+\end_inset
+
+the CPython interpreter 3.6, following libraries (all licensed under MIT
+ license) has been utilized:
 \end_layout
 
 \begin_layout Itemize
-scipy 1.0.0 – generator of pseudo-random numbers from various distributions
+scipy 1.0.0 – generator of
+\begin_inset space ~
+\end_inset
+
+pseudo-random numbers from various distributions
 \end_layout
 
 \begin_layout Itemize
-numpy 1.14.2 – to store arrays and perform mathematical operations, especially
- linear algebra ones
+numpy 1.14.2 – to
+\begin_inset space ~
+\end_inset
+
+store arrays and perform mathematical operations, especially linear algebra
+ ones
 \end_layout
 
 \begin_layout Itemize
-networkx 2.1 – to simulate various network topology types of the measurement
- nodes
+networkx 2.1 – to
+\begin_inset space ~
+\end_inset
+
+simulate various network topology types of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+measurement nodes
 \end_layout
 
 \begin_layout Itemize
@@ -158,28 +288,113 @@ notebook
 \begin_inset Quotes erd
 \end_inset
 
- ecosystem for a rapid analysis and environment to plot the charts
+ ecosystem for a
+\begin_inset space ~
+\end_inset
+
+rapid analysis and environment to
+\begin_inset space ~
+\end_inset
+
+plot the
+\begin_inset space ~
+\end_inset
+
+charts
 \end_layout
 
 \begin_layout Itemize
-filterpy 1.2.1 – the reference implementation of a classic Kalman Filter used
- in comparison
+filterpy 1.2.1 – the
+\begin_inset space ~
+\end_inset
+
+reference implementation of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+classic Kalman Filter used in
+\begin_inset space ~
+\end_inset
+
+comparison
 \end_layout
 
 \begin_layout Itemize
-matplotlib 2.2.2 – plotting the charts
+matplotlib 2.2.2 – plotting the
+\begin_inset space ~
+\end_inset
+
+charts
 \end_layout
 
 \begin_layout Standard
-All the code is available on GitHub page 
+All the
+\begin_inset space ~
+\end_inset
+
+code is available on
+\begin_inset space ~
+\end_inset
+
+GitHub page 
 \family typewriter
 https://github.com/hnykda/kfsims
 \family default
- including the instruction how to replicate the analysis and testing environment.
- Most of the functionality has been written from scratch by the author while
- having a reference implementation by the supervisor (plus the model of
- the testing trajectory).
- The code is structured into several parts, notably objects 
+ including the
+\begin_inset space ~
+\end_inset
+
+instruction how to
+\begin_inset space ~
+\end_inset
+
+replicate the
+\begin_inset space ~
+\end_inset
+
+analysis and testing environment.
+ Most of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+functionality has been written from scratch by the
+\begin_inset space ~
+\end_inset
+
+author while having a
+\begin_inset space ~
+\end_inset
+
+reference implementation by the
+\begin_inset space ~
+\end_inset
+
+supervisor (plus the
+\begin_inset space ~
+\end_inset
+
+model of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+testing trajectory).
+ The
+\begin_inset space ~
+\end_inset
+
+code is structured into several parts, notably objects 
 \family typewriter
 MeasurementNode
 \family default
@@ -187,7 +402,19 @@ MeasurementNode
 \family typewriter
 IWPrior
 \family default
- plus many of utility functions in the appropriate modules such as 
+ plus many of
+\begin_inset space ~
+\end_inset
+
+utility functions in
+\begin_inset space ~
+\end_inset
+
+the appropriate modules such as
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
 exponential_family.py
 \family default
@@ -204,31 +431,155 @@ Comparison
 \end_layout
 
 \begin_layout Standard
-The notation for the components of the state vector is kept as 
+The notation for the
+\begin_inset space ~
+\end_inset
+
+components of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state vector is kept as
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $x_{i}$
 \end_inset
 
- in all the charts.
- From the nature of the problem under study, it is clear that the first
- two components which are observable behave in a similar way and the same
- is true for the latter two (which are not observable).
- To keep the analysis clean and concise, only a representative component
- is plotted if the behavior of the two is not significantly different.
+ in
+\begin_inset space ~
+\end_inset
+
+all the
+\begin_inset space ~
+\end_inset
+
+charts.
+ From the
+\begin_inset space ~
+\end_inset
+
+nature of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+problem under study, it is clear that the
+\begin_inset space ~
+\end_inset
+
+first two components which are observable behave in
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+similar way and the
+\begin_inset space ~
+\end_inset
+
+same is true for the
+\begin_inset space ~
+\end_inset
+
+latter two (which are not observable).
+ To keep the
+\begin_inset space ~
+\end_inset
+
+analysis clean and concise, only a
+\begin_inset space ~
+\end_inset
+
+representative component is plotted if the
+\begin_inset space ~
+\end_inset
+
+behavior of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+two is not significantly different.
 \end_layout
 
 \begin_layout Standard
-The main metric used for the comparison is the Root Mean Square Error (RMSE).
- Where appropriate, standard deviation of errors is listed.
- The result numbers discussed further are results of many iterations (more
- than 20) with different initial noise assigned to different nodes.
+The main metric used for the
+\begin_inset space ~
+\end_inset
+
+comparison is the
+\begin_inset space ~
+\end_inset
+
+Root Mean Square Error (RMSE).
+ Where appropriate, standard deviation of
+\begin_inset space ~
+\end_inset
+
+errors is listed.
+ The
+\begin_inset space ~
+\end_inset
+
+result numbers discussed further are results of
+\begin_inset space ~
+\end_inset
+
+many iterations (more than 20) with different initial noise assigned to
+\begin_inset space ~
+\end_inset
+
+different nodes.
  It was although made sure that when comparing two different variants, same
- noise has been attributed to the appropriate elements.
- Finally, in situations when we are going to 
+ noise has been attributed to
+\begin_inset space ~
+\end_inset
+
+the appropriate elements.
+ Finally, in
+\begin_inset space ~
+\end_inset
+
+situations when we are going to
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 visualize
 \emph default
- matrices behavior a Frobenius matrix norm is used.
- The matrices are often close to a matrix 
+ matrices behavior a
+\begin_inset space ~
+\end_inset
+
+Frobenius matrix norm is used.
+ The
+\begin_inset space ~
+\end_inset
+
+matrices are often close to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+matrix 
 \begin_inset Formula $c\mathrm{I},c>0$
 \end_inset
 
@@ -240,8 +591,23 @@ Testing data
 \end_layout
 
 \begin_layout Standard
-Here we describe the dynamical system model in the standard notation as
- in 
+Here we describe the
+\begin_inset space ~
+\end_inset
+
+dynamical system model in
+\begin_inset space ~
+\end_inset
+
+the standard notation as
+\begin_inset space ~
+\end_inset
+
+in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Formal-definition-KF"
@@ -251,7 +617,11 @@ noprefix "false"
 
 \end_inset
 
- suitable for the Kalman Filter:
+ suitable for the
+\begin_inset space ~
+\end_inset
+
+Kalman Filter:
 \end_layout
 
 \begin_layout Standard
@@ -303,7 +673,11 @@ A random trajectory was then simulated for all four components using this
 \begin_inset Formula $\mat Q$
 \end_inset
 
- added to the each 
+ added to
+\begin_inset space ~
+\end_inset
+
+the each 
 \begin_inset Quotes eld
 \end_inset
 
@@ -311,14 +685,65 @@ true
 \begin_inset Quotes erd
 \end_inset
 
- data point as well as to the observations with covariance 
+ data point as
+\begin_inset space ~
+\end_inset
+
+well as
+\begin_inset space ~
+\end_inset
+
+to
+\begin_inset space ~
+\end_inset
+
+the observations with covariance 
 \begin_inset Formula $\mat R$
 \end_inset
 
 .
- It can be thought about as a point moving on a 2D plane.
- A typical result of the first two components of the test trajectory can
- be seen on 
+ It can be thought about as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+point moving on
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+2D plane.
+ A
+\begin_inset space ~
+\end_inset
+
+typical result of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+first two components of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+test trajectory can be seen on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:trajectoryExample"
@@ -328,7 +753,15 @@ noprefix "false"
 
 \end_inset
 
- while the other two on 
+ while the
+\begin_inset space ~
+\end_inset
+
+other two on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:trajectoryExample-3n4"
@@ -370,8 +803,28 @@ name "fig:trajectoryExample"
 
 \end_inset
 
-The first two components of the state vector plotted against each other.
- The red crosses mark the noisy measurements of these observable components.
+The first two components of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state vector plotted against each other.
+ The
+\begin_inset space ~
+\end_inset
+
+red crosses mark the
+\begin_inset space ~
+\end_inset
+
+noisy measurements of
+\begin_inset space ~
+\end_inset
+
+these observable components.
  
 \end_layout
 
@@ -412,8 +865,24 @@ name "fig:trajectoryExample-3n4"
 
 \end_inset
 
-True third and fourth component of the state vector.
- There are no measurements as opposed to the 
+True third and fourth component of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state vector.
+ There are no measurements as
+\begin_inset space ~
+\end_inset
+
+opposed to
+\begin_inset space ~
+\end_inset
+
+the 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:trajectoryExample"
@@ -442,9 +911,36 @@ Noise
 \end_layout
 
 \begin_layout Standard
-Different types of noise were tested to thoroughly examine the behavior
- of the filter under different circumstances.
- Examples for a static noise and variable noise can be seen in 
+Different types of
+\begin_inset space ~
+\end_inset
+
+noise were tested to
+\begin_inset space ~
+\end_inset
+
+thoroughly examine the
+\begin_inset space ~
+\end_inset
+
+behavior of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+filter under different circumstances.
+ Examples for a
+\begin_inset space ~
+\end_inset
+
+static noise and variable noise can be seen in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noiseStatic"
@@ -465,25 +961,120 @@ noprefix "false"
 \end_inset
 
 .
- In the simulations, both observable components were distorted by the type
- of the noise under study.
- Also, for the sake of simplicity, MNCM was the factor we considered that
- can be slowly varying.
- In cases when the true covariance is unknown, the initial covariance was
- set to a base trajectory covariance 
+ In the
+\begin_inset space ~
+\end_inset
+
+simulations, both observable components were distorted by the
+\begin_inset space ~
+\end_inset
+
+type of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise under study.
+ Also, for the
+\begin_inset space ~
+\end_inset
+
+sake of
+\begin_inset space ~
+\end_inset
+
+simplicity, MNCM was the
+\begin_inset space ~
+\end_inset
+
+factor we considered that can be slowly varying.
+ In cases when the
+\begin_inset space ~
+\end_inset
+
+true covariance is unknown, the
+\begin_inset space ~
+\end_inset
+
+initial covariance was set to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+base trajectory covariance 
 \begin_inset Formula $\mat R$
 \end_inset
 
-, simulating an estimate one could obtain in the real application by other
- means (for instance, by historical estimates or from the previous research).
+, simulating an
+\begin_inset space ~
+\end_inset
+
+estimate one could obtain in
+\begin_inset space ~
+\end_inset
+
+the real application by other means (for instance, by historical estimates
+ or from the
+\begin_inset space ~
+\end_inset
+
+previous research).
 \end_layout
 
 \begin_layout Standard
-It is worth mentioning that because of the task's triviality, the CAVI algorithm
- usually converged in few iterations – less than 5.
- Therefore, the number of iterations is set to the conservative 10.
- There is an exhaustive analysis of the algorithm stability and parameters
- effect in 
+It is worth mentioning that because of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+task's triviality, the
+\begin_inset space ~
+\end_inset
+
+CAVI algorithm usually converged in
+\begin_inset space ~
+\end_inset
+
+few iterations – less than 5.
+ Therefore, the
+\begin_inset space ~
+\end_inset
+
+number of
+\begin_inset space ~
+\end_inset
+
+iterations is set to
+\begin_inset space ~
+\end_inset
+
+the conservative 10.
+ There is an
+\begin_inset space ~
+\end_inset
+
+exhaustive analysis of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+algorithm stability and parameters effect in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -491,7 +1082,19 @@ literal "false"
 
 \end_inset
 
-, where the reader is kindly referred to if she wishes to know more.
+, where the
+\begin_inset space ~
+\end_inset
+
+reader is kindly referred to
+\begin_inset space ~
+\end_inset
+
+if she wishes to
+\begin_inset space ~
+\end_inset
+
+know more.
  
 \end_layout
 
@@ -563,7 +1166,15 @@ name "fig:noiseSinus"
 
 \end_inset
 
-A variable variance in the noise is simulated in this example.
+A variable variance in
+\begin_inset space ~
+\end_inset
+
+the noise is simulated in
+\begin_inset space ~
+\end_inset
+
+this example.
  
 \end_layout
 
@@ -589,25 +1200,152 @@ name "subsec:Single-node-VBAKF"
 \end_layout
 
 \begin_layout Standard
-In this section, we compare the VBAKF algorithm performance against the
- classic Kalman Filter (CKF).
- It is important to distinguish between the situation when the true noise
- covariance is known and when it is not.
- Another property of the system is the variance of the noise covariance
- over time.
- Since the motivation of developing VBAKF is especially for the situations
- when the covariance is unknown or there is a risk of choosing a wrong one,
- it is clear where the VBAKF is expected to perform better.
+In this section, we compare the
+\begin_inset space ~
+\end_inset
+
+VBAKF algorithm performance against the
+\begin_inset space ~
+\end_inset
+
+classic Kalman Filter (CKF).
+ It is important to
+\begin_inset space ~
+\end_inset
+
+distinguish between the
+\begin_inset space ~
+\end_inset
+
+situation when the
+\begin_inset space ~
+\end_inset
+
+true noise covariance is known and when it is not.
+ Another property of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+system is the
+\begin_inset space ~
+\end_inset
+
+variance of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise covariance over time.
+ Since the
+\begin_inset space ~
+\end_inset
+
+motivation of
+\begin_inset space ~
+\end_inset
+
+developing VBAKF is especially for the
+\begin_inset space ~
+\end_inset
+
+situations when the
+\begin_inset space ~
+\end_inset
+
+covariance is unknown or there is a
+\begin_inset space ~
+\end_inset
+
+risk of
+\begin_inset space ~
+\end_inset
+
+choosing a
+\begin_inset space ~
+\end_inset
+
+wrong one, it is clear where the
+\begin_inset space ~
+\end_inset
+
+VBAKF is expected to
+\begin_inset space ~
+\end_inset
+
+perform better.
 \end_layout
 
 \begin_layout Standard
-When the true covariance is known and static – an unlikely situation in
- the real world systems – we do not expect any improvements in predictions
- of VBAKF over CKF.
- Actually, the performance may be degraded by VBAKF trying to adjust to
- the noise, making the overall accuracy score worse than CKF.
- In the case when the covariance is known and changing depends on how is
- one able to tune the algorithm parameters (such as 
+When the
+\begin_inset space ~
+\end_inset
+
+true covariance is known and static – an
+\begin_inset space ~
+\end_inset
+
+unlikely situation in
+\begin_inset space ~
+\end_inset
+
+the real world systems – we do not expect any improvements in
+\begin_inset space ~
+\end_inset
+
+predictions of
+\begin_inset space ~
+\end_inset
+
+VBAKF over CKF.
+ Actually, the
+\begin_inset space ~
+\end_inset
+
+performance may be degraded by VBAKF trying to
+\begin_inset space ~
+\end_inset
+
+adjust to
+\begin_inset space ~
+\end_inset
+
+the noise, making the
+\begin_inset space ~
+\end_inset
+
+overall accuracy score worse than CKF.
+ In the
+\begin_inset space ~
+\end_inset
+
+case when the
+\begin_inset space ~
+\end_inset
+
+covariance is known and changing depends on
+\begin_inset space ~
+\end_inset
+
+how is one able to
+\begin_inset space ~
+\end_inset
+
+tune the
+\begin_inset space ~
+\end_inset
+
+algorithm parameters (such as
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -615,17 +1353,66 @@ When the true covariance is known and static – an unlikely situation in
 \begin_inset Formula $\tau$
 \end_inset
 
-), how big the changes are and how imprecise is the a priori value.
- Therefore, the main advantage is in the situations when one does not know
- the true value a priori or it is varying.
- It is the scenario where we expect VBAKF to surpass CKF, since if we are
- at least somewhat close to the initial estimate, it should correct itself
-\emph on
- 
-\emph default
-to the more precise values over time.
- Additionally, if the covariance is slowly changing, than VBAKF is able
- to adjust it as well.
+), how big the
+\begin_inset space ~
+\end_inset
+
+changes are and how imprecise is the
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+priori value.
+ Therefore, the
+\begin_inset space ~
+\end_inset
+
+main advantage is in
+\begin_inset space ~
+\end_inset
+
+the situations when one does not know the
+\begin_inset space ~
+\end_inset
+
+true value a
+\begin_inset space ~
+\end_inset
+
+priori or it is varying.
+ It is the
+\begin_inset space ~
+\end_inset
+
+scenario where we expect VBAKF to
+\begin_inset space ~
+\end_inset
+
+surpass CKF, since if we are at least somewhat close to
+\begin_inset space ~
+\end_inset
+
+the initial estimate, it should correct itself to
+\begin_inset space ~
+\end_inset
+
+the more precise values over time.
+ Additionally, if the
+\begin_inset space ~
+\end_inset
+
+covariance is slowly changing, than VBAKF is able to
+\begin_inset space ~
+\end_inset
+
+adjust it as
+\begin_inset space ~
+\end_inset
+
+well.
 \end_layout
 
 \begin_layout Subsection
@@ -633,7 +1420,11 @@ Static noise
 \end_layout
 
 \begin_layout Standard
-As is clear from the 
+As is clear from the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-static-x1-perf-1"
@@ -669,9 +1460,23 @@ name "fig:noise-static-x1-perf-1"
 
 \end_inset
 
-As expected, there is no performance gain in prediction(left) nor standard
- deviation (right) using VBAKF in the simplest possible situation of the
- known static noise.
+As expected, there is no performance gain in
+\begin_inset space ~
+\end_inset
+
+prediction(left) nor standard deviation (right) using VBAKF in
+\begin_inset space ~
+\end_inset
+
+the simplest possible situation of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+known static noise.
 \end_layout
 
 \end_inset
@@ -681,9 +1486,21 @@ As expected, there is no performance gain in prediction(left) nor standard
 
 \end_inset
 
-, the claim mentioned in the previous section is validated.
- The CKF variant is slightly outperforming VBAKF, although both variants
- are performing quite well.
+, the
+\begin_inset space ~
+\end_inset
+
+claim mentioned in
+\begin_inset space ~
+\end_inset
+
+the previous section is validated.
+ The
+\begin_inset space ~
+\end_inset
+
+CKF variant is slightly outperforming VBAKF, although both variants are
+ performing quite well.
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -720,11 +1537,23 @@ name "fig:noise-static-x1-perf"
 
 \end_inset
 
-The performance of both filters for 
+The performance of
+\begin_inset space ~
+\end_inset
+
+both filters for 
 \begin_inset Formula $x_{1}$
 \end_inset
 
- together with the measurements and the true trajectory.
+ together with the
+\begin_inset space ~
+\end_inset
+
+measurements and the
+\begin_inset space ~
+\end_inset
+
+true trajectory.
 \end_layout
 
 \end_inset
@@ -770,13 +1599,24 @@ name "fig:noise-static-x3-perf"
 
 \end_inset
 
-The performance of both filters for 
+The performance of
+\begin_inset space ~
+\end_inset
+
+both filters for 
 \begin_inset Formula $x_{3}$
 \end_inset
 
- together with the true trajectory.
+ together with the
+\begin_inset space ~
+\end_inset
+
+true trajectory.
  This is purely estimated variable and not directly observed, hence the
- measurements are missing.
+\begin_inset space ~
+\end_inset
+
+measurements are missing.
 \end_layout
 
 \end_inset
@@ -786,23 +1626,91 @@ The performance of both filters for
 
 \end_inset
 
- allows for some introspection to the observed behavior.
- VBAKF algorithm seems to pay the price for being more flexible than CKF
- and it is following the noise peaks too much.
- This could be to some degree controlled by the 
+ allows for some introspection to
+\begin_inset space ~
+\end_inset
+
+the observed behavior.
+ VBAKF algorithm seems to
+\begin_inset space ~
+\end_inset
+
+pay the
+\begin_inset space ~
+\end_inset
+
+price for being more flexible than CKF and it is following the
+\begin_inset space ~
+\end_inset
+
+noise peaks too much.
+ This could be to
+\begin_inset space ~
+\end_inset
+
+some degree controlled by the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\tau$
 \end_inset
 
- hyperparameter, but not much without degrading performance in some other
- means, such as becoming too rigid, or coalesce with CKF.
+ hyperparameter, but not much without degrading performance in
+\begin_inset space ~
+\end_inset
+
+some other means, such as
+\begin_inset space ~
+\end_inset
+
+becoming too rigid, or coalesce with CKF.
  
 \end_layout
 
 \begin_layout Standard
-Let us also demonstrate the situation when the true covariance is not known
- and set to some reasonable estimate close to the true covariance.
- The remarkable property of being able to adjust to the true covariance
- has been confirmed, as can be seen from RMSE comparison in 
+Let us also demonstrate the
+\begin_inset space ~
+\end_inset
+
+situation when the
+\begin_inset space ~
+\end_inset
+
+true covariance is not known and set to
+\begin_inset space ~
+\end_inset
+
+some reasonable estimate close to
+\begin_inset space ~
+\end_inset
+
+the true covariance.
+ The
+\begin_inset space ~
+\end_inset
+
+remarkable property of
+\begin_inset space ~
+\end_inset
+
+being able to
+\begin_inset space ~
+\end_inset
+
+adjust to
+\begin_inset space ~
+\end_inset
+
+the true covariance has been confirmed, as
+\begin_inset space ~
+\end_inset
+
+can be seen from RMSE comparison in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:rmse-static-unknown-comp"
@@ -838,10 +1746,52 @@ name "fig:rmse-static-unknown-comp"
 
 \end_inset
 
-Although the performance gain in RMSE of the observed components is already
- better (~20%), the major difference is present in the unobserved ones.
- VBAKF is performing over 2 times better in terms of RMSE (left) and 3 times
- better in terms of standard deviation of RMSE (right).
+Although the
+\begin_inset space ~
+\end_inset
+
+performance gain in
+\begin_inset space ~
+\end_inset
+
+RMSE of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+observed components is already better (~20%), the
+\begin_inset space ~
+\end_inset
+
+major difference is present in
+\begin_inset space ~
+\end_inset
+
+the unobserved ones.
+ VBAKF is performing over 2 times better in
+\begin_inset space ~
+\end_inset
+
+terms of
+\begin_inset space ~
+\end_inset
+
+RMSE (left) and 3 times better in
+\begin_inset space ~
+\end_inset
+
+terms of
+\begin_inset space ~
+\end_inset
+
+standard deviation of
+\begin_inset space ~
+\end_inset
+
+RMSE (right).
 \end_layout
 
 \end_inset
@@ -851,10 +1801,36 @@ Although the performance gain in RMSE of the observed components is already
 
 \end_inset
 
-, the performance is significantly better, especially in the unobserved
- components of the state vector.
- This is even more interesting when considering that the standard deviation
- of prediction error in 
+, the
+\begin_inset space ~
+\end_inset
+
+performance is significantly better, especially in
+\begin_inset space ~
+\end_inset
+
+the unobserved components of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state vector.
+ This is even more interesting when considering that the
+\begin_inset space ~
+\end_inset
+
+standard deviation of
+\begin_inset space ~
+\end_inset
+
+prediction error in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:rmse-static-unknown-comp"
@@ -864,9 +1840,32 @@ noprefix "false"
 
 \end_inset
 
- is significantly lower for VBAKF than in CKF.
- This is the remarkable property of the proposed algorithm and figures for
- the first component in  
+ is significantly lower for VBAKF than in
+\begin_inset space ~
+\end_inset
+
+CKF.
+ This is the
+\begin_inset space ~
+\end_inset
+
+remarkable property of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm and figures for the
+\begin_inset space ~
+\end_inset
+
+first component in
+\begin_inset space ~
+\end_inset
+
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-static-x1-unknown-1"
@@ -902,8 +1901,27 @@ name "fig:noise-static-x1-unknown-1"
 
 \end_inset
 
-The comparison of both filters for the first state component with the measuremen
-ts and the true trajectory clearly shows that the VBAKF variant can 
+The comparison of
+\begin_inset space ~
+\end_inset
+
+both filters for the
+\begin_inset space ~
+\end_inset
+
+first state component with the
+\begin_inset space ~
+\end_inset
+
+measurements and the
+\begin_inset space ~
+\end_inset
+
+true trajectory clearly shows that the
+\begin_inset space ~
+\end_inset
+
+VBAKF variant can 
 \begin_inset Quotes eld
 \end_inset
 
@@ -911,7 +1929,23 @@ correct
 \begin_inset Quotes erd
 \end_inset
 
- the imprecise a priori estimation to a more suitable value.
+ the
+\begin_inset space ~
+\end_inset
+
+imprecise a
+\begin_inset space ~
+\end_inset
+
+priori estimation to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+more suitable value.
  
 \end_layout
 
@@ -922,7 +1956,11 @@ correct
 
 \end_inset
 
- and third component in 
+ and third component in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-static-x3-unknown"
@@ -958,15 +1996,41 @@ name "fig:noise-static-x3-unknown"
 
 \end_inset
 
-Estimated values of 
+Estimated values of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $x_{3}$
 \end_inset
 
- component by both algorithms and with the true trajectory and the measurements.
- As the initial estimate of the covariance was imprecise, VBAKF adjusted
- for it while CKF did not.
- First 5 points has been omitted from this plot for a clarity, where both
- algorithms have quite high peaks before they 
+ component by both algorithms and with the
+\begin_inset space ~
+\end_inset
+
+true trajectory and the
+\begin_inset space ~
+\end_inset
+
+measurements.
+ As the
+\begin_inset space ~
+\end_inset
+
+initial estimate of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+covariance was imprecise, VBAKF adjusted for it while CKF did not.
+ First 5 points has been omitted from this plot for a
+\begin_inset space ~
+\end_inset
+
+clarity, where both algorithms have quite high peaks before they 
 \begin_inset Quotes eld
 \end_inset
 
@@ -974,7 +2038,11 @@ catch up
 \begin_inset Quotes erd
 \end_inset
 
- to the trend.
+ to
+\begin_inset space ~
+\end_inset
+
+the trend.
 \end_layout
 
 \end_inset
@@ -985,11 +2053,45 @@ catch up
 \end_inset
 
  only supports that.
- Both algorithms started with the noise covariance estimate which was a
- bit off the true value, but VBAKF variant could adjust for it, placing
- less emphasis on the measurements and believing more to the prediction
- step.
- CKF algorithm just stays on the same level of reliance without correction.
+ Both algorithms started with the
+\begin_inset space ~
+\end_inset
+
+noise covariance estimate which was a
+\begin_inset space ~
+\end_inset
+
+bit off the
+\begin_inset space ~
+\end_inset
+
+true value, but VBAKF variant could adjust for it, placing less emphasis
+ on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+measurements and believing more to
+\begin_inset space ~
+\end_inset
+
+the prediction step.
+ CKF algorithm just stays on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+same level of
+\begin_inset space ~
+\end_inset
+
+reliance without correction.
 \end_layout
 
 \begin_layout Subsection
@@ -997,9 +2099,31 @@ Variable noise
 \end_layout
 
 \begin_layout Standard
-In this scenario, it is again considered that the value for the true covariance
- is unknown and contrary to the previously discussed static case, it is
- slowly changing as is visualized on the 
+In this scenario, it is again considered that the
+\begin_inset space ~
+\end_inset
+
+value for the
+\begin_inset space ~
+\end_inset
+
+true covariance is unknown and contrary to
+\begin_inset space ~
+\end_inset
+
+the previously discussed static case, it is slowly changing as
+\begin_inset space ~
+\end_inset
+
+is visualized on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noiseSinus"
@@ -1010,11 +2134,45 @@ noprefix "false"
 \end_inset
 
 .
- From the performance evaluation perspective, the situation is analogous
- to the previous case when the noise covariance is not known.
- Based on the expectations from the theory and the previous results, there
- is no surprise that VBAKF is performing significantly better over CKF with
- details in 
+ From the
+\begin_inset space ~
+\end_inset
+
+performance evaluation perspective, the
+\begin_inset space ~
+\end_inset
+
+situation is analogous to
+\begin_inset space ~
+\end_inset
+
+the previous case when the
+\begin_inset space ~
+\end_inset
+
+noise covariance is not known.
+ Based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+expectations from the
+\begin_inset space ~
+\end_inset
+
+theory and the
+\begin_inset space ~
+\end_inset
+
+previous results, there is no surprise that VBAKF is performing significantly
+ better over CKF with details in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:rmse-static-unknown-comp-1"
@@ -1050,9 +2208,24 @@ name "fig:rmse-static-unknown-comp-1"
 
 \end_inset
 
-Similarly to the unknown static noise case, VBAKF is clearly performing
- significantly better in terms of RMSE (left) with much less variance in
- the estimation error (right).
+Similarly to
+\begin_inset space ~
+\end_inset
+
+the unknown static noise case, VBAKF is clearly performing significantly
+ better in
+\begin_inset space ~
+\end_inset
+
+terms of
+\begin_inset space ~
+\end_inset
+
+RMSE (left) with much less variance in
+\begin_inset space ~
+\end_inset
+
+the estimation error (right).
  Furthermore, this is exhibited over all components.
 \end_layout
 
@@ -1064,7 +2237,11 @@ Similarly to the unknown static noise case, VBAKF is clearly performing
 \end_inset
 
 .
- As can be seen from trajectories on 
+ As can be seen from trajectories on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-sinus-x1"
@@ -1101,9 +2278,21 @@ name "fig:noise-sinus-x1"
 \end_inset
 
 First component estimates for both algorithms with observations, true values
- and also the noise amplitude.
+ and also the
+\begin_inset space ~
+\end_inset
+
+noise amplitude.
  Notice how VBAKF is becoming more rigid during high noise peaks while still
- being flexible to catch up to the trajectory change.
+ being flexible to
+\begin_inset space ~
+\end_inset
+
+catch up to
+\begin_inset space ~
+\end_inset
+
+the trajectory change.
 \end_layout
 
 \end_inset
@@ -1150,8 +2339,20 @@ name "fig:noise-sinus-x3"
 \end_inset
 
 Third component estimates for both algorithms with observations, true values
- and also the noise amplitude.
- As in the case of 
+ and also the
+\begin_inset space ~
+\end_inset
+
+noise amplitude.
+ As in
+\begin_inset space ~
+\end_inset
+
+the case of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-sinus-x1"
@@ -1161,7 +2362,11 @@ noprefix "false"
 
 \end_inset
 
-, the VBAKF can control during very noisy intervals.
+, the
+\begin_inset space ~
+\end_inset
+
+VBAKF can control during very noisy intervals.
 \end_layout
 
 \end_inset
@@ -1171,14 +2376,56 @@ noprefix "false"
 
 \end_inset
 
-, VBAKF is again able to put less emphasis on the measurements during epochs
- of high noise, contrary to CKF being to sensitive in during these.
+, VBAKF is again able to
+\begin_inset space ~
+\end_inset
+
+put less emphasis on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+measurements during epochs of
+\begin_inset space ~
+\end_inset
+
+high noise, contrary to
+\begin_inset space ~
+\end_inset
+
+CKF being to
+\begin_inset space ~
+\end_inset
+
+sensitive in
+\begin_inset space ~
+\end_inset
+
+during these.
  
 \end_layout
 
 \begin_layout Standard
-Finally, a visualization of VBAKF capabilities can be seen on the graph
- 
+Finally, a
+\begin_inset space ~
+\end_inset
+
+visualization of
+\begin_inset space ~
+\end_inset
+
+VBAKF capabilities can be seen on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+graph 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:adaptation-of-single"
@@ -1189,9 +2436,35 @@ noprefix "false"
 \end_inset
 
 .
- The adaptation of the noise covariance matrix to the true unknown covariance
- matrix is supporting the earlier findings of being able to account for
- noisy epochs.
+ The
+\begin_inset space ~
+\end_inset
+
+adaptation of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise covariance matrix to
+\begin_inset space ~
+\end_inset
+
+the true unknown covariance matrix is supporting the
+\begin_inset space ~
+\end_inset
+
+earlier findings of
+\begin_inset space ~
+\end_inset
+
+being able to
+\begin_inset space ~
+\end_inset
+
+account for noisy epochs.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1217,16 +2490,82 @@ name "fig:adaptation-of-single"
 
 \end_inset
 
-Frobenius norms comparison of the VBAKF algorithm and covariance of a moving
- window (size 20 steps to the future) of the noise.
- The diagonal values of 
+Frobenius norms comparison of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+VBAKF algorithm and covariance of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+moving window (size 20 steps to
+\begin_inset space ~
+\end_inset
+
+the future) of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise.
+ The
+\begin_inset space ~
+\end_inset
+
+diagonal values of
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $\mat R$
 \end_inset
 
- are increasing during the noise peaks, while going down during low noise
- epochs.
- The scale in this chart is not important, it is the trend of the norms.
- Those should be ideally as close as possible.
+ are increasing during the
+\begin_inset space ~
+\end_inset
+
+noise peaks, while going down during low noise epochs.
+ The
+\begin_inset space ~
+\end_inset
+
+scale in
+\begin_inset space ~
+\end_inset
+
+this chart is not important, it is the
+\begin_inset space ~
+\end_inset
+
+trend of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+norms.
+ Those should be ideally as
+\begin_inset space ~
+\end_inset
+
+close as
+\begin_inset space ~
+\end_inset
+
+possible.
  
 \end_layout
 
@@ -1246,7 +2585,23 @@ Conclusion
 
 \begin_layout Standard
 The simulations show that our single node VBAKF implementation is behaving
- as the theory predicts and in concordance with the reference source 
+ as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+theory predicts and in
+\begin_inset space ~
+\end_inset
+
+concordance with the
+\begin_inset space ~
+\end_inset
+
+reference source 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1254,23 +2609,166 @@ literal "false"
 
 \end_inset
 
- where the more emphasis on noise analysis was carried out.
- VBAKF does not perform better in case of a static noise when the covariance
- is known, merely just adding more computational time and possibly worse
- results trying to adjust to the random fluctuations.
- It outperforms CKF in situations when the covariance of the noise is either
- unknown or slowly changing.
- The performance of VBAKF was consistently better than CKF in these cases
- over many iterations and many variants of a noise.
- It is also worth mentioning that a very little tuning had to be done to
- get to these results.
- How close the initial estimate must be to guarantee divergence is of course
- almost impossible to say in the real world cases, but in our testing case,
- even extreme initialization lead to a quick correction of the state (in
- less than 5 observations).
- Such an extreme initialization was for example over three orders of magnitudes
- of the reality – a situation in which the CKF just does not provide any
- useful information.
+ where the
+\begin_inset space ~
+\end_inset
+
+more emphasis on
+\begin_inset space ~
+\end_inset
+
+noise analysis was carried out.
+ VBAKF does not perform better in
+\begin_inset space ~
+\end_inset
+
+case of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+static noise when the
+\begin_inset space ~
+\end_inset
+
+covariance is known, merely just adding more computational time and possibly
+ worse results trying to
+\begin_inset space ~
+\end_inset
+
+adjust to
+\begin_inset space ~
+\end_inset
+
+the random fluctuations.
+ It outperforms CKF in
+\begin_inset space ~
+\end_inset
+
+situations when the
+\begin_inset space ~
+\end_inset
+
+covariance of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise is either unknown or slowly changing.
+ The
+\begin_inset space ~
+\end_inset
+
+performance of
+\begin_inset space ~
+\end_inset
+
+VBAKF was consistently better than CKF in
+\begin_inset space ~
+\end_inset
+
+these cases over many iterations and many variants of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+noise.
+ It is also worth mentioning that a
+\begin_inset space ~
+\end_inset
+
+very little tuning had to
+\begin_inset space ~
+\end_inset
+
+be done to
+\begin_inset space ~
+\end_inset
+
+get to
+\begin_inset space ~
+\end_inset
+
+these results.
+ How close the
+\begin_inset space ~
+\end_inset
+
+initial estimate must be to
+\begin_inset space ~
+\end_inset
+
+guarantee divergence is of
+\begin_inset space ~
+\end_inset
+
+course almost impossible to
+\begin_inset space ~
+\end_inset
+
+say in
+\begin_inset space ~
+\end_inset
+
+the real world cases, but in
+\begin_inset space ~
+\end_inset
+
+our testing case, even extreme initialization lead to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+quick correction of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+state (in less than 5 observations).
+ Such an
+\begin_inset space ~
+\end_inset
+
+extreme initialization was, for example, over three orders of
+\begin_inset space ~
+\end_inset
+
+magnitudes of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+reality – a
+\begin_inset space ~
+\end_inset
+
+situation in
+\begin_inset space ~
+\end_inset
+
+which the
+\begin_inset space ~
+\end_inset
+
+CKF just does not provide any useful information.
  
 \end_layout
 
@@ -1279,7 +2777,19 @@ Distributed VBAKF
 \end_layout
 
 \begin_layout Standard
-Based on the results from the previous chapter 
+Based on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+results from the
+\begin_inset space ~
+\end_inset
+
+previous chapter 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "subsec:Single-node-VBAKF"
@@ -1289,12 +2799,61 @@ noprefix "false"
 
 \end_inset
 
-, only a slowly changing noise is going to be considered to not clutter
- the analysis of VBAKF with diffusion versus VBAKF without diffusion.
- As has been mentioned at the beginning of this whole chapter, the figures
- when plotting information from multiple nodes should be read as a general
- trend exhibited by the system.
- It would be a mistake trying to interpret them line by line.
+, only a
+\begin_inset space ~
+\end_inset
+
+slowly changing noise is going to
+\begin_inset space ~
+\end_inset
+
+be considered to
+\begin_inset space ~
+\end_inset
+
+not clutter the
+\begin_inset space ~
+\end_inset
+
+analysis of
+\begin_inset space ~
+\end_inset
+
+VBAKF with diffusion versus VBAKF without diffusion.
+ As has been mentioned at the
+\begin_inset space ~
+\end_inset
+
+beginning of
+\begin_inset space ~
+\end_inset
+
+this whole chapter, the
+\begin_inset space ~
+\end_inset
+
+figures when plotting information from multiple nodes should be read as
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+general trend exhibited by the
+\begin_inset space ~
+\end_inset
+
+system.
+ It would be a
+\begin_inset space ~
+\end_inset
+
+mistake trying to
+\begin_inset space ~
+\end_inset
+
+interpret them line by line.
  
 \end_layout
 
@@ -1303,8 +2862,23 @@ Setting
 \end_layout
 
 \begin_layout Standard
-Our network topology of nodes is for simplicity a 4-regular graph as is
- in 
+Our network topology of
+\begin_inset space ~
+\end_inset
+
+nodes is for simplicity a
+\begin_inset space ~
+\end_inset
+
+4-regular graph as
+\begin_inset space ~
+\end_inset
+
+is in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:network-top"
@@ -1340,9 +2914,28 @@ name "fig:network-top"
 
 \end_inset
 
-A network representing the connection of different measurement nodes connected
- with the neighbors.
- The topology is a 4-regular graph.
+A network representing the
+\begin_inset space ~
+\end_inset
+
+connection of
+\begin_inset space ~
+\end_inset
+
+different measurement nodes connected with the
+\begin_inset space ~
+\end_inset
+
+neighbors.
+ The
+\begin_inset space ~
+\end_inset
+
+topology is a
+\begin_inset space ~
+\end_inset
+
+4-regular graph.
 \end_layout
 
 \end_inset
@@ -1353,8 +2946,19 @@ A network representing the connection of different measurement nodes connected
 \end_inset
 
 .
- A slowly changing, different noise is attributed to each node in the network
- (
+ A
+\begin_inset space ~
+\end_inset
+
+slowly changing, different noise is attributed to
+\begin_inset space ~
+\end_inset
+
+each node in
+\begin_inset space ~
+\end_inset
+
+the network (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:noise-diffusion"
@@ -1390,7 +2994,15 @@ name "fig:noise-diffusion"
 
 \end_inset
 
-Values of the first and second component with noise for different nodes.
+Values of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+first and second component with noise for different nodes.
 \end_layout
 
 \end_inset
@@ -1401,10 +3013,36 @@ Values of the first and second component with noise for different nodes.
 \end_inset
 
 ).
- When we compare diffused versus non-diffused variant, the attributed noise
- in the both runs was the same in corresponding nodes to make the results
- comparable and reproducible.
- The results are averaged over at least 10 iterations.
+ When we compare diffused versus non-diffused variant, the
+\begin_inset space ~
+\end_inset
+
+attributed noise in
+\begin_inset space ~
+\end_inset
+
+the both runs was the
+\begin_inset space ~
+\end_inset
+
+same in
+\begin_inset space ~
+\end_inset
+
+corresponding nodes to
+\begin_inset space ~
+\end_inset
+
+make the
+\begin_inset space ~
+\end_inset
+
+results comparable and reproducible.
+ The
+\begin_inset space ~
+\end_inset
+
+results are averaged over at least 10 iterations.
  
 \end_layout
 
@@ -1413,9 +3051,36 @@ Estimation performance
 \end_layout
 
 \begin_layout Standard
-As expected, the estimation performance of the diffused variant is better
- than non-diffused variant.
- This is not only a result in the averaged results on the figure 
+As expected, the
+\begin_inset space ~
+\end_inset
+
+estimation performance of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+diffused variant is better than non-diffused variant.
+ This is not only a
+\begin_inset space ~
+\end_inset
+
+result in
+\begin_inset space ~
+\end_inset
+
+the averaged results on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+figure 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:mean-rmse-diffnodiff"
@@ -1451,8 +3116,19 @@ name "fig:mean-rmse-diffnodiff"
 
 \end_inset
 
-Diffusion variant outperforms the non-diffused variant not just in Mean
- RMSE (left), but also in Mean Standard deviation over all runs (right).
+Diffusion variant outperforms the
+\begin_inset space ~
+\end_inset
+
+non-diffused variant not just in
+\begin_inset space ~
+\end_inset
+
+Mean RMSE (left), but also in
+\begin_inset space ~
+\end_inset
+
+Mean Standard deviation over all runs (right).
 \end_layout
 
 \end_inset
@@ -1463,12 +3139,35 @@ Diffusion variant outperforms the non-diffused variant not just in Mean
 \end_inset
 
 , but it was consistent across literally all runs.
- In other words, there was not a 
+ In other words, there was not a
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 single 
 \emph default
-run where the non-diffused variant outperforms the diffused one in the matter
- of Mean RMSE and standard deviation in 
+run where the
+\begin_inset space ~
+\end_inset
+
+non-diffused variant outperforms the
+\begin_inset space ~
+\end_inset
+
+diffused one in
+\begin_inset space ~
+\end_inset
+
+the matter of
+\begin_inset space ~
+\end_inset
+
+Mean RMSE and standard deviation in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:mean-rmse-diffnodiff"
@@ -1479,11 +3178,46 @@ noprefix "false"
 \end_inset
 
 .
- The price is the higher run time, since the diffusion variant does an additiona
-l step – diffusing parameters – in each iteration.
+ The
+\begin_inset space ~
+\end_inset
+
+price is the
+\begin_inset space ~
+\end_inset
+
+higher run time, since the
+\begin_inset space ~
+\end_inset
+
+diffusion variant does an
+\begin_inset space ~
+\end_inset
+
+additional step – diffusing parameters – in
+\begin_inset space ~
+\end_inset
+
+each iteration.
  In our setting, this was almost negligible, taking only about 5% longer
- than the non-diffused variant.
- This time penalty would, of course, depend on the chosen diffusion strategy.
+ than the
+\begin_inset space ~
+\end_inset
+
+non-diffused variant.
+ This time penalty would, of
+\begin_inset space ~
+\end_inset
+
+course, depend on
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+chosen diffusion strategy.
  
 \end_layout
 
@@ -1492,12 +3226,28 @@ Noise covariance analysis
 \end_layout
 
 \begin_layout Standard
-The idea behind diffusion optimization is that the 
+The idea behind diffusion optimization is that the
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 averaging 
 \emph default
-over several nodes will eliminate extremes and smooths the estimation.
- This is clearly happening, as can be seen in 
+over several nodes will eliminate extremes and smooths the
+\begin_inset space ~
+\end_inset
+
+estimation.
+ This is clearly happening, as
+\begin_inset space ~
+\end_inset
+
+can be seen in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:single-node-R-prepost"
@@ -1533,9 +3283,19 @@ name "fig:single-node-R-prepost"
 
 \end_inset
 
-The diffusion algorithm smooths the trajectory for this single randomly
- chosen single node from the network, ignoring significant peaks which would
- otherwise lead to inferior estimates.
+The diffusion algorithm smooths the
+\begin_inset space ~
+\end_inset
+
+trajectory for this single randomly chosen single node from the
+\begin_inset space ~
+\end_inset
+
+network, ignoring significant peaks which would otherwise lead to
+\begin_inset space ~
+\end_inset
+
+inferior estimates.
  
 \end_layout
 
@@ -1546,10 +3306,32 @@ The diffusion algorithm smooths the trajectory for this single randomly
 
 \end_inset
 
-, where we plot a Frobenius norm of the noise covariance matrix before and
- after diffusion step.
- Naturally, this phenomenon was exhibited on all nodes in the network, visualize
-d in 
+, where we plot a
+\begin_inset space ~
+\end_inset
+
+Frobenius norm of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+noise covariance matrix before and after diffusion step.
+ Naturally, this phenomenon was exhibited on
+\begin_inset space ~
+\end_inset
+
+all nodes in
+\begin_inset space ~
+\end_inset
+
+the network, visualized in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-R-prepost"
@@ -1585,8 +3367,23 @@ name "fig:all-node-R-prepost"
 
 \end_inset
 
-All nodes exhibit the behavior of smoothing out the noise covariance estimates,
- leading to the better results.
+All nodes exhibit the
+\begin_inset space ~
+\end_inset
+
+behavior of
+\begin_inset space ~
+\end_inset
+
+smoothing out the
+\begin_inset space ~
+\end_inset
+
+noise covariance estimates, leading to
+\begin_inset space ~
+\end_inset
+
+the better results.
  
 \end_layout
 
@@ -1601,7 +3398,15 @@ All nodes exhibit the behavior of smoothing out the noise covariance estimates,
 \end_layout
 
 \begin_layout Standard
-Another view of this phenomenon is presented in 
+Another view of
+\begin_inset space ~
+\end_inset
+
+this phenomenon is presented in
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-logR-nodiff"
@@ -1637,10 +3442,29 @@ name "fig:all-node-logR-nodiff"
 
 \end_inset
 
-Nodes in non-diffusion variant does not exhibit any common pattern.
- There is also one of the nodes diverging quite significantly, considering
- the logarithmic scale.
- The diffusion variant do not exhibit such divergence.
+Nodes in
+\begin_inset space ~
+\end_inset
+
+non-diffusion variant does not exhibit any common pattern.
+ There is also one of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+nodes diverging quite significantly, considering the
+\begin_inset space ~
+\end_inset
+
+logarithmic scale.
+ The
+\begin_inset space ~
+\end_inset
+
+diffusion variant do not exhibit such divergence.
 \end_layout
 
 \end_inset
@@ -1686,8 +3510,19 @@ name "fig:all-node-logR-diff"
 
 \end_inset
 
-Nodes in the diffusion variant are able to pick up the general noise trend
- and 
+Nodes in
+\begin_inset space ~
+\end_inset
+
+the diffusion variant are able to
+\begin_inset space ~
+\end_inset
+
+pick up the
+\begin_inset space ~
+\end_inset
+
+general noise trend and 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1695,8 +3530,23 @@ agree
 \begin_inset Quotes erd
 \end_inset
 
- on it to some degree, even though it may not be the best estimate for the
- independent nodes.
+ on
+\begin_inset space ~
+\end_inset
+
+it to
+\begin_inset space ~
+\end_inset
+
+some degree, even though it may not be the
+\begin_inset space ~
+\end_inset
+
+best estimate for the
+\begin_inset space ~
+\end_inset
+
+independent nodes.
  
 \end_layout
 
@@ -1708,17 +3558,54 @@ agree
 \end_inset
 
 .
- While there is almost no or very little pattern in the non-diffused variant,
- the diffusion variant got a general trend.
+ While there is almost no or very little pattern in
+\begin_inset space ~
+\end_inset
+
+the non-diffused variant, the
+\begin_inset space ~
+\end_inset
+
+diffusion variant got a
+\begin_inset space ~
+\end_inset
+
+general trend.
  
 \end_layout
 
 \begin_layout Standard
-It is also interesting that in our simulations, the diffused variance exhibit
- much fewer divergence cases, which can be explained by the fact that any
- extremes are much likely to be suppressed by neighbor nodes participating
- in the diffusion.
- An example can be seen on 
+It is also interesting that in
+\begin_inset space ~
+\end_inset
+
+our simulations, the
+\begin_inset space ~
+\end_inset
+
+diffused variance exhibit much fewer divergence cases, which can be explained
+ by the
+\begin_inset space ~
+\end_inset
+
+fact that any extremes are much likely to
+\begin_inset space ~
+\end_inset
+
+be suppressed by neighbor nodes participating in
+\begin_inset space ~
+\end_inset
+
+the diffusion.
+ An
+\begin_inset space ~
+\end_inset
+
+example can be seen on
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-R-prepost-1"
@@ -1754,7 +3641,15 @@ name "fig:all-node-R-prepost-1"
 
 \end_inset
 
-An example of diverging node present in the non-diffused variant.
+An example of
+\begin_inset space ~
+\end_inset
+
+diverging node present in
+\begin_inset space ~
+\end_inset
+
+the non-diffused variant.
  
 \end_layout
 
@@ -1773,12 +3668,27 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-Indeed, the diffusion extension to the VBAKF algorithm clearly performs
- better than variant without diffusion in place.
+Indeed, the
+\begin_inset space ~
+\end_inset
+
+diffusion extension to
+\begin_inset space ~
+\end_inset
+
+the VBAKF algorithm clearly performs better than variant without diffusion
+ in
+\begin_inset space ~
+\end_inset
+
+place.
  This is exhibited consistently over many iterations with different initializati
 on noise.
- It is relatively robust to the parameter setting when sane defaults are
- used (see 
+ It is relatively robust to
+\begin_inset space ~
+\end_inset
+
+the parameter setting when sane defaults are used (see 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1791,44 +3701,226 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The disadvantages of the diffusion algorithm are mostly practical limitations
- of real-life applications.
+The disadvantages of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+diffusion algorithm are mostly practical limitations of
+\begin_inset space ~
+\end_inset
+
+real-life applications.
  
 \end_layout
 
 \begin_layout Standard
-First of all, a communication must be established between the nodes.
- The implementation of this communication may not be possible, nodes can
- be for example only connected to a master node or do not have an ability
- to receive any information from the outer world, only to send one.
- Notwithstanding, this is not an intrinsic property of the method, but rather
- a common requirement for many diffusion and consensus approaches.
- It is worth to mention that the algorithm does not rely on having all nodes
- participating in all time steps.
- As a matter of fact, the worst case scenario is a fallback to the default
- non-diffused variant when no nodes are communicating.
- This fact also facilitates the possible implementation in already existing
- solutions, since it can be implemented gradually, proceeding with the diffusion
- extension only when it is possible and a preliminary results show its effective
-ness.
+First of
+\begin_inset space ~
+\end_inset
+
+all, a
+\begin_inset space ~
+\end_inset
+
+communication must be established between the
+\begin_inset space ~
+\end_inset
+
+nodes.
+ The
+\begin_inset space ~
+\end_inset
+
+implementation of
+\begin_inset space ~
+\end_inset
+
+this communication may not be possible, nodes can be, for example, only
+ connected to
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+master node or do not have an
+\begin_inset space ~
+\end_inset
+
+ability to
+\begin_inset space ~
+\end_inset
+
+receive any information from the
+\begin_inset space ~
+\end_inset
+
+outer world, only to
+\begin_inset space ~
+\end_inset
+
+send one.
+ Notwithstanding, this is not an
+\begin_inset space ~
+\end_inset
+
+intrinsic property of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+method, but rather a
+\begin_inset space ~
+\end_inset
+
+common requirement for many diffusion and consensus approaches.
+ It is worth to
+\begin_inset space ~
+\end_inset
+
+mention that the
+\begin_inset space ~
+\end_inset
+
+algorithm does not rely on
+\begin_inset space ~
+\end_inset
+
+having all nodes participating in
+\begin_inset space ~
+\end_inset
+
+all time steps.
+ As a
+\begin_inset space ~
+\end_inset
+
+matter of
+\begin_inset space ~
+\end_inset
+
+fact, the
+\begin_inset space ~
+\end_inset
+
+worst case scenario is a
+\begin_inset space ~
+\end_inset
+
+fallback to
+\begin_inset space ~
+\end_inset
+
+the default non-diffused variant when no nodes are communicating.
+ This fact also facilitates the
+\begin_inset space ~
+\end_inset
+
+possible implementation in
+\begin_inset space ~
+\end_inset
+
+already existing solutions, since it can be implemented gradually, proceeding
+ with the
+\begin_inset space ~
+\end_inset
+
+diffusion extension only when it is possible and a
+\begin_inset space ~
+\end_inset
+
+preliminary results show its effectiveness.
  
 \end_layout
 
 \begin_layout Standard
-Secondly, there is additional implementation complexity, but as can be seen
- from our code, it is very easy to add the diffusion step into the existing
- KF algorithm.
- The diffusion strategy may be of course much more complex than it is in
- our case, but again, that is not an intrinsic property of the proposed
- algorithm but rather specific to the use case.
+Secondly, there is additional implementation complexity, but as
+\begin_inset space ~
+\end_inset
+
+can be seen from our code, it is very easy to
+\begin_inset space ~
+\end_inset
+
+add the
+\begin_inset space ~
+\end_inset
+
+diffusion step into the
+\begin_inset space ~
+\end_inset
+
+existing KF algorithm.
+ The
+\begin_inset space ~
+\end_inset
+
+diffusion strategy may be of
+\begin_inset space ~
+\end_inset
+
+course much more complex than it is in
+\begin_inset space ~
+\end_inset
+
+our case, but again, that is not an
+\begin_inset space ~
+\end_inset
+
+intrinsic property of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm but rather specific to
+\begin_inset space ~
+\end_inset
+
+the use case.
 \end_layout
 
 \begin_layout Standard
-In conclusion, when the node communication is not an issue, we believe that
- the proposed algorithm can be implemented for a very little price, while
- not performing worse than a traditional non-diffused variant.
- Its flexibility allows usage in various scenarios, being able to incorporate
- arbitrarily complex diffusion strategy.
+In conclusion, when the
+\begin_inset space ~
+\end_inset
+
+node communication is not an
+\begin_inset space ~
+\end_inset
+
+issue, we believe that the
+\begin_inset space ~
+\end_inset
+
+proposed algorithm can be implemented for a
+\begin_inset space ~
+\end_inset
+
+very little price, while not performing worse than a
+\begin_inset space ~
+\end_inset
+
+traditional non-diffused variant.
+ Its flexibility allows usage in
+\begin_inset space ~
+\end_inset
+
+various scenarios, being able to
+\begin_inset space ~
+\end_inset
+
+incorporate arbitrarily complex diffusion strategy.
 \end_layout
 
 \begin_layout Section
@@ -1836,38 +3928,123 @@ Future work
 \end_layout
 
 \begin_layout Standard
-It is obvious that this work does not exhaust the topic in its entirety.
- To the best of the author's knowledge, there has been a little done in
- the field of combining parameter diffusion or consensus algorithms with
- variational Bayes methods.
- The key questions regarding the algorithm behavior, such as the numerical
- stability or convergence criteria remains unanswered, unfortunately.
- Additionally, we believe that it would be a beneficial contribution to
- the field if at least following were studied:
+It is obvious that this work does not exhaust the
+\begin_inset space ~
+\end_inset
+
+topic in
+\begin_inset space ~
+\end_inset
+
+its entirety.
+ To the
+\begin_inset space ~
+\end_inset
+
+best of
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+author's knowledge, there has been a
+\begin_inset space ~
+\end_inset
+
+little done in
+\begin_inset space ~
+\end_inset
+
+the field of
+\begin_inset space ~
+\end_inset
+
+combining parameter diffusion or consensus algorithms with variational Bayes
+ methods.
+ The
+\begin_inset space ~
+\end_inset
+
+key questions regarding the
+\begin_inset space ~
+\end_inset
+
+algorithm behavior, such as
+\begin_inset space ~
+\end_inset
+
+the
+\begin_inset space ~
+\end_inset
+
+numerical stability or convergence criteria remains unanswered, unfortunately.
+ Additionally, we believe that it would be a
+\begin_inset space ~
+\end_inset
+
+beneficial contribution to
+\begin_inset space ~
+\end_inset
+
+the field if at least following were studied:
 \end_layout
 
 \begin_layout Itemize
-What role network's topology plays and how to design networks which are
- cheap, but still effective?
+What role network's topology plays and how to
+\begin_inset space ~
+\end_inset
+
+design networks which are cheap, but still effective?
 \end_layout
 
 \begin_layout Itemize
-What are the most effective diffusion strategies in this setting?
+What are the
+\begin_inset space ~
+\end_inset
+
+most effective diffusion strategies in
+\begin_inset space ~
+\end_inset
+
+this setting?
 \end_layout
 
 \begin_layout Itemize
-Sensitiveness to different kinds of (still Gaussian white) noise or its
- evolution.
+Sensitiveness to
+\begin_inset space ~
+\end_inset
+
+different kinds of
+\begin_inset space ~
+\end_inset
+
+(still Gaussian white) noise or its evolution.
 \end_layout
 
 \begin_layout Itemize
-Sensitiveness to different state models.
+Sensitiveness to
+\begin_inset space ~
+\end_inset
+
+different state models.
 \end_layout
 
 \begin_layout Standard
-A higher level extension would be to consider different kinds of white noises
- when different priors would have to be developed and new equations derived
- accordingly.
+A higher level extension would be to
+\begin_inset space ~
+\end_inset
+
+consider different kinds of
+\begin_inset space ~
+\end_inset
+
+white noises when different priors would have to
+\begin_inset space ~
+\end_inset
+
+be developed and new equations derived accordingly.
  
 \end_layout
 
