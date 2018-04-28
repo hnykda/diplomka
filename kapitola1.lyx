@@ -106,10 +106,11 @@ Bayesian probability
 
 \begin_layout Standard
 In this chapter, I summarize basics and preliminaries of Bayesian interpretation
- of probability and shortly compare it to frequentist approach.
- Reader is expected to know basic concepts from probability such as probability
- event, space, measure, product and sum rule, conditional and joint probability.
- All of these can be found in 
+ of probability and shortly compare it to the frequentist approach.
+ The reader is expected to know basic concepts from probability such as
+ a probability event, space, measure, product and sum rule, conditional
+ and joint probability.
+ Sufficient description for all of these concepts can be found in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jaynes2003"
@@ -126,8 +127,8 @@ Probability interpretations
 \end_layout
 
 \begin_layout Standard
-As it is a case with other branches of mathematics, probability theory has
- multiple interpretations with theirs own strengths and weaknesses.
+As it is the case with some other branches of mathematics, probability theory
+ has multiple interpretations with their own strengths and weaknesses.
  In this particular case, it is a subject of dispute if the term 
 \begin_inset Quotes eld
 \end_inset
@@ -136,7 +137,7 @@ interpretations
 \begin_inset Quotes erd
 \end_inset
 
- should be used, since there is no single formal system 
+ should be used since there is no single formal system 
 \begin_inset Quotes eld
 \end_inset
 
@@ -155,7 +156,8 @@ literal "true"
 \end_inset
 
 .
- Other axiomatization has been proposed for different interpretation 
+ Another axiomatizations have been proposed for different interpretations
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dupre2004"
@@ -175,7 +177,7 @@ literal "true"
 \emph on
  
 \emph default
-mathematical axioms, but rather somewhat vague statements:
+mathematical axioms, but rather somewhat vague statements such as:
 \end_layout
 
 \begin_layout Enumerate
@@ -192,17 +194,17 @@ the plausibilities are to be “consistent”, in the sense that anyone with
 \end_layout
 
 \begin_layout Standard
-Interpretations don't differ only in the underlying set of axioms, but also
- in their practical usage or their epistemological status.
- Mathematicians as well as philosophers has been tackling these issues at
- least for over five centuries.
+Interpretations do not differ only in the underlying set of axioms, but
+ also in their practical usage or their epistemological status.
+ Mathematicians, as well as philosophers, have been tackling these issues
+ at least for over five centuries.
 \end_layout
 
 \begin_layout Standard
-It's hard to fully appreciate and understand main concepts and advantages
+It is hard to fully appreciate and understand main concepts and advantages
  of Bayesian reasoning if one is not familiar with other interpretations,
- such as frequentist.
- Its full description can be found in 
+ such as the frequentist one.
+ Its full derivation can be found in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "frequency_prob"
@@ -210,7 +212,8 @@ literal "true"
 
 \end_inset
 
-, here we'll cover just the basics arising from the comparison.
+ and here we cover just the basics arising from the comparison and parts
+ relevant for the following pages.
  
 \end_layout
 
@@ -218,9 +221,9 @@ literal "true"
 The main idea of Bayesian interpretation is its subjective nature, where
  there is no such thing as 
 \emph on
-real
+the real
 \emph default
- probability in the world, but probabilities are in actor's minds.
+ probability in the world, but the probabilities are in the actor's mind.
  Probability then represents agent's 
 \emph on
 state of knowledge
@@ -248,13 +251,13 @@ literal "true"
 
 \begin_layout Standard
 Another important aspect worth mentioning is also the fact that Bayes interpreta
-tion allows doing predictions for events which haven't occurred yet (where
- frequentists are unable to do anything).
+tion allows doing predictions for events which have not occurred yet, where
+ frequentists are (formaly) unable to do anything.
  This property is also connected to a fact that one can do partial (
 \emph on
 online
 \emph default
-) updates based on new evidence.
+) updates based on the new evidence.
  
 \end_layout
 
@@ -299,14 +302,16 @@ Principles of Bayesian probability
 \end_layout
 
 \begin_layout Standard
-Core idea of Bayesian interpretation is surely a famous Bayes theorem 
+The core idea of Bayesian interpretation is surely a famous Bayes theorem
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:bayes-theorem"
 
 \end_inset
 
-, which is easily obtained from definition of conditional probability 
+, which is easily obtained from the definition of conditional probability
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stuart1994"
@@ -388,8 +393,8 @@ likelihood
 \end_layout
 
 \begin_layout Standard
-To relate this simple formula to previous section, consider a scenario where
- one wants to use Bayesian framework for 
+To relate this simple formula to the previous section, consider a scenario
+ where one wants to use Bayesian framework for 
 \emph on
 inference.
  
@@ -398,12 +403,12 @@ Suppose that
 \begin_inset Formula $\Var A$
 \end_inset
 
- is a hypothesis whose probability can be affected by some evidence and
- 
+ is a hypothesis of which the probability can be affected by some evidence.
+ Let 
 \begin_inset Formula $\Var B$
 \end_inset
 
- is an evidence for this hypothesis.
+ be the evidence for this hypothesis.
  
 \begin_inset Formula $\prob pA$
 \end_inset
@@ -453,17 +458,19 @@ that
 \begin_inset Formula $\prob pB$
 \end_inset
 
- is same for all possible hypothesis and serves as a normalizing factor
- (that is the reason why is often left out in many computations).
+ is the same for all possible hypothesis and serves as a normalizing factor.
+ That is the reason why it is often left out in many computations where
+ only relative comparison is needed.
  And finally, 
 \begin_inset Formula $\probcond pAB$
 \end_inset
 
-, which is the final 
+ is the final 
 \series bold
 posterior probability
 \series default
- which is the factor one usually care about – the probability of 
+ which is the factor one usually cares about the most.
+ It is the probability of 
 \begin_inset Formula $\Var A$
 \end_inset
 
@@ -499,16 +506,16 @@ Statistical model
 
 \begin_layout Standard
 Chosen interpretation has a nontrivial influence on what such concept as
- 
+ a 
 \emph on
 statistical model
 \emph default
- is and how 
+ is and how a 
 \emph on
-inference 
+statistical inference 
 \emph default
-is done.
- I will follow traditional approach taken in 
+is performed.
+ We will follow traditional approach taken in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kroese2014,McCullagh2002a"
@@ -516,7 +523,7 @@ literal "true"
 
 \end_inset
 
- and extend it of some necessary concepts from 
+ and extend it by some necessary concepts from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop2013"
@@ -549,18 +556,14 @@ sample space
 \end_inset
 
 .
- Distribution in 
+ The distributions in 
 \begin_inset Formula $M$
 \end_inset
 
  are expected to be approximately close to the 
-\begin_inset Quotes eld
-\end_inset
-
+\emph on
 true
-\begin_inset Quotes erd
-\end_inset
-
+\emph default
  distribution which generates the data
 \begin_inset Foot
 status collapsed
@@ -580,8 +583,8 @@ All models are wrong, but some of them are useful
 \end_inset
 
 .
- One of the main distinctions which can be made to separate families of
- statistical models is how distributions in 
+ One of the distinctions which can be made to separate families of statistical
+ models is how distributions in 
 \begin_inset Formula $M$
 \end_inset
 
@@ -605,7 +608,7 @@ Parametric models
 \emph on
 finite
 \emph default
- parameter space
+ parameter space 
 \begin_inset Formula $\Theta\subseteq\mathbb{R}^{d}$
 \end_inset
 
@@ -622,44 +625,48 @@ finite
 \series bold
 Nonparametric models
 \series default
-: this family is an unfortunate misnomer – nonparametric models also have
- parameters, but they differs from parametric models in a way that the parameter
- space is 
+: this family is an unfortunate misnomer.
+ Nonparametric models also have parameters, but they differ from parametric
+ models in a way that the parameter space 
 \begin_inset Formula $\Theta$
 \end_inset
 
  is 
 \emph on
-infinite
+infinite.
+ 
 \emph default
- – it is not fixed and can grow with the amount of data.
+It is not fixed and can grow with the amount of data.
  
 \end_layout
 
 \begin_layout Standard
 In Bayesian setting, parameters of the model have some prior distributions
  assigned.
- These distributions capture prior knowledge one posses before the application.
- For instance, this can be based on previous research or reliable enough
- observations.
- If there is no prior knowledge available, so called 
+ These distributions capture prior knowledge one posses before the application
+ of the model.
+ For instance, this can be based on a previous research or reliable enough
+ observations obtained before hand.
+ If there is no prior knowledge available, so-called 
 \emph on
 uninformative 
 \emph default
-priors are being used instead.
- 
+priors are used instead.
+ Uninformative
 \emph on
-Uninformative 
+ 
 \emph default
-is again a misnomer – what is meant by these is the fact that they are not
- subjectively elicited.
+is again a misnomer.
+ What is meant by the name is the fact that they are not subjectively elicited.
  Fully Bayesian model is then a model in which 
 \emph on
 all 
 \emph default
-parameters have some prior assigned.
- An interesting property of Bayesian approach arise – random variables (includin
-g latent variables) and parameters are treated in the same way.
+the parameters have some prior assigned.
+ An interesting property of Bayesian approach arise – random variables,
+ including latent variables, and parameters are treated in the exactly same
+ way.
+ That is again a major distinction from frequentist approach.
  
 \end_layout
 
@@ -668,8 +675,12 @@ Statistical inference
 \end_layout
 
 \begin_layout Standard
-Process of inferring properties of the data underlying distribution is called
- statistical inference
+The process of inferring properties of the data underlying distribution
+ is called 
+\emph on
+statistical inference
+\emph default
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Upton2008"
@@ -678,18 +689,18 @@ literal "true"
 \end_inset
 
 .
- Formally, it's justification of restricting parameter space based on the
- data (by e.g.
- choosing a point estimate for a given parameter).
+ Formally, it is justification of restricting parameter space based on the
+ data.
+ An example is choosing a point estimate for a given parameter.
  
 \end_layout
 
 \begin_layout Standard
-Unfortunately, for many real world scenarios, the approach of directly inferring
+Unfortunately, for many real-world scenarios, the approach of directly inferring
  the properties is not possible.
- One of many reasons can be to high dimensionality of the task or the form
- of the posterior distribution may be to complex, let alone the fact that
- it does not have to have analytical solution
+ One of many reasons can be too high dimensionality of the space or the
+ form of the posterior distribution may be too complex, let alone the fact
+ that it does not even have to have the analytical solution
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop:2006:PRM:1162264"
@@ -698,7 +709,7 @@ literal "true"
 \end_inset
 
 .
- In these scenarios, approximation methods are being used instead.
+ In these cases, approximation methods have to be used instead.
 \end_layout
 
 \begin_layout Subsection
@@ -733,8 +744,8 @@ literal "true"
 \end_inset
 
 .
- A representative approach of the latter is e.g.
- variational inference described in detail in section 
+ A representative approach of the latter is for instance variational inference
+ described in detail in section 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Variational-inference"
@@ -746,16 +757,17 @@ reference "sec:Variational-inference"
 \emph on
 given infinite resources
 \emph default
-, are guaranteed to get the exact results and the approximation arise from
- the finite amount of those resources.
+, are guaranteed to get to the exact results and the approximation arise
+ from the finite amount of those resources.
  On contrary, deterministic approximation schemes are based on 
 \emph on
 analytical approximations 
 \emph default
-to the posterior distribution and hence are generally not able to generate
- exact results.
+to the posterior distribution.
+ Hence, they are generally not able to generate exact results but may have
+ different advantages such as tractability.
  Both approaches are then complementary to each other, one being useful
- for situation where the second is unsuitable and vice versa.
+ for situation where the second is inapplicable and vice versa.
  
 \end_layout
 
@@ -781,30 +793,34 @@ noprefix "false"
 
 \end_inset
 
- is the fact that it can be used sequentially as an update based on new
- piece of data.
+ is the fact that it can be used sequentially as an update based on the
+ new piece of data.
  If one performs the update and obtains 
 \begin_inset Formula $\probcond pAB$
 \end_inset
 
-, this posterior can be used in the next iteration as a prior and so on.
- Using concept of conjugate priors exploits this remarkable property guaranteein
-g that one will get a tractable posterior after each iteration.
- In the most of the real world applications, using Bayes Theorem computationally
+, this posterior can be used in the next iteration as a prior and repeatedly.
+ Using the concept of conjugate priors exploits this remarkable property
+ guaranteeing that one will get a tractable posterior after the each iteration.
+ 
+\end_layout
+
+\begin_layout Standard
+In the most of the real-world applications, using Bayes Theorem computationally
  means evaluating some integrals.
  For instance, to obtain the posterior, one must compute an integral 
 \begin_inset Formula $\probcond{\prob px=\int p}x{\theta}\prob p{\theta}d\Var{\theta}$
 \end_inset
 
 .
- To make use of the Bayes Theorem, one is then limited to problems where
- these integrals are tractable.
+ To make use of the theorem, one is then limited to problems where these
+ integrals are tractable.
  
 \end_layout
 
 \begin_layout Standard
 As already mentioned, this is done by using conjugate priors.
- Given a likelihood 
+ Given the likelihood 
 \begin_inset Formula $\probcond px{\theta}$
 \end_inset
 
@@ -814,16 +830,22 @@ As already mentioned, this is done by using conjugate priors.
 
  is tractable and the result is in the same family as the prior.
  It is worth mentioning that these goals are usually in conflict.
- A tractable result would be obtained if we just used a constant as the
- distribution family, but the update would no necessarily result in a constant.
+ A tractable result is obtained if we just use some constant as the distribution
+ family, but the update would not necessarily result in a constant.
+ On the other hand, allowing all possible distributions leads to non-tractable
+ solutions.
 \end_layout
 
 \begin_layout Standard
-In practice, there is such a family, containing many of the most commonly
+In practice, there is such a family containing many of the most commonly
  used distributions such as Gaussian or Beta distribution.
- This family is called exponential family and guarantees that if the model
- belongs to an exponential family and a conjugate prior distribution is
- selected, the resulting posterior of the update is analytically tractable.
+ This family is called 
+\emph on
+exponential family
+\emph default
+ and guarantees that if the model belongs to an exponential family and a
+ conjugate prior distribution is selected, the resulting posterior of the
+ update is analytically tractable.
 \end_layout
 
 \begin_layout Subsection
@@ -848,8 +870,8 @@ literal "false"
 
 \end_inset
 
- and is restated here since the forms from definitions are going to be used
- further along.
+ and is restated here because the forms are going to be used further along
+ in this work.
  
 \end_layout
 
@@ -867,8 +889,8 @@ literal "false"
 \begin_inset Formula $\Theta$
 \end_inset
 
- is a distribution whose probability density function can be written in
- the form
+ is a distribution of which the probability density function can be written
+ in the form
 \begin_inset Formula 
 \begin{equation}
 p(y|x,\Theta)=\mexp{\eta^{T}T-A(\eta)+k(x,y)}\label{eq:exp-family-form}
@@ -888,7 +910,8 @@ where
 \begin_inset Formula $T:=T(x,y)$
 \end_inset
 
- is a sufficient statistic encompassing all information provided by 
+ is a sufficient statistic encompassing all the information provided by
+ 
 \begin_inset Formula $x$
 \end_inset
 
@@ -920,7 +943,7 @@ where the integral is over the space of
 \begin_inset Formula $y$
 \end_inset
 
-and 
+ and 
 \begin_inset Formula $A(\eta)$
 \end_inset
 
@@ -946,8 +969,8 @@ noprefix "false"
 \begin_inset Formula $\eta^{T}T$
 \end_inset
 
- can result in same the same number when each multiplied by appropriate
- constant.
+ can result in the same number when is the each factor multiplied by an
+ appropriate constant.
  
 \end_layout
 
@@ -1118,8 +1141,8 @@ name "sec:Variational-inference"
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\vec}[1]{\mathbb{#1}}
-{\mathbb{#1}}
+\newcommand{\vec}[1]{\mathbf{#1}}
+{\mathbf{#1}}
 \end_inset
 
 
@@ -1170,21 +1193,14 @@ literal "true"
 \end_inset
 
 .
- This technique is based on using solution of an optimization problem to
- statistical inference, more exactly finding an input which minimize a specific
- functional.
- As was described in 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "subsec:Approximation-methods"
-
-\end_inset
-
-, this method is guaranteed to get an exact result given some family of
- possible input functions over which one minimizes.
- The approximation arise from limiting the possible inputs, for instance
+ This technique is based on using the solution of an optimization problem
+ to statistical inference.
+ More specifically, finding an input which minimizes a specific functional.
+ This method is guaranteed to get an exact result given some family of possible
+ input functions over which one minimizes.
+ The approximation arises from limiting the possible inputs, for instance
  by considering only quadratic functions or, as is widely used and is also
- our case, functions which factorizes in a specific way.
+ the case of this work, functions which factorizes in a specific way.
 \end_layout
 
 \begin_layout Standard
@@ -1193,12 +1209,12 @@ Let
 \end_inset
 
  be a fully Bayesian model, where all prior distributions are given.
- Let denote the set of all parameters and all latent 
+ Let denote the set of all parameters and all latent variables 
 \begin_inset Formula $\Var Z=\{\vec z_{1},\ldots,\vec z_{N}\}$
 \end_inset
 
  and the set of all observed variables 
-\begin_inset Formula $\Var X=\{\vec{x_{1},\ldots,}\vec x_{N}\}$
+\begin_inset Formula $\Var X=\{\vec x_{1},...,\vec x_{N}\}$
 \end_inset
 
 .
@@ -1211,12 +1227,13 @@ Let
 \end_inset
 
 , which is usually unavailable.
- Unfortunately, in many real world scenarios, 
+ Unfortunately, in many real-world scenarios, 
 \begin_inset Formula $\probcond pZX$
 \end_inset
 
- is almost always intractable (by e.g.
- trying to integrate all configurations of the hidden variables in denominator).
+ is almost always intractable.
+ One for example often cannot integrate all configurations of the hidden
+ variables in the denominator (potentially infinite).
  That is where 
 \emph on
 variational lower bound
@@ -1230,8 +1247,8 @@ variational lower bound
 \begin_inset Formula $\prob qZ$
 \end_inset
 
- which is as close approximation as possible to the former and has a convenient
- and tractable form (their expectations are computable).
+ which is the as close approximation as possible to the former and has a
+ convenient and tractable form – its expectations are computable.
  Furthermore, these approximate distributions can also have their own 
 \emph on
 variational parameters
@@ -1256,23 +1273,14 @@ reference "eq:KL"
 
 \end_inset
 
- is used
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-We omit arguments of distributions where possible for readability.
- Most often: 
+ is used.
+ For the sake of readability, we omit arguments of distributions where possible.
+ Most often it means 
 \begin_inset Formula $q:=\prob qZ$
 \end_inset
 
  and 
-\begin_inset Formula $p=\probcond pZX$
-\end_inset
-
-
-\end_layout
-
+\begin_inset Formula $p:=\probcond pZX$
 \end_inset
 
 .
@@ -1290,12 +1298,12 @@ We omit arguments of distributions where possible for readability.
 \end_layout
 
 \begin_layout Standard
-In a case when 
+Please note that in the case 
 \begin_inset Formula $\probcond pXZ=\prob qZ$
 \end_inset
 
 , Kullback-Leibler divergence is effectively zero.
- The goal is the following optimization problem:
+ The goal is to solve the following optimization problem:
 \begin_inset Formula 
 \begin{equation}
 \prob qZ=\arg\min_{\prob qZ}\kl{\prob qZ}{\probcond pZX}.\label{eq:optim}
@@ -1344,12 +1352,12 @@ Instead of trying to compute
 \begin_inset Formula $\kl qp$
 \end_inset
 
- up to an added constant.
+ up to a constant.
  Let us then define 
 \emph on
 variational lower bound 
 \emph default
-(also called 
+(
 \emph on
 ELBO
 \emph default
@@ -1368,7 +1376,7 @@ ELBO
 \end_layout
 
 \begin_layout Standard
-It can be shown that
+It can be shown that 
 \begin_inset Formula $\lueb q$
 \end_inset
 
@@ -1377,7 +1385,7 @@ It can be shown that
 \end_inset
 
 .
- Henceforth, when one wishes to maximize marginal 
+ Hence, when one wishes to maximize marginal 
 \begin_inset Formula $\prob pX$
 \end_inset
 
@@ -1423,7 +1431,7 @@ Since
 \begin_inset Formula $\prob pX$
 \end_inset
 
- doesn't depend on 
+ does not depend on 
 \begin_inset Formula $q$
 \end_inset
 
@@ -1440,8 +1448,8 @@ Since
 \end_layout
 
 \begin_layout Standard
-Again, since we don't know the true posterior distribution, we work with
- some family of distributions 
+In summary, because we do not know the true posterior distribution, we work
+ with some family of distributions 
 \begin_inset Formula $\prob qZ$
 \end_inset
 
@@ -1449,15 +1457,23 @@ Again, since we don't know the true posterior distribution, we work with
 \begin_inset Formula $\lueb q$
 \end_inset
 
- becomes tractable and search for the candidate which maximizes it.
- Obviously, the choice of the distribution family is critical here – while
- it needs be tractable, it still needs to be flexible enough (as much as
- possible) to provide 
+ becomes tractable and search for the candidate which maximizes 
+\begin_inset Formula $\lueb q$
+\end_inset
+
+ and through 
+\begin_inset Formula $KL$
+\end_inset
+
+ relates this candidate to the posterior.
+ Obviously, the choice of the distribution family is critical here.
+ While it needs to be tractable, it still needs to be flexible enough (as
+ much as possible) to provide 
 \emph on
 accurate enough
 \emph default
- approximation, goals usually going against each other.
- This is the part from where approximation arise in variational Bayes as
+ approximation, goals usually being in conflict.
+ This is the part where the approximation arises in variational Bayes as
  has been discussed in 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1499,8 +1515,8 @@ literal "true"
 \end_inset
 
 .
- The assumption on the family is quite simple – we treat each variable in
- 
+ The assumption on the family is quite simple.
+ We treat each variable in 
 \begin_inset Formula $\Var Z$
 \end_inset
 
@@ -1521,8 +1537,8 @@ factorizes
 
 \begin_layout Standard
 It is clear that the assumption is often not met.
- Variables are dependent in the real world – it is the reason why it is
- so hard to obtain the posterior distribution directly.
+ Variables are dependent in the real world – it is often the reason why
+ it is so hard to obtain the posterior distribution directly.
  
 \end_layout
 
@@ -1621,7 +1637,7 @@ First, consider the complete conditional of
 \end_layout
 
 \begin_layout Standard
-where in the last term, we use the fact that 
+wherein the last term, we use the fact that 
 \begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
 \end_inset
 
@@ -1644,7 +1660,7 @@ except
  
 \emph default
 Similarly, 
-\begin_inset Formula $\Var{Z_{\{-i\}}}$
+\begin_inset Formula $\Var{Z_{-i}}$
 \end_inset
 
  means all latent variables except 
@@ -1679,7 +1695,7 @@ reference "eq:elbo"
 
 \begin_inset Formula 
 \begin{equation}
-\lueb{q_{i}}=\E[i]{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}-\E[i]{\ln\prob{q_{i}}{Z_{i}}}+C\label{eq:negkl}
+\lueb{q_{i}}=\E[i]{{\E[-i]{\ln\probjoint p{Z_{i},Z_{-i}}X}}}-\E[i]{\ln\prob{q_{i}}{Z_{i}}}+C\label{eq:negkl}
 \end{equation}
 
 \end_inset
@@ -1688,7 +1704,7 @@ reference "eq:elbo"
 \end_layout
 
 \begin_layout Standard
-where in the first term is just an iterated expectation and in the second
+wherein the first term is just an iterated expectation and in the second
  we retain only product term containing 
 \begin_inset Formula $\prob{q_{i}}{Z_{i}},$
 \end_inset
@@ -1697,11 +1713,11 @@ where in the first term is just an iterated expectation and in the second
 \begin_inset Formula $C$
 \end_inset
 
- thanks to using factorized distribution.
+ thanks to using a factorized distribution.
 \end_layout
 
 \begin_layout Standard
-Now it's easy to see that 
+Now it is easy to see that 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:negkl"
@@ -1919,7 +1935,7 @@ return
 \end_layout
 
 \begin_layout Standard
-It is guaranteed that this algorithm converge to a local minimum.
+It is guaranteed that this algorithm converges to a local minimum.
 \end_layout
 
 \begin_layout Section
@@ -2037,7 +2053,7 @@ where the hyperparameters
 \end_layout
 
 \begin_layout Paragraph
-Form of 
+The form of 
 \begin_inset Formula $\prob q{\mu}$
 \end_inset
 
