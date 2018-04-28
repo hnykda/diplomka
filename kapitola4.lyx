@@ -781,7 +781,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -843,7 +843,7 @@ these observable components.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1434,7 +1434,7 @@ noprefix "false"
 
 \end_inset
 
-
+,
 \begin_inset Float figure
 wide false
 sideways false
@@ -1486,7 +1486,7 @@ known static noise.
 
 \end_inset
 
-, the
+ the
 \begin_inset space ~
 \end_inset
 
@@ -1720,7 +1720,7 @@ noprefix "false"
 
 \end_inset
 
-
+,
 \begin_inset Float figure
 wide false
 sideways false
@@ -1801,7 +1801,7 @@ RMSE (right).
 
 \end_inset
 
-, the
+ the
 \begin_inset space ~
 \end_inset
 
@@ -2182,7 +2182,7 @@ noprefix "false"
 
 \end_inset
 
-
+.
 \begin_inset Float figure
 wide false
 sideways false
@@ -2236,7 +2236,6 @@ the estimation error (right).
 
 \end_inset
 
-.
  As can be seen from trajectories on
 \begin_inset space ~
 \end_inset
@@ -2312,7 +2311,7 @@ noprefix "false"
 
 \end_inset
 
-
+,
 \begin_inset Float figure
 wide false
 sideways false
@@ -2376,7 +2375,7 @@ VBAKF can control during very noisy intervals.
 
 \end_inset
 
-, VBAKF is again able to
+ VBAKF is again able to
 \begin_inset space ~
 \end_inset
 
@@ -2888,7 +2887,7 @@ noprefix "false"
 
 \end_inset
 
-
+.
 \begin_inset Float figure
 wide false
 sideways false
@@ -2945,7 +2944,6 @@ topology is a
 
 \end_inset
 
-.
  A
 \begin_inset space ~
 \end_inset
@@ -2968,7 +2966,7 @@ noprefix "false"
 
 \end_inset
 
-
+).
 \begin_inset Float figure
 wide false
 sideways false
@@ -3012,7 +3010,6 @@ first and second component with noise for different nodes.
 
 \end_inset
 
-).
  When we compare diffused versus non-diffused variant, the
 \begin_inset space ~
 \end_inset
@@ -3090,7 +3087,7 @@ noprefix "false"
 
 \end_inset
 
-
+,
 \begin_inset Float figure
 wide false
 sideways false
@@ -3138,7 +3135,7 @@ Mean Standard deviation over all runs (right).
 
 \end_inset
 
-, but it was consistent across literally all runs.
+ but it was consistent across literally all runs.
  In other words, there was not a
 \begin_inset space ~
 \end_inset
@@ -3257,7 +3254,7 @@ noprefix "false"
 
 \end_inset
 
-
+,
 \begin_inset Float figure
 wide false
 sideways false
@@ -3306,7 +3303,7 @@ inferior estimates.
 
 \end_inset
 
-, where we plot a
+ where we plot a
 \begin_inset space ~
 \end_inset
 
@@ -3341,7 +3338,7 @@ noprefix "false"
 
 \end_inset
 
-
+.
 \begin_inset Float figure
 wide false
 sideways false
@@ -3394,7 +3391,7 @@ the better results.
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -3484,7 +3481,7 @@ noprefix "false"
 
 \end_inset
 
-
+.
 \begin_inset Float figure
 wide false
 sideways false
@@ -3557,7 +3554,6 @@ independent nodes.
 
 \end_inset
 
-.
  While there is almost no or very little pattern in
 \begin_inset space ~
 \end_inset
@@ -3601,11 +3597,7 @@ the diffusion.
 \begin_inset space ~
 \end_inset
 
-example can be seen on
-\begin_inset space ~
-\end_inset
-
-
+example can be seen on 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:all-node-R-prepost-1"
@@ -3615,7 +3607,8 @@ noprefix "false"
 
 \end_inset
 
-
+.
+ 
 \begin_inset Float figure
 wide false
 sideways false
@@ -3660,7 +3653,7 @@ the non-diffused variant.
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Subsection
