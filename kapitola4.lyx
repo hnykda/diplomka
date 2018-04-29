@@ -159,7 +159,7 @@ noise analysis, although even the
 \begin_inset space ~
 \end_inset
 
-latter is mentioned when it helps to
+latter is mentioned where it helps to
 \begin_inset space ~
 \end_inset
 
@@ -179,7 +179,7 @@ each other, rather than being useful on
 \begin_inset space ~
 \end_inset
 
-its own.
+their own.
  Sometimes, it is the
 \begin_inset space ~
 \end_inset
@@ -201,7 +201,7 @@ the
 \begin_inset space ~
 \end_inset
 
-multi-node variants when the
+multi-node variants where the
 \begin_inset space ~
 \end_inset
 
@@ -209,11 +209,15 @@ author's goal is to
 \begin_inset space ~
 \end_inset
 
-demonstrate that all the
+demonstrate that all of
 \begin_inset space ~
 \end_inset
 
-nodes are having some specific property which would be hard to
+the
+\begin_inset space ~
+\end_inset
+
+nodes have some specific property which would be hard to
 \begin_inset space ~
 \end_inset
 
@@ -544,12 +548,12 @@ many iterations (more than 20) with different initial noise assigned to
 \end_inset
 
 different nodes.
- It was although made sure that when comparing two different variants, same
- noise has been attributed to
+ It was guaranteed that when comparing two different variants of the algorithm,
+ the same noise has been attributed to
 \begin_inset space ~
 \end_inset
 
-the appropriate elements.
+the same nodes to make the results comparable.
  Finally, in
 \begin_inset space ~
 \end_inset
@@ -1741,7 +1745,7 @@ the
 \begin_inset space ~
 \end_inset
 
-observed components is already better (~20%), the
+observed components is already better (approximately 20%), the
 \begin_inset space ~
 \end_inset
 
@@ -1750,7 +1754,7 @@ major difference is present in
 \end_inset
 
 the unobserved ones.
- VBAKF is performing over 2 times better in
+ VBAKF is performing over twice as good in
 \begin_inset space ~
 \end_inset
 
@@ -1916,7 +1920,7 @@ imprecise a
 \begin_inset space ~
 \end_inset
 
-priori estimation to
+priori estimate to
 \begin_inset space ~
 \end_inset
 
@@ -2005,11 +2009,8 @@ the
 \end_inset
 
 covariance was imprecise, VBAKF adjusted for it while CKF did not.
- First 5 points has been omitted from this plot for a
-\begin_inset space ~
-\end_inset
-
-clarity, where both algorithms have quite high peaks before they 
+ First 5 points have been omitted from this plot for clarity, where both
+ algorithms have quite high peaks before they 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2446,7 +2447,7 @@ account for noisy epochs.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2656,10 +2657,6 @@ VBAKF was consistently better than CKF in
 \end_inset
 
 these cases over many iterations and many variants of
-\begin_inset space ~
-\end_inset
-
-a
 \begin_inset space ~
 \end_inset
 
@@ -3241,7 +3238,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3325,7 +3322,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3400,7 +3397,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3968,7 +3965,7 @@ the field if at least following were studied:
 \end_layout
 
 \begin_layout Itemize
-What role network's topology plays and how to
+What role does network topology plays and how to
 \begin_inset space ~
 \end_inset
 
@@ -3988,7 +3985,7 @@ this setting?
 \end_layout
 
 \begin_layout Itemize
-Sensitiveness to
+Sensitivity to
 \begin_inset space ~
 \end_inset
 
@@ -4000,7 +3997,7 @@ different kinds of
 \end_layout
 
 \begin_layout Itemize
-Sensitiveness to
+Sensitivity to
 \begin_inset space ~
 \end_inset
 
@@ -4016,7 +4013,7 @@ consider different kinds of
 \begin_inset space ~
 \end_inset
 
-white noises when different priors would have to
+white noise when different priors would have to
 \begin_inset space ~
 \end_inset
 

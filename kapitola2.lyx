@@ -737,7 +737,15 @@ filter can still estimate the
 \begin_inset space ~
 \end_inset
 
-entire state.
+entire state 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Simon2006"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1973,7 +1981,7 @@ restating everything.
 \begin_inset space ~
 \end_inset
 
-give a
+give the
 \begin_inset space ~
 \end_inset
 
@@ -2276,7 +2284,7 @@ the world of
 \begin_inset space ~
 \end_inset
 
-DKF can be found in
+DKF is in
 \begin_inset space ~
 \end_inset
 

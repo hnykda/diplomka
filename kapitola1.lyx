@@ -485,7 +485,7 @@ Another important aspect worth mentioning is also the
 \end_inset
 
 fact that Bayes interpretation allows doing predictions for events which
- have not occurred yet, where frequentists are (formaly) unable to
+ have not occurred yet, where frequentists are (formally) unable to
 \begin_inset space ~
 \end_inset
 
@@ -567,14 +567,7 @@ Bayesian interpretation is the
 \begin_inset space ~
 \end_inset
 
-famous Bayes theorem 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:bayes-theorem"
-
-\end_inset
-
-, which is easily obtained from the
+famous Bayes theorem, which is easily obtained from the
 \begin_inset space ~
 \end_inset
 
@@ -596,7 +589,8 @@ literal "true"
 \begin_layout Theorem
 
 \emph on
-Let 
+(Bayes theorem).
+ Let 
 \begin_inset Formula $p$
 \end_inset
 
@@ -3068,7 +3062,7 @@ reference "sec:Variational-inference"
 
  are
 \emph on
- factorized distributions
+ factorized distributions,
 \emph default
  c.f.
  
@@ -3332,10 +3326,6 @@ following
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 wherein 
 \begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
 \end_inset
@@ -3388,10 +3378,6 @@ function of
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 wherein the
 \begin_inset space ~
 \end_inset
@@ -3812,7 +3798,7 @@ assumption that
 \end_layout
 
 \begin_layout Paragraph
-Conjugated priors
+Conjugate priors
 \end_layout
 
 \begin_layout Standard
@@ -3848,7 +3834,7 @@ follows:
 \begin_inset Formula 
 \begin{align*}
 \mu & \sim\mathcal{N}(\mu_{0},(\lambda_{0}\tau)^{-1}),\\
-\tau & \sim\text{Gamma}(a_{0},b_{0}).
+\tau & \sim\text{Gamma}(a_{0},b_{0}),
 \end{align*}
 
 \end_inset
@@ -3946,10 +3932,6 @@ literal "true"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where
 \end_layout
 
@@ -3963,10 +3945,6 @@ where
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 and for 
 \begin_inset Formula $\prob{q_{\tau}^{*}}{\tau}$
 \end_inset
@@ -3982,10 +3960,6 @@ and for
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where
 \end_layout
 
