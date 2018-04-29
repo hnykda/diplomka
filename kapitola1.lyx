@@ -626,15 +626,11 @@ probability measure,
 
 \begin_inset Formula 
 \begin{equation}
-\probcond pAB=\prob pA\cdot\frac{\probcond pBA}{\prob pB}\label{eq:bayes-theorem}
+\probcond pAB=\prob pA\cdot\frac{\probcond pBA}{\prob pB},\label{eq:bayes-theorem}
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Theorem
 
 \emph on
 where: 
@@ -1956,7 +1952,7 @@ probability density function can be written in
 the form
 \begin_inset Formula 
 \begin{equation}
-p(y|x,\Theta)=\mexp{\eta^{T}T-A(\eta)+k(x,y)}\label{eq:exp-family-form}
+p(y|x,\Theta)=\mexp{\eta^{T}T-A(\eta)+k(x,y)},\label{eq:exp-family-form}
 \end{equation}
 
 \end_inset
@@ -2008,7 +2004,7 @@ parameter
  and
 \begin_inset Formula 
 \begin{equation}
-A(\eta)=\log\int\mexp{\eta^{T}T+k(x,y)}\text{d}x\text{d}y
+A(\eta)=\log\int\mexp{\eta^{T}T+k(x,y)}\text{d}x\text{d}y,
 \end{equation}
 
 \end_inset
@@ -2169,7 +2165,7 @@ the
 form 
 \begin_inset Formula 
 \begin{equation}
-\pi(\Theta|\Xi,\varUpsilon)=\mexp{\eta^{T}\Xi+\varUpsilon A(\eta)+l(\Xi,\varUpsilon)}\label{eq:prior-exp-form}
+\pi(\Theta|\Xi,\varUpsilon)=\mexp{\eta^{T}\Xi+\varUpsilon A(\eta)+l(\Xi,\varUpsilon)},\label{eq:prior-exp-form}
 \end{equation}
 
 \end_inset
@@ -2307,8 +2303,8 @@ the update of
 conjugate hyperparameters
 \begin_inset Formula 
 \begin{align}
-\Xi_{t} & =\Xi_{t-1}+T_{t}\label{eq:update-hyp-xi}\\
-\varUpsilon_{t} & =\varUpsilon_{t-1}+1
+\Xi_{t} & =\Xi_{t-1}+T_{t},\label{eq:update-hyp-xi}\\
+\varUpsilon_{t} & =\varUpsilon_{t-1}+1.
 \end{align}
 
 \end_inset
@@ -2923,10 +2919,6 @@ following relationship can be derived:
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Since 
 \begin_inset Formula $\prob pX$
 \end_inset
@@ -3391,7 +3383,7 @@ function of
 
 \begin_inset Formula 
 \begin{equation}
-\lueb{q_{i}}=\E[i]{{\E[-i]{\ln\probjoint p{Z_{i},Z_{-i}}X}}}-\E[i]{\ln\prob{q_{i}}{Z_{i}}}+C\label{eq:negkl}
+\lueb{q_{i}}=\E[i]{{\E[-i]{\ln\probjoint p{Z_{i},Z_{-i}}X}}}-\E[i]{\ln\prob{q_{i}}{Z_{i}}}+C,\label{eq:negkl}
 \end{equation}
 
 \end_inset

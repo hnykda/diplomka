@@ -283,10 +283,6 @@ p(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}) & =\mathrm{N}(\mathbf{z}_{k};\ma
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where
 \end_layout
 
@@ -998,7 +994,7 @@ noprefix "false"
 \Xi(\hat{\mathbf{T}}_{k|k-1},\hat{t}_{k|k-1},n) & =\Bigl[\begin{array}{cc}
 -\frac{1}{2}\hat{\mathbf{T}}_{k|k-1}, & -\dfrac{\hat{t}_{k|k-1}+n+1}{2}\end{array}\Bigr]\\
  & =\Bigl[\begin{array}{cc}
--\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1}, & -\frac{1}{2}\tau-1-n\end{array}\Bigr].\label{eq:xiInit}
+-\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1}, & -\frac{1}{2}\tau-1-n\end{array}\Bigr],\label{eq:xiInit}
 \end{align}
 
 \end_inset
@@ -1749,7 +1745,7 @@ Gaussian distribution
 \begin_inset Formula 
 \begin{align}
 \mathrm{N}(\mathbf{x};\boldsymbol{\mu},\boldsymbol{\Sigma}\big)= & \expfamily{\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}}{-\frac{1}{2}\boldsymbol{\Sigma}^{-1}}{\vec x,}{\vec x\vec x^{T}}{\ensuremath{-(\frac{1}{2}\boldsymbol{\mu}^{{\rm T}}\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}+\frac{1}{2}\ln|\boldsymbol{\Sigma}|)}}\\
-= & \expfamily{\boldsymbol{\Sigma}^{-1}}{\ln|\boldsymbol{\Sigma}^{-1}|}{-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T},}{-\frac{1}{2}}{+\text{ln(2\ensuremath{\pi)}}}
+= & \expfamily{\boldsymbol{\Sigma}^{-1}}{\ln|\boldsymbol{\Sigma}^{-1}|}{-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T},}{-\frac{1}{2}}{+\text{ln(2\ensuremath{\pi)}}},
 \end{align}
 
 \end_inset
