@@ -1,0 +1,1262 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+%\setbeameroption{show only notes}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language czech
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Distribuovaná kalmanovská filtrace při neznámém prostorově heterogenním
+ šumu
+\end_layout
+
+\begin_layout Author
+Daniel Hnyk
+\end_layout
+
+\begin_layout Institute
+Matematická informatika
+\begin_inset Newline newline
+\end_inset
+
+Katedra matematiky 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Fakulta jaderná a fyzikálně inženýrská
+\begin_inset Newline newline
+\end_inset
+
+České vysoké učení technické v Praze 
+\end_layout
+
+\begin_layout Date
+Obhajoba diplomové práce (2018)
+\end_layout
+
+\begin_layout Section
+Úvod
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+* představení
+\end_layout
+
+\begin_layout Plain Layout
+* úvod a osnova prezentace
+\end_layout
+
+\begin_layout Plain Layout
+* cíl práce
+\end_layout
+
+\begin_layout Plain Layout
+* navrhnuté řešení (hned z počátku? jako to sloučení VBAKF s dist, aby dávalo
+ smysl to členění, že jde o řez obecným tématem)
+\end_layout
+
+\begin_layout Plain Layout
+— 3 minuty —
+\end_layout
+
+\begin_layout Plain Layout
+* Bayes intro, KL, CAVI (1-2 stránky)
+\end_layout
+
+\begin_layout Plain Layout
+— 2 minuty (5 min) —
+\end_layout
+
+\begin_layout Plain Layout
+* Kalman Filtering (+ distribuovaná verze, mít spíše obrázky)
+\end_layout
+
+\begin_layout Plain Layout
+— 2 minuty (7 min) —
+\end_layout
+
+\begin_layout Plain Layout
+* odvození exponenciálního tvaru a shrnutí algoritmu - GRO práce
+\end_layout
+
+\begin_layout Plain Layout
+— 4 minut (11 min) — 
+\end_layout
+
+\begin_layout Plain Layout
+* simulations, results, future work
+\end_layout
+
+\begin_layout Plain Layout
+— 3 min (14 min) — 
+\end_layout
+
+\begin_layout Plain Layout
+* shrnutí/conclusion
+\end_layout
+
+\begin_layout Plain Layout
+— 1 min (15 min) — 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\Var}[1]{\mathbf{#1}}
+{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\prob}[2]{#1(\Var{#2})}
+{#1(\Var{#2})}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\probcond}[3]{#1(\Var{#2}|\Var{#3})}
+{#1(\Var{#2}|\Var{#3})}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\probjoint}[3]{#1(\Var{#2},\Var{#3})}
+{#1(\Var{#2},\Var{#3})}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\kl}[2]{\text{{KL}}(#1||#2)}
+{KL(#1||#2)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\lueb}[1]{\mathcal{{L}}(#1)}
+{\mathcal{L}(#1)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\D}[1]{\text{ d}#1}
+{\text{ d}#1}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\Exp}[1]{\exp\{#1\}}
+{\exp\{#1\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
+\newcommand{\E}[2][]{\text{\mathbb{E}}_{#1}[#2]}
+{\text{\mathbb{E}}_{#1}[#2]}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cíl práce
+\end_layout
+
+\begin_layout Frame
+
+\lang english
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\lang czech
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hlavní cíl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Návrh algoritmu...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExampleBlock
+...k distribuované kalmanovské filtraci v difuzní síti, kde každý uzel sítě
+ může potenciálně mít jinou kovarianci šumu na stavovém procesu i na měřeních
+ a tato kovariance je navíc neznámá.
+\end_layout
+
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Řešení
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout AlertBlock
+Distribuovaný adaptivní kalmanův filtr za použití variačních Bayesovských
+ metod.
+\end_layout
+
+\begin_layout AlertBlock
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bayesovská pravděpodobnost
+\end_layout
+
+\begin_layout Subsection
+Základní pojmy
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Principy Bayesovské pravděpodobnosti
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+pravděpodobnost je míra důvěry agent má v danou hypotézu
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{je to tedy subjektivni, ne objektivni (rozdil s frekvencisty)}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+update se provádí pomocí Bayesova vzorce
+\begin_inset Formula 
+\[
+\probcond pAB=\prob pA\cdot\frac{\probcond pBA}{\prob pB}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Hypotéza A, pokud máme dukaz B.
+ prior - casto posterior z predchoziho kroku.
+ Likelihood - to vetsinou nejak aproximujeme, evidence.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Inference
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+model
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+parametrický:
+\lang english
+ 
+\begin_inset Formula $\Theta\subseteq\mathbb{R}^{d},d<\infty$
+\end_inset
+
+.
+ 
+\begin_inset Formula $M=\{P_{\theta}|\theta\in\Theta\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+neparametrický: dimenze prostoru parametru 
+\begin_inset Formula $d$
+\end_inset
+
+ je nekonečná 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+proces zúžení prostoru parametrů v závislosti na datech
+\end_layout
+
+\begin_layout Itemize
+v bayesovském podání: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+všechny parametry mají tzv.
+ 
+\emph on
+prior 
+\emph default
+distribuci
+\end_layout
+
+\begin_layout Itemize
+výsledkem je distribuce pro jednotlivé parametry
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aproximace
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+přímý výpočet 
+\begin_inset Formula $\probcond pAB$
+\end_inset
+
+ není obvykle možný 
+\end_layout
+
+\begin_layout Itemize
+typy Bayesovské aproximace:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+vzorkování (MCMC, Gibbs)
+\end_layout
+
+\begin_layout Itemize
+variační počet (Variační Bayes)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Variační Bayes
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definice problému
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data 
+\begin_inset Formula $\Var X=\{\vec{x_{1},\ldots,}\vec{x}_{N}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Latentní proměnné 
+\begin_inset Formula $\Var Z=\{\vec{z}_{1},\ldots,\vec{z}_{N}\}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{v Bayesian settings jsou latentní promenné brány stejne jako parametry}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+chceme 
+\begin_inset Formula $\probcond pZX$
+\end_inset
+
+ a 
+\begin_inset Formula $\prob pX$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Kullback-Leiblerova divergence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+přímý výpočet není možný, 
+\begin_inset Formula $\probcond pZX$
+\end_inset
+
+ aproximujeme pomocí 
+\begin_inset Formula $\prob qZ$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+míru 
+\begin_inset Quotes gld
+\end_inset
+
+přesnosti
+\begin_inset Quotes grd
+\end_inset
+
+ aproximace měříme pomocí KL divergence 
+\begin_inset Formula 
+\[
+\kl qp=-\int\prob qZ\ln\frac{\probcond pZX}{\prob qZ}\D{\Var Z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+řešíme tedy optimalizační problém
+\begin_inset Formula 
+\[
+\prob qZ=\arg\min_{\prob qZ}\kl{\prob qZ}{\probcond pZX}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Lower variational bound
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\arg\min_{\prob qZ}\kl{\prob qZ}{\probcond pZX}$
+\end_inset
+
+ nelze řešit přímo, neboť neznáme 
+\begin_inset Formula $\probcond pZX$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+až na konstantu je minimalizace 
+\begin_inset Formula $\kl qp$
+\end_inset
+
+ ekvivalentní maximalizaci
+\begin_inset Formula 
+\[
+\lueb q=\int\prob qZ\ln\frac{\probjoint pXZ}{\prob qZ}\D{\Var Z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+hledáme 
+\begin_inset Formula $\prob qZ$
+\end_inset
+
+, pro které je 
+\begin_inset Formula $\lueb q$
+\end_inset
+
+ spočitatelné
+\end_layout
+
+\begin_layout Itemize
+například faktorizovatelné distribuce
+\begin_inset Formula 
+\[
+\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{M nemusí byt dimenze Z, na q_i zadne dalsi pozadavky}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Coordinate ascent mean-field variational
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+optimální řešení problému
+\begin_inset Formula 
+\[
+\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+v praxi se postupuje iterativně
+\end_layout
+
+\begin_layout Itemize
+vhodná volba prior distribucí zjednodušuje update
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{v této práci explonenciální rodina distribucí}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Slovníkové učení
+\end_layout
+
+\begin_layout Subsection
+Definice
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Slovníkové učení
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+zjednodušená forma reprezentace dat
+\end_layout
+
+\begin_layout Itemize
+komprese informace
+\end_layout
+
+\begin_layout Itemize
+typy:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+předem definované slovníky (wavelets, FT, ...)
+\end_layout
+
+\begin_layout Itemize
+slovník se tvoří na základě dat
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes gld
+\end_inset
+
+overcomplete
+\begin_inset Quotes grd
+\end_inset
+
+ slovník
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes gld
+\end_inset
+
+undercomplete
+\begin_inset Quotes grd
+\end_inset
+
+ slovník
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Problém
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+pro data 
+\lang english
+
+\begin_inset Formula $X=[x_{1},...,x_{K}],x_{i}\in\mathbb{R}^{d}$
+\end_inset
+
+ hledáme 
+\begin_inset Formula $\mathbf{D}\in\mathbb{R}^{d\times n}:D=[d_{1},...,d_{n}]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+chceme minimalizovat 
+\begin_inset Formula $\|x_{i}-\mathbf{D}r_{i}\|_{2}$
+\end_inset
+
+ tak, aby 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ bylo dostatečně řídké
+\end_layout
+
+\begin_layout Itemize
+tedy
+\begin_inset Formula 
+\[
+\underset{\mathbf{D}\in\mathcal{C},r_{i}\in\mathbb{R}^{n}}{\text{argmin}}\sum_{i=1}^{K}\|x_{i}-\mathbf{D}r_{i}\|_{2}^{2}+\lambda\|r_{i}\|_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+VB a slovníkové učení
+\end_layout
+
+\begin_layout Subsection
+Kombinace
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Beta proces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/two_param_beta.png
+	width 100col%
+	height 60pheight%
+	keepAspectRatio
+	groupId fit_max
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Kde je to míra kdy K -> infty, 
+\backslash
+delta kroneckerovo, H(
+\backslash
+psi) je vektor pravdepodobnosti, kazdy asociovany s atomem 
+\backslash
+psi_k}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Z H(
+\backslash
+psi) samplujeme binární vektory z_i, coz je nas slovnik}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aplikace na slovníkové učení
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+konstrukce umožňuje variabilní počet složek v závislosti na datech
+\end_layout
+
+\begin_layout Itemize
+velmi rychlé
+\end_layout
+
+\begin_layout Itemize
+možnost data klastrovat
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/beta_written.png
+	width 100col%
+	height 60pheight%
+	keepAspectRatio
+	groupId fit_max
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Beta proces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+CAVI updates
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+snad brzy
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Výsledky
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Implementace
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+srovnání s Gibbs vzorkováním
+\end_layout
+
+\begin_layout Itemize
+hypotéza je, že bude výrazně rychlejší
+\end_layout
+
+\begin_layout Itemize
+ostatními metodami
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Klastrování
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+TBD
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
