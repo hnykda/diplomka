@@ -19,7 +19,9 @@
 %% Print out all vectors in bold type instead of printing an arrow above them
 %\renewcommand{\vec}[1]{\boldsymbol{#1}}
 
-\usepackage[sorting=none,style=numeric,backend=biber]{biblatex}
+\usepackage[sorting=none,style=numeric,backend=biber,url=false,doi=false,firstinits=true]{biblatex}
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryBibitem{\clearfield{day}}
 \addbibresource{library.bib}
 %\usepackage{csvsimple}
 \setcounter{tocdepth}{1}
