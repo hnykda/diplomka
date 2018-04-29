@@ -175,6 +175,16 @@ a
 \end_inset
 
 future possibility.
+ A great inspiration for the diffusion under exponential family forms has
+ been taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017a"
+literal "false"
+
+\end_inset
+
+.
  
 \end_layout
 
