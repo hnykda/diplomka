@@ -1424,7 +1424,7 @@ that the
 \begin_inset space ~
 \end_inset
 
-nodes can be communicating with each other.
+nodes can communicate with each other.
  
 \end_layout
 
@@ -1648,7 +1648,7 @@ possible use cases for the, otherwise exceptionally effective, filter.
 \begin_inset space ~
 \end_inset
 
-emphasize though that the
+emphasize  that the
 \begin_inset space ~
 \end_inset
 
@@ -1942,7 +1942,7 @@ an
 \begin_inset space ~
 \end_inset
 
-excellent 
+excellent one 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahmoud2013"
@@ -2184,7 +2184,7 @@ achieve but without Variational Bayes algorithm.
 \begin_inset space ~
 \end_inset
 
-orientation of
+main concern of
 \begin_inset space ~
 \end_inset
 
@@ -2192,7 +2192,7 @@ the
 \begin_inset space ~
 \end_inset
 
-algorithm is more focused on
+algorithm is focused on
 \begin_inset space ~
 \end_inset
 

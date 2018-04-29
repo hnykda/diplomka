@@ -563,7 +563,7 @@ The core idea of
 \begin_inset space ~
 \end_inset
 
-Bayesian interpretation is surely a
+Bayesian interpretation is the
 \begin_inset space ~
 \end_inset
 
@@ -999,7 +999,7 @@ pair of
 \end_inset
 
 
-\begin_inset Formula $(S,M),$
+\begin_inset Formula $(S,M)$
 \end_inset
 
  where 
@@ -1237,7 +1237,7 @@ a
 \begin_inset space ~
 \end_inset
 
-previous research or reliable enough observations obtained before hand.
+previous research or reliable enough observations obtained beforehand.
  If there is no prior knowledge available, so-called non-informative
 \emph on
  
@@ -1330,11 +1330,15 @@ literal "true"
 \end_inset
 
 .
- Formally, it is justification of
+ Formally, it is justification for
 \begin_inset space ~
 \end_inset
 
-restricting parameter space based on
+a
+\begin_inset space ~
+\end_inset
+
+restriction of the parameter space based on
 \begin_inset space ~
 \end_inset
 
@@ -3103,9 +3107,9 @@ reference "sec:Variational-inference"
 
 \end_inset
 
- has been 
+ are
 \emph on
-factorized distributions
+ factorized distributions
 \emph default
  formalized in
 \begin_inset space ~
@@ -3459,7 +3463,7 @@ constant
 \begin_inset space ~
 \end_inset
 
-using a
+the_use of a
 \begin_inset space ~
 \end_inset
 
@@ -3491,11 +3495,15 @@ negative KL divergence between
 \end_inset
 
 .
- That gives as
+ That gives us
 \begin_inset space ~
 \end_inset
 
-all necessary part for the
+all the
+\begin_inset space ~
+\end_inset
+
+necessary parts for the
 \begin_inset space ~
 \end_inset
 
@@ -3938,11 +3946,7 @@ the
 \begin_inset space ~
 \end_inset
 
-following terms is according to
-\begin_inset space ~
-\end_inset
-
-
+following terms is based on 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:ascent-update"
