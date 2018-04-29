@@ -251,7 +251,7 @@ scipy 1.0.0 – generator of
 \begin_inset space ~
 \end_inset
 
-pseudo-random numbers from various distributions
+pseudo-random numbers from various distributions,
 \end_layout
 
 \begin_layout Itemize
@@ -260,7 +260,7 @@ numpy 1.14.2 – to
 \end_inset
 
 store arrays and perform mathematical operations, especially linear algebra
- ones
+ ones,
 \end_layout
 
 \begin_layout Itemize
@@ -276,7 +276,7 @@ the
 \begin_inset space ~
 \end_inset
 
-measurement nodes
+measurement nodes,
 \end_layout
 
 \begin_layout Itemize
@@ -300,7 +300,7 @@ plot the
 \begin_inset space ~
 \end_inset
 
-charts
+charts,
 \end_layout
 
 \begin_layout Itemize
@@ -320,7 +320,7 @@ classic Kalman Filter used in
 \begin_inset space ~
 \end_inset
 
-comparison
+comparison,
 \end_layout
 
 \begin_layout Itemize
@@ -328,7 +328,7 @@ matplotlib 2.2.2 – plotting the
 \begin_inset space ~
 \end_inset
 
-charts
+charts.
 \end_layout
 
 \begin_layout Standard
@@ -525,7 +525,7 @@ comparison is the
 \begin_inset space ~
 \end_inset
 
-Root Mean Square Error (RMSE).
+root mean square error (RMSE).
  Where appropriate, standard deviation of
 \begin_inset space ~
 \end_inset
@@ -595,7 +595,15 @@ Here we describe the
 \begin_inset space ~
 \end_inset
 
-dynamical system model in
+dynamical system model of
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+2D tracking problem in
 \begin_inset space ~
 \end_inset
 
@@ -621,7 +629,7 @@ noprefix "false"
 \begin_inset space ~
 \end_inset
 
-Kalman Filter:
+Kalman filter:
 \end_layout
 
 \begin_layout Standard
@@ -702,28 +710,11 @@ the observations with covariance
 \end_inset
 
 .
- It can be thought about as
-\begin_inset space ~
-\end_inset
-
-a
-\begin_inset space ~
-\end_inset
-
-point moving on
-\begin_inset space ~
-\end_inset
-
-a
-\begin_inset space ~
-\end_inset
-
-2D plane.
  A
 \begin_inset space ~
 \end_inset
 
-typical result of
+possible result of
 \begin_inset space ~
 \end_inset
 
@@ -1082,20 +1073,7 @@ literal "false"
 
 \end_inset
 
-, where the
-\begin_inset space ~
-\end_inset
-
-reader is kindly referred to
-\begin_inset space ~
-\end_inset
-
-if she wishes to
-\begin_inset space ~
-\end_inset
-
-know more.
- 
+.
 \end_layout
 
 \begin_layout Standard
@@ -1217,11 +1195,11 @@ distinguish between the
 \begin_inset space ~
 \end_inset
 
-situation when the
+situation where the
 \begin_inset space ~
 \end_inset
 
-true noise covariance is known and when it is not.
+true noise covariance is known and where it is not.
  Another property of
 \begin_inset space ~
 \end_inset
@@ -1316,7 +1294,8 @@ adjust to
 \begin_inset space ~
 \end_inset
 
-the noise, making the
+the noise and because variational Bayes is just an approximation, making
+ the
 \begin_inset space ~
 \end_inset
 
@@ -1626,7 +1605,7 @@ measurements are missing.
 
 \end_inset
 
- allows for some introspection to
+ allow for some introspection to
 \begin_inset space ~
 \end_inset
 
@@ -2621,6 +2600,10 @@ noise analysis was carried out.
 \begin_inset space ~
 \end_inset
 
+the
+\begin_inset space ~
+\end_inset
+
 case of
 \begin_inset space ~
 \end_inset
@@ -2788,7 +2771,7 @@ results from the
 \begin_inset space ~
 \end_inset
 
-previous chapter 
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "subsec:Single-node-VBAKF"
@@ -3091,7 +3074,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3125,7 +3108,7 @@ Mean RMSE (left), but also in
 \begin_inset space ~
 \end_inset
 
-Mean Standard deviation over all runs (right).
+mean standard deviation over all runs (right).
 \end_layout
 
 \end_inset

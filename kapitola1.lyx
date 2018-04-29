@@ -679,7 +679,7 @@ observing event A
 \begin_inset space ~
 \end_inset
 
-given that B is true.
+given B.
 \end_layout
 
 \begin_layout Enumerate
@@ -694,11 +694,7 @@ probability of
 \begin_inset space ~
 \end_inset
 
-observing event B given that A
-\begin_inset space ~
-\end_inset
-
-is true.
+observing event B given A.
  This factor is called 
 \series bold
 likelihood
@@ -1069,7 +1065,7 @@ true
 
 data
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 A
@@ -1092,7 +1088,7 @@ them are useful
 \begin_inset Quotes erd
 \end_inset
 
-
+.
 \end_layout
 
 \end_inset
@@ -1167,11 +1163,7 @@ finite
 \series bold
 Nonparametric models
 \series default
-: this family is an
-\begin_inset space ~
-\end_inset
-
-unfortunate misnomer.
+: this family is ipso facto a misnomer.
  Nonparametric models also have parameters, but they differ from parametric
  models in
 \begin_inset space ~
@@ -1215,8 +1207,8 @@ the
 \begin_inset space ~
 \end_inset
 
-model have some prior distributions assigned.
- These distributions capture prior knowledge one posses before the
+model have assigned some prior distributions.
+ These distributions capture prior knowledge one has before the
 \begin_inset space ~
 \end_inset
 
@@ -1658,7 +1650,7 @@ a
 \begin_inset space ~
 \end_inset
 
-prior and repeatedly.
+prior repeatedly.
  Using the
 \begin_inset space ~
 \end_inset
@@ -1693,7 +1685,7 @@ the
 \begin_inset space ~
 \end_inset
 
-real-world applications, using Bayes Theorem computationally means evaluating
+real-world applications, using Bayes theorem computationally means evaluating
  some integrals.
  For instance, to
 \begin_inset space ~
@@ -1833,7 +1825,7 @@ most commonly used distributions such as
 \begin_inset space ~
 \end_inset
 
-Gaussian or Beta distribution.
+Gaussian or beta distribution.
  This family is called 
 \emph on
 exponential family
@@ -1850,11 +1842,7 @@ an
 \begin_inset space ~
 \end_inset
 
-exponential family and a
-\begin_inset space ~
-\end_inset
-
-conjugate prior distribution is selected, the
+exponential family, then the conjugate prior always exists and hence the
 \begin_inset space ~
 \end_inset
 
@@ -1973,10 +1961,6 @@ p(y|x,\Theta)=\mexp{\eta^{T}T-A(\eta)+k(x,y)}\label{eq:exp-family-form}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 where 
 \begin_inset Formula $\eta=\eta(\Theta)$
 \end_inset
@@ -2029,10 +2013,6 @@ A(\eta)=\log\int\mexp{\eta^{T}T+k(x,y)}\text{d}x\text{d}y
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 where the
 \begin_inset space ~
 \end_inset
@@ -2194,10 +2174,6 @@ form
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 where 
 \begin_inset Formula $\Xi$
 \end_inset
@@ -2274,10 +2250,10 @@ Bayesian update results into a
 \begin_inset space ~
 \end_inset
 
-simple summation
+simple summation.
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Lemma
 (Bayesian update under conjugacy).
  Assume that a
 \begin_inset space ~
@@ -2338,6 +2314,31 @@ conjugate hyperparameters
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The proof is omitted for its triviality and follows directly from the product
+ of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:exp-family-form"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:prior-exp-form"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -2414,7 +2415,7 @@ family of
 \begin_inset space ~
 \end_inset
 
-deterministic approximation methods 
+deterministic approximation methods called 
 \emph on
 variational inference (
 \emph default
@@ -2422,11 +2423,8 @@ or
 \emph on
 variational Bayes) 
 \emph default
-is used, excellently described in
-\begin_inset space ~
-\end_inset
-
-
+is used.
+ For details, see 
 \begin_inset CommandInset citation
 LatexCommand cite
 after "(p. 463)"
@@ -2500,15 +2498,7 @@ possible inputs, for instance, by considering only quadratic functions or,
 \begin_inset space ~
 \end_inset
 
-is widely used and is also the
-\begin_inset space ~
-\end_inset
-
-case of
-\begin_inset space ~
-\end_inset
-
-this work, functions which factorizes in
+is widely used and in this work, functions which factorize in
 \begin_inset space ~
 \end_inset
 
@@ -2524,11 +2514,7 @@ Let
 \begin_inset Formula $\probjoint pXZ$
 \end_inset
 
- be a
-\begin_inset space ~
-\end_inset
-
-fully Bayesian model, where all prior distributions are given.
+ be Bayesian model, where all prior distributions are given.
  Let denote the
 \begin_inset space ~
 \end_inset
@@ -2603,7 +2589,7 @@ many real-world scenarios,
 \begin_inset Formula $\probcond pZX$
 \end_inset
 
- is almost always intractable.
+ is intractable.
  For example, one often cannot integrate all configurations of
 \begin_inset space ~
 \end_inset
@@ -2676,6 +2662,21 @@ be in
 \end_inset
 
 well.
+ 
+\end_layout
+
+\begin_layout Standard
+In the following lines, for the sake of readability, we omit arguments of distri
+butions where possible.
+ Most often it means 
+\begin_inset Formula $q:=\prob qZ$
+\end_inset
+
+ and 
+\begin_inset Formula $p:=\probcond pZX$
+\end_inset
+
+.
  As a
 \begin_inset space ~
 \end_inset
@@ -2696,36 +2697,7 @@ approximate
 \begin_inset Formula $\probcond pZX$
 \end_inset
 
-, Kullback-Leibler (KL) divergence 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:KL"
-
-\end_inset
-
- is used.
- For the
-\begin_inset space ~
-\end_inset
-
-sake of
-\begin_inset space ~
-\end_inset
-
-readability, we omit arguments of
-\begin_inset space ~
-\end_inset
-
-distributions where possible.
- Most often it means 
-\begin_inset Formula $q:=\prob qZ$
-\end_inset
-
- and 
-\begin_inset Formula $p:=\probcond pZX$
-\end_inset
-
-.
+, the Kullback-Leibler (KL) divergence is used:
 \end_layout
 
 \begin_layout Standard
@@ -2736,25 +2708,35 @@ distributions where possible.
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 and the integral goes again over the all latent variables.
- Please note that in
-\begin_inset space ~
+ The 
+\begin_inset Formula $KL$
 \end_inset
 
-the case 
+ divergence has the property that it is always non-negative 
+\begin_inset Formula $\kl qp\ge0$
+\end_inset
+
+ and that 
+\begin_inset Formula $\kl qp=0$
+\end_inset
+
+ if and only if 
 \begin_inset Formula $\probcond pXZ=\prob qZ$
 \end_inset
 
-, Kullback-Leibler divergence is effectively zero.
- The
+ almost everywhere.
+ However, it is not a metric, since it does not satisfy the triangle inequality
+ and is not symmetric.
+ 
+\end_layout
+
+\begin_layout Standard
+The
 \begin_inset space ~
 \end_inset
 
-goal is to
+goal is then to
 \begin_inset space ~
 \end_inset
 
@@ -2770,11 +2752,7 @@ following optimization problem:
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
-The optimization 
+ The optimization 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:optim"
@@ -2802,15 +2780,15 @@ can be seen from the
 \begin_inset space ~
 \end_inset
 
-following derivation
+following derivation:
 \begin_inset Formula 
 \[
-\kl q{\probcond pZX}=\E{\ln q}-\E{\ln\probcond pZX}=\E{\ln q}-\E{\ln\probjoint pZX}+\ln\prob pX
+\kl q{\probcond pZX}=\E{\ln q}-\E{\ln\probcond pZX}=\E{\ln q}-\E{\ln\probjoint pZX}+\ln\prob pX.
 \]
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -2855,11 +2833,7 @@ constant.
 \emph on
 variational lower bound 
 \emph default
-(
-\emph on
-ELBO
-\emph default
-) as
+as
 \begin_inset space ~
 \end_inset
 
@@ -3036,19 +3010,11 @@ be tractable, it still needs to
 \begin_inset space ~
 \end_inset
 
-be flexible enough (as much as
+be flexible enough to
 \begin_inset space ~
 \end_inset
 
-possible) to
-\begin_inset space ~
-\end_inset
-
-provide 
-\emph on
-accurate enough
-\emph default
- approximation, goals usually being in
+provide sufficiently precise approximation, goals usually being in
 \begin_inset space ~
 \end_inset
 
@@ -3112,15 +3078,12 @@ reference "sec:Variational-inference"
 \emph on
  factorized distributions
 \emph default
- formalized in
-\begin_inset space ~
-\end_inset
-
-physics theory called 
+ c.f.
+ 
 \emph on
 mean field theory
 \emph default
- 
+ in physics
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Parisi.1988"
@@ -3169,7 +3132,7 @@ factorizes
 :
 \begin_inset Formula 
 \[
-\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z
+\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z.
 \]
 
 \end_inset
@@ -3178,11 +3141,7 @@ factorizes
 \end_layout
 
 \begin_layout Standard
-It is clear that the
-\begin_inset space ~
-\end_inset
-
-assumption is often not met.
+It is clear that this simplification is often not met in reality.
  Variables are dependent in
 \begin_inset space ~
 \end_inset
@@ -3229,11 +3188,8 @@ the
 \begin_inset space ~
 \end_inset
 
-observed data – it is the
-\begin_inset space ~
-\end_inset
-
-ELBO and KL minimization problem, which connects this to
+observed data – it is the variational lower bound and KL minimization problem,
+ which connects this to
 \begin_inset space ~
 \end_inset
 
@@ -3284,6 +3240,53 @@ literal "true"
 Derivation
 \end_layout
 
+\begin_layout Standard
+For the
+\begin_inset space ~
+\end_inset
+
+sake of readability, the
+\begin_inset space ~
+\end_inset
+
+expectation over all 
+\begin_inset Formula $q$
+\end_inset
+
+ distributions 
+\emph on
+except 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+
+\emph default
+ is denoted
+\emph on
+ 
+\emph default
+as 
+\begin_inset Formula $\E[-i]{...}$
+\end_inset
+
+
+\emph on
+.
+ 
+\emph default
+Similarly, 
+\begin_inset Formula $\Var{Z_{\{-i\}}}$
+\end_inset
+
+ means all latent variables except 
+\emph on
+
+\begin_inset Formula $\Var{Z_{i}}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsubsection*
 Optimal 
 \begin_inset Formula $\prob{q_{i}^{*}}{Z_{i}}$
@@ -3306,7 +3309,7 @@ complete conditional of
 \end_inset
 
 , which is 
-\begin_inset Formula $\probcond p{Z_{i}}{Z_{-i},X}$
+\begin_inset Formula $\probcond p{Z_{i}}{Z_{\{-i\}},X}$
 \end_inset
 
 .
@@ -3319,7 +3322,7 @@ complete conditional of
 \end_inset
 
 optimal 
-\begin_inset Formula $\prob{q_{i}}{Z_{i}}$
+\begin_inset Formula $\prob{q_{i}^{*}}{Z_{i}}$
 \end_inset
 
  satisfies the
@@ -3332,7 +3335,7 @@ following
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}\label{eq:ascent-update}
+\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}},\label{eq:ascent-update}
 \end{equation}
 
 \end_inset
@@ -3341,47 +3344,12 @@ following
 \end_layout
 
 \begin_layout Standard
-wherein the
-\begin_inset space ~
-\end_inset
-
-last term, we use the
-\begin_inset space ~
-\end_inset
-
-fact that 
+wherein 
 \begin_inset Formula $\prob{q_{-i}}{Z_{-i}}=\prod_{l\ne i}\prob{q_{l}}{Z_{l}}$
 \end_inset
 
 .
- By 
-\begin_inset Formula $\E[-i]{...}$
-\end_inset
-
-, we denote expectation over all 
-\begin_inset Formula $q$
-\end_inset
-
- distributions 
-\emph on
-except 
-\begin_inset Formula $q_{i}$
-\end_inset
-
-.
  
-\emph default
-Similarly, 
-\begin_inset Formula $\Var{Z_{-i}}$
-\end_inset
-
- means all latent variables except 
-\emph on
-
-\begin_inset Formula $\Var{Z_{i}}$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3464,7 +3432,11 @@ constant
 \begin_inset space ~
 \end_inset
 
-the_use of a
+the
+\begin_inset space ~
+\end_inset
+
+use of a
 \begin_inset space ~
 \end_inset
 
@@ -3810,7 +3782,7 @@ infer posterior
 joint probability is
 \begin_inset Formula 
 \[
-\prob p{X,\mu,\tau}=\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}
+\prob p{X,\mu,\tau}=\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}.
 \]
 
 \end_inset
@@ -3877,22 +3849,18 @@ non-informative conjugate priors for the
 \begin_inset space ~
 \end_inset
 
-follows
+follows:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mu & \sim\mathcal{N}(\mu_{0},(\lambda_{0}\tau)^{-1})\\
-\tau & \sim\text{Gamma}(a_{0},b_{0})
+\mu & \sim\mathcal{N}(\mu_{0},(\lambda_{0}\tau)^{-1}),\\
+\tau & \sim\text{Gamma}(a_{0},b_{0}).
 \end{align*}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where the
 \begin_inset space ~
 \end_inset
@@ -3905,7 +3873,7 @@ hyperparameters
 \begin_inset space ~
 \end_inset
 
-some small positive number.
+some small positive number as in the usual Bayesian inference.
  
 \end_layout
 
@@ -3971,23 +3939,34 @@ literal "true"
 \end_inset
 
 .
+ The derivations yields following for 
+\begin_inset Formula $\prob{q_{\mu}^{*}}{\mu}$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
-The derivations yields following for 
-\begin_inset Formula $\prob{q_{\mu}^{*}}{\mu}$
+\begin_inset Formula 
+\[
+\prob{q_{\mu}^{*}}{\mu}\sim\mathcal{N}(\mu\mid\mu_{N},\lambda_{N}^{-1}),
+\]
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+where
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\prob{q_{\mu}^{*}}{\mu} & \sim\mathcal{N}(\mu\mid\mu_{N},\lambda_{N}^{-1})\\
-\mu_{N}= & \frac{\lambda_{0}\mu_{0}+N\bar{x}}{\lambda_{0}+N}\\
-\lambda_{N} & =(\lambda_{0}+N)\E[\tau]{\tau}=(\lambda_{0}+N)\frac{a_{N}}{b_{N}}\\
-\bar{x}= & \frac{1}{N}\sum_{n=1}^{N}x_{n}
+\mu_{N}= & \frac{\lambda_{0}\mu_{0}+N\bar{x}}{\lambda_{0}+N},\\
+\lambda_{N}= & (\lambda_{0}+N)\E[\tau]{\tau}=(\lambda_{0}+N)\frac{a_{N}}{b_{N}},\\
+\bar{x}= & \frac{1}{N}\sum_{n=1}^{N}x_{n},\\
 \end{align*}
 
 \end_inset
@@ -4005,11 +3984,25 @@ and for
 
 \begin_layout Standard
 \begin_inset Formula 
+\[
+\prob{q_{\tau}^{*}}{\tau}\sim\text{Gamma(\tau\mid a_{N},b_{N})},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
 \begin{align*}
-\prob{q_{\tau}^{*}}{\tau} & \sim\text{Gamma(\tau\mid a_{N},b_{N})}\\
-a_{N} & =a_{0}+\frac{N+1}{2}\\
-b_{N} & =b_{0}+\frac{1}{2}\E[\mu]{\sum_{n=1}^{N}(x_{n}-\mu)^{2}+\lambda_{0}(\mu-\mu_{0})^{2}}=\\
- & =b_{0}+\frac{1}{2}\left[(\lambda_{0}+N)\left(\lambda_{N}^{-1}+\mu_{N}^{2}\right)-2\left(\lambda_{0}\mu_{0}+\sum_{n=1}^{N}x_{n}\right)\mu_{N}+\left(\sum_{n=1}^{N}x_{n}^{2}\right)+\lambda_{0}\mu_{0}^{2}\right]
+a_{N} & =a_{0}+\frac{N+1}{2},\\
+b_{N} & =b_{0}+\frac{1}{2}\E[\mu]{\sum_{n=1}^{N}(x_{n}-\mu)^{2}+\lambda_{0}(\mu-\mu_{0})^{2}}\\
+ & =b_{0}+\frac{1}{2}\left[(\lambda_{0}+N)\left(\lambda_{N}^{-1}+\mu_{N}^{2}\right)-2\left(\lambda_{0}\mu_{0}+\sum_{n=1}^{N}x_{n}\right)\mu_{N}+\left(\sum_{n=1}^{N}x_{n}^{2}\right)+\lambda_{0}\mu_{0}^{2}\right].
 \end{align*}
 
 \end_inset
@@ -4059,7 +4052,7 @@ obtain
 \begin_inset Formula $b_{N,t}$
 \end_inset
 
-
+,
 \end_layout
 
 \begin_layout Enumerate
@@ -4075,7 +4068,7 @@ compute new
 \begin_inset Formula $b_{N,t}$
 \end_inset
 
- and all other terms needed
+ and all other terms needed.
 \end_layout
 
 \begin_layout Paragraph
@@ -4087,7 +4080,7 @@ After
 \begin_inset Formula $m$
 \end_inset
 
- iterations, we are now having new values of
+ iterations, we obtain new values of
 \begin_inset space ~
 \end_inset
 
@@ -4108,8 +4101,8 @@ posterior distribution.
 joint probability is
 \begin_inset Formula 
 \begin{align*}
-\prob p{X,\mu,\tau} & =\probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}=\\
-= & \prod_{n=1}^{N}\mathcal{N}(x|\mu_{N},\tau_{N}^{-1})\mathcal{N}(\mu_{N},(\lambda_{N}\tau_{N})^{-1})\text{Gamma}(a_{N},b_{N})
+\prob p{X,\mu,\tau}= & \probcond pX{\mu,\tau}\probcond p{\mu}{\tau}\prob p{\tau}\\
+= & \prod_{n=1}^{N}\mathcal{N}(x|\mu_{N},\tau_{N}^{-1})\mathcal{N}(\mu_{N},(\lambda_{N}\tau_{N})^{-1})\text{Gamma}(a_{N},b_{N}).
 \end{align*}
 
 \end_inset

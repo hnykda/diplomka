@@ -155,7 +155,11 @@ recursive solution to
 \begin_inset space ~
 \end_inset
 
-the discrete-data linear filtering problem 
+the
+\begin_inset space ~
+\end_inset
+
+discrete-time linear filtering problem 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Welch2006"
@@ -335,14 +339,6 @@ literal "false"
 \begin_inset space ~
 \end_inset
 
-a
-\begin_inset space ~
-\end_inset
-
-medicine, such as
-\begin_inset space ~
-\end_inset
-
 neuroscience
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -455,7 +451,7 @@ literal "false"
 \end_inset
 
 .
- Applications ranges from wireless networks
+ Applications range from wireless networks
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Akyildiz2010"
@@ -463,7 +459,7 @@ literal "false"
 
 \end_inset
 
-, precision agriculture
+ to precision agriculture
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Portz2013"
@@ -575,11 +571,12 @@ position and velocity.
 \begin_inset space ~
 \end_inset
 
-Kalman Filter, one needs to
+Kalman filter, one needs to
 \begin_inset space ~
 \end_inset
 
-specify system
+specify system of interest in terms of the state-space equations, in other
+ words:
 \end_layout
 
 \begin_layout Enumerate
@@ -599,7 +596,7 @@ steer a
 \begin_inset space ~
 \end_inset
 
-wheel
+wheel,
 \end_layout
 
 \begin_layout Enumerate
@@ -611,7 +608,7 @@ physical laws of
 \begin_inset space ~
 \end_inset
 
-motion
+motion,
 \end_layout
 
 \begin_layout Enumerate
@@ -619,7 +616,7 @@ measurements, such as
 \begin_inset space ~
 \end_inset
 
-readings from sensors
+readings from sensors.
 \end_layout
 
 \begin_layout Standard
@@ -627,7 +624,7 @@ The filter is useful in
 \begin_inset space ~
 \end_inset
 
-situations when dynamic model nor measurements cannot be entirely trusted
+situations where dynamic model nor measurements cannot be entirely trusted
  (otherwise one would not need to
 \begin_inset space ~
 \end_inset
@@ -661,7 +658,7 @@ whole process is performed recursively, remembering the
 \end_inset
 
 last estimate and covariance.
- Hence, it does not need an
+ Hence, it does not need the
 \begin_inset space ~
 \end_inset
 
@@ -682,7 +679,7 @@ less noisy estimates (hence a
 \begin_inset space ~
 \end_inset
 
-filter), better estimates are generated in
+filter), better estimates are generated at
 \begin_inset space ~
 \end_inset
 
@@ -691,7 +688,7 @@ each step.
 \end_layout
 
 \begin_layout Standard
-Observable parameters coming from measurements does not have to
+Observable parameters coming from measurements do not have to
 \begin_inset space ~
 \end_inset
 
@@ -765,7 +762,7 @@ system is measured by multiple of
 \begin_inset space ~
 \end_inset
 
-them and then somehow combine these measurements together.
+them and they are combined in a particular way.
  Despite its relatively simple high-level description, a
 \begin_inset space ~
 \end_inset
@@ -882,7 +879,7 @@ Let
 \begin_inset space ~
 \end_inset
 
-true state vectors in
+true state vectors at
 \begin_inset space ~
 \end_inset
 
@@ -911,7 +908,7 @@ measurement vector,
 \begin_inset space ~
 \end_inset
 
-state transition matrix and control matrix, and 
+state transition matrix and the control matrix, and 
 \begin_inset Formula $\mathbf{H}_{k}\in\mathbb{R}^{m\times n}$
 \end_inset
 
@@ -967,15 +964,11 @@ time
 \begin_layout Definition
 \begin_inset Formula 
 \begin{equation}
-\mathbf{x}_{k}=\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{B}_{k}\mathbf{u}_{k}+\mathbf{w}_{k}\label{eq:kalman-beg-state-pred}
+\mathbf{x}_{k}=\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{B}_{k}\mathbf{u}_{k}+\mathbf{w}_{k},\label{eq:kalman-beg-state-pred}
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 and then an
 \begin_inset space ~
 \end_inset
@@ -986,7 +979,7 @@ observation is made as
 \begin_layout Definition
 \begin_inset Formula 
 \begin{equation}
-\text{\mathbf{z}_{k}=\mathbf{H}_{k}\mathbf{x}_{k}+\mathbf{v}_{k}}
+\text{\mathbf{z}_{k}=\mathbf{H}_{k}\mathbf{x}_{k}+\mathbf{v}_{k}}.
 \end{equation}
 
 \end_inset
@@ -1011,11 +1004,7 @@ is common in
 \begin_inset space ~
 \end_inset
 
-many scenarios where control input does not make sense (such as
-\begin_inset space ~
-\end_inset
-
-temperature sensors).
+many scenarios where control input is not necessary.
  The
 \begin_inset space ~
 \end_inset
@@ -1039,8 +1028,8 @@ be zero mean (multivariate) Gaussian white noise with covariance matrices
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-\vec w_{k} & \sim & \mathcal{N}(0,\mathbf{Q}_{k})\\
-\vec v_{k} & \sim & \mathcal{N}(0,\mathbf{R}_{k})
+\vec w_{k} & \sim & \mathcal{N}(0,\mathbf{Q}_{k}),\\
+\vec v_{k} & \sim & \mathcal{N}(0,\mathbf{R}_{k}).
 \end{eqnarray*}
 
 \end_inset
@@ -1080,7 +1069,7 @@ likelihoods for a
 single measurement and state estimation are
 \begin_inset Formula 
 \begin{align}
-p(\vec z_{k}|\vec x_{k}) & =\mathcal{N}(\vec z_{k};\mat H_{k}\vec x_{k},\mathbf{R}_{k})\\
+p(\vec z_{k}|\vec x_{k}) & =\mathcal{N}(\vec z_{k};\mat H_{k}\vec x_{k},\mathbf{R}_{k}),\\
 p(\vec x_{k}|\vec x_{k-1}) & =\mathcal{N}(\vec x_{k};F_{k|k-1}\vec x_{k-1},\mathbf{Q}_{k}).
 \end{align}
 
@@ -1098,7 +1087,7 @@ The Kalman Filter is a
 \begin_inset space ~
 \end_inset
 
-so-called recursive estimator, needing only state estimation from the
+so-called recursive estimator, needing only state estimates from the
 \begin_inset space ~
 \end_inset
 
@@ -1134,11 +1123,15 @@ estimator is described by two variables
 \begin_inset space ~
 \end_inset
 
+a
+\begin_inset space ~
+\end_inset
+
 posteriori state estimate at time 
 \begin_inset Formula $k$
 \end_inset
 
-
+,
 \end_layout
 
 \begin_layout Itemize
@@ -1149,11 +1142,15 @@ posteriori state estimate at time
 \begin_inset space ~
 \end_inset
 
+a
+\begin_inset space ~
+\end_inset
+
 posteriori error covariance matrix at time 
 \begin_inset Formula $k$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1188,8 +1185,8 @@ prediction step is defined as
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1}\label{eq:predict-state}\\
-\mat P_{k|k-1} & =\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\mat Q_{k-1}\label{eq:predict-error}
+\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1},\label{eq:predict-state}\\
+\mat P_{k|k-1} & =\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\mat Q_{k-1}.\label{eq:predict-error}
 \end{align}
 
 \end_inset
@@ -1209,9 +1206,9 @@ the
 observation is then performed according to
 \begin_inset Formula 
 \begin{align}
-\mat K_{k}= & \mat P_{k|k-1}\mat H_{k}^{T}(\mat H_{k}\mat P_{k|k-1}\mat H_{k}+\mat R_{k})^{-1}\label{eq:kalman-gain}\\
-\hat{\vec x}_{k|k}= & \hat{\vec x}_{k|k-1}+\mat K_{k}(\vec z_{k}-\mat H_{k}\hat{\vec x}_{k|k-1})\\
-\mat P_{k|k}= & \mat P_{k|k-1}-\mat K_{k}\mat H_{k}\mat P_{k|k-1}\label{eq:posterior-state-cov}
+\mat K_{k}= & \mat P_{k|k-1}\mat H_{k}^{T}(\mat H_{k}\mat P_{k|k-1}\mat H_{k}+\mat R_{k})^{-1},\label{eq:kalman-gain}\\
+\hat{\vec x}_{k|k}= & \hat{\vec x}_{k|k-1}+\mat K_{k}(\vec z_{k}-\mat H_{k}\hat{\vec x}_{k|k-1}),\\
+\mat P_{k|k}= & \mat P_{k|k-1}-\mat K_{k}\mat H_{k}\mat P_{k|k-1}.\label{eq:posterior-state-cov}
 \end{align}
 
 \end_inset
@@ -1345,8 +1342,8 @@ the
 \begin_inset space ~
 \end_inset
 
-Kalman Filter is quite straightforward.
- Instead of
+Kalman filter is rather a family of methods than some specific algorithm.
+ Basically, in its generality, instead of
 \begin_inset space ~
 \end_inset
 
@@ -1481,7 +1478,8 @@ noprefix "false"
 
 \end_inset
 
-.
+ and defines the complexity of the given approach.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1518,11 +1516,19 @@ optimal linear filter in
 \begin_inset space ~
 \end_inset
 
-the Mean Squared Error if and only if all the
+the mean squared error if and only if all the
 \begin_inset space ~
 \end_inset
 
-following conditions are fulfilled
+following conditions are fulfilled 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Simon2006"
+literal "false"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Enumerate
@@ -1530,11 +1536,11 @@ the model is exactly reflecting the
 \begin_inset space ~
 \end_inset
 
-reality
+reality,
 \end_layout
 
 \begin_layout Enumerate
-the noise is Gaussian white
+the noise is Gaussian white,
 \end_layout
 
 \begin_layout Enumerate
@@ -1550,7 +1556,7 @@ noise are exactly known and the
 \begin_inset space ~
 \end_inset
 
-noise is static
+noise is static.
 \end_layout
 
 \begin_layout Standard

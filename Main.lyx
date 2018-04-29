@@ -63,7 +63,7 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
-\biblio_style apa
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -96,7 +96,7 @@ theorems-ams-extended
 \bottommargin 3cm
 \headheight 0.8cm
 \headsep 1cm
-\footskip 0.5cm
+\footskip 1.3cm
 \secnumdepth 2
 \tocdepth 2
 \paragraph_separation indent
@@ -636,7 +636,7 @@ Combination of
 \begin_inset space ~
 \end_inset
 
-adaptive filtering in
+adaptive filters in
 \begin_inset space ~
 \end_inset
 
@@ -651,12 +651,12 @@ easy task.
 
 generic algorithm synthesizing state-of-the-art Variational Bayes techniques,
  Adaptive Kalman Filtration and diffusion networks is proposed and leveraging
- exponential family form representation and conjugate priors, a
+ the exponential family form representation and conjugate priors, a
 \begin_inset space ~
 \end_inset
 
 concise derivation is carried out.
- Then the
+ The
 \begin_inset space ~
 \end_inset
 
@@ -668,7 +668,7 @@ the problem of
 \begin_inset space ~
 \end_inset
 
-estimation of
+collaborative estimation of
 \begin_inset space ~
 \end_inset
 
@@ -684,25 +684,26 @@ a
 \begin_inset space ~
 \end_inset
 
-target.
- Finally, a
+target tracked by a
 \begin_inset space ~
 \end_inset
 
-comparison of
+group of
 \begin_inset space ~
 \end_inset
 
-our simulation results with a
+spatially distributed interconnected agents influenced by heterogeneous
+ noise.
+ It is shown, that cooperation significantly improves tracking performance
+ of
 \begin_inset space ~
 \end_inset
 
-baseline algorithm and a
+the
 \begin_inset space ~
 \end_inset
 
-theoretical prediction is made.
- 
+whole agent network.
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -873,7 +874,7 @@ imperfections of
 \end_inset
 
 their measurements or computations.
- These may be caused by either misalignment of
+ These may be caused by, e.g., misalignment of
 \begin_inset space ~
 \end_inset
 
@@ -957,15 +958,19 @@ agreeing on
 \begin_inset space ~
 \end_inset
 
-something, the
+quantity of
 \begin_inset space ~
 \end_inset
 
-latter deals with the
+interest, the
 \begin_inset space ~
 \end_inset
 
-always-present noise in
+latter deal with the
+\begin_inset space ~
+\end_inset
+
+omnipresent noise in
 \begin_inset space ~
 \end_inset
 
@@ -974,7 +979,11 @@ the received data.
 \begin_inset space ~
 \end_inset
 
-a_certain type of
+a
+\begin_inset space ~
+\end_inset
+
+certain type of
 \begin_inset space ~
 \end_inset
 
@@ -995,7 +1004,7 @@ effectively filter noise from the
 \begin_inset space ~
 \end_inset
 
-data makes it less useful than it otherwise could be.
+data makes the data less useful than it otherwise could be.
  The
 \begin_inset space ~
 \end_inset
@@ -1073,7 +1082,7 @@ classic Kalman Filter with a
 \end_inset
 
 recently developed so-called parameter diffusion.
- Both techniques leverage from the
+ Both techniques stem from the
 \begin_inset space ~
 \end_inset
 
@@ -1097,7 +1106,11 @@ a
 \begin_inset space ~
 \end_inset
 
-solution for the
+solution to
+\begin_inset space ~
+\end_inset
+
+the
 \begin_inset space ~
 \end_inset
 
@@ -1122,7 +1135,7 @@ development of
 \begin_inset space ~
 \end_inset
 
-such algorithm and explain under what conditions it may be a
+such algorithm and explain under which conditions it may be a
 \begin_inset space ~
 \end_inset
 
@@ -1222,7 +1235,7 @@ its key properties.
 \begin_inset space ~
 \end_inset
 
-third part is a
+third chapter is a
 \begin_inset space ~
 \end_inset
 
@@ -1243,7 +1256,7 @@ the
 \begin_inset space ~
 \end_inset
 
-mathematical formulation using exponential family form is carried out and
+mathematical formulation using exponential family form is performed and
  in
 \begin_inset space ~
 \end_inset
@@ -1274,11 +1287,7 @@ development ecosystem.
 \begin_inset space ~
 \end_inset
 
-different variants are carried out, trying to
-\begin_inset space ~
-\end_inset
-
-evaluate the
+different variants are carried out, evaluating the
 \begin_inset space ~
 \end_inset
 
@@ -1516,7 +1525,7 @@ important and often overlooked property.
 \end_layout
 
 \begin_layout Standard
-The simulation results strongly support these claims and hopefully offers
+The simulation results strongly support these claims and hopefully offer
  sufficient explanations for the
 \begin_inset space ~
 \end_inset

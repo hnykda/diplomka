@@ -96,36 +96,21 @@ Distributed Variational Bayes Adaptive Kalman Filtration
 \end_layout
 
 \begin_layout Standard
-This chapter describes the
-\begin_inset space ~
+This chapter is the core contribution of author's own research.
+ The novelty of this work is twofold:
+\end_layout
+
+\begin_layout Enumerate
+The existing VBAKF [31] is reformulated in terms of estimation with the
+ exponential family forms and conjugate prior distributions defined in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dedecius2017"
+literal "false"
+
 \end_inset
 
-main contributions of
-\begin_inset space ~
-\end_inset
-
-this work.
- It is a
-\begin_inset space ~
-\end_inset
-
-derivation of
-\begin_inset space ~
-\end_inset
-
-an
-\begin_inset space ~
-\end_inset
-
-improvement of
-\begin_inset space ~
-\end_inset
-
-a
-\begin_inset space ~
-\end_inset
-
-Variation Bayes Adaptive Kalman Filtration (VBAKF) described 
+ and 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -133,50 +118,13 @@ literal "false"
 
 \end_inset
 
- by partially sharing parameters in
-\begin_inset space ~
-\end_inset
-
-diffusion networks from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Dedecius2017"
-literal "false"
-
-\end_inset
-
 .
- Up to
-\begin_inset space ~
-\end_inset
+ This significantly simplifies its derivation and yields variables whose
+ subsequent fusion is straightforward.
+\end_layout
 
-the author's knowledge, there has not been a
-\begin_inset space ~
-\end_inset
-
-similar attempt to
-\begin_inset space ~
-\end_inset
-
-combine these two, although 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Dedecius2017"
-literal "false"
-
-\end_inset
-
- mention these as
-\begin_inset space ~
-\end_inset
-
-a
-\begin_inset space ~
-\end_inset
-
-future possibility.
- A great inspiration for the diffusion under exponential family forms has
- been taken from 
+\begin_layout Enumerate
+Fusion of estimates in diffusion networks is described based on 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dedecius2017a"
@@ -185,45 +133,6 @@ literal "false"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-We also propose a
-\begin_inset space ~
-\end_inset
-
-simplified version of
-\begin_inset space ~
-\end_inset
-
-the
-\begin_inset space ~
-\end_inset
-
-algorithm from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Huang2018"
-literal "false"
-
-\end_inset
-
- using exponential family form, as
-\begin_inset space ~
-\end_inset
-
-we believe that the
-\begin_inset space ~
-\end_inset
-
-resulting update equations are more elegant, concise and understandable.
- This is another novel contribution of
-\begin_inset space ~
-\end_inset
-
-this work.
- 
 \end_layout
 
 \begin_layout Standard
@@ -368,8 +277,8 @@ likelihood follows Gaussian distribution:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-p(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}) & =\mathrm{N}(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1})\label{eq:predxkprob}\\
-p(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}) & =\mathrm{N}(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k})\label{eq:predzkprob}
+p(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}) & =\mathrm{N}(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1}),\label{eq:predxkprob}\\
+p(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}) & =\mathrm{N}(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k}),\label{eq:predzkprob}
 \end{align}
 
 \end_inset
@@ -393,7 +302,7 @@ where
 \begin_inset Formula $\Sigma$
 \end_inset
 
-
+,
 \end_layout
 
 \begin_layout Itemize
@@ -430,7 +339,7 @@ noprefix "false"
 
 \end_inset
 
- 
+,
 \end_layout
 
 \begin_layout Itemize
@@ -467,7 +376,7 @@ noprefix "false"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -564,8 +473,8 @@ posterior belongs to
 \begin_inset space ~
 \end_inset
 
-the exponential family, we choose Inverse-Wishart distribution which is
- in
+the exponential family, we choose the Inverse-Wishart distribution which
+ is in
 \begin_inset space ~
 \end_inset
 
@@ -573,7 +482,7 @@ a
 \begin_inset space ~
 \end_inset
 
-Bayesian statistic a
+Bayesian statistics a
 \begin_inset space ~
 \end_inset
 
@@ -687,7 +596,7 @@ Inverse-Wishart distribution with
 \begin_inset space ~
 \end_inset
 
-freedom and scale matrix 
+freedom and the scale matrix 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -719,15 +628,11 @@ density is
 \begin_layout Definition
 \begin_inset Formula 
 \begin{equation}
-\frac{\left|{\mathbf{\Psi}}\right|^{\frac{\nu}{2}}}{2^{\frac{\nu p}{2}}\Gamma_{p}(\frac{\nu}{2})}\left|\mathbf{X}\right|^{-\frac{\nu+p+1}{2}}e^{-\frac{1}{2}\text{tr}({\mathbf{\Psi}}\mathbf{X}^{-1})}
+\frac{\left|{\mathbf{\Psi}}\right|^{\frac{\nu}{2}}}{2^{\frac{\nu p}{2}}\Gamma_{p}(\frac{\nu}{2})}\left|\mathbf{X}\right|^{-\frac{\nu+p+1}{2}}e^{-\frac{1}{2}\text{tr}({\mathbf{\Psi}}\mathbf{X}^{-1})},
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 where 
 \begin_inset Formula $\mathbf{\Psi>0}\in\mathbb{R}^{p\times p}$
 \end_inset
@@ -752,7 +657,7 @@ freedom,
 \begin_inset space ~
 \end_inset
 
-multivariate gamma function and 
+gamma function and 
 \begin_inset Formula $\text{tr}$
 \end_inset
 
@@ -786,7 +691,7 @@ Inverse-Wishart distributed matrix
 \mexp{\begin{bmatrix}\mathbf{X}^{-1}\\[5pt]
 \ln|\mathbf{X}|
 \end{bmatrix}\Bigl[\begin{array}{cc}
--\frac{1}{2}\boldsymbol{\Psi} & -\dfrac{\nu+p+1}{2}\end{array}\Bigr]-\Bigl(\frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)+\ln\Gamma_{p}\left(\frac{\nu}{2}\right)\Bigr)}\label{eq:iweff}
+-\frac{1}{2}\boldsymbol{\Psi} & -\dfrac{\nu+p+1}{2}\end{array}\Bigr]-\Bigl(\frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)+\ln\Gamma_{p}\left(\frac{\nu}{2}\right)\Bigr)},\label{eq:iweff}
 \end{equation}
 
 \end_inset
@@ -818,10 +723,10 @@ noprefix "false"
 \begin{align*}
 \eta(\mat X)= & \begin{bmatrix}\mathbf{X}^{-1}\\[5pt]
 \ln|\mathbf{X}|
-\end{bmatrix}\\
+\end{bmatrix},\\
 \Xi(\Psi,\nu,p)= & \Bigl[\begin{array}{cc}
--\frac{1}{2}\boldsymbol{\Psi} & -\dfrac{\nu+p+1}{2}\end{array}\Bigr]\\
-A(\eta)= & \frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)-\ln\Gamma_{p}\left(\frac{\nu}{2}\right)
+-\frac{1}{2}\boldsymbol{\Psi}, & -\dfrac{\nu+p+1}{2}\end{array}\Bigr],\\
+A(\eta)= & \frac{\nu}{2}(p\ln2-\ln|\boldsymbol{\Psi}|)-\ln\Gamma_{p}\left(\frac{\nu}{2}\right).
 \end{align*}
 
 \end_inset
@@ -850,7 +755,7 @@ pseudovector
 \begin_inset space ~
 \end_inset
 
-matrix, why the
+matrix, while the
 \begin_inset space ~
 \end_inset
 
@@ -902,8 +807,8 @@ the
 \begin_layout Definition
 \begin_inset Formula 
 \begin{align}
-\E{\mat X}{} & =\frac{\Psi}{\nu-p-1}\\
-= & \frac{2}{2\Xi_{2}+p+1}\Xi_{1}\label{eq:expValfromHyp}
+\E{\mat X}{}= & \frac{\Psi}{\nu-p-1}\\
+= & \frac{2}{2\Xi_{2}+p+1}\Xi_{1}.\label{eq:expValfromHyp}
 \end{align}
 
 \end_inset
@@ -931,8 +836,8 @@ probabilities for
  are
 \begin_inset Formula 
 \begin{align}
-p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1})\label{eq:iwdistP}\\
-p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1})\label{eq:iwdistR}
+p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}),\label{eq:iwdistP}\\
+p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1}) & =\mathrm{IW}(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}).\label{eq:iwdistR}
 \end{align}
 
 \end_inset
@@ -962,7 +867,8 @@ precisely as
 \end_inset
 
 possible.
- These parameters will be consumed later into prior's hyperparameters in
+ These parameters will be later incorporated into prior's hyperparameters
+ in
 \begin_inset space ~
 \end_inset
 
@@ -990,7 +896,7 @@ name "subsec:Hyperparameters-for-PNCM"
 \end_layout
 
 \begin_layout Standard
-The model from 
+The approach in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huang2018"
@@ -1013,17 +919,13 @@ prior information for
 
 \begin_inset Formula 
 \begin{align}
-\frac{\hat{\mathbf{T}}_{k|k-1}}{\hat{t}_{k|k-1}-n-1} & =\tilde{\mathbf{P}}_{k|k-1}=\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\tilde{\mathbf{Q}}_{k-1}\label{eq:initPNCM}\\
-\hat{\mathbf{T}}_{k|k-1} & =\tau\tilde{\mathbf{P}}_{k|k-1}\label{eq:updateT}\\
-\hat{t}_{k|k-1} & =n+\tau+1\label{eq:updatet}
+\frac{\hat{\mathbf{T}}_{k|k-1}}{\hat{t}_{k|k-1}-n-1} & =\tilde{\mathbf{P}}_{k|k-1}=\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\tilde{\mathbf{Q}}_{k-1},\label{eq:initPNCM}\\
+\hat{\mathbf{T}}_{k|k-1} & =\tau\tilde{\mathbf{P}}_{k|k-1},\label{eq:updateT}\\
+\hat{t}_{k|k-1} & =n+\tau+1,\label{eq:updatet}
 \end{align}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $\tilde{\mathbf{P}}_{k|k-1},\tilde{\mathbf{Q}}_{k-1}$
 \end_inset
@@ -1045,7 +947,7 @@ latter, together with
 \begin_inset Formula $\tau\ge0$
 \end_inset
 
-, are model's parameters and the
+, are model parameters and the
 \begin_inset space ~
 \end_inset
 
@@ -1092,19 +994,15 @@ noprefix "false"
 \begin{align}
 \eta(\mat P_{k|k-1})= & \begin{bmatrix}\mat P_{k|k-1}^{-1}\\[5pt]
 \ln|\mat P_{k|k-1}|
-\end{bmatrix}\label{eq:naturPk}\\
+\end{bmatrix},\label{eq:naturPk}\\
 \Xi(\hat{\mathbf{T}}_{k|k-1},\hat{t}_{k|k-1},n) & =\Bigl[\begin{array}{cc}
--\frac{1}{2}\hat{\mathbf{T}}_{k|k-1} & -\dfrac{\hat{t}_{k|k-1}+n+1}{2}\end{array}\Bigr]=\\
-= & \Bigl[\begin{array}{cc}
--\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1} & -\frac{1}{2}\tau-1-n\end{array}\Bigr]\label{eq:xiInit}
+-\frac{1}{2}\hat{\mathbf{T}}_{k|k-1}, & -\dfrac{\hat{t}_{k|k-1}+n+1}{2}\end{array}\Bigr]\\
+ & =\Bigl[\begin{array}{cc}
+-\frac{1}{2}\tau\tilde{\mathbf{P}}_{k|k-1}, & -\frac{1}{2}\tau-1-n\end{array}\Bigr].\label{eq:xiInit}
 \end{align}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $n$
 \end_inset
@@ -1158,7 +1056,7 @@ prior for
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})=\int p(\mathbf{R}_{k}|\mathbf{R}_{k-1})p(\mathbf{R}_{k-1}|\mathbf{z}_{1:k-1})d\mathbf{R}_{k-1}
+p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})=\int p(\mathbf{R}_{k}|\mathbf{R}_{k-1})p(\mathbf{R}_{k-1}|\mathbf{z}_{1:k-1})d\mathbf{R}_{k-1}.
 \end{equation}
 
 \end_inset
@@ -1221,7 +1119,7 @@ literal "false"
 \end_inset
 
 deal with this uncertainty.
- That is spreading previous posterior by a
+ That is spreading the previous posterior by a
 \begin_inset space ~
 \end_inset
 
@@ -1230,7 +1128,7 @@ factor of
 \end_inset
 
 
-\begin_inset Formula $\rho$
+\begin_inset Formula $\rho>0.95$
 \end_inset
 
 , which is then an
@@ -1240,16 +1138,12 @@ factor of
 additional model parameter
 \begin_inset Formula 
 \begin{align}
-\hat{u}_{k|k-1}= & \rho(\hat{u}_{k-1|k-1}-m-1)+m+1\label{eq:updateu}\\
-\hat{\mathbf{U}}_{k|k-1}= & \rho\hat{\mathbf{U}}_{k-1|k-1}\label{eq:updateU}
+\hat{u}_{k|k-1}= & \rho(\hat{u}_{k-1|k-1}-m-1)+m+1,\label{eq:updateu}\\
+\hat{\mathbf{U}}_{k|k-1}= & \rho\hat{\mathbf{U}}_{k-1|k-1},\label{eq:updateU}
 \end{align}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $m$
 \end_inset
@@ -1285,7 +1179,7 @@ be Inverse-Wishart distributed
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p(\mat R_{0})=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}
+p(\mat R_{0})=\dstype{IW}{\mat R_{0}}{\hat{u}_{0|0},\hat{\mathbf{U}}_{0|0}}.
 \end{equation}
 
 \end_inset
@@ -1343,7 +1237,7 @@ initial nominal MNCM
  
 \begin_inset Formula 
 \begin{equation}
-\frac{\hat{\mathbf{U}}_{0|0}}{\hat{u}_{0|0}-m-1}=\tilde{\mathbf{R}}_{0}
+\frac{\hat{\mathbf{U}}_{0|0}}{\hat{u}_{0|0}-m-1}=\tilde{\mathbf{R}}_{0},
 \end{equation}
 
 \end_inset
@@ -1409,11 +1303,11 @@ noprefix "false"
 \begin{align}
 \eta(\mathbf{R}_{k-1})= & \begin{bmatrix}\mathbf{R}_{k-1}^{-1}\\[5pt]
 \ln|\mathbf{R}_{k-1}|
-\end{bmatrix}\label{eq:naturRk}\\
+\end{bmatrix},\label{eq:naturRk}\\
 \Omega(\hat{\mathbf{U}}_{k},\hat{u}_{k},m) & =\Bigl[\begin{array}{cc}
--\frac{1}{2}\hat{\mathbf{U}}_{k} & -\dfrac{\hat{u}_{k}+m+1}{2}\end{array}\Bigr]=\\
-= & \Bigl[\begin{array}{cc}
--\frac{1}{2}\rho\hat{\mathbf{U}}_{k} & -\frac{1}{2}\rho(\hat{u}_{k}-m-1)-m-1\end{array}\Bigr]\label{eq:omegaInit}
+-\frac{1}{2}\hat{\mathbf{U}}_{k}, & -\dfrac{\hat{u}_{k}+m+1}{2}\end{array}\Bigr]\\
+ & =\Bigl[\begin{array}{cc}
+-\frac{1}{2}\rho\hat{\mathbf{U}}_{k}, & -\frac{1}{2}\rho(\hat{u}_{k}-m-1)-m-1\end{array}\Bigr],\label{eq:omegaInit}
 \end{align}
 
 \end_inset
@@ -1470,7 +1364,7 @@ literal "false"
 \begin_inset space ~
 \end_inset
 
-guarantee model's convergence, the
+guarantee estimator convergence, the
 \begin_inset space ~
 \end_inset
 
@@ -1583,11 +1477,7 @@ posterior PDF
 \end_inset
 
 be estimated.
- As thoroughly described in
-\begin_inset space ~
-\end_inset
-
-chapter 
+ As thoroughly described in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Variational-inference"
@@ -1608,15 +1498,11 @@ Variational Bayes expects the
 following approximation 
 \begin_inset Formula 
 \begin{equation}
-p(\mathbf{x}_{k},\mathbf{P}_{k|k-1},\mathbf{R}_{k}|\mathbf{z}_{1:k})\approx q(\mathbf{x}_{k})q(\mathbf{P}_{k|k-1})q(\mathbf{R}_{k})
+p(\mathbf{x}_{k},\mathbf{P}_{k|k-1},\mathbf{R}_{k}|\mathbf{z}_{1:k})\approx q(\mathbf{x}_{k})q(\mathbf{P}_{k|k-1})q(\mathbf{R}_{k}),
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $q(\mathbf{x}_{k}),q(\mathbf{P}_{k|k-1}),q(\mathbf{R}_{k})$
 \end_inset
@@ -1706,7 +1592,7 @@ joint PDF can be factored as
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-p(\mathbf{\Xi},\mathbf{z}_{1:k}) & =p\big(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}\big)p\big(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}\big)p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1})p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})p(\mathbf{z}_{1:k-1})\label{eq:modelProb}
+p(\mathbf{\Xi},\mathbf{z}_{1:k}) & =p\big(\mathbf{z}_{k}|\mathbf{x}_{k},\mathbf{R}_{k}\big)p\big(\mathbf{x}_{k}|\mathbf{z}_{1:k-1},\mathbf{P}_{k|k-1}\big)p(\mathbf{P}_{k|k-1}|\mathbf{z}_{1:k-1})p(\mathbf{R}_{k}|\mathbf{z}_{1:k-1})p(\mathbf{z}_{1:k-1}),\label{eq:modelProb}
 \end{align}
 
 \end_inset
@@ -1852,8 +1738,8 @@ Gaussian distribution
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\effnorm}[4]{\dstype N{#1}{#2,#3}=\expfamily{#3^{-1}}{\ln|#3^{-1}|}{-\frac{1}{2}(#1-#2)(#1-#2)^{T}}{-\frac{1}{2}}{\ensuremath{#4}}}
-{\dstype N{#1}{#2,#3}=\expfamily{#3^{-1}}{\ln|#3^{-1}|}{-\frac{1}{2}(#1-#2)(#1-#2)^{T}}{-\frac{1}{2}}{\ensuremath{#4}}}
+\newcommand{\effnorm}[4]{\dstype N{#1}{#2,#3}=\expfamily{#3^{-1}}{\ln|#3^{-1}|}{-\frac{1}{2}(#1-#2)(#1-#2)^{T},}{-\frac{1}{2}}{\ensuremath{#4}}}
+{\dstype N{#1}{#2,#3}=\expfamily{#3^{-1}}{\ln|#3^{-1}|}{-\frac{1}{2}(#1-#2)(#1-#2)^{T},}{-\frac{1}{2}}{\ensuremath{#4}}}
 \end_inset
 
 
@@ -1862,16 +1748,12 @@ Gaussian distribution
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\mathrm{N}(\mathbf{x};\boldsymbol{\mu},\boldsymbol{\Sigma}\big)= & \expfamily{\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}}{-\frac{1}{2}\boldsymbol{\Sigma}^{-1}}{\vec x}{\vec x\vec x^{T}}{\ensuremath{-(\frac{1}{2}\boldsymbol{\mu}^{{\rm T}}\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}+\frac{1}{2}\ln|\boldsymbol{\Sigma}|)}}\\
-= & \expfamily{\boldsymbol{\Sigma}^{-1}}{\ln|\boldsymbol{\Sigma}^{-1}|}{-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T}}{-\frac{1}{2}}{+\text{ln(2\ensuremath{\pi)}}}
+\mathrm{N}(\mathbf{x};\boldsymbol{\mu},\boldsymbol{\Sigma}\big)= & \expfamily{\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}}{-\frac{1}{2}\boldsymbol{\Sigma}^{-1}}{\vec x,}{\vec x\vec x^{T}}{\ensuremath{-(\frac{1}{2}\boldsymbol{\mu}^{{\rm T}}\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}+\frac{1}{2}\ln|\boldsymbol{\Sigma}|)}}\\
+= & \expfamily{\boldsymbol{\Sigma}^{-1}}{\ln|\boldsymbol{\Sigma}^{-1}|}{-\frac{1}{2}(\vec x-\boldsymbol{\mu})(\vec x-\boldsymbol{\mu})^{T},}{-\frac{1}{2}}{+\text{ln(2\ensuremath{\pi)}}}
 \end{align}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $\vec x\vec{x^{T}}$
 \end_inset
@@ -1912,7 +1794,7 @@ well as
  we get
 \begin_inset Formula 
 \begin{equation}
-\effnorm{\mathbf{x}_{k}}{\hat{\mathbf{x}}_{k|k-1}}{\mathbf{P}_{k|k-1}}{-k_{1}}\label{eq:normalPk}
+\effnorm{\mathbf{x}_{k}}{\hat{\mathbf{x}}_{k|k-1}}{\mathbf{P}_{k|k-1}}{-k_{1}},\label{eq:normalPk}
 \end{equation}
 
 \end_inset
@@ -1923,7 +1805,7 @@ well as
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\effnorm{\mathbf{z}_{k}}{\vec x_{k}}{\mathbf{R}_{k}}{-k_{2}}\label{eq:normalRk}
+\effnorm{\mathbf{z}_{k}}{\vec x_{k}}{\mathbf{R}_{k}}{-k_{2}}.\label{eq:normalRk}
 \end{equation}
 
 \end_inset
@@ -1936,7 +1818,7 @@ As can be seen, the
 \begin_inset space ~
 \end_inset
 
-natural parameters matches for 
+natural parameters match for 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:normalPk"
@@ -2042,7 +1924,7 @@ Inverse-Wishart hyperparameters with Multivariate Normal Distribution can
 -\dfrac{\nu+p+1}{2}
 \end{bmatrix}}_{\Xi_{i-1}}+\underbrace{\begin{bmatrix}-\frac{1}{2}\errTerm{\vec x}{\boldsymbol{\mu}}\\[5pt]
 -\frac{1}{2}
-\end{bmatrix}}_{T(x,\mu)}
+\end{bmatrix}}_{T(x,\mu)}.
 \end{align}
 
 \end_inset
@@ -2070,7 +1952,7 @@ literal "false"
 ) 
 \begin_inset Formula 
 \begin{equation}
-\E{-\frac{1}{2}\errTerm{\vec x_{k}}{\hat{\vec x}_{k|k-1}}}i=\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}}
+\E{-\frac{1}{2}\errTerm{\vec x_{k}}{\hat{\vec x}_{k|k-1}}}i=\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}},
 \end{equation}
 
 \end_inset
@@ -2081,7 +1963,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\E{-\frac{1}{2}\errTerm{\vec z_{k}}{\mat H_{k}\vec x_{k}}}i=\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+\errTerm{\vec z_{k}}{\mat H_{k}\vec{\hat{x}}_{k|k}^{i}}
+\E{-\frac{1}{2}\errTerm{\vec z_{k}}{\mat H_{k}\vec x_{k}}}i=\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+\errTerm{\vec z_{k}}{\mat H_{k}\vec{\hat{x}}_{k|k}^{i}},
 \end{equation}
 
 \end_inset
@@ -2110,7 +1992,7 @@ variational updates are
 \begin{equation}
 \Xi_{i+1}^{n}\leftarrow\Xi^{n-1}+\begin{bmatrix}-\frac{1}{2}(\mathbf{P}_{k|k}^{i}+\errTerm{\hat{\mathbf{x}}_{k|k}^{i}}{\hat{\mathbf{x}}_{k|k-1}})\\[5pt]
 -\frac{1}{2}
-\end{bmatrix}\label{eq:updateHypXi}
+\end{bmatrix},\label{eq:updateHypXi}
 \end{equation}
 
 \end_inset
@@ -2123,15 +2005,11 @@ variational updates are
 \begin{equation}
 \Omega_{i+1}^{n}\leftarrow\Omega^{n-1}+\begin{bmatrix}\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+\errTerm{\vec z_{k}}{\mat H_{k}\vec{\hat{x}}_{k|k}^{i}}\\[5pt]
 -\frac{1}{2}
-\end{bmatrix}\label{eq:updateHypOmega}
+\end{bmatrix},\label{eq:updateHypOmega}
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $\Xi^{n-1},\Omega^{n-1}$
 \end_inset
@@ -2226,9 +2104,9 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\mathbf{K}_{k}^{(i+1)}= & \hat{\mathbf{P}}_{k|k-1}^{(i+1)}\mathbf{H}_{k}^{T}\big(\mathbf{H}_{k}\hat{\mathbf{P}}_{k|k-1}^{(i+1)}\mathbf{H}_{k}^{T}+\hat{\mathbf{R}}_{k}^{(i+1)}\big)^{-1}\label{eq:kalmanCor-beg}\\
-\hat{\mathbf{x}}_{k|k}^{(i+1)}= & \hat{\mathbf{x}}_{k|k-1}+\mathbf{K}_{k}^{(i+1)}\big(\mathbf{z}_{k}-\mathbf{H}_{k}\hat{\mathbf{x}}_{k|k-1}\big)\\
-\mathbf{P}_{k|k}^{(i+1)}= & \hat{\mathbf{P}}_{k|k-1}^{(i+1)}-\mathbf{K}_{k}^{(i+1)}\mathbf{H}_{k}\hat{\mathbf{P}}_{k|k-1}^{(i+1)}\label{eq:kalmanCor-end}
+\mathbf{K}_{k}^{(i+1)}= & \hat{\mathbf{P}}_{k|k-1}^{(i+1)}\mathbf{H}_{k}^{T}\big(\mathbf{H}_{k}\hat{\mathbf{P}}_{k|k-1}^{(i+1)}\mathbf{H}_{k}^{T}+\hat{\mathbf{R}}_{k}^{(i+1)}\big)^{-1},\label{eq:kalmanCor-beg}\\
+\hat{\mathbf{x}}_{k|k}^{(i+1)}= & \hat{\mathbf{x}}_{k|k-1}+\mathbf{K}_{k}^{(i+1)}\big(\mathbf{z}_{k}-\mathbf{H}_{k}\hat{\mathbf{x}}_{k|k-1}\big),\\
+\mathbf{P}_{k|k}^{(i+1)}= & \hat{\mathbf{P}}_{k|k-1}^{(i+1)}-\mathbf{K}_{k}^{(i+1)}\mathbf{H}_{k}\hat{\mathbf{P}}_{k|k-1}^{(i+1)}.\label{eq:kalmanCor-end}
 \end{align}
 
 \end_inset
@@ -2683,15 +2561,11 @@ noprefix "false"
 
 \end_inset
 
- and compute the
-\begin_inset space ~
-\end_inset
-
-
+ and compute 
 \begin_inset Formula $\E{\mat R_{k}}i$
 \end_inset
 
- 
+ using 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:expValfromHyp"
@@ -2771,7 +2645,7 @@ noprefix "false"
 \begin_inset space ~
 \end_inset
 
-obtain corrected
+obtain corrected 
 \begin_inset Formula $\hat{\vec x}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1}$
 \end_inset
 
