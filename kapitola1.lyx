@@ -2594,7 +2594,7 @@ model evidence
 \begin_inset Formula $\prob pX=\int\probjoint pZX\D{\Var Z}$
 \end_inset
 
-, which is usually unavailable.
+ (the integral goes over the all latent variables), which is usually unavailable.
  Unfortunately, in
 \begin_inset space ~
 \end_inset
@@ -2740,7 +2740,8 @@ distributions where possible.
 \end_layout
 
 \begin_layout Standard
-Please note that in
+and the integral goes again over the all latent variables.
+ Please note that in
 \begin_inset space ~
 \end_inset
 
