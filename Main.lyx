@@ -261,6 +261,11 @@ Faculty
 Nuclear Sciences and Physical Engineering
 \end_layout
 
+\begin_layout Plain Layout
+\align center
+Department of Mathematics
+\end_layout
+
 \end_inset
 
 
@@ -359,6 +364,194 @@ Academic
 \end_inset
 
 year: 2017/2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "3cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/TITLE/cvut.pdf
+	display false
+	width 3cm
+	height 3cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "60line%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size large
+ČESKÉ VYSOKÉ UČENÍ V PRAZE
+\begin_inset Newline newline
+\end_inset
+
+Fakulta jaderná a fyzikálně inženýrská
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+\size default
+Katedra matematiky
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "3cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/TITLE/fjfi.pdf
+	display false
+	width 3cm
+	height 3cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size huge
+Distribuovaná kalmanovská filtrace při neznámém prostorově heterogenním
+ šumu
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size huge
+Diplomová práce 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing single
+\labelwidthstring MMMMMMMMM
+Autor: Bc.
+ Daniel Hnyk
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing single
+\labelwidthstring MMMMMMMMM
+Školitel: Ing.
+ Kamil Dedecius, Ph.D.
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing single
+\labelwidthstring MMMMMMMMM
+Akademický
+\begin_inset space ~
+\end_inset
+
+rok: 2017/2018
 \end_layout
 
 \begin_layout Standard
@@ -570,6 +763,142 @@ Daniel Hnyk
 \noindent
 
 \emph on
+Název práce:
+\series bold
+\emph default
+ 
+\series default
+Distribuovaná kalmanovská filtrace při neznámém prostorově heterogenním
+ šumu
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Autor:
+\emph default
+ Bc.
+ Daniel Hnyk 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Obor:
+\emph default
+ Matematická informatika
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Druh práce:
+\emph default
+ Diplomová práce
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Vedoucí práce:
+\emph default
+ Ing.
+ Kamil Dedecius, Ph.D., Ústav teorie informace a automatizace AV ČR
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Abstrakt: 
+\emph default
+Použití adaptivních filtrů v prostředích s měnící se mírou šumu a difúzních
+ sítí není jednoduchý úkol.
+ V práci je navrhnut obecný algoritmus propojující nejmodernější variační
+ bayesovské metody, adaptivní Kalmanovskou filtraci a difúzní sítě.
+ Za využitím reprezentace v exponenciálním tvaru a vhodnou volbou konjugovaných
+ aprioren bylo dosáhnuto jeho přehledného vyjádření.
+ Algoritmus je aplikován na problém kolaborativního odhadu pohybu bodu na
+ 2D ploše sledovaného skupinou vzájemně propojených senzorů za přítomnosti
+ šumu.
+ Výsledky simulací ukazují, že difúze parametrů výrazně zlepšuje přesnost
+ odhadů v rámci celé sítě.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Klíčová slova:
+\emph default
+ Bayesovská inference, Kalmanův filter, kovariance šumu měnící se v čase,
+ difúzní sítě, adaptivní filtry, odhad stavu 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
 Title:
 \series bold
 \emph default
@@ -632,7 +961,7 @@ study:
 \emph on
 Abstract: 
 \emph default
-Combination of
+Using of
 \begin_inset space ~
 \end_inset
 
@@ -694,8 +1023,8 @@ group of
 
 spatially distributed interconnected agents influenced by heterogeneous
  noise.
- It is shown, that cooperation significantly improves tracking performance
- of
+ It is shown that the parameter diffusion significantly improves tracking
+ performance of
 \begin_inset space ~
 \end_inset
 
