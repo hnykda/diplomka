@@ -615,6 +615,126 @@ rok: 2017/2018
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mbox{} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\size larger
+\emph on
+Declaration:
+\end_layout
+
+\begin_layout Standard
+I declare that the following Master's thesis is my own work for which I
+ used only the sources and literature mentioned.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Prague, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentdate
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+Daniel Hnyk
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mbox{} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \noindent
 
 \size larger
@@ -683,68 +803,6 @@ this thesis enjoyable.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-vfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\size larger
-\emph on
-Declaration:
-\end_layout
-
-\begin_layout Standard
-I hereby certify that this text represents my own work and that all used
- sources and materials are listed in
-\begin_inset space ~
-\end_inset
-
-the bibliography.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-Prague, 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-documentdate
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-Daniel Hnyk
-\end_layout
-
-\begin_layout Standard
 \begin_inset VSpace 2cm
 \end_inset
 
@@ -753,143 +811,6 @@ Daniel Hnyk
 
 \begin_layout Standard
 \begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing onehalf
-\noindent
-
-\emph on
-Název práce:
-\series bold
-\emph default
- 
-\series default
-Distribuovaná kalmanovská filtrace při neznámém prostorově heterogenním
- šumu
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\emph on
-Autor:
-\emph default
- Bc.
- Daniel Hnyk 
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\emph on
-Obor:
-\emph default
- Matematická informatika
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\emph on
-Druh práce:
-\emph default
- Diplomová práce
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\emph on
-Vedoucí práce:
-\emph default
- Ing.
- Kamil Dedecius, Ph.D., Ústav teorie informace a automatizace AV ČR
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\emph on
-Abstrakt: 
-\emph default
-Použití adaptivních filtrů v prostředích s měnící se mírou šumu a difúzních
- sítí není jednoduchý úkol.
- V práci je navrhnut obecný algoritmus propojující nejmodernější variační
- bayesovské metody, adaptivní Kalmanovskou filtraci a difúzní sítě.
- Za využitím reprezentace v exponenciálním tvaru a vhodnou volbou konjugovaných
- aprioren bylo dosáhnuto jeho přehledného vyjádření.
- Algoritmus je aplikován na problém kolaborativního odhadu pohybu bodu na
- 2D ploše sledovaného skupinou vzájemně propojených senzorů za přítomnosti
- šumu.
- Výsledky simulací ukazují, že difúze parametrů výrazně zlepšuje přesnost
- odhadů v rámci celé sítě.
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
-\emph on
-Klíčová slova:
-\emph default
- Bayesovská inference, Kalmanův filter, kovariance šumu měnící se v čase,
- difúzní sítě, adaptivní filtry, odhad stavu 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-vfill
-\end_layout
-
 \end_inset
 
 
@@ -1047,6 +968,142 @@ Key words:
 \emph default
  Bayesian inference, Kalman filter, time-varying noise covariance matrices,
  diffusion network, adaptation, state estimation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Název práce:
+\series bold
+\emph default
+ 
+\series default
+Distribuovaná kalmanovská filtrace při neznámém prostorově heterogenním
+ šumu
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Autor:
+\emph default
+ Bc.
+ Daniel Hnyk 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Obor:
+\emph default
+ Matematická informatika
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Druh práce:
+\emph default
+ Diplomová práce
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Vedoucí práce:
+\emph default
+ Ing.
+ Kamil Dedecius, Ph.D., Ústav teorie informace a automatizace AV ČR
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Abstrakt: 
+\emph default
+Použití adaptivních filtrů v prostředích s měnící se mírou šumu a difúzních
+ sítí není jednoduchý úkol.
+ V práci je navrhnut obecný algoritmus propojující nejmodernější variační
+ bayesovské metody, adaptivní Kalmanovskou filtraci a difúzní sítě.
+ Za využitím reprezentace v exponenciálním tvaru a vhodnou volbou konjugovaných
+ aprioren bylo dosáhnuto jeho přehledného vyjádření.
+ Algoritmus je aplikován na problém kolaborativního odhadu pohybu bodu na
+ 2D ploše sledovaného skupinou vzájemně propojených senzorů za přítomnosti
+ šumu.
+ Výsledky simulací ukazují, že difúze parametrů výrazně zlepšuje přesnost
+ odhadů v rámci celé sítě.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\emph on
+Klíčová slova:
+\emph default
+ Bayesovská inference, Kalmanův filter, kovariance šumu měnící se v čase,
+ difúzní sítě, adaptivní filtry, odhad stavu 
 \end_layout
 
 \begin_layout Standard

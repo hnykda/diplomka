@@ -1159,11 +1159,11 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mat P_{0} & =100\mat I\\
-\tau & =5\\
-u_{0} & =5\\
-Q_{0} & =2\cdot\mat Q\\
-\rho & =0.95\\
+\mat P_{0} & =100\mat I,\\
+\tau & =5,\\
+u_{0} & =5,\\
+Q_{0} & =2\cdot\mat Q,\\
+\rho & =0.95.\\
 \end{align*}
 
 \end_inset
