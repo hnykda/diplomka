@@ -562,46 +562,36 @@ rok: 2017/2018
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 2cm
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mbox{} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
-\end_inset
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
 
 
-\begin_inset VSpace 2cm
-\end_inset
+\backslash
+mbox{} 
+\end_layout
 
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset VSpace 2cm
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset VSpace 2cm
-\end_inset
-
- 
-\begin_inset VSpace 2cm
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset VSpace 2cm
 \end_inset
 
 
