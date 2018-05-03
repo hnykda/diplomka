@@ -6,7 +6,7 @@
 \origin unavailable
 \textclass beamer
 \begin_preamble
-\usetheme{Warsaw}
+\usetheme{Singapore}
 % or ...
 
 \setbeamercovered{transparent}
@@ -312,10 +312,6 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
-Cíl práce
-\end_layout
-
 \begin_layout Frame
 
 \lang english
@@ -336,7 +332,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-Hlavní cíl
+Cíl práce
 \end_layout
 
 \end_inset
@@ -394,16 +390,12 @@ Distribuovaný adaptivní kalmanův filtr za použití variačních Bayesovskýc
 
 \end_layout
 
-\begin_layout Subsection
-Bayesovská pravděpodobnost
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Principy
+Bayesovská pravděpodobnost
 \end_layout
 
 \end_inset
@@ -557,10 +549,6 @@ např.
 \end_layout
 
 \end_deeper
-\begin_layout Subsubsection
-Variační Bayes
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -692,16 +680,12 @@ elegantní reprezentace použije-li se forma exponenciální rodiny
 
 \end_layout
 
-\begin_layout Subsection
-Kalmanův Filtr
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Úvod
+Kalmanův filtr
 \end_layout
 
 \end_inset
@@ -805,130 +789,6 @@ note{to znamená že nejsou známy a nebo že se dokonce mění podle neznámé
 
 \begin_layout Itemize
 distributivní - více propojených agentů provádějící filtraci
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Definice - možná vynechat?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-dynamický model
-\begin_inset Formula 
-\begin{align*}
-\mathbf{x}_{k} & =\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{w}_{k}\\
-\text{\mathbf{z}_{k}} & =\mathbf{H}_{k}\mathbf{x}_{k}+\mathbf{v}_{k}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{Tohle predpokladame ze dostavame}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{F - stavová matice - predchozi stav + nejaky bily sum s kovariance
- Q_k}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{H - observacni matice, ocekavame ze je mereni zasumeno v_k s R_k}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-predikce
-\lang english
-
-\begin_inset Formula 
-\begin{align*}
-\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1}\\
-\mat P{}_{k|k-1} & =\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\mat Q_{k-1}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{Tady se dela predikce na zaklade znalosti modelu}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-korekce
-\lang english
-
-\begin_inset Formula 
-\begin{align*}
-\mat K_{k}= & \mat P_{k|k-1}\mat H_{k}^{T}(\mat H_{k}\mat P_{k|k-1}\mat H_{k}+\mat R_{k})^{-1}\\
-\hat{\mathbf{x}}_{k|k}= & \hat{\mathbf{x}}_{k|k-1}+\mat K_{k}(\mathbf{z}_{k}-\mat H_{k}\hat{\mathbf{x}}_{k|k-1})\\
-\mat P_{k|k}= & \mat P_{k|k-1}-\mat K_{k}\mat H_{k}\mat P_{k|k-1}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{A tady se dela korekce na zaklade pozorovani z_k}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_deeper
@@ -1095,7 +955,7 @@ Difúze
 status open
 
 \begin_layout Plain Layout
-Jak to reprezentuji funkcí
+Jak to reprezentuji funkcí, topologie, více nodes
 \end_layout
 
 \end_inset
@@ -1115,16 +975,12 @@ Jak to reprezentuji funkcí
 Algoritmus DVBAKF
 \end_layout
 
-\begin_layout Subsection
-Bayesovský update
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Update
+Bayesovský update
 \end_layout
 
 \end_inset
@@ -1166,10 +1022,6 @@ exponential family form
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Metoda
 \end_layout
 
 \begin_layout Frame
@@ -1328,70 +1180,6 @@ Out:
 
 \end_layout
 
-\begin_layout Section
-Simulace
-\end_layout
-
-\begin_layout Subsection
-Jeden uzel
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Bla 1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Bla 1
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-CAVI updates
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-snad brzy
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Výsledky
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -1406,16 +1194,42 @@ Implementace
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-srovnání s Gibbs vzorkováním
+\begin_layout Standard
+Bla 1
 \end_layout
 
-\begin_layout Itemize
-hypotéza je, že bude výrazně rychlejší
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-ostatními metodami
+\begin_layout Section
+Simulace
+\end_layout
+
+\begin_layout Subsection
+Jeden uzel
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Testovací úloha
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bla 1
 \end_layout
 
 \end_deeper
@@ -1431,7 +1245,67 @@ ostatními metodami
 status open
 
 \begin_layout Plain Layout
-Klastrování
+Jeden uzel #1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bla 2
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dva uzly
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hehehaha
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+nope!
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Závěr
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Shrnutí
 \end_layout
 
 \end_inset
@@ -1445,5 +1319,72 @@ TBD
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Budoucí práce
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+blahblah
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+
+\lang english
+Diskuze
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ten problém 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+no jo, to jsem přehlídl
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
 \end_body
 \end_document
