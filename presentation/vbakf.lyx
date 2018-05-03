@@ -13,8 +13,12 @@
 % or whatever (possibly just delete it)
 
 %\setbeameroption{show only notes}
+\usefonttheme[onlymath]{serif}
 \end_preamble
 \use_default_options false
+\begin_modules
+todonotes
+\end_modules
 \maintain_unincluded_children false
 \language czech
 \language_package default
@@ -290,6 +294,17 @@ status open
 
 \lang english
 \begin_inset FormulaMacro
+\newcommand{\mat}[1]{\mathbf{\mathbf{#1}}}
+{\mathbf{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset FormulaMacro
 \newcommand{\E}[2][]{\text{\mathbb{E}}_{#1}[#2]}
 {\text{\mathbb{E}}_{#1}[#2]}
 \end_inset
@@ -379,12 +394,8 @@ Distribuovaný adaptivní kalmanův filtr za použití variačních Bayesovskýc
 
 \end_layout
 
-\begin_layout Section
-Bayesovská pravděpodobnost
-\end_layout
-
 \begin_layout Subsection
-Základní pojmy
+Bayesovská pravděpodobnost
 \end_layout
 
 \begin_layout Frame
@@ -392,7 +403,7 @@ Základní pojmy
 status open
 
 \begin_layout Plain Layout
-Principy Bayesovské pravděpodobnosti
+Principy
 \end_layout
 
 \end_inset
@@ -406,7 +417,7 @@ Principy Bayesovské pravděpodobnosti
 
 \begin_deeper
 \begin_layout Itemize
-pravděpodobnost je míra důvěry agent má v danou hypotézu
+interpretace pravděpodobnosti
 \begin_inset Newline newline
 \end_inset
 
@@ -418,7 +429,16 @@ status open
 
 
 \backslash
-note{je to tedy subjektivni, ne objektivni (rozdil s frekvencisty)}
+note{proc to potrebuji? - pouzivame pravdepodobnostni pristup, budeme odhadovat
+ odhadovat parametry rozdeleni}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{je to tedy subjektivni, ne objektivni (rozdil s frekvencisty), prinasi
+ to jine metody a postupy}
 \end_layout
 
 \end_inset
@@ -427,34 +447,54 @@ note{je to tedy subjektivni, ne objektivni (rozdil s frekvencisty)}
 \end_layout
 
 \begin_layout Itemize
-update se provádí pomocí Bayesova vzorce
+Inference pro model 
+\lang english
+
+\begin_inset Formula $M=\{P_{\theta}|\theta\in\Theta\}$
+\end_inset
+
+
+\lang czech
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Zuzeni prostoru parametru v zavislosti na datech}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{parametricky, neparametricky, v Baysovi maji vsechny parametry priro
+ distribuce, vysledkem je rozdeleni a ne jen point estimate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+chceme posteriorní pravděpodobnost dle 
+\lang english
+
 \begin_inset Formula 
 \[
-\probcond pAB=\prob pA\cdot\frac{\probcond pBA}{\prob pB}
+\probcond pZX=\prob pZ\cdot\frac{\probcond pXZ}{\prob pX}
 \]
 
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{Hypotéza A, pokud máme dukaz B.
- prior - casto posterior z predchoziho kroku.
- Likelihood - to vetsinou nejak aproximujeme, evidence.}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_deeper
@@ -462,80 +502,6 @@ note{Hypotéza A, pokud máme dukaz B.
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Inference
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-model
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-parametrický:
-\lang english
- 
-\begin_inset Formula $\Theta\subseteq\mathbb{R}^{d},d<\infty$
-\end_inset
-
-.
- 
-\begin_inset Formula $M=\{P_{\theta}|\theta\in\Theta\}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-neparametrický: dimenze prostoru parametru 
-\begin_inset Formula $d$
-\end_inset
-
- je nekonečná 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-proces zúžení prostoru parametrů v závislosti na datech
-\end_layout
-
-\begin_layout Itemize
-v bayesovském podání: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-všechny parametry mají tzv.
- 
-\emph on
-prior 
-\emph default
-distribuci
-\end_layout
-
-\begin_layout Itemize
-výsledkem je distribuce pro jednotlivé parametry
-\end_layout
-
-\end_deeper
-\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -558,15 +524,13 @@ Aproximace
 
 \begin_deeper
 \begin_layout Itemize
+
+\lang english
 přímý výpočet 
 \begin_inset Formula $\probcond pAB$
 \end_inset
 
- není obvykle možný 
-\end_layout
-
-\begin_layout Itemize
-typy Bayesovské aproximace:
+ obvykle není možný
 \end_layout
 
 \begin_deeper
@@ -579,8 +543,21 @@ variační počet (Variační Bayes)
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+aproximujeme pomocí jednodušší rodiny distribucí a hledáme tu nejbližší
+\end_layout
+
+\begin_layout Itemize
+např.
+ faktorizovatelné distribuce 
+\begin_inset Formula $\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z$
+\end_inset
+
+
+\end_layout
+
 \end_deeper
-\begin_layout Subsection
+\begin_layout Subsubsection
 Variační Bayes
 \end_layout
 
@@ -589,104 +566,21 @@ Variační Bayes
 status open
 
 \begin_layout Plain Layout
-Definice problému
+Optimalizační problém
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Data 
-\begin_inset Formula $\Var X=\{\vec{x_{1},\ldots,}\vec{x}_{N}\}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Latentní proměnné 
-\begin_inset Formula $\Var Z=\{\vec{z}_{1},\ldots,\vec{z}_{N}\}$
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{v Bayesian settings jsou latentní promenné brány stejne jako parametry}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-chceme 
-\begin_inset Formula $\probcond pZX$
-\end_inset
-
- a 
-\begin_inset Formula $\prob pX$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
 \begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Kullback-Leiblerova divergence
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-přímý výpočet není možný, 
-\begin_inset Formula $\probcond pZX$
-\end_inset
-
- aproximujeme pomocí 
-\begin_inset Formula $\prob qZ$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-míru 
-\begin_inset Quotes gld
-\end_inset
-
-přesnosti
-\begin_inset Quotes grd
-\end_inset
-
- aproximace měříme pomocí KL divergence 
+vzdálenost měříme pomocí Kullback-Leiblerovy divergence
 \begin_inset Formula 
 \[
 \kl qp=-\int\prob qZ\ln\frac{\probcond pZX}{\prob qZ}\D{\Var Z}
@@ -698,10 +592,10 @@ přesnosti
 \end_layout
 
 \begin_layout Itemize
-řešíme tedy optimalizační problém
+optimalizační problém 
 \begin_inset Formula 
 \[
-\prob qZ=\arg\min_{\prob qZ}\kl{\prob qZ}{\probcond pZX}.
+\prob qZ=\underset{\prob qZ\text{-fakt.}}{\text{argmin}}\kl{\prob qZ}{\probcond pZX}
 \]
 
 \end_inset
@@ -709,90 +603,12 @@ přesnosti
 
 \end_layout
 
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Lower variational bound
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $\arg\min_{\prob qZ}\kl{\prob qZ}{\probcond pZX}$
-\end_inset
-
- nelze řešit přímo, neboť neznáme 
-\begin_inset Formula $\probcond pZX$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-až na konstantu je minimalizace 
-\begin_inset Formula $\kl qp$
-\end_inset
-
- ekvivalentní maximalizaci
+stále nejde přímo, ekvivalentní maximalizaci 
 \begin_inset Formula 
 \[
 \lueb q=\int\prob qZ\ln\frac{\probjoint pXZ}{\prob qZ}\D{\Var Z}
 \]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-hledáme 
-\begin_inset Formula $\prob qZ$
-\end_inset
-
-, pro které je 
-\begin_inset Formula $\lueb q$
-\end_inset
-
- spočitatelné
-\end_layout
-
-\begin_layout Itemize
-například faktorizovatelné distribuce
-\begin_inset Formula 
-\[
-\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{M nemusí byt dimenze Z, na q_i zadne dalsi pozadavky}
-\end_layout
 
 \end_inset
 
@@ -825,8 +641,31 @@ Coordinate ascent mean-field variational
 optimální řešení problému
 \begin_inset Formula 
 \[
-\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}
+\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}
 \]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Prechod je tam: $
+\backslash
+Exp{{
+\backslash
+E[-i]{
+\backslash
+ln
+\backslash
+probcond p{Z_{i}}{Z_{-j},X}}}}
+\backslash
+propto$, coz je diky faktorizovatelnym distribucim}
+\end_layout
 
 \end_inset
 
@@ -839,6 +678,40 @@ v praxi se postupuje iterativně
 
 \begin_layout Itemize
 vhodná volba prior distribucí zjednodušuje update
+\end_layout
+
+\begin_layout Itemize
+elegantní reprezentace použije-li se forma exponenciální rodiny
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Kalmanův Filtr
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Úvod
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+používá se pro zpřesnění předpovědí modelu na základě měření
 \begin_inset Newline newline
 \end_inset
 
@@ -850,196 +723,28 @@ status open
 
 
 \backslash
-note{v této práci explonenciální rodina distribucí}
+note{predpovedi i mereni se predpokladaji zasumena}
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Slovníkové učení
-\end_layout
-
-\begin_layout Subsection
-Definice
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
 
 \begin_layout Plain Layout
-Slovníkové učení
+
+
+\backslash
+note{napriklad Apolo 11 - predpoved na zaklade kinematickeho modelu (rychlost
+ atp.), ale pak jsou mereni z radaru atp.}
 \end_layout
 
-\end_inset
-
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-zjednodušená forma reprezentace dat
-\end_layout
-
-\begin_layout Itemize
-komprese informace
-\end_layout
-
-\begin_layout Itemize
-typy:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-předem definované slovníky (wavelets, FT, ...)
-\end_layout
-
-\begin_layout Itemize
-slovník se tvoří na základě dat
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes gld
-\end_inset
-
-overcomplete
-\begin_inset Quotes grd
-\end_inset
-
- slovník
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes gld
-\end_inset
-
-undercomplete
-\begin_inset Quotes grd
-\end_inset
-
- slovník
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Problém
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-pro data 
-\lang english
-
-\begin_inset Formula $X=[x_{1},...,x_{K}],x_{i}\in\mathbb{R}^{d}$
-\end_inset
-
- hledáme 
-\begin_inset Formula $\mathbf{D}\in\mathbb{R}^{d\times n}:D=[d_{1},...,d_{n}]$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-chceme minimalizovat 
-\begin_inset Formula $\|x_{i}-\mathbf{D}r_{i}\|_{2}$
-\end_inset
-
- tak, aby 
-\begin_inset Formula $r_{i}$
-\end_inset
-
- bylo dostatečně řídké
-\end_layout
-
-\begin_layout Itemize
-tedy
-\begin_inset Formula 
-\[
-\underset{\mathbf{D}\in\mathcal{C},r_{i}\in\mathbb{R}^{n}}{\text{argmin}}\sum_{i=1}^{K}\|x_{i}-\mathbf{D}r_{i}\|_{2}^{2}+\lambda\|r_{i}\|_{0}
-\]
-
+optimální lineární filtr (v MSE) pokud:
+\begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\end_deeper
-\begin_layout Section
-VB a slovníkové učení
-\end_layout
-
-\begin_layout Subsection
-Kombinace
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Beta proces
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename images/two_param_beta.png
-	width 100col%
-	height 60pheight%
-	keepAspectRatio
-	groupId fit_max
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -1047,22 +752,178 @@ status open
 
 
 \backslash
-note{Kde je to míra kdy K -> infty, 
+note{jinak je useless, pripadne off}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+model přesně reflektuje skutečnost
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+šum je Gaussovský bílý
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+kovariance šumu jsou přesně známy
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+tato práce se zabývá rozšířením kdy 3.
+ bod není splněn
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
 \backslash
-delta kroneckerovo, H(
+note{to znamená že nejsou známy a nebo že se dokonce mění podle neznámé
+ funkce}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+distributivní - více propojených agentů provádějící filtraci
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definice - možná vynechat?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+dynamický model
+\begin_inset Formula 
+\begin{align*}
+\mathbf{x}_{k} & =\mathbf{F}_{k}\mathbf{x}_{k-1}+\mathbf{w}_{k}\\
+\text{\mathbf{z}_{k}} & =\mathbf{H}_{k}\mathbf{x}_{k}+\mathbf{v}_{k}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
 \backslash
-psi) je vektor pravdepodobnosti, kazdy asociovany s atomem 
-\backslash
-psi_k}
+note{Tohle predpokladame ze dostavame}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-note{Z H(
+note{F - stavová matice - predchozi stav + nejaky bily sum s kovariance
+ Q_k}
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-psi) samplujeme binární vektory z_i, coz je nas slovnik}
+note{H - observacni matice, ocekavame ze je mereni zasumeno v_k s R_k}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+predikce
+\lang english
+
+\begin_inset Formula 
+\begin{align*}
+\hat{\mathbf{x}}_{k|k-1} & =\mathbf{F}_{k-1}\hat{\mathbf{x}}_{k-1|k-1}\\
+\mat P{}_{k|k-1} & =\mathbf{F}_{k-1}\mathbf{P}_{k-1|k-1}\mathbf{F}_{k-1}^{T}+\mat Q_{k-1}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Tady se dela predikce na zaklade znalosti modelu}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+korekce
+\lang english
+
+\begin_inset Formula 
+\begin{align*}
+\mat K_{k}= & \mat P_{k|k-1}\mat H_{k}^{T}(\mat H_{k}\mat P_{k|k-1}\mat H_{k}+\mat R_{k})^{-1}\\
+\hat{\mathbf{x}}_{k|k}= & \hat{\mathbf{x}}_{k|k-1}+\mat K_{k}(\mathbf{z}_{k}-\mat H_{k}\hat{\mathbf{x}}_{k|k-1})\\
+\mat P_{k|k}= & \mat P_{k|k-1}-\mat K_{k}\mat H_{k}\mat P_{k|k-1}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{A tady se dela korekce na zaklade pozorovani z_k}
 \end_layout
 
 \end_inset
@@ -1083,7 +944,70 @@ psi) samplujeme binární vektory z_i, coz je nas slovnik}
 status open
 
 \begin_layout Plain Layout
-Aplikace na slovníkové učení
+Vizuálně
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename ../Images/kalman-wiki.png
+	lyxscale 30
+	width 90line%
+	height 90pheight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+DVBAKF
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pravděpodobností model
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+sjednotit značení vektorů! Rozumět kde se vzalo p(z)
 \end_layout
 
 \end_inset
@@ -1093,15 +1017,147 @@ Aplikace na slovníkové učení
 
 \begin_deeper
 \begin_layout Itemize
-konstrukce umožňuje variabilní počet složek v závislosti na datech
+odhady odpovídají
+\begin_inset Formula 
+\begin{align*}
+p(\vec{z}_{k}|\vec{x}_{k}) & =\mathcal{N}(\vec{z}_{k};\mat H_{k}\vec{x}_{k},\mathbf{R}_{k})\\
+p(\vec{x}_{k}|\vec{x}_{k-1}) & =\mathcal{N}(\vec{x}_{k};F_{k|k-1}\vec{x}_{k-1},\mathbf{Q}_{k}).
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-velmi rychlé
+cílem je odhadnout kovariační matice šumů: 
+\begin_inset Formula $\mat R_{k},\text{\mat Q}_{k}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-možnost data klastrovat
+konjugovaná apriorna je Inverzní Wishartova distribuce
+\end_layout
+
+\begin_layout Itemize
+předpokládáme, že distribuce je faktorizovatelná
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Aproximace!}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+p\big(\Xi,\mathbf{z}_{1:k}\big) & =\mathrm{N}\big(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k}\big)\mathrm{N}\big(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1}\big)\\
+ & \times\mathrm{IW}\big(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}\big)\mathrm{IW}\big(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}\big)\\
+ & \times p\big(\mathbf{z}_{1:k-1}\big)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Difúze
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Flex TODO Note (inline)
+status open
+
+\begin_layout Plain Layout
+Jak to reprezentuji funkcí
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Algoritmus DVBAKF
+\end_layout
+
+\begin_layout Subsection
+Bayesovský update
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Update
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+využití 
+\begin_inset Quotes gld
+\end_inset
+
+exponential family form
+\begin_inset Quotes grd
+\end_inset
+
+ se celý update zjednodušuje na
+\lang english
+
+\begin_inset Formula 
+\begin{align*}
+\Xi_{i+1}^{n} & \leftarrow\Xi^{n-1}+\begin{bmatrix}-\frac{1}{2}(\mathbf{P}_{k|k}^{i}+(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})^{T}\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}\\
+\Omega_{i+1}^{n} & \leftarrow\Omega^{n-1}+\begin{bmatrix}\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+(\mathbf{z}{}_{k}-\hat{\mathbf{x}}_{k|k}^{i})(\mathbf{z}{}_{k}-\hat{\mathbf{x}}_{k|k}^{i})^{T}\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1113,7 +1169,7 @@ možnost data klastrovat
 \end_layout
 
 \begin_layout Subsection
-Model
+Metoda
 \end_layout
 
 \begin_layout Frame
@@ -1121,7 +1177,171 @@ Model
 status open
 
 \begin_layout Plain Layout
-Definice
+Shrnutí algoritmu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+\lang english
+In
+\series default
+: 
+\begin_inset Formula $\hat{\mathbf{x}}_{k-1|k-1},\mathbf{P}_{k-1|k-1},\hat{u}_{k-1|k-1},\hat{\mathbf{U}}_{k-1|k-1},\mathbf{F},\mathbf{H},\mathbf{z}_{k},\tilde{\mathbf{Q}}_{k-1},\tau,\rho,N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Predikce KF
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inicializace hyperparamtrů 
+\begin_inset Formula $\Xi_{\text{init}}$
+\end_inset
+
+, 
+\begin_inset Formula $\Omega_{\text{init}}$
+\end_inset
+
+,
+\begin_inset Formula $\hat{\mathbf{x}}_{k|k}^{(0)}=\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k}^{(0)}=\tilde{\mathbf{P}}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\lang english
+for 
+\begin_inset Formula $i$
+\end_inset
+
+
+\series default
+ in
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+
+\begin_inset Formula $N$
+\end_inset
+
+ do:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\lang english
+Updatuj 
+\begin_inset Formula $\Omega^{i}$
+\end_inset
+
+ a na základě něho 
+\begin_inset Formula $\E{\mat R_{k}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Updatuj 
+\begin_inset Formula $\Xi^{i}$
+\end_inset
+
+ a na základě něho 
+\begin_inset Formula $\E{\mat P_{k|k-1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Kalmanova korekce na základě 
+\begin_inset Formula $\hat{\mathbf{x}}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+\lang english
+end for
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Difúze: 
+\begin_inset Formula $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$
+\end_inset
+
+, 
+\begin_inset Formula $\Omega_{\text{*}}^{i,t}=g(\Omega^{i,t},\Omega^{1,t},...,\Omega^{d,t})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\lang english
+Out:
+\series default
+ 
+\begin_inset Formula $\hat{\mathbf{x}}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1},\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Simulace
+\end_layout
+
+\begin_layout Subsection
+Jeden uzel
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Bla 1
 \end_layout
 
 \end_inset
@@ -1131,40 +1351,7 @@ Definice
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename images/beta_written.png
-	width 100col%
-	height 60pheight%
-	keepAspectRatio
-	groupId fit_max
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Beta proces
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+Bla 1
 \end_layout
 
 \end_deeper
