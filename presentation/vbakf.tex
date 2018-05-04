@@ -1,0 +1,307 @@
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,czech]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9,latin2]{inputenc}
+\PassOptionsToPackage{obeyFinal}{todonotes}
+\usepackage{todonotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xargs}[2008/03/08]
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Singapore}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+%\setbeameroption{show only notes}
+\usefonttheme[onlymath]{serif}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Distribuovaná kalmanovská filtrace pøi neznámém prostorovì heterogenním
+¹umu}
+
+\author{Daniel Hnyk}
+
+\institute{Matematická informatika\\
+Katedra matematiky \and Fakulta jaderná a fyzikálnì in¾enýrská\\
+Èeské vysoké uèení technické v Praze }
+
+\date{Obhajoba diplomové práce (2018)}
+\makebeamertitle
+
+\section{Úvod}
+
+\selectlanguage{english}%
+\inputencoding{latin9}\global\long\def\Var#1{\mathbf{#1}}
+
+\global\long\def\prob#1#2{#1(\Var{#2})}
+
+\global\long\def\probcond#1#2#3{#1(\Var{#2}|\Var{#3})}
+
+\global\long\def\probjoint#1#2#3{#1(\Var{#2},\Var{#3})}
+
+\global\long\def\kl#1#2{\text{{KL}}(#1||#2)}
+
+\global\long\def\lueb#1{\mathcal{{L}}(#1)}
+
+\global\long\def\D#1{\text{ d}#1}
+
+\global\long\def\Exp#1{\exp\{#1\}}
+
+\global\long\def\mat#1{\mathbf{\mathbf{#1}}}
+
+\newcommandx\E[2][usedefault, addprefix=\global, 1=]{\text{\ensuremath{\mathbb{E}}}_{#1}[#2]}
+
+\begin{frame}[<+->]{\foreignlanguage{czech}{\inputencoding{latin2}%
+Cíl práce}}
+\inputencoding{latin2}\foreignlanguage{czech}{}
+\selectlanguage{czech}%
+\begin{exampleblock}{Návrh algoritmu...}
+
+...k distribuované kalmanovské filtraci v difuzní síti, kde ka¾dý
+uzel sítì mù¾e potenciálnì mít jinou kovarianci ¹umu na stavovém procesu
+i na mìøeních a tato kovariance je navíc neznámá.
+\end{exampleblock}
+\begin{alertblock}{Øe¹ení}
+
+Distribuovaný adaptivní kalmanùv filtr za pou¾ití variaèních Bayesovských
+metod.
+
+\end{alertblock}
+\end{frame}
+\selectlanguage{czech}%
+\inputencoding{latin2}
+\begin{frame}{Bayesovská pravdìpodobnost}
+
+\begin{itemize}
+\item interpretace pravdìpodobnosti\\
+\note{proc to potrebuji? - pouzivame pravdepodobnostni pristup, budeme odhadovat odhadovat parametry rozdeleni}
+\note{je to tedy subjektivni, ne objektivni (rozdil s frekvencisty), prinasi to jine metody a postupy}
+\item Inference pro model \inputencoding{latin9}\foreignlanguage{english}{$M=\{P_{\theta}|\theta\in\Theta\}$}\inputencoding{latin2}\\
+\note{Zuzeni prostoru parametru v zavislosti na datech}
+\note{parametricky, neparametricky, v Baysovi maji vsechny parametry priro distribuce, vysledkem je rozdeleni a ne jen point estimate}
+\item chceme posteriorní pravdìpodobnost dle \inputencoding{latin9}\foreignlanguage{english}{
+\[
+\probcond pZX=\prob pZ\cdot\frac{\probcond pXZ}{\prob pX}
+\]
+}
+\end{itemize}
+
+\end{frame}
+%
+\begin{frame}{Aproximace}
+\selectlanguage{english}%
+\begin{itemize}
+\inputencoding{latin9}%
+\item p\v{r}ímý výpo\v{c}et $\probcond pAB$ obvykle není mo¸ný
+\selectlanguage{czech}%
+\begin{itemize}
+\inputencoding{latin2}%
+\item vzorkování (MCMC, Gibbs)
+\item variaèní poèet (Variaèní Bayes)
+\end{itemize}
+\inputencoding{latin2}%
+\item aproximujeme pomocí jednodu¹¹í rodiny distribucí a hledáme tu nejbli¾¹í
+\item napø. faktorizovatelné distribuce $\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z$
+\end{itemize}
+\selectlanguage{czech}%
+
+\begin{itemize}
+\item vzdálenost mìøíme pomocí Kullback-Leiblerovy divergence
+\[
+\kl qp=-\int\prob qZ\ln\frac{\probcond pZX}{\prob qZ}\D{\Var Z}
+\]
+\item optimalizaèní problém 
+\[
+\prob qZ=\underset{\prob qZ\text{-fakt.}}{\text{argmin}}\kl{\prob qZ}{\probcond pZX}
+\]
+\item stále nejde pøímo, ekvivalentní maximalizaci 
+\[
+\lueb q=\int\prob qZ\ln\frac{\probjoint pXZ}{\prob qZ}\D{\Var Z}
+\]
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Coordinate ascent mean-field variational}
+\begin{itemize}
+\item optimální øe¹ení problému
+\[
+\prob{q_{i}^{*}}{Z_{i}}\propto\Exp{{\E[-i]{\ln\probjoint p{Z_{i},Z_{\{-i\}}}X}}}
+\]
+\note{Prechod je tam: $\Exp{{\E[-i]{\ln\probcond p{Z_{i}}{Z_{-j},X}}}}\propto$, coz je diky faktorizovatelnym distribucim}
+\item v praxi se postupuje iterativnì
+\item vhodná volba prior distribucí zjednodu¹uje update
+\item elegantní reprezentace pou¾ije-li se forma exponenciální rodiny
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Kalmanùv filtr}
+ 
+\begin{itemize}
+\item pou¾ívá se pro zpøesnìní pøedpovìdí modelu na základì mìøení\\
+\note{predpovedi i mereni se predpokladaji zasumena}
+\note{napriklad Apolo 11 - predpoved na zaklade kinematickeho modelu (rychlost atp.), ale pak jsou mereni z radaru atp.}
+\item optimální lineární filtr (v MSE) pokud:\\
+\note{jinak je useless, pripadne off}
+\selectlanguage{english}%
+\begin{itemize}
+\inputencoding{latin9}%
+\item model p\v{r}esn\v{e} reflektuje skute\v{c}nost
+\item ¨um je Gaussovský bílý
+\item kovariance ¨umu jsou p\v{r}esn\v{e} známy
+\end{itemize}
+\selectlanguage{czech}%
+\item tato práce se zabývá roz¹íøením kdy 3. bod není splnìn\\
+\note{to znamená ¾e nejsou známy a nebo ¾e se dokonce mìní podle neznámé funkce}
+\item distributivní - více propojených agentù provádìjící filtraci
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Vizuálnì}
+
+\selectlanguage{english}%
+\inputencoding{latin9}\begin{figure}
+\centering{}\includegraphics[width=0.9\linewidth,height=0.9\paperheight,keepaspectratio]{../Images/kalman-wiki}
+\end{figure}
+
+\end{frame}
+\selectlanguage{czech}%
+
+\subsection{DVBAKF}
+\begin{frame}{Pravdìpodobností model}
+\todo[inline]{sjednotit znaèení vektorù! Rozumìt kde se vzalo p(z)}
+\begin{itemize}
+\item odhady odpovídají
+\begin{align*}
+p(\vec{z}_{k}|\vec{x}_{k}) & =\mathcal{N}(\vec{z}_{k};\mat H_{k}\vec{x}_{k},\mathbf{R}_{k})\\
+p(\vec{x}_{k}|\vec{x}_{k-1}) & =\mathcal{N}(\vec{x}_{k};F_{k|k-1}\vec{x}_{k-1},\mathbf{Q}_{k}).
+\end{align*}
+\item cílem je odhadnout kovariaèní matice ¹umù: $\mat R_{k},\text{\ensuremath{\mat Q}}_{k}$
+\item konjugovaná apriorna je Inverzní Wishartova distribuce
+\item pøedpokládáme, ¾e distribuce je faktorizovatelná\note{Aproximace!}
+\begin{align*}
+p\big(\Xi,\mathbf{z}_{1:k}\big) & =\mathrm{N}\big(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k}\big)\mathrm{N}\big(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1}\big)\\
+ & \times\mathrm{IW}\big(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}\big)\mathrm{IW}\big(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}\big)\\
+ & \times p\big(\mathbf{z}_{1:k-1}\big)
+\end{align*}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Difúze}
+
+\todo[inline]{Jak to reprezentuji funkcí, topologie, více nodes}
+\end{frame}
+%
+
+\section{Algoritmus DVBAKF}
+\begin{frame}{Bayesovský update}
+\begin{itemize}
+\item vyu¾ití ,,exponential family form`` se celý update zjednodu¹uje
+na\inputencoding{latin9}\foreignlanguage{english}{
+\begin{align*}
+\Xi_{i+1}^{n} & \leftarrow\Xi^{n-1}+\begin{bmatrix}-\frac{1}{2}(\mathbf{P}_{k|k}^{i}+(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})^{T}\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}\\
+\Omega_{i+1}^{n} & \leftarrow\Omega^{n-1}+\begin{bmatrix}\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+(\mathbf{z}{}_{k}-\hat{\mathbf{x}}_{k|k}^{i})(\mathbf{z}{}_{k}-\hat{\mathbf{x}}_{k|k}^{i})^{T}\\[5pt]
+-\frac{1}{2}
+\end{bmatrix}
+\end{align*}
+}
+\end{itemize}
+
+\end{frame}
+%
+\begin{frame}{Shrnutí algoritmu}
+\selectlanguage{english}%
+\begin{enumerate}
+\item \inputencoding{latin9}\textbf{In}: $\hat{\mathbf{x}}_{k-1|k-1},\mathbf{P}_{k-1|k-1},\hat{u}_{k-1|k-1},\hat{\mathbf{U}}_{k-1|k-1},\mathbf{F},\mathbf{H},\mathbf{z}_{k},\tilde{\mathbf{Q}}_{k-1},\tau,\rho,N$
+\item Predikce KF
+\item Inicializace hyperparamtr\r{u} $\Xi_{\text{init}}$, $\Omega_{\text{init}}$,$\hat{\mathbf{x}}_{k|k}^{(0)}=\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k}^{(0)}=\tilde{\mathbf{P}}_{k}$
+\item \textbf{for $i$} in~\textbf{$N$ do:}
+\begin{enumerate}
+\item Updatuj $\Omega^{i}$ a na základ\v{e} n\v{e}ho $\E{\mat R_{k}}$
+\item Updatuj $\Xi^{i}$ a na základ\v{e} n\v{e}ho $\E{\mat P_{k|k-1}}$
+\item Kalmanova korekce na základ\v{e} $\hat{\mathbf{x}}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1}$
+\end{enumerate}
+\item \textbf{end for}
+\item Difúze: $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$,
+$\Omega_{\text{*}}^{i,t}=g(\Omega^{i,t},\Omega^{1,t},...,\Omega^{d,t})$
+\item \textbf{Out:} $\hat{\mathbf{x}}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1},\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
+\end{enumerate}
+
+\end{frame}
+%
+\begin{frame}{Implementace}
+
+Bla 1
+\end{frame}
+%
+
+\section{Simulace}
+
+\subsection{Jeden uzel}
+\begin{frame}{Testovací úloha}
+
+Bla 1
+\end{frame}
+%
+\begin{frame}{Jeden uzel \#1}
+
+Bla 2
+\end{frame}
+%
+
+\subsection{Dva uzly}
+\begin{frame}{Hehehaha}
+\begin{itemize}
+\item nope!
+\end{itemize}
+\end{frame}
+%
+
+\section{Závìr}
+\begin{frame}{Shrnutí}
+\begin{itemize}
+\item TBD
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Budoucí práce}
+\begin{itemize}
+\item blahblah
+\end{itemize}
+\end{frame}
+%
+\selectlanguage{english}%
+
+\appendix
+
+\section{Diskuze}
+\selectlanguage{czech}%
+\begin{frame}{Ten problém 1}
+\begin{itemize}
+\item no jo, to jsem pøehlídl
+\end{itemize}
+\end{frame}
+
+\end{document}
