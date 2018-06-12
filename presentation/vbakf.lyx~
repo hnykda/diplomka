@@ -644,7 +644,9 @@ status open
 \begin_inset Graphics
 	filename images/klsplitup.png
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -889,7 +891,7 @@ Vizuálně
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -898,7 +900,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/kalman-wiki.png
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -944,8 +948,8 @@ sjednotit značení vektorů! Rozumět kde se vzalo p(z)
 odhady odpovídají
 \begin_inset Formula 
 \begin{align*}
-p(\vec{z}_{k}|\vec{x}_{k}) & =\mathcal{N}(\vec{z}_{k};\mat H_{k}\vec{x}_{k},\mathbf{R}_{k})\\
-p(\vec{x}_{k}|\vec{x}_{k-1}) & =\mathcal{N}(\vec{x}_{k};F_{k|k-1}\vec{x}_{k-1},\mathbf{Q}_{k}).
+p(\vec{z}_{k}|\vec{x}_{k}) & =N(\vec{z}_{k};\mat H_{k}\vec{x}_{k},\mathbf{R}_{k})\\
+p(\vec{x}_{k}|\vec{x}_{k-1}) & =N(\vec{x}_{k};F_{k|k-1}\vec{x}_{k-1},\mathbf{Q}_{k}).
 \end{align*}
 
 \end_inset
@@ -1324,7 +1328,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/trajectory.pdf
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1392,7 +1398,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/3and4th-state.pdf
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1459,7 +1467,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/bars-known-static-noise.pdf
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1509,7 +1519,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/perf-static-known-x3.pdf
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1559,7 +1571,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/bars-unknown-variable-noise.pdf
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1609,7 +1623,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/perf-static-sinus-x3.pdf
 	lyxscale 70
-	width 100line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1659,7 +1675,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/adaptation-of-r.pdf
 	lyxscale 70
-	width 70line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1713,7 +1731,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/network-top.pdf
 	lyxscale 70
-	width 70line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1763,7 +1783,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/rmse-std-diffnodiff.pdf
 	lyxscale 70
-	width 70line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1813,7 +1835,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/compare-mult-nodes-r-diff.pdf
 	lyxscale 70
-	width 70line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1863,7 +1887,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/log-r-all-nodes-nodiff.pdf
 	lyxscale 70
-	width 70line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset
@@ -1913,7 +1939,9 @@ status collapsed
 \begin_inset Graphics
 	filename ../Images/charted/log-r-all-nodes-diff.pdf
 	lyxscale 70
-	width 70line%
+	width 90line%
+	height 90theight%
+	keepAspectRatio
 	groupId basic
 
 \end_inset

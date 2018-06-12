@@ -12,7 +12,7 @@
 \setbeamercovered{transparent}
 % or whatever (possibly just delete it)
 
-%\setbeameroption{show only notes}
+%\setbeameroption{show notes}
 \usefonttheme[onlymath]{serif}
 \end_preamble
 \use_default_options false
@@ -129,7 +129,7 @@ Obhajoba diplomové práce (2018)
 \end_layout
 
 \begin_layout Section
-Úvod
+Úvod do problematiky
 \end_layout
 
 \begin_layout Standard
@@ -439,7 +439,7 @@ note{je to tedy subjektivni, ne objektivni (rozdil s frekvencisty), prinasi
 \end_layout
 
 \begin_layout Itemize
-Inference pro model 
+inference pro model 
 \lang english
 
 \begin_inset Formula $M=\{P_{\theta}|\theta\in\Theta\}$
@@ -466,7 +466,7 @@ note{Zuzeni prostoru parametru v zavislosti na datech}
 
 
 \backslash
-note{parametricky, neparametricky, v Baysovi maji vsechny parametry priro
+note{parametricky, neparametricky, v Baysovi maji vsechny parametry prior
  distribuce, vysledkem je rozdeleni a ne jen point estimate}
 \end_layout
 
@@ -476,12 +476,23 @@ note{parametricky, neparametricky, v Baysovi maji vsechny parametry priro
 \end_layout
 
 \begin_layout Itemize
-chceme posteriorní pravděpodobnost dle 
-\lang english
-
+chceme získat aposteriorní pravděpodobnost dle 
 \begin_inset Formula 
 \[
 \probcond pZX=\prob pZ\cdot\frac{\probcond pXZ}{\prob pX}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+přímý výpočet obvykle není možný, aproximace například faktorizovatelnými
+ distribucemi
+\begin_inset Formula 
+\[
+\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z
 \]
 
 \end_inset
@@ -501,54 +512,6 @@ chceme posteriorní pravděpodobnost dle
 
 \end_layout
 
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Aproximace
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\lang english
-přímý výpočet 
-\begin_inset Formula $\probcond pAB$
-\end_inset
-
- obvykle není možný
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-vzorkování (MCMC, Gibbs)
-\end_layout
-
-\begin_layout Itemize
-variační počet (Variační Bayes)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-aproximujeme pomocí jednodušší rodiny distribucí a hledáme tu nejbližší
-\end_layout
-
-\begin_layout Itemize
-např.
- faktorizovatelné distribuce 
-\begin_inset Formula $\prob qZ=\prod_{i=1}^{M}\prob{q_{i}}Z$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -597,74 +560,6 @@ stále nejde přímo, ekvivalentní maximalizaci
 \[
 \lueb q=\int\prob qZ\ln\frac{\probjoint pXZ}{\prob qZ}\D{\Var Z}
 \]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Lower variational boundary
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-
-\lang english
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-
-\lang english
-\begin_inset Graphics
-	filename images/klsplitup.png
-	lyxscale 70
-	width 90line%
-	height 90theight%
-	keepAspectRatio
-	groupId basic
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-
-\lang english
-lepší kvalita!
-\end_layout
 
 \end_inset
 
@@ -775,7 +670,7 @@ status open
 
 
 \backslash
-note{predpovedi i mereni se predpokladaji zasumena}
+note{predpovedi i mereni se predpokladaji zasumena - IMPORTANT}
 \end_layout
 
 \begin_layout Plain Layout
@@ -860,6 +755,90 @@ distributivní - více propojených agentů provádějící filtraci
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+DVBAKF
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pravděpodobností model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+odhady pravděpodobnostně odpovídají
+\begin_inset Formula 
+\begin{align*}
+p(\mathbf{z}_{k}|\mathbf{x}_{k}) & =N(\mathbf{z}_{k};\mat H_{k}\mathbf{x}_{k},\mathbf{R}_{k})\\
+p(\mathbf{x}_{k}|\mathbf{x}_{k-1}) & =N(\mathbf{x}_{k};F_{k|k-1}\mathbf{x}_{k-1},\mathbf{Q}_{k}).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+cílem je odhadnout kovariační matice šumů: 
+\begin_inset Formula $\mat R_{k},\text{\mat Q}_{k}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Ktere se mohou pomalu menit dle nezname funkce}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+konjugovaná apriorna jsou inverzní Wishartovy distribuce
+\end_layout
+
+\begin_layout Itemize
+pro CAVI předpokládáme, že distribuce je faktorizovatelná
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Aproximace!}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+p\big(\Xi,\mathbf{z}_{1:k}\big) & =N\big(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k}\big)N\big(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1}\big)\\
+ & \times\mathrm{IW}\big(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}\big)\mathrm{IW}\big(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}\big)\\
+ & \times p\big(\mathbf{z}_{1:k-1}\big)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -872,7 +851,7 @@ distributivní - více propojených agentů provádějící filtraci
 status open
 
 \begin_layout Plain Layout
-Vizuálně
+Grafický pravděpodobnostní model
 \end_layout
 
 \end_inset
@@ -898,7 +877,7 @@ status open
 
 \lang english
 \begin_inset Graphics
-	filename ../Images/kalman-wiki.png
+	filename images/graphicalModel.png
 	lyxscale 70
 	width 90line%
 	height 90theight%
@@ -909,87 +888,6 @@ status open
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-DVBAKF
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Pravděpodobností model
-\end_layout
-
-\end_inset
-
-
-\begin_inset Flex TODO Note (inline)
-status open
-
-\begin_layout Plain Layout
-sjednotit značení vektorů! Rozumět kde se vzalo p(z)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-odhady odpovídají
-\begin_inset Formula 
-\begin{align*}
-p(\vec{z}_{k}|\vec{x}_{k}) & =N(\vec{z}_{k};\mat H_{k}\vec{x}_{k},\mathbf{R}_{k})\\
-p(\vec{x}_{k}|\vec{x}_{k-1}) & =N(\vec{x}_{k};F_{k|k-1}\vec{x}_{k-1},\mathbf{Q}_{k}).
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-cílem je odhadnout kovariační matice šumů: 
-\begin_inset Formula $\mat R_{k},\text{\mat Q}_{k}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-konjugovaná apriorna je Inverzní Wishartova distribuce
-\end_layout
-
-\begin_layout Itemize
-předpokládáme, že distribuce je faktorizovatelná
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{Aproximace!}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-p\big(\Xi,\mathbf{z}_{1:k}\big) & =\mathrm{N}\big(\mathbf{z}_{k};\mathbf{H}_{k}\mathbf{x}_{k},\mathbf{R}_{k}\big)\mathrm{N}\big(\mathbf{x}_{k};\hat{\mathbf{x}}_{k|k-1},\mathbf{P}_{k|k-1}\big)\\
- & \times\mathrm{IW}\big(\mathbf{P}_{k|k-1};\hat{t}_{k|k-1},\hat{\mathbf{T}}_{k|k-1}\big)\mathrm{IW}\big(\mathbf{R}_{k};\hat{u}_{k|k-1},\hat{\mathbf{U}}_{k|k-1}\big)\\
- & \times p\big(\mathbf{z}_{1:k-1}\big)
-\end{align*}
 
 \end_inset
 
@@ -1009,7 +907,7 @@ p\big(\Xi,\mathbf{z}_{1:k}\big) & =\mathrm{N}\big(\mathbf{z}_{k};\mathbf{H}_{k}\
 status open
 
 \begin_layout Plain Layout
-Difúze
+Difúze parametrů
 \end_layout
 
 \end_inset
@@ -1019,17 +917,7 @@ Difúze
 
 \begin_deeper
 \begin_layout Itemize
-více agentů – uzlů – provádí filtraci lokálně 
-\begin_inset Flex TODO Note (inline)
-status collapsed
-
-\begin_layout Plain Layout
-Jak to reprezentuji funkcí, topologie, více nodes
-\end_layout
-
-\end_inset
-
-
+více agentů provádí filtraci lokálně
 \end_layout
 
 \begin_layout Itemize
@@ -1058,7 +946,7 @@ po
 
  
 \series default
-krocích si vymění informace o odhadech
+krocích si nějakým způsobem vymění informace o odhadech 
 \begin_inset ERT
 status open
 
@@ -1072,6 +960,22 @@ note{v nasem pripade treba hyperparametry}
 \end_inset
 
 
+\begin_inset Formula 
+\[
+\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+snaha o zlepšení lokálního odhadu 
+\emph on
+zprůměrováním 
+\emph default
+s ostatními
 \end_layout
 
 \end_deeper
@@ -1110,12 +1014,25 @@ exponential family form
 \end_inset
 
  se celý update zjednodušuje na
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{tohle je muj prinos! Odvozeni je kapitola 3}
+\end_layout
+
+\end_inset
+
+
 \lang english
 
 \begin_inset Formula 
 \begin{align*}
-\Xi_{i+1}^{n} & \leftarrow\Xi^{n-1}+\begin{bmatrix}-\frac{1}{2}(\mathbf{P}_{k|k}^{i}+(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})^{T}\\[5pt]
--\frac{1}{2}
+\Xi_{i+1}^{n} & \leftarrow\Xi^{n-1}-\frac{1}{2}\begin{bmatrix}\mathbf{P}_{k|k}^{i}+(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})(\hat{\mathbf{x}}_{k|k}^{i}-\hat{\mathbf{x}}_{k|k-1})^{T}\\[5pt]
+1
 \end{bmatrix}\\
 \Omega_{i+1}^{n} & \leftarrow\Omega^{n-1}+\begin{bmatrix}\mat H_{k}\mathbf{P}_{k|k}^{i}\mat H_{k}^{T}+(\mathbf{z}{}_{k}-\hat{\mathbf{x}}_{k|k}^{i})(\mathbf{z}{}_{k}-\hat{\mathbf{x}}_{k|k}^{i})^{T}\\[5pt]
 -\frac{1}{2}
@@ -1153,7 +1070,7 @@ Shrnutí algoritmu
 
 \series bold
 \lang english
-In
+in
 \series default
 : 
 \begin_inset Formula $\hat{\mathbf{x}}_{k-1|k-1},\mathbf{P}_{k-1|k-1},\hat{u}_{k-1|k-1},\hat{\mathbf{U}}_{k-1|k-1},\mathbf{F},\mathbf{H},\mathbf{z}_{k},\tilde{\mathbf{Q}}_{k-1},\tau,\rho,N$
@@ -1165,13 +1082,13 @@ In
 \begin_layout Enumerate
 
 \lang english
-Predikce KF
+predikce kalmanova filtru
 \end_layout
 
 \begin_layout Enumerate
 
 \lang english
-Inicializace hyperparamtrů 
+inicializace hyperparametrů 
 \begin_inset Formula $\Xi_{\text{init}}$
 \end_inset
 
@@ -1213,11 +1130,11 @@ for
 \begin_layout Enumerate
 
 \lang english
-Updatuj 
+updatuj 
 \begin_inset Formula $\Omega^{i}$
 \end_inset
 
- a na základě něho 
+ a spočti z něj 
 \begin_inset Formula $\E{\mat R_{k}}$
 \end_inset
 
@@ -1227,11 +1144,11 @@ Updatuj
 \begin_layout Enumerate
 
 \lang english
-Updatuj 
+updatuj 
 \begin_inset Formula $\Xi^{i}$
 \end_inset
 
- a na základě něho 
+ a spočti z něj 
 \begin_inset Formula $\E{\mat P_{k|k-1}}$
 \end_inset
 
@@ -1241,7 +1158,7 @@ Updatuj
 \begin_layout Enumerate
 
 \lang english
-Kalmanova korekce na základě 
+kalmanova korekce na základě 
 \begin_inset Formula $\hat{\mathbf{x}}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1}$
 \end_inset
 
@@ -1259,7 +1176,7 @@ end for
 \begin_layout Enumerate
 
 \lang english
-Difúze: 
+difúze: 
 \begin_inset Formula $\Xi_{\text{*}}^{i,t}=g(\Xi^{i,t},\Xi^{1,t},...,\Xi^{d,t})$
 \end_inset
 
@@ -1274,7 +1191,7 @@ Difúze:
 
 \series bold
 \lang english
-Out:
+out:
 \series default
  
 \begin_inset Formula $\hat{\mathbf{x}}_{k|k}^{i+1},\mat P_{k|k-1}^{i+1},\Xi_{\text{*}}^{i,t},\Omega_{\text{*}}^{i,t}$
@@ -1858,6 +1775,381 @@ status collapsed
 
 \end_layout
 
+\begin_layout Section
+Závěr
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Shrnutí
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+navržený algoritmus má v případech neznámého šumu lepší výkon než základní
+ verze filtru
+\end_layout
+
+\begin_layout Itemize
+vede si zanedbatelně hůře v případě kdy je kovariance známá
+\end_layout
+
+\begin_layout Itemize
+difúze přináší vyšší přesnost, nižší varianci a obranu proti divergenci
+\end_layout
+
+\begin_layout Itemize
+vyžaduje však nastavení dalších 2 (
+\begin_inset Quotes gld
+\end_inset
+
+tunning
+\begin_inset Quotes grd
+\end_inset
+
+) parametrů
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Budoucí práce
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+jaký vliv má topologie sítě a komunikace
+\end_layout
+
+\begin_layout Itemize
+srovnání různých strategií difúzní funkce
+\end_layout
+
+\begin_layout Itemize
+citlivost na jiné typy šumů než Gaussovský
+\end_layout
+
+\begin_layout Itemize
+konvergenční vlastnosti
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+
+\lang english
+Diskuze
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Faktické poznámky
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+úvodní kapitola je o interpretacích, ne jen o srovnání
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{(oponent očekával od kapitoly něco jiného, ale to není můj problém),
+ šlo hlavně o vysvětlení, že nejde o interpretace v běžném slova smyslu
+ jako je třeba běžné ve fyzice, kde na zvolené interpretaci nezáleží (pokud
+ jsou výsledky stejné).
+ Má to konsekvence, není to samoúčelné.
+ Casto se tim prace nezabývají, coz je dle meho spatne a muze vest k problemum.
+ Minimum potřebné pro práci}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+2D tracking problem
+\emph default
+ – ustálený pojem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Ustálený pojem, pohyb bodu po 2D rovině, první dvě složky poloha (x,
+ y), druhé dvě rychlosti v (x,y)}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+difúzní síť a difúze parametrů – uvedené minimum využité v práci
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{kapitola 2.4 - spojené nodes v nějaké topologii, spolu nějak komunikují,
+ 3.3 pak konkrétní formalismus, drželi jsme to záměrně při zemi protože to
+ je další vlastní kapitola - použil jsem jen to co bylo nezbytně nutné k
+ následující práci a to tam je}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+konvergence
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+důkaz v [11] citovaný v úvodu kapitoly 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{kam se odkazuje kapitola o CAVI je důkaz z knihy Convex Optimization
+ (Boyd and Vandenberghe, 2004)}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+lokální versus globální: CAVI podobné vlastnosti jako gradient descent 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Konvergence variacnich metod je problem/oblast vyzkumu sama o sobe,
+ obecne prusvih.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{ano, je třeba si dělat starosti jako kdekoli jinde ve stylu 
+\begin_inset Quotes gld
+\end_inset
+
+když dělám chybu, je potřeba vědět, že dělám chybu a jakou jí dělám
+\begin_inset Quotes grd
+\end_inset
+
+.
+ u KF je to 
+\begin_inset Quotes gld
+\end_inset
+
+řešitelné
+\begin_inset Quotes grd
+\end_inset
+
+ empiricky - vidím, pokud mi Apollo 99/100 nabourá do měsíce nebo jestli
+ ho mám za sebou místo před sebou.
+ Výhoda, že často jde o pozorovatelný/měřitelný systém.
+ v případě DVBAKF 
+\begin_inset Quotes gld
+\end_inset
+
+by to mělo být
+\begin_inset Quotes grd
+\end_inset
+
+ o něco jistější - pokud uvažujeme, že se nodes chovají majoritně 
+\begin_inset Quotes gld
+\end_inset
+
+rozumně
+\begin_inset Quotes grd
+\end_inset
+
+, pak nebezpečí tím že skončí ve špatném lokálním minimu zmenšujeme právě
+ difúzí.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+toto nicméně vyžaduje další zkoumání a rigorozitu}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Sazba
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ pro transpozici 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{chyba, přepisoval jsem z literatury, kde byla komplikovanější verze
+ kde zmatení nemohlo nastat...}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+značení pro distribuci: 
+\begin_inset Formula $D(\alpha)$
+\end_inset
+
+ versus 
+\begin_inset Formula $D(x;\alpha)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{je záměrně, například v pravděpodobnostním modelu bez toho není jasné
+ o co jde a jinde je to duplikovaná informace.
+ Netučné N je chyba, vyskytla se v práci ojediněle a vždy bylo zmíněno o
+ co jde.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+značení vektorů a skalárů 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{v kapitole 1.5.1 špatně, jinak je to dodržováno tak, jak v literatuře
+ ze které jsem čerpal, jak pise oponent (obzvlášť v mém přínosu je to správně)}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -1962,16 +2254,12 @@ status collapsed
 
 \end_layout
 
-\begin_layout Section
-Závěr
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Shrnutí
+Kalmanův filtr vizuálně
 \end_layout
 
 \end_inset
@@ -1980,82 +2268,42 @@ Shrnutí
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-navržený algoritmus má v případech neznámého šumu lepší výkon než základní
- verze filtru
-\end_layout
-
-\begin_layout Itemize
-vede si zanedbatelně hůře v případě kdy je kovariance známá
-\end_layout
-
-\begin_layout Itemize
-difúze přináší vyšší přesnost, nižší varianci a obranu proti divergenci
-\end_layout
-
-\begin_layout Itemize
-vyžaduje však nastavení dalších 2 tunning parametrů
-\end_layout
-
-\end_deeper
 \begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Budoucí práce
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-jaký vliv má topologie sítě a komunikace
-\end_layout
-
-\begin_layout Itemize
-srovnání různých strategií difúzní funkce
-\end_layout
-
-\begin_layout Itemize
-citlivost na jiné typy šumů než Gaussovský
-\end_layout
-
-\end_deeper
-\begin_layout Frame
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-\start_of_appendix
 
 \lang english
-Diskuze
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename ../Images/kalman-wiki.png
+	lyxscale 70
+	width 90line%
+	height 90theight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Frame
-\begin_inset Argument 4
+\end_inset
+
+
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-Ten problém 1
+
+
+\backslash
+note{Presne rovnice na strane 21}
 \end_layout
 
 \end_inset
@@ -2063,15 +2311,62 @@ Ten problém 1
 
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-no jo, to jsem přehlídl
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
-\end_deeper
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Lower variational boundary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename images/klsp.pdf
+	lyxscale 70
+	width 90line%
+	height 90theight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
