@@ -312,6 +312,69 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Co je to difúzní síť?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename images/3D_arch.gif
+	lyxscale 70
+	width 90line%
+	height 90theight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
 
 \lang english
@@ -385,6 +448,121 @@ Distribuovaný adaptivní kalmanův filtr za použití variačních Bayesovskýc
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Kalmanův filtr
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+používá se pro zpřesnění předpovědí modelu na základě měření
+\end_layout
+
+\begin_layout Itemize
+distributivní - více propojených agentů provádějící filtraci
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{predpovedi i mereni se predpokladaji zasumena - IMPORTANT}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{napriklad Apolo 11 - predpoved na zaklade kinematickeho modelu (rychlost
+ atp.), ale pak jsou mereni z radaru atp.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+optimální lineární filtr (v MSE) pokud:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{jinak je useless, pripadne off}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+model přesně reflektuje skutečnost
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+šum je Gaussovský bílý
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+kovariance šumu jsou přesně známy
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+tato práce se zabývá rozšířením kdy 3.
+ bod není splněn
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{to znamená že nejsou známy a nebo že se dokonce mění podle neznámé
+ funkce}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
@@ -531,7 +709,21 @@ Optimalizační problém
 
 \begin_deeper
 \begin_layout Itemize
-vzdálenost měříme pomocí Kullback-Leiblerovy divergence
+vzdálenost měříme pomocí Kullback-Leiblerovy divergence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Prononce: Kulbek-Libr http://www.pronouncekiwi.com/Kullback-Leibler20divergen
+ce}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \kl qp=-\int\prob qZ\ln\frac{\probcond pZX}{\prob qZ}\D{\Var Z}
@@ -628,11 +820,13 @@ v praxi se postupuje iterativně
 \end_layout
 
 \begin_layout Itemize
-vhodná volba prior distribucí zjednodušuje update
+vhodná volba apriorních distribucí zjednodušuje update
 \end_layout
 
 \begin_layout Itemize
-elegantní reprezentace použije-li se forma exponenciální rodiny
+elegantní reprezentace použije-li se 
+\emph on
+forma exponenciální rodiny
 \end_layout
 
 \end_deeper
@@ -643,118 +837,6 @@ elegantní reprezentace použije-li se forma exponenciální rodiny
 
 \end_layout
 
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Kalmanův filtr
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-používá se pro zpřesnění předpovědí modelu na základě měření
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{predpovedi i mereni se predpokladaji zasumena - IMPORTANT}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{napriklad Apolo 11 - predpoved na zaklade kinematickeho modelu (rychlost
- atp.), ale pak jsou mereni z radaru atp.}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-optimální lineární filtr (v MSE) pokud:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{jinak je useless, pripadne off}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\lang english
-model přesně reflektuje skutečnost
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-šum je Gaussovský bílý
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-kovariance šumu jsou přesně známy
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-tato práce se zabývá rozšířením kdy 3.
- bod není splněn
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-note{to znamená že nejsou známy a nebo že se dokonce mění podle neznámé
- funkce}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-distributivní - více propojených agentů provádějící filtraci
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
 DVBAKF
 \end_layout
@@ -978,6 +1060,80 @@ zprůměrováním
 s ostatními
 \end_layout
 
+\begin_layout Itemize
+je také Kullback-Leibler optimální 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Tj.
+ ze se mi to po tomto kroku nezhorsi konvergence}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Co je to difúzní síť?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename images/3D_arch.gif
+	lyxscale 70
+	width 90line%
+	height 90theight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -1005,15 +1161,7 @@ Bayesovský update
 
 \begin_deeper
 \begin_layout Standard
-využitím 
-\begin_inset Quotes gld
-\end_inset
-
-exponential family form
-\begin_inset Quotes grd
-\end_inset
-
- se celý update zjednodušuje na
+využitím formy exponenciální rodiny se celý update zjednodušuje na
 \begin_inset ERT
 status open
 
