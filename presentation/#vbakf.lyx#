@@ -1062,6 +1062,76 @@ s ostatními
 
 \begin_layout Itemize
 je také Kullback-Leibler optimální 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Tj.
+ ze se mi to po tomto kroku nezhorsi konvergence}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Co je to difúzní síť?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename images/3D_arch.gif
+	lyxscale 70
+	width 90line%
+	height 90theight%
+	keepAspectRatio
+	groupId basic
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1885,7 +1955,7 @@ difúze přináší vyšší přesnost, nižší varianci a obranu proti diverge
 \end_layout
 
 \begin_layout Itemize
-vyžaduje však nastavení dalších 2 (
+VBAKF vyžaduje nastavení dalších 2 (
 \begin_inset Quotes gld
 \end_inset
 
@@ -2024,7 +2094,10 @@ status open
 note{kapitola 2.4 - spojené nodes v nějaké topologii, spolu nějak komunikují,
  3.3 pak konkrétní formalismus, drželi jsme to záměrně při zemi protože to
  je další vlastní kapitola - použil jsem jen to co bylo nezbytně nutné k
- následující práci a to tam je}
+ následující práci a to tam je.
+ Network diffusion captures the underlying mechanism of how events propagate
+ throughout a complex network.
+ }
 \end_layout
 
 \end_inset
